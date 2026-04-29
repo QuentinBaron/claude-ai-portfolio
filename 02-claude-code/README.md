@@ -14,7 +14,7 @@ A Python script that reads a job description file and generates a structured cov
 ### 1. Install dependencies
 
 ```bash
-pip install anthropic
+pip install anthropic pdfplumber
 ```
 
 ### 2. Set the API key
@@ -31,13 +31,9 @@ $env:ANTHROPIC_API_KEY = "sk-ant-..."
 
 ### 3. Prepare your job description
 
-Create a plain-text file named `fiche_poste.txt` in the same directory and paste the job posting into it:
+Create a plain-text file named `fiche_poste.txt` (or a PDF) in the same directory.
 
-```
-Intitulé du poste : Développeur Python Senior
-Entreprise : Acme Corp
-...
-```
+Supported formats: `.txt` (UTF-8) and `.pdf` (text-based — scanned images are not supported).
 
 ## Usage
 
@@ -45,11 +41,14 @@ Entreprise : Acme Corp
 # Default: reads fiche_poste.txt, writes lettre_de_motivation.md
 python lm_generator.py
 
-# Custom input file
+# Custom text file
 python lm_generator.py mon_offre.txt
 
+# PDF input
+python lm_generator.py offre.pdf
+
 # Custom input and output
-python lm_generator.py mon_offre.txt --out lettre.md
+python lm_generator.py offre.pdf --out lettre.md
 ```
 
 ## Output structure

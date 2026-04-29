@@ -4,10 +4,10 @@ lm_generator.py — Générateur de lettre de motivation via l'API Anthropic.
 Usage:
     python lm_generator.py                          # lit fiche_poste.txt
     python lm_generator.py mon_offre.txt            # fichier personnalisé
-    python lm_generator.py offre.txt --out lettre.md
+    python lm_generator.py offre.pdf --out lettre.md
 
 Dépendances:
-    pip install anthropic
+    pip install anthropic pdfplumber
 """
 
 import argparse
@@ -52,6 +52,31 @@ Règles :
 # ---------------------------------------------------------------------------
 # Core logic
 # ---------------------------------------------------------------------------
+
+def read_input_file(path: Path) -> str:
+    """Read a .txt or .pdf file and return its text content."""
+    if path.suffix.lower() == ".pdf":
+        try:
+            import pdfplumber
+        except ImportError:
+            print("Erreur : pdfplumber n'est pas installé. Lancez : pip install pdfplumber", file=sys.stderr)
+            sys.exit(1)
+
+        pages = []
+        with pdfplumber.open(path) as pdf:
+            for page in pdf.pages:
+                text = page.extract_text()
+                if text:
+                    pages.append(text)
+
+        if not pages:
+            print(f"Erreur : aucun texte extractible dans '{path}'.", file=sys.stderr)
+            sys.exit(1)
+
+        return "\n\n".join(pages).strip()
+
+    return path.read_text(encoding="utf-8").strip()
+
 
 def generate_cover_letter(job_description: str) -> str:
     """Call the Anthropic API and return the generated cover letter."""
@@ -104,12 +129,16 @@ def main() -> None:
     if not input_path.exists():
         print(f"Erreur : le fichier '{input_path}' est introuvable.", file=sys.stderr)
         print(
-            "Créez un fichier fiche_poste.txt ou spécifiez un fichier via l'argument positional.",
+            "Créez un fichier fiche_poste.txt (ou .pdf) ou spécifiez un fichier via l'argument positional.",
             file=sys.stderr,
         )
         sys.exit(1)
 
-    job_description = input_path.read_text(encoding="utf-8").strip()
+    if input_path.suffix.lower() not in {".txt", ".pdf"}:
+        print(f"Erreur : format non supporté '{input_path.suffix}'. Utilisez .txt ou .pdf.", file=sys.stderr)
+        sys.exit(1)
+
+    job_description = read_input_file(input_path)
     if not job_description:
         print(f"Erreur : '{input_path}' est vide.", file=sys.stderr)
         sys.exit(1)
