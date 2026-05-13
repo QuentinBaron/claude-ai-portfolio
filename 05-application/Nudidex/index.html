@@ -1291,8 +1291,19 @@ function renderGame() {
   var correct = step.pick(gameSp);
   if (!correct) { gameStep++; renderGame(); return; }
 
+  // Jeu progressif : pool filtré par le niveau parent (avec fallback global si < 4)
+  var genre0 = gameSp.n ? gameSp.n.split(' ')[0] : '';
+  var poolSrc = (gameStep===1) ? SPECIES.filter(function(s){ return s.o===gameSp.o; })
+              : (gameStep===2) ? SPECIES.filter(function(s){ return s.f===gameSp.f; })
+              : (gameStep===3) ? SPECIES.filter(function(s){ return s.n&&s.n.split(' ')[0]===genre0; })
+              : SPECIES;
   var allVals=[];
-  SPECIES.forEach(function(s){ var v=step.pick(s); if(v&&v!=='Nudibranchia'&&allVals.indexOf(v)<0) allVals.push(v); });
+  poolSrc.forEach(function(s){ var v=step.pick(s); if(v&&v!=='Nudibranchia'&&allVals.indexOf(v)<0) allVals.push(v); });
+  // Fallback global si pas assez de distracteurs
+  if (allVals.length < 4) {
+    allVals=[];
+    SPECIES.forEach(function(s){ var v=step.pick(s); if(v&&v!=='Nudibranchia'&&allVals.indexOf(v)<0) allVals.push(v); });
+  }
   var pool = allVals.filter(function(v){ return v!==correct; });
   for (var i=pool.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=pool[i];pool[i]=pool[j];pool[j]=t; }
   var choices=[correct].concat(pool.slice(0,3));
