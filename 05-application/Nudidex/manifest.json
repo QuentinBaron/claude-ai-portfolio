@@ -1,17 +1,23 @@
 {
-  "name": "NUDIS — Polynésie Française",
-  "short_name": "NUDIS",
-  "description": "Pokédex des nudibranches de Polynésie Française",
+  "name": "Nudidex — Polynésie Française",
+  "short_name": "Nudidex",
+  "description": "Nudidex des nudibranches de Polynésie Française",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0a1628",
-  "theme_color": "#0a1628",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
   "orientation": "any",
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='24' fill='%230a1628'/><text x='96' y='130' font-size='100' text-anchor='middle'>🐌</text></svg>",
+      "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]
