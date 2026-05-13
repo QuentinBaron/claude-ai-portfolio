@@ -24,21 +24,20 @@ body { font-family: system-ui, -apple-system, sans-serif; background: #f1f5f9; c
 .stat-n { font-size: 20px; font-weight: 800; color: #0d9488; display: block; }
 .stat-l { color: #64748b; }
 
-/* ── FILTER BAR ── */
-.filter-bar { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.filter-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #94a3b8; margin-right: 4px; }
+/* ── FILTER PANEL (hiérarchique) ── */
+.filter-panel { background: #fff; border-bottom: 1px solid #e2e8f0; }
+.filter-row { padding: 8px 14px 6px; display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
+.filter-row + .filter-row { border-top: 1px solid #f1f5f9; }
+.filter-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #94a3b8; margin-right: 2px; flex-shrink: 0; }
 .f-btn { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 99px; border: 1px solid; cursor: pointer; transition: all .15s; white-space: nowrap; background: #f1f5f9; color: #475569; border-color: #cbd5e1; }
-.f-btn.active { color: #fff !important; }
-.f-btn[data-f="all"] { background: #f1f5f9; color: #475569; border-color: #cbd5e1; }
-.f-btn[data-f="all"].active { background: #475569 !important; border-color: #475569; }
-.f-btn[data-fs="Commun"]              { background: #f0fdf4; color: #15803d; border-color: #86efac; }
-.f-btn[data-fs="Commun"].active       { background: #15803d !important; }
-.f-btn[data-fs="Assez commun"]        { background: #eff6ff; color: #1d4ed8; border-color: #93c5fd; }
-.f-btn[data-fs="Assez commun"].active { background: #1d4ed8 !important; }
-.f-btn[data-fs="Peu commun"]          { background: #fffbeb; color: #b45309; border-color: #fcd34d; }
-.f-btn[data-fs="Peu commun"].active   { background: #b45309 !important; }
-.f-btn[data-fs="Rare"]                { background: #fff1f2; color: #be123c; border-color: #fda4af; }
-.f-btn[data-fs="Rare"].active         { background: #be123c !important; }
+/* Sort toggle A-Z / Grouper */
+.sort-toggle { margin-left: auto; display: flex; gap: 2px; background: #f1f5f9; border-radius: 99px; padding: 2px; flex-shrink: 0; }
+.sort-btn { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 99px; border: none; cursor: pointer; color: #64748b; background: transparent; transition: all .15s; }
+.sort-btn.active { background: #fff; color: #1e293b; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+/* Group headers (mode Grouper) */
+tbody tr.group-row td { cursor: default; border: none; }
+tbody tr.group-row:hover { background: transparent !important; }
+.cards-group-header { width: 100%; grid-column: 1 / -1; padding: 10px 2px 4px; display: flex; align-items: center; gap: 8px; }
 
 /* ── SEARCH ── */
 .search-wrap { padding: 8px 14px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
@@ -274,15 +273,8 @@ td { padding: 9px 12px; vertical-align: middle; }
   <div class="stat"><span class="stat-n" id="stat-photo">—</span><span class="stat-l">avec photos</span></div>
 </div>
 
-<div class="filter-bar" id="filter-bar">
-  <span class="filter-label">Ordre</span>
-  <button class="f-btn active" data-f="all" onclick="setOrdreFilter('all',this)">Tous</button>
-  <!-- ordre buttons injected by JS -->
-  <span class="filter-label" id="statut-label" style="margin-left:10px">Statut</span>
-  <button class="f-btn" data-fs="Commun"       onclick="setStatutFilter('Commun',this)">Commun</button>
-  <button class="f-btn" data-fs="Assez commun" onclick="setStatutFilter('Assez commun',this)">Assez commun</button>
-  <button class="f-btn" data-fs="Peu commun"   onclick="setStatutFilter('Peu commun',this)">Peu commun</button>
-  <button class="f-btn" data-fs="Rare"         onclick="setStatutFilter('Rare',this)">Rare</button>
+<div class="filter-panel" id="filter-panel">
+  <!-- construit dynamiquement par buildHierFilter() -->
 </div>
 
 <div class="search-wrap">
@@ -531,9 +523,12 @@ function hasOverride(slug) {
 }
 
 /* ── State ── */
-var curOrdre  = 'all';
-var curStatut = 'all';
-var sortCol   = 'n';
+var curOrdre   = 'all';
+var curFamille = 'all';
+var curGenre   = 'all';
+var curStatut  = 'all';
+var groupMode  = false;
+var sortCol    = 'n';
 var sortAsc   = true;
 var wormCache = {};
 
@@ -543,7 +538,7 @@ var wormCache = {};
   buildStats();
   buildTable();
   buildCards();
-  buildOrdreFilters();
+  buildHierFilter();
 })();
 
 /* ── Stats ── */
@@ -559,30 +554,131 @@ function buildStats() {
     SPECIES.length + ' espèces · ' + withPhoto + ' photos · tahitinudi.jimdoweb.com';
 }
 
-/* ── Ordre filters ── */
-function buildOrdreFilters() {
+/* ── Filtre hiérarchique ── */
+function buildHierFilter() {
+  var panel = document.getElementById('filter-panel');
+  panel.innerHTML = '';
+
+  /* ── Ligne 1 : Ordre + toggle A-Z / Grouper ── */
+  var row1 = document.createElement('div'); row1.className = 'filter-row';
+
+  var lbl1 = document.createElement('span'); lbl1.className = 'filter-label'; lbl1.textContent = 'Ordre';
+  row1.appendChild(lbl1);
+
+  var allBtn = document.createElement('button');
+  allBtn.className = 'f-btn'; allBtn.textContent = 'Tous';
+  allBtn.style.cssText = curOrdre==='all' ? 'background:#475569;color:#fff;border-color:#475569' : 'background:#f1f5f9;color:#475569;border-color:#cbd5e1';
+  allBtn.onclick = function(){ setFilter('ordre','all'); };
+  row1.appendChild(allBtn);
+
   var ordres = [], seen = {};
   SPECIES.forEach(function(s) {
     var o = s.o || '';
-    if (o && o !== 'Nudibranchia' && !seen[o]) { seen[o] = true; ordres.push(o); }
+    if (o && o !== 'Nudibranchia' && !seen[o]) { seen[o]=1; ordres.push(o); }
   });
   ordres.sort();
-  var bar = document.getElementById('filter-bar');
-  Array.from(bar.querySelectorAll('[data-fo]')).forEach(function(el){ el.parentNode.removeChild(el); });
-  var insertBefore = document.getElementById('statut-label');
   ordres.forEach(function(o) {
     var col = ORDER_COLORS[o] || { bg:'#f8fafc', text:'#475569', border:'#cbd5e1' };
-    var cnt = SPECIES.filter(function(s){ return s.o === o; }).length;
+    var cnt = SPECIES.filter(function(s){ return s.o===o; }).length;
     var btn = document.createElement('button');
-    btn.className = 'f-btn' + (curOrdre === o ? ' active' : '');
-    btn.dataset.fo = o;
-    btn.title = cnt + ' espèce' + (cnt > 1 ? 's' : '');
-    btn.style.cssText = 'background:'+col.bg+';color:'+col.text+';border-color:'+col.border;
-    btn.textContent = (ORDER_ABBR[o] || o) + ' (' + cnt + ')';
-    btn.onclick = (function(ordre, b){ return function(){ setOrdreFilter(ordre, b); }; })(o, btn);
-    bar.insertBefore(btn, insertBefore);
+    btn.className = 'f-btn';
+    btn.title = cnt + ' espèce' + (cnt>1?'s':'');
+    btn.style.cssText = curOrdre===o
+      ? 'background:'+col.text+';color:#fff;border-color:'+col.text
+      : 'background:'+col.bg+';color:'+col.text+';border-color:'+col.border;
+    btn.textContent = (ORDER_ABBR[o]||o) + ' (' + cnt + ')';
+    btn.onclick = (function(ord){ return function(){ setFilter('ordre',ord); }; })(o);
+    row1.appendChild(btn);
   });
+
+  var tog = document.createElement('div'); tog.className = 'sort-toggle';
+  tog.innerHTML = '<button class="sort-btn'+(groupMode?'':' active')+'" onclick="setGroupMode(false)">A–Z</button>'
+    +'<button class="sort-btn'+(groupMode?' active':'')+'" onclick="setGroupMode(true)">Grouper</button>';
+  row1.appendChild(tog);
+  panel.appendChild(row1);
+
+  /* ── Ligne 2 : Famille (si ordre sélectionné) ── */
+  if (curOrdre !== 'all') {
+    var fams = [], seenF = {};
+    SPECIES.forEach(function(s){ if(s.o===curOrdre && s.f && !seenF[s.f]){ seenF[s.f]=1; fams.push(s.f); } });
+    fams.sort();
+    if (fams.length > 1) {
+      var row2 = document.createElement('div'); row2.className = 'filter-row';
+      var lbl2 = document.createElement('span'); lbl2.className = 'filter-label'; lbl2.textContent = 'Famille';
+      row2.appendChild(lbl2);
+      var allF = document.createElement('button'); allF.className = 'f-btn'; allF.textContent = 'Toutes';
+      allF.style.cssText = curFamille==='all' ? 'background:#475569;color:#fff;border-color:#475569' : 'background:#f1f5f9;color:#475569;border-color:#cbd5e1';
+      allF.onclick = function(){ setFilter('famille','all'); };
+      row2.appendChild(allF);
+      fams.forEach(function(f) {
+        var cnt = SPECIES.filter(function(s){ return s.o===curOrdre && s.f===f; }).length;
+        var btn = document.createElement('button'); btn.className = 'f-btn';
+        btn.style.cssText = curFamille===f ? 'background:#475569;color:#fff;border-color:#475569' : 'background:#f1f5f9;color:#475569;border-color:#cbd5e1';
+        btn.textContent = f + ' (' + cnt + ')';
+        btn.onclick = (function(fam){ return function(){ setFilter('famille',fam); }; })(f);
+        row2.appendChild(btn);
+      });
+      panel.appendChild(row2);
+    }
+  }
+
+  /* ── Ligne 3 : Genre (si famille sélectionnée) ── */
+  if (curFamille !== 'all') {
+    var genres = [], seenG = {};
+    SPECIES.forEach(function(s){
+      if(s.f===curFamille){ var g=s.n?s.n.split(' ')[0]:''; if(g && !seenG[g]){ seenG[g]=1; genres.push(g); } }
+    });
+    genres.sort();
+    if (genres.length > 1) {
+      var row3 = document.createElement('div'); row3.className = 'filter-row';
+      var lbl3 = document.createElement('span'); lbl3.className = 'filter-label'; lbl3.textContent = 'Genre';
+      row3.appendChild(lbl3);
+      var allG = document.createElement('button'); allG.className = 'f-btn'; allG.textContent = 'Tous';
+      allG.style.cssText = curGenre==='all' ? 'background:#475569;color:#fff;border-color:#475569' : 'background:#f1f5f9;color:#475569;border-color:#cbd5e1';
+      allG.onclick = function(){ setFilter('genre','all'); };
+      row3.appendChild(allG);
+      genres.forEach(function(g) {
+        var cnt = SPECIES.filter(function(s){ return s.f===curFamille && s.n && s.n.split(' ')[0]===g; }).length;
+        var btn = document.createElement('button'); btn.className = 'f-btn';
+        btn.style.cssText = curGenre===g ? 'background:#475569;color:#fff;border-color:#475569' : 'background:#f1f5f9;color:#475569;border-color:#cbd5e1';
+        btn.textContent = g + ' (' + cnt + ')';
+        btn.onclick = (function(gen){ return function(){ setFilter('genre',gen); }; })(g);
+        row3.appendChild(btn);
+      });
+      panel.appendChild(row3);
+    }
+  }
+
+  /* ── Ligne 4 : Statut ── */
+  var rowS = document.createElement('div'); rowS.className = 'filter-row';
+  var lblS = document.createElement('span'); lblS.className = 'filter-label'; lblS.textContent = 'Statut';
+  rowS.appendChild(lblS);
+  [['Commun','#f0fdf4','#15803d','#86efac'],['Assez commun','#eff6ff','#1d4ed8','#93c5fd'],
+   ['Peu commun','#fffbeb','#b45309','#fcd34d'],['Rare','#fff1f2','#be123c','#fda4af']
+  ].forEach(function(d) {
+    var btn = document.createElement('button'); btn.className = 'f-btn';
+    btn.style.cssText = curStatut===d[0]
+      ? 'background:'+d[2]+';color:#fff;border-color:'+d[2]
+      : 'background:'+d[1]+';color:'+d[2]+';border-color:'+d[3];
+    btn.textContent = d[0];
+    btn.onclick = (function(val){ return function(){ setStatutFilter(val); }; })(d[0]);
+    rowS.appendChild(btn);
+  });
+  panel.appendChild(rowS);
 }
+
+function setFilter(level, val) {
+  if (level === 'ordre')   { curOrdre=val; curFamille='all'; curGenre='all'; }
+  else if (level === 'famille') { curFamille=val; curGenre='all'; }
+  else if (level === 'genre')   { curGenre=val; }
+  buildHierFilter();
+  applyFilters();
+}
+function setGroupMode(val) { groupMode=val; buildHierFilter(); applyFilters(); }
+
+/* (kept for backward compat) */
+function setOrdreFilter(val) { setFilter('ordre', val); }
+
 
 /* ── Table ── */
 function buildTable() {
@@ -601,8 +697,10 @@ function makeRow(sp, idx) {
   var tr = document.createElement('tr');
   tr.dataset.slug   = sp.s;
   tr.dataset.ordre  = ordre;
-  tr.dataset.statut = statut;
-  tr.dataset.search = (sp.n+' '+(sp.f||'')+' '+ordre+' '+(eff.l||'')+' '+(eff.d||'')).toLowerCase();
+  tr.dataset.statut  = statut;
+  tr.dataset.famille = sp.f || '';
+  tr.dataset.genre   = sp.n ? sp.n.split(' ')[0] : '';
+  tr.dataset.search  = (sp.n+' '+(sp.f||'')+' '+ordre+' '+(eff.l||'')+' '+(eff.d||'')).toLowerCase();
 
   /* Photo */
   var photos = getPhotos(sp);
@@ -674,10 +772,12 @@ function makeCard(sp, idx) {
   var photoUrl = photos.length ? photos[0] : '';
   var card   = document.createElement('div');
   card.className = 'pokemon-card';
-  card.dataset.slug   = sp.s;
-  card.dataset.ordre  = ordre;
-  card.dataset.statut = statut;
-  card.dataset.search = (sp.n+' '+(sp.f||'')+' '+ordre+' '+(eff.l||'')+' '+(eff.d||'')).toLowerCase();
+  card.dataset.slug    = sp.s;
+  card.dataset.ordre   = ordre;
+  card.dataset.statut  = statut;
+  card.dataset.famille = sp.f || '';
+  card.dataset.genre   = sp.n ? sp.n.split(' ')[0] : '';
+  card.dataset.search  = (sp.n+' '+(sp.f||'')+' '+ordre+' '+(eff.l||'')+' '+(eff.d||'')).toLowerCase();
 
   var photoHtml = photoUrl
     ? '<img src="'+esc(photoUrl)+'" alt="'+esc(sp.n)+'" onerror="this.style.opacity=\'.15\'">'
@@ -712,17 +812,32 @@ function setOrdreFilter(val, btn) {
   btn.classList.add('active');
   applyFilters();
 }
-function setStatutFilter(val, btn) {
-  if (curStatut === val) { curStatut = 'all'; btn.classList.remove('active'); }
-  else {
-    curStatut = val;
-    document.querySelectorAll('.f-btn[data-fs]').forEach(function(b){ b.classList.remove('active'); });
-    btn.classList.add('active');
-  }
+function setStatutFilter(val) {
+  curStatut = (curStatut === val) ? 'all' : val;
+  buildHierFilter();
   applyFilters();
 }
+
+function matchDs(ds, q) {
+  if (curOrdre   !== 'all' && ds.ordre   !== curOrdre)   return false;
+  if (curFamille !== 'all' && ds.famille !== curFamille) return false;
+  if (curGenre   !== 'all' && ds.genre   !== curGenre)   return false;
+  if (curStatut  !== 'all' && ds.statut  !== curStatut)  return false;
+  if (q && !(ds.search||'').includes(q)) return false;
+  return true;
+}
+function matchSp(ds, q) {
+  return matchDs({ ordre:ds.ordre||'', famille:ds.famille||'', genre:ds.genre||'', statut:ds.statut||'', search:ds.search||'' }, q);
+}
+
 function applyFilters() {
   var q = (document.getElementById('search').value || '').toLowerCase().trim();
+  if (groupMode) { renderGrouped(q); return; }
+
+  /* Mode A-Z : on s'assure que table/cards sont en état "natif" (pas de group-rows) */
+  var tbody = document.getElementById('tbody');
+  if (tbody.querySelector('.group-row')) { buildTable(); buildCards(); }
+
   var vT = 0, vC = 0;
   document.querySelectorAll('#tbody tr').forEach(function(tr) {
     var ok = matchSp(tr.dataset, q); tr.classList.toggle('hidden', !ok); if(ok) vT++;
@@ -733,11 +848,79 @@ function applyFilters() {
   document.getElementById('no-results-table').classList.toggle('visible', vT===0);
   document.getElementById('no-results-cards').classList.toggle('visible', vC===0);
 }
-function matchSp(ds, q) {
-  if (curOrdre !== 'all' && ds.ordre !== curOrdre) return false;
-  if (curStatut !== 'all' && ds.statut !== curStatut) return false;
-  if (q && !(ds.search||'').includes(q)) return false;
-  return true;
+
+function renderGrouped(q) {
+  /* 1. Filtrer */
+  var filtered = SPECIES.filter(function(sp) {
+    return matchDs({
+      ordre:   sp.o  || '',
+      famille: sp.f  || '',
+      genre:   sp.n  ? sp.n.split(' ')[0] : '',
+      statut:  sp.st || '',
+      search:  (sp.n+' '+(sp.f||'')+' '+(sp.o||'')+' '+(sp.l||'')).toLowerCase()
+    }, q);
+  });
+
+  /* 2. Trier famille → genre → nom */
+  filtered.sort(function(a,b) {
+    var fa=a.f||'~', fb=b.f||'~';
+    if (fa!==fb) return fa.localeCompare(fb);
+    var ga=a.n?a.n.split(' ')[0]:'', gb=b.n?b.n.split(' ')[0]:'';
+    if (ga!==gb) return ga.localeCompare(gb);
+    return (a.n||'').localeCompare(b.n||'');
+  });
+
+  /* 3. Table */
+  var tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  var lastFam=null, lastGenre=null, num=0;
+  filtered.forEach(function(sp) {
+    var fam   = sp.f || '—';
+    var genre = sp.n ? sp.n.split(' ')[0] : '?';
+    var col   = ORDER_COLORS[sp.o||''] || { bg:'#f8fafc', text:'#475569', border:'#cbd5e1' };
+
+    if (fam !== lastFam) {
+      var fcnt = filtered.filter(function(s){ return (s.f||'—')===fam; }).length;
+      var htr = document.createElement('tr'); htr.className = 'group-row';
+      var htd = document.createElement('td'); htd.colSpan = 7;
+      htd.style.cssText = 'background:'+col.bg+';padding:5px 14px 4px;border-top:2px solid '+col.border+';border-bottom:1px solid '+col.border;
+      htd.innerHTML = '<span style="font-size:11px;font-weight:800;color:'+col.text+'">'+esc(fam)+'</span>'
+        + '<span style="font-size:10px;color:#94a3b8;margin-left:8px">'+fcnt+' espèce'+(fcnt>1?'s':'')+'</span>';
+      htr.appendChild(htd); tbody.appendChild(htr);
+      lastFam=fam; lastGenre=null;
+    }
+    if (curFamille==='all' && genre!==lastGenre) {
+      var gtr = document.createElement('tr'); gtr.className = 'group-row genre-row';
+      var gtd = document.createElement('td'); gtd.colSpan = 7;
+      gtd.style.cssText = 'padding:3px 14px 2px 28px;background:#fafafa;border-bottom:1px solid #f1f5f9';
+      gtd.innerHTML = '<span style="font-size:10px;font-weight:700;color:#94a3b8;font-style:italic">'+esc(genre)+'</span>';
+      gtr.appendChild(gtd); tbody.appendChild(gtr);
+      lastGenre=genre;
+    }
+    tbody.appendChild(makeRow(sp, ++num));
+  });
+
+  /* 4. Cards */
+  var grid = document.getElementById('view-cards');
+  grid.innerHTML = '';
+  lastFam=null; num=0;
+  filtered.forEach(function(sp) {
+    var fam = sp.f || '—';
+    var col = ORDER_COLORS[sp.o||''] || { bg:'#f8fafc', text:'#475569', border:'#cbd5e1' };
+    if (fam !== lastFam) {
+      var fcnt = filtered.filter(function(s){ return (s.f||'—')===fam; }).length;
+      var hd = document.createElement('div'); hd.className = 'cards-group-header';
+      hd.innerHTML = '<span style="background:'+col.bg+';border:1px solid '+col.border+';color:'+col.text
+        +';padding:2px 10px;border-radius:99px;font-weight:800;font-size:11px">'+esc(fam)+'</span>'
+        +'<span style="font-size:10px;color:#94a3b8">'+fcnt+' sp.</span>';
+      grid.appendChild(hd); lastFam=fam;
+    }
+    grid.appendChild(makeCard(sp, ++num));
+  });
+
+  var noR = filtered.length===0;
+  document.getElementById('no-results-table').classList.toggle('visible', noR);
+  document.getElementById('no-results-cards').classList.toggle('visible', noR);
 }
 
 /* ── View toggle ── */
