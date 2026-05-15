@@ -72,22 +72,15 @@ td { padding: 9px 12px; vertical-align: middle; }
 .sp-edited { font-size: 10px; color: #0d9488; margin-left: 4px; vertical-align: middle; }
 .td-fam { min-width: 150px; font-size: 12px; color: #475569; }
 .td-ordre { min-width: 130px; }
-.td-statut { min-width: 120px; }
 .td-notes { min-width: 200px; font-size: 11.5px; color: #475569; max-width: 320px; }
+.td-hint-row { font-style: italic; color: #0d9488; display: block; margin-bottom: 2px; }
+.td-obs-row  { color: #64748b; display: block; }
 @media (max-width: 600px) { .td-fam, .td-notes { display: none; } }
 
 /* ── ORDRE BADGE ── */
 .ordre-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 99px; border: 1px solid; white-space: nowrap; display: inline-block; }
 .o-none { background: #f8fafc; color: #94a3b8; border-color: #e2e8f0; }
 
-/* ── STATUT BADGE ── */
-.statut-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 99px; display: inline-block; }
-.s-commun    { background: #f0fdf4; color: #15803d; border: 1px solid #86efac; }
-.s-assez     { background: #eff6ff; color: #1d4ed8; border: 1px solid #93c5fd; }
-.s-peu       { background: #fffbeb; color: #b45309; border: 1px solid #fcd34d; }
-.s-rare      { background: #fff1f2; color: #be123c; border: 1px solid #fda4af; }
-.s-pelagique { background: #f0fdfa; color: #0f766e; border: 1px solid #5eead4; }
-.s-indet     { background: #f8fafc; color: #64748b; border: 1px solid #cbd5e1; }
 
 /* ── TABLE THUMBNAIL ── */
 .thumb-wrap { width: 68px; height: 51px; border-radius: 6px; overflow: hidden; background: #f1f5f9; border: 1.5px solid #e2e8f0; display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative; transition: border-color .15s, box-shadow .15s; }
@@ -308,7 +301,6 @@ td { padding: 9px 12px; vertical-align: middle; }
     <th class="td-sp"    onclick="sortTable('sp')">Espèce<span class="sort-arrow">↕</span></th>
     <th class="td-fam"   onclick="sortTable('fam')">Famille<span class="sort-arrow">↕</span></th>
     <th class="td-ordre" onclick="sortTable('ordre')">Ordre<span class="sort-arrow">↕</span></th>
-    <th class="td-statut" onclick="sortTable('statut')">Statut<span class="sort-arrow">↕</span></th>
     <th class="td-notes">Description</th>
   </tr></thead>
   <tbody id="tbody"></tbody>
@@ -481,10 +473,7 @@ var ORDER_ABBR = {
   'Pleurobranchomorpha':'Pleurobrancho.',
   'Pleurobranchida':    'Pleurobrancho.'
 };
-var STATUT_MAP = {
-  'Commun':'s-commun','Assez commun':'s-assez','Peu commun':'s-peu',
-  'Rare':'s-rare','Pélagique':'s-pelagique','Indéterminé':'s-indet'
-};
+;
 
 /* ══════════════════════════════════════
    OVERRIDES — localStorage persistence
@@ -537,7 +526,6 @@ function hasOverride(slug) {
 var curOrdre   = 'all';
 var curFamille = 'all';
 var curGenre   = 'all';
-var curStatut  = 'all';
 var groupMode  = false;
 var sortCol    = 'n';
 var sortAsc   = true;
@@ -660,22 +648,6 @@ function buildHierFilter() {
     }
   }
 
-  /* ── Ligne 4 : Statut ── */
-  var rowS = document.createElement('div'); rowS.className = 'filter-row';
-  var lblS = document.createElement('span'); lblS.className = 'filter-label'; lblS.textContent = 'Statut';
-  rowS.appendChild(lblS);
-  [['Commun','#f0fdf4','#15803d','#86efac'],['Assez commun','#eff6ff','#1d4ed8','#93c5fd'],
-   ['Peu commun','#fffbeb','#b45309','#fcd34d'],['Rare','#fff1f2','#be123c','#fda4af']
-  ].forEach(function(d) {
-    var btn = document.createElement('button'); btn.className = 'f-btn';
-    btn.style.cssText = curStatut===d[0]
-      ? 'background:'+d[2]+';color:#fff;border-color:'+d[2]
-      : 'background:'+d[1]+';color:'+d[2]+';border-color:'+d[3];
-    btn.textContent = d[0];
-    btn.onclick = (function(val){ return function(){ setStatutFilter(val); }; })(d[0]);
-    rowS.appendChild(btn);
-  });
-  panel.appendChild(rowS);
 }
 
 function setFilter(level, val) {
@@ -702,13 +674,14 @@ function makeRow(sp, idx) {
   var eff    = getEffective(sp);
   var ordre  = sp.o || '';
   var col    = ORDER_COLORS[ordre] || { bg:'#f8fafc', text:'#475569', border:'#cbd5e1' };
-  var statut = sp.st || '';
-  var notes  = (eff.d || '').substring(0, 180) + ((eff.d||'').length > 180 ? '…' : '');
+  var rowGenus = sp.n ? sp.n.split(' ')[0] : '';
+  var rowHint  = (window.CLADE_HINTS||{})[sp.n] || (window.CLADE_HINTS||{})[rowGenus] || '';
+  var obs      = eff.d || '';
+  var notes    = obs.substring(0, 180) + (obs.length > 180 ? '…' : '');
   var edited = hasOverride(sp.s);
   var tr = document.createElement('tr');
   tr.dataset.slug   = sp.s;
   tr.dataset.ordre  = ordre;
-  tr.dataset.statut  = statut;
   tr.dataset.famille = sp.f || '';
   tr.dataset.genre   = sp.n ? sp.n.split(' ')[0] : '';
   tr.dataset.search  = (sp.n+' '+(sp.f||'')+' '+ordre+' '+(eff.l||'')+' '+(eff.d||'')).toLowerCase();
@@ -752,15 +725,12 @@ function makeRow(sp, idx) {
   }
   tr.appendChild(tdOrd);
 
-  /* Statut */
-  var tdSt = document.createElement('td'); tdSt.className = 'td-statut';
-  tdSt.innerHTML = statut
-    ? '<span class="statut-badge '+(STATUT_MAP[statut]||'s-indet')+'">'+esc(statut)+'</span>'
-    : '<span class="statut-badge s-indet">—</span>';
-  tr.appendChild(tdSt);
-
   /* Notes */
-  var tdNo = document.createElement('td'); tdNo.className = 'td-notes'; tdNo.textContent = notes; tr.appendChild(tdNo);
+  var tdNo = document.createElement('td'); tdNo.className = 'td-notes';
+  var notesHtml = (rowHint ? '<span class="td-hint-row">'+esc(rowHint)+'</span>' : '')
+                + (notes   ? '<span class="td-obs-row">'+esc(notes)+'</span>'   : '');
+  tdNo.innerHTML = notesHtml;
+  tr.appendChild(tdNo);
 
   tr.onclick = (function(s){ return function(){ openLb(s); }; })(sp.s);
   return tr;
@@ -779,7 +749,6 @@ function makeCard(sp, idx) {
   var genus  = sp.n ? sp.n.split(' ')[0] : '';
   var cladeHint = (window.CLADE_HINTS||{})[sp.n] || (window.CLADE_HINTS||{})[genus] || '';
   var col    = ORDER_COLORS[ordre] || { bg:'#f8fafc', text:'#475569', border:'#cbd5e1' };
-  var statut = sp.st || '';
   var edited = hasOverride(sp.s);
   var photos = getPhotos(sp);
   var photoUrl = photos.length ? photos[0] : '';
@@ -787,7 +756,6 @@ function makeCard(sp, idx) {
   card.className = 'pokemon-card';
   card.dataset.slug    = sp.s;
   card.dataset.ordre   = ordre;
-  card.dataset.statut  = statut;
   card.dataset.famille = sp.f || '';
   card.dataset.genre   = sp.n ? sp.n.split(' ')[0] : '';
   card.dataset.search  = (sp.n+' '+(sp.f||'')+' '+ordre+' '+(eff.l||'')+' '+(eff.d||'')).toLowerCase();
@@ -811,7 +779,7 @@ function makeCard(sp, idx) {
     +(eff.nc?'<div class="card-sp-common">'+esc(eff.nc)+'</div>':'')
     +'<div class="card-fam">'+esc(sp.f||'')+'</div>'
     +(cladeHint?'<div class="card-hint">'+esc(cladeHint)+'</div>':'')
-    +'<div class="card-badges">'+(statut?'<span class="statut-badge '+(STATUT_MAP[statut]||'s-indet')+'" style="font-size:10px">'+esc(statut)+'</span>':'')+'</div>'
+    +'<div class="card-badges"></div>'
     +((eff.t||eff.pr)?'<div class="card-notes">'+[(eff.t?'Taille : '+eff.t:''),(eff.pr?'Prof. : '+eff.pr:'')].filter(Boolean).join(' · ')+'</div>':'')
     +'</div>';
 
@@ -826,22 +794,15 @@ function setOrdreFilter(val, btn) {
   btn.classList.add('active');
   applyFilters();
 }
-function setStatutFilter(val) {
-  curStatut = (curStatut === val) ? 'all' : val;
-  buildHierFilter();
-  applyFilters();
-}
-
 function matchDs(ds, q) {
   if (curOrdre   !== 'all' && ds.ordre   !== curOrdre)   return false;
   if (curFamille !== 'all' && ds.famille !== curFamille) return false;
   if (curGenre   !== 'all' && ds.genre   !== curGenre)   return false;
-  if (curStatut  !== 'all' && ds.statut  !== curStatut)  return false;
   if (q && !(ds.search||'').includes(q)) return false;
   return true;
 }
 function matchSp(ds, q) {
-  return matchDs({ ordre:ds.ordre||'', famille:ds.famille||'', genre:ds.genre||'', statut:ds.statut||'', search:ds.search||'' }, q);
+  return matchDs({ ordre:ds.ordre||'', famille:ds.famille||'', genre:ds.genre||'', search:ds.search||'' }, q);
 }
 
 function applyFilters() {
@@ -870,7 +831,6 @@ function renderGrouped(q) {
       ordre:   sp.o  || '',
       famille: sp.f  || '',
       genre:   sp.n  ? sp.n.split(' ')[0] : '',
-      statut:  sp.st || '',
       search:  (sp.n+' '+(sp.f||'')+' '+(sp.o||'')+' '+(sp.l||'')).toLowerCase()
     }, q);
   });
@@ -958,7 +918,7 @@ function sortTable(col) {
     else if (col==='sp')     { av=a.querySelector('.sp-name').textContent.toLowerCase(); bv=b.querySelector('.sp-name').textContent.toLowerCase(); }
     else if (col==='fam')    { av=a.querySelector('.td-fam').textContent.toLowerCase(); bv=b.querySelector('.td-fam').textContent.toLowerCase(); }
     else if (col==='ordre')  { av=a.dataset.ordre||''; bv=b.dataset.ordre||''; }
-    else if (col==='statut') { av=a.dataset.statut||''; bv=b.dataset.statut||''; }
+
     if (av<bv) return sortAsc?-1:1; if (av>bv) return sortAsc?1:-1; return 0;
   });
   rows.forEach(function(r){ tbody.appendChild(r); });
@@ -1590,7 +1550,8 @@ var CLADE_HINTS = {
   'Vellicolla':      'Corps ovale translucide, très petite taille, fond sableux'
 };
 
-/* CLADE_HINTS défini — on reconstruit les cartes pour injecter les indices */
+/* CLADE_HINTS défini — on reconstruit liste et cartes pour injecter les indices */
+buildTable();
 buildCards();
 
 var gameHints = localStorage.getItem('nudis_hints') === '1';
