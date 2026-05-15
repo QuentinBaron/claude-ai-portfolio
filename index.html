@@ -777,7 +777,7 @@ function makeCard(sp, idx) {
   var eff    = getEffective(sp);
   var ordre  = sp.o || '';
   var genus  = sp.n ? sp.n.split(' ')[0] : '';
-  var cladeHint = CLADE_HINTS[sp.n] || CLADE_HINTS[genus] || '';
+  var cladeHint = (window.CLADE_HINTS||{})[sp.n] || (window.CLADE_HINTS||{})[genus] || '';
   var col    = ORDER_COLORS[ordre] || { bg:'#f8fafc', text:'#475569', border:'#cbd5e1' };
   var statut = sp.st || '';
   var edited = hasOverride(sp.s);
@@ -1001,7 +1001,7 @@ function openLb(slug) {
   document.getElementById('lb-table').innerHTML = rows.map(function(r){ return '<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>'; }).join('');
   document.getElementById('lb-desc').textContent = eff.d||'';
   var lbGenus = curSp.n ? curSp.n.split(' ')[0] : '';
-  var lbHint = CLADE_HINTS[curSp.n] || CLADE_HINTS[lbGenus] || '';
+  var lbHint = (window.CLADE_HINTS||{})[curSp.n] || (window.CLADE_HINTS||{})[lbGenus] || '';
   var lbHintEl = document.getElementById('lb-clade-hint');
   if (lbHintEl) { lbHintEl.textContent = lbHint; lbHintEl.style.display = lbHint ? '' : 'none'; }
   document.getElementById('lb-inat').href = 'https://www.inaturalist.org/search?q='+encodeURIComponent(curSp.n);
@@ -1589,6 +1589,9 @@ var CLADE_HINTS = {
   'Roxaniella':      'Corps ovale aplati, quelques courtes papilles dorsales, minuscule',
   'Vellicolla':      'Corps ovale translucide, très petite taille, fond sableux'
 };
+
+/* CLADE_HINTS défini — on reconstruit les cartes pour injecter les indices */
+buildCards();
 
 var gameHints = localStorage.getItem('nudis_hints') === '1';
 
