@@ -119,6 +119,7 @@ td { padding: 9px 12px; vertical-align: middle; }
 .card-fam { font-size: 10px; color: #94a3b8; }
 .card-badges { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 2px; }
 .card-notes { font-size: 10px; color: #64748b; line-height: 1.45; border-top: 1px solid #f1f5f9; padding-top: 5px; margin-top: 4px; }
+.card-hint { font-size: .68rem; color: #64748b; font-style: italic; line-height: 1.35; margin-top: 3px; }
 /* Edit indicator badge on card */
 .card-edited-badge { position: absolute; top: 5px; right: 5px; background: #0d9488; color: #fff; font-size: 9px; font-weight: 800; padding: 2px 5px; border-radius: 6px; z-index: 3; pointer-events: none; }
 
@@ -158,7 +159,8 @@ td { padding: 9px 12px; vertical-align: middle; }
 .lb-table { width: 100%; border-collapse: collapse; font-size: .78rem; margin-bottom: 12px; }
 .lb-table td { padding: 3px 0; vertical-align: top; }
 .lb-table td:first-child { color: #64748b; width: 88px; padding-right: 8px; }
-.lb-desc { font-size: .8rem; line-height: 1.55; color: #94a3b8; margin-bottom: 16px; }
+.lb-desc { font-size: .8rem; line-height: 1.55; color: #94a3b8; margin-bottom: 10px; }
+.lb-clade-hint { font-size: .78rem; color: #0d9488; font-style: italic; line-height: 1.5; margin-bottom: 14px; padding: 6px 10px; background: rgba(13,148,136,.08); border-radius: 6px; border-left: 3px solid #0d9488; }
 .lb-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
 .lb-link { padding: 7px 13px; border-radius: 8px; font-size: .78rem; cursor: pointer; text-decoration: none; border: 1px solid #475569; transition: all .15s; background: #334155; color: #0d9488; }
 .lb-link:hover { background: #0d9488; color: #fff; border-color: #0d9488; }
@@ -369,6 +371,7 @@ td { padding: 9px 12px; vertical-align: middle; }
       </div>
       <table class="lb-table" id="lb-table"></table>
       <div class="lb-desc" id="lb-desc"></div>
+      <div class="lb-clade-hint" id="lb-clade-hint" style="display:none"></div>
       <div class="lb-actions">
         <a class="lb-link" id="lb-worms-link" href="#" target="_blank" style="display:none">WoRMS</a>
         <a class="lb-link" id="lb-inat" href="#" target="_blank">iNaturalist</a>
@@ -773,6 +776,8 @@ function buildCards() {
 function makeCard(sp, idx) {
   var eff    = getEffective(sp);
   var ordre  = sp.o || '';
+  var genus  = sp.n ? sp.n.split(' ')[0] : '';
+  var cladeHint = CLADE_HINTS[sp.n] || CLADE_HINTS[genus] || '';
   var col    = ORDER_COLORS[ordre] || { bg:'#f8fafc', text:'#475569', border:'#cbd5e1' };
   var statut = sp.st || '';
   var edited = hasOverride(sp.s);
@@ -805,6 +810,7 @@ function makeCard(sp, idx) {
     +'<div class="card-sp-name">'+esc(sp.n)+'</div>'
     +(eff.nc?'<div class="card-sp-common">'+esc(eff.nc)+'</div>':'')
     +'<div class="card-fam">'+esc(sp.f||'')+'</div>'
+    +(cladeHint?'<div class="card-hint">'+esc(cladeHint)+'</div>':'')
     +'<div class="card-badges">'+(statut?'<span class="statut-badge '+(STATUT_MAP[statut]||'s-indet')+'" style="font-size:10px">'+esc(statut)+'</span>':'')+'</div>'
     +((eff.t||eff.pr)?'<div class="card-notes">'+[(eff.t?'Taille : '+eff.t:''),(eff.pr?'Prof. : '+eff.pr:'')].filter(Boolean).join(' · ')+'</div>':'')
     +'</div>';
@@ -994,6 +1000,10 @@ function openLb(slug) {
   if (eff.ph) rows.push(['Photo',      eff.ph]);
   document.getElementById('lb-table').innerHTML = rows.map(function(r){ return '<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>'; }).join('');
   document.getElementById('lb-desc').textContent = eff.d||'';
+  var lbGenus = curSp.n ? curSp.n.split(' ')[0] : '';
+  var lbHint = CLADE_HINTS[curSp.n] || CLADE_HINTS[lbGenus] || '';
+  var lbHintEl = document.getElementById('lb-clade-hint');
+  if (lbHintEl) { lbHintEl.textContent = lbHint; lbHintEl.style.display = lbHint ? '' : 'none'; }
   document.getElementById('lb-inat').href = 'https://www.inaturalist.org/search?q='+encodeURIComponent(curSp.n);
 
   if (curSp.aphia) {
@@ -1239,10 +1249,12 @@ var CLADE_HINTS = {
   'Pleurobranchida': 'Branchie bipennée dans le sillon latéral droit, pas de panache dorsal',
   'Umbraculida':     'Coquille plate en chapeau sur le dos, corps débordant largement',
   'Cephalaspidea':   'Tête aplatie en bouclier fouisseur, coquille externe souvent présente',
-  'Anaspidea':       'Grands parapodes épais en voile, rhinophores en oreilles, herbivore',
-  'Sacoglossa':      'Parapodes en ailes plates ou cérates dorsaux, souvent vert vif',
-  'Janolina':        'Cérates en rangées avec glande digestive ramifiée visible, sans cnidosac',
-  'Runcinida':       'Très petite taille, corps ovale aplati, sans appendices visibles',
+  'Anaspidea':        'Grands parapodes épais en voile, rhinophores en oreilles, herbivore',
+  'Aplysiida':        'Grands parapodes épais en voile, rhinophores en oreilles, herbivore algal (lièvres de mer)',
+  'Sacoglossa':       'Parapodes en ailes plates ou cérates dorsaux, souvent vert vif',
+  'Janolina':         'Cérates en rangées avec glande digestive ramifiée visible, sans cnidosac',
+  'Runcinida':        'Très petite taille, corps ovale aplati, sans appendices visibles',
+  'Littorinimorpha':  'Manteau recouvrant entièrement une coquille interne réduite, allure de limace cryptique (Coriocella)',
   // ── FAMILLES — Doridida ──
   'Actinocyclidae':     'Notoum avec cercles concentriques de tubercules colorés',
   'Aegiridae':          'Tubercules épineux rigides sur le notum, souvent blanc et jaune',
