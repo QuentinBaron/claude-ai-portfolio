@@ -259,6 +259,55 @@ td { padding: 9px 12px; vertical-align: middle; }
 .edit-btn-reset-all:hover { background: #fda4af; }
 .edit-btn-save { padding: 8px 22px; border-radius: 8px; border: none; background: #0d9488; color: #fff; font-size: 12px; font-weight: 700; cursor: pointer; }
 .edit-btn-save:hover { background: #0f766e; }
+
+/* ── IDENTIFY VIEW ── */
+.identify-view { display: none; }
+.identify-view.v-active { display: block; }
+.id-header { background: #0f172a; color: #e2e8f0; padding: 12px 20px; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.id-steps { display: flex; gap: 5px; }
+.id-step-dot { width: 8px; height: 8px; border-radius: 50%; background: #334155; transition: background .2s; }
+.id-step-dot.act { background: #0d9488; }
+.id-body { padding: 18px 16px; max-width: 660px; margin: 0 auto; }
+.id-question { font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+.id-subq { font-size: 12px; color: #64748b; margin-bottom: 16px; font-style: italic; }
+.morpho-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(138px, 1fr)); gap: 9px; margin-bottom: 20px; }
+.morpho-opt { border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 11px 9px; cursor: pointer; text-align: center; background: #fff; transition: border-color .15s, background .15s; }
+.morpho-opt:hover { border-color: #0d9488; background: #f0fdf9; }
+.morpho-opt.sel { border-color: #0d9488; background: #f0fdf9; }
+.morpho-ico { font-size: 20px; margin-bottom: 5px; }
+.morpho-lbl { font-size: 11.5px; font-weight: 700; color: #0f172a; }
+.morpho-dsc { font-size: 10px; color: #64748b; margin-top: 3px; line-height: 1.3; }
+.size-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; margin-bottom: 20px; }
+.size-opt { border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 10px 7px; cursor: pointer; text-align: center; background: #fff; transition: border-color .15s, background .15s; }
+.size-opt:hover, .size-opt.sel { border-color: #0d9488; background: #f0fdf9; }
+.size-lbl { font-size: 12px; font-weight: 700; color: #0f172a; }
+.size-dsc { font-size: 10px; color: #64748b; margin-top: 2px; }
+.color-section { margin-bottom: 16px; }
+.color-sec-title { font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+.swatch-grid { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 4px; }
+.swatch-item { width: 34px; height: 34px; border-radius: 50%; cursor: pointer; border: 3px solid transparent; box-sizing: border-box; transition: transform .15s, border-color .15s; }
+.swatch-item:hover { transform: scale(1.1); }
+.swatch-item.sel { border-color: #0f172a !important; transform: scale(1.15); }
+.motif-row { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
+.motif-opt { border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 5px 13px; font-size: 12px; font-weight: 600; color: #475569; cursor: pointer; background: #fff; transition: all .15s; }
+.motif-opt:hover, .motif-opt.sel { border-color: #0d9488; background: #f0fdf9; color: #0f172a; }
+.id-nav { display: flex; gap: 9px; flex-wrap: wrap; align-items: center; margin-top: 18px; padding-top: 14px; border-top: 1px solid #f1f5f9; }
+.id-btn { padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; border: 1.5px solid; transition: all .15s; }
+.id-btn-p { background: #0d9488; color: #fff; border-color: #0d9488; }
+.id-btn-p:hover { background: #0f766e; }
+.id-btn-s { background: #fff; color: #475569; border-color: #cbd5e1; }
+.id-btn-s:hover { background: #f8fafc; }
+.id-pool { font-size: 11px; color: #94a3b8; font-style: italic; margin-left: auto; }
+.id-results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.id-rc { border: 1.5px solid #e2e8f0; border-radius: 10px; overflow: hidden; cursor: pointer; background: #fff; transition: border-color .15s, box-shadow .15s; }
+.id-rc:hover { border-color: #0d9488; box-shadow: 0 2px 8px rgba(13,148,136,.15); }
+.id-rc img { width: 100%; height: 108px; object-fit: cover; display: block; }
+.id-rc-ph { width: 100%; height: 108px; display: flex; align-items: center; justify-content: center; background: #f1f5f9; font-size: 26px; }
+.id-rc-name { font-size: 11px; font-style: italic; font-weight: 700; color: #0f172a; padding: 6px 8px 2px; line-height: 1.3; }
+.id-rc-fam { font-size: 10px; color: #64748b; padding: 0 8px 6px; }
+.id-nf { background: #f8fafc; border-radius: 10px; padding: 14px 16px; text-align: center; border: 1px dashed #cbd5e1; margin-top: 8px; }
+.id-nf p { font-size: 13px; color: #64748b; margin-bottom: 10px; }
+.id-loading { text-align: center; padding: 40px 20px; color: #64748b; font-style: italic; }
 </style>
 </head>
 <body>
@@ -288,7 +337,8 @@ td { padding: 9px 12px; vertical-align: middle; }
   <span class="filter-label">Vue</span>
   <button class="vt-btn active" data-view="table" onclick="setView('table',this)">Liste</button>
   <button class="vt-btn"        data-view="cards" onclick="setView('cards',this)">Nudidex</button>
-  <button class="vt-btn"        data-view="game"  onclick="setView('game',this)">Jeu</button>
+  <button class="vt-btn"        data-view="game"     onclick="setView('game',this)">Jeu</button>
+  <button class="vt-btn"        data-view="identify" onclick="setView('identify',this)">Identifier</button>
   <span class="vt-hint">Cliquer sur une photo pour agrandir</span>
 </div>
 
@@ -328,6 +378,17 @@ td { padding: 9px 12px; vertical-align: middle; }
       <p style="font-size:12px;color:#94a3b8">Attends que la barre de progression disparaisse, puis reviens sur cet onglet.</p>
     </div>
     <div id="game-content"></div>
+  </div>
+</div>
+
+<!-- ── IDENTIFY VIEW ── -->
+<div class="identify-view" id="view-identify">
+  <div class="id-header">
+    <span id="id-title">Identifier une espèce</span>
+    <div class="id-steps" id="id-steps"></div>
+  </div>
+  <div class="id-body" id="id-body">
+    <div class="id-loading">Chargement des données…</div>
   </div>
 </div>
 
@@ -901,10 +962,12 @@ function renderGrouped(q) {
 function setView(v, btn) {
   document.querySelectorAll('.vt-btn').forEach(function(b){ b.classList.remove('active'); });
   btn.classList.add('active');
-  document.getElementById('view-table').classList.toggle('v-active', v==='table');
-  document.getElementById('view-cards').classList.toggle('v-active', v==='cards');
-  document.getElementById('view-game').classList.toggle('v-active',  v==='game');
-  if (v==='game') initGameView();
+  document.getElementById('view-table').classList.toggle('v-active',    v==='table');
+  document.getElementById('view-cards').classList.toggle('v-active',    v==='cards');
+  document.getElementById('view-game').classList.toggle('v-active',     v==='game');
+  document.getElementById('view-identify').classList.toggle('v-active', v==='identify');
+  if (v==='game')     initGameView();
+  if (v==='identify') initIdentifyView();
 }
 
 /* ── Sort ── */
@@ -1769,6 +1832,473 @@ function renderGameResult() {
 /* ── Utils ── */
 function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   IDENTIFY VIEW — Identification terrain par critères morphologiques
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Adjacences couleur (profondeur / perception) ── */
+var COLOR_ADJACENT = {
+  'rouge':       ['orange','rose','brun'],
+  'orange':      ['rouge','jaune','rose','brun'],
+  'jaune':       ['orange','vert','blanc'],
+  'rose':        ['rouge','orange','violet','blanc'],
+  'violet':      ['rose','bleu','noir'],
+  'bleu':        ['violet','vert','gris'],
+  'vert':        ['jaune','bleu','brun'],
+  'brun':        ['rouge','orange','noir','gris'],
+  'gris':        ['blanc','noir','bleu','brun'],
+  'blanc':       ['jaune','gris','rose'],
+  'noir':        ['brun','violet','gris'],
+  'translucide': ['blanc','gris'],
+  'irisé':       ['blanc','bleu','violet']
+};
+
+/* ── Options morpho ── */
+var MORPHO_OPTIONS = [
+  { val: 'cerates_simples',   ico: '🪸', lbl: 'Cérates simples',    dsc: 'Filaments dorsaux en touffe — nudibranches éolides' },
+  { val: 'cerates_ramifies',  ico: '🌿', lbl: 'Cérates ramifiés',   dsc: 'Filaments dorsaux ramifiés — dendronotides' },
+  { val: 'panache_branchial', ico: '🌸', lbl: 'Panache branchial',  dsc: 'Branchies en couronne sur le dos — doridacés' },
+  { val: 'dos_lisse',         ico: '🫘', lbl: 'Dos lisse/crêtes',   dsc: 'Dos sans cérates ni panache — arminides' },
+  { val: 'parapodes_epais',   ico: '🍃', lbl: 'Parapodes larges',   dsc: 'Voiles latéraux épais — aplysies (lièvres de mer)' },
+  { val: 'parapodes_plats',   ico: '🍂', lbl: 'Parapodes plats',    dsc: 'Voiles latéraux fins — sacoglosses' },
+  { val: 'branchie_laterale', ico: '🔱', lbl: 'Branchie latérale',  dsc: 'Branchie sur le flanc — pleurobranches' },
+  { val: 'bouclier_coquille', ico: '🛡️', lbl: 'Bouclier/coquille',  dsc: 'Bouclier céphalique — céphalopides' },
+  { val: 'corps_ovale_lisse', ico: '🥚', lbl: 'Corps ovale lisse',  dsc: 'Corps compact sans appendices — runcines' }
+];
+
+/* ── Options taille ── */
+var SIZE_OPTIONS = [
+  { val: [0, 1.5],  lbl: '< 1,5 cm',  dsc: 'Minuscule' },
+  { val: [1, 4],    lbl: '1 – 4 cm',   dsc: 'Petit' },
+  { val: [3, 10],   lbl: '3 – 10 cm',  dsc: 'Moyen' },
+  { val: [8, 30],   lbl: '> 8 cm',     dsc: 'Grand' }
+];
+
+/* ── Swatches couleur ── */
+var SWATCH_COLORS = [
+  { val: 'blanc',       hex: '#f8fafc', stroke: '#cbd5e1' },
+  { val: 'jaune',       hex: '#fde047', stroke: '#fde047' },
+  { val: 'orange',      hex: '#f97316', stroke: '#f97316' },
+  { val: 'rouge',       hex: '#ef4444', stroke: '#ef4444' },
+  { val: 'rose',        hex: '#f472b6', stroke: '#f472b6' },
+  { val: 'violet',      hex: '#a855f7', stroke: '#a855f7' },
+  { val: 'bleu',        hex: '#3b82f6', stroke: '#3b82f6' },
+  { val: 'vert',        hex: '#22c55e', stroke: '#22c55e' },
+  { val: 'brun',        hex: '#92400e', stroke: '#92400e' },
+  { val: 'gris',        hex: '#94a3b8', stroke: '#94a3b8' },
+  { val: 'noir',        hex: '#0f172a', stroke: '#0f172a' },
+  { val: 'translucide', hex: 'linear-gradient(135deg,#f1f5f9 50%,#e0f2fe 100%)', stroke: '#7dd3fc' },
+  { val: 'irisé',       hex: 'linear-gradient(135deg,#c084fc,#38bdf8,#4ade80)', stroke: '#c084fc' }
+];
+
+/* ── Options motif ── */
+var MOTIF_OPTIONS = [
+  { val: 'uni',       lbl: 'Uni / uniforme' },
+  { val: 'points',    lbl: 'Points / taches' },
+  { val: 'lignes',    lbl: 'Lignes / bandes' },
+  { val: 'bordure',   lbl: 'Bordure colorée' },
+  { val: 'cercles',   lbl: 'Anneaux / cercles' },
+  { val: 'tubercules',lbl: 'Tubercules / relief' }
+];
+
+/* ── État de la session d'identification ── */
+var idState = {
+  step: 0,           // 0=morpho, 1=taille, 2=couleurs, 3=motifs, 4=résultats
+  morpho: null,
+  tailleIdx: null,
+  couleurs: [],
+  motifs: [],
+  pool: []           // slugs candidats courants
+};
+
+/* ── Données couleurs (nudis_colors.json) ── */
+var COLORS_DATA = null;
+
+function loadColorsData(cb) {
+  if (COLORS_DATA) { cb(); return; }
+  fetch('./nudis_colors.json')
+    .then(function(r){ return r.json(); })
+    .then(function(d){ COLORS_DATA = d; cb(); })
+    .catch(function(){
+      /* Si le JSON n'est pas dispo, on construit un fallback minimal depuis CLADE_HINTS + DATA */
+      COLORS_DATA = buildColorsDataFallback();
+      cb();
+    });
+}
+
+/* ── Fallback : extraire couleurs depuis CLADE_HINTS en JS ── */
+var COLOR_RE = {
+  'blanc':       /\bblanch?\w*|crème|ivoire|pâle/i,
+  'noir':        /\bnoir\w*|sombr\w*|foncé\w*/i,
+  'rouge':       /\brouge\w*|écarlate|sang/i,
+  'orange':      /\borang[eé]\w*/i,
+  'jaune':       /\bjaune\w*|doré\w*|\bor\b/i,
+  'vert':        /\bvert\w*|émeraude/i,
+  'bleu':        /\bbleu\w*|azur|cyan/i,
+  'violet':      /\bviolet\w*|violacé\w*|mauve|pourpre|lilas/i,
+  'rose':        /\brose\w*|rosé\w*/i,
+  'brun':        /\bbrun\w*|marron|chocolat|beige/i,
+  'gris':        /\bgris\w*|argenté\w*/i,
+  'translucide': /translucid\w+|transparent\w*/i,
+  'irisé':       /\birisé\w*|nacré\w*|iridescent\w*/i
+};
+var MOTIF_RE = {
+  'lignes':    /\bligne\w*|bande\w*|longitudinal\w*|rayé\w*|strié\w*/i,
+  'points':    /\bpoint\w*|tache\w*|mouchet\w*|pustule\w*/i,
+  'bordure':   /\bbordure\w*|marge\w*|liseré\w*|marginal\w*/i,
+  'cercles':   /\bcercle\w*|concentrique\w*|anneau\w*|annelé\w*/i,
+  'tubercules':/\btubercu\w+|bosse\w*|épineux\b|épine\w*/i,
+  'uni':       /\buni(?:forme)?\b|homogène\b|monochrome\b/i
+};
+var MORPHO_MAP_JS = {
+  'Aeolida':'cerates_simples','Dendronotida':'cerates_ramifies','Janolina':'cerates_digestive',
+  'Doridida':'panache_branchial','Arminida':'dos_lisse','Pleurobranchida':'branchie_laterale',
+  'Aplysiida':'parapodes_epais','Anaspidea':'parapodes_epais','Sacoglossa':'parapodes_plats',
+  'Cephalaspidea':'bouclier_coquille','Umbraculida':'bouclier_coquille',
+  'Runcinida':'corps_ovale_lisse','Littorinimorpha':'bouclier_coquille'
+};
+
+function extractColorsMotifs(txt) {
+  if (!txt) return { couleurs:[], motifs:[] };
+  var c = [], m = [];
+  for (var k in COLOR_RE) { if (COLOR_RE[k].test(txt)) c.push(k); }
+  for (var k in MOTIF_RE) { if (MOTIF_RE[k].test(txt)) m.push(k); }
+  return { couleurs: c, motifs: m };
+}
+
+function buildColorsDataFallback() {
+  var CH = window.CLADE_HINTS || {};
+  var result = {};
+  (window.DATA || []).forEach(function(sp) {
+    var slug = sp.s;
+    var nom  = sp.n || '';
+    var genus = nom.split(' ')[0];
+    var txt = CH[nom] || CH[genus] || CH[sp.f] || CH[sp.o] || sp.d || '';
+    var feats = extractColorsMotifs(txt);
+    var taille = parseTailleJS(sp.t || '');
+    result[slug] = {
+      nom: nom, ordre: sp.o||'', famille: sp.f||'', genre: genus,
+      morpho: MORPHO_MAP_JS[sp.o] || 'inconnu',
+      taille: taille, couleurs: feats.couleurs, motifs: feats.motifs,
+      source: CH[nom] ? 'espece' : CH[genus] ? 'genre' : 'aucune'
+    };
+  });
+  return result;
+}
+
+function parseTailleJS(txt) {
+  if (!txt) return null;
+  txt = txt.replace(',','.');
+  var m = txt.match(/(\d+(?:\.\d+)?)\s*[-–à]\s*(\d+(?:\.\d+)?)\s*cm/);
+  if (m) return [parseFloat(m[1]), parseFloat(m[2])];
+  m = txt.match(/(\d+(?:\.\d+)?)\s*cm/);
+  if (m) return [null, parseFloat(m[1])];
+  return null;
+}
+
+/* ── Scoring / filtrage ── */
+function scoreSpecies() {
+  var scores = {};
+  var allSlugs = (window.DATA || []).map(function(sp){ return sp.s; });
+
+  allSlugs.forEach(function(slug) {
+    var cd = COLORS_DATA ? COLORS_DATA[slug] : null;
+    var score = 0;
+    var penalty = 0;
+
+    /* Morpho — filtre dur si connu */
+    if (idState.morpho && cd) {
+      if (cd.morpho === idState.morpho) score += 30;
+      else if (cd.morpho && cd.morpho !== 'inconnu') penalty += 40;
+    }
+
+    /* Taille — filtre souple */
+    if (idState.tailleIdx !== null) {
+      var sizeOpt = SIZE_OPTIONS[idState.tailleIdx];
+      if (cd && cd.taille && cd.taille[1] !== null) {
+        var maxSp = cd.taille[1];
+        var minSp = cd.taille[0] || 0;
+        var obsMin = sizeOpt.val[0], obsMax = sizeOpt.val[1];
+        /* chevauchement plages */
+        if (maxSp >= obsMin && minSp <= obsMax) score += 15;
+        else penalty += 20;
+      }
+      /* si pas de donnée taille → pas de pénalité */
+    }
+
+    /* Couleurs — scoring avec adjacences */
+    if (idState.couleurs.length > 0 && cd) {
+      var spCouleurs = cd.couleurs || [];
+      idState.couleurs.forEach(function(c) {
+        if (spCouleurs.indexOf(c) >= 0) {
+          score += 12;  /* correspondance directe */
+        } else {
+          /* couleurs adjacentes (perception sous l'eau) */
+          var adj = COLOR_ADJACENT[c] || [];
+          var hasAdj = adj.some(function(ac){ return spCouleurs.indexOf(ac) >= 0; });
+          if (hasAdj) score += 4;
+          else if (spCouleurs.length > 0) penalty += 6;
+        }
+      });
+    }
+
+    /* Motifs — scoring souple */
+    if (idState.motifs.length > 0 && cd) {
+      var spMotifs = cd.motifs || [];
+      idState.motifs.forEach(function(m) {
+        if (spMotifs.indexOf(m) >= 0) score += 8;
+        else if (spMotifs.length > 0) penalty += 4;
+      });
+    }
+
+    scores[slug] = score - penalty;
+  });
+
+  /* Trier et retourner slugs avec score > seuil */
+  var entries = allSlugs.map(function(s){ return { slug:s, score: scores[s] || 0 }; });
+  entries.sort(function(a,b){ return b.score - a.score; });
+  /* Seuil adaptatif : on exclut les scores très négatifs */
+  var maxScore = entries.length > 0 ? entries[0].score : 0;
+  var seuil = Math.max(-20, maxScore - 60);
+  return entries.filter(function(e){ return e.score >= seuil; }).map(function(e){ return e.slug; });
+}
+
+/* ── Rendu principal ── */
+function initIdentifyView() {
+  idState = { step:0, morpho:null, tailleIdx:null, couleurs:[], motifs:[], pool:[] };
+  document.getElementById('id-title').textContent = 'Identifier une espèce';
+  var body = document.getElementById('id-body');
+  body.innerHTML = '<div class="id-loading">Chargement des données morphologiques…</div>';
+  loadColorsData(function(){
+    idState.pool = (window.DATA || []).map(function(sp){ return sp.s; });
+    renderIdScreen();
+  });
+}
+
+var ID_STEPS = ['Morphologie','Taille','Couleurs','Motifs'];
+
+function renderIdSteps() {
+  var el = document.getElementById('id-steps');
+  if (!el) return;
+  var html = '';
+  ID_STEPS.forEach(function(_, i){
+    html += '<div class="id-step-dot' + (i===idState.step?' act':'') + '" title="'+ID_STEPS[i]+'"></div>';
+  });
+  el.innerHTML = html;
+  document.getElementById('id-title').textContent =
+    idState.step < ID_STEPS.length ? ID_STEPS[idState.step] : 'Résultats';
+}
+
+function renderIdScreen() {
+  renderIdSteps();
+  switch(idState.step) {
+    case 0: renderMorphoStep(); break;
+    case 1: renderTailleStep(); break;
+    case 2: renderCouleursStep(); break;
+    case 3: renderMotifsStep(); break;
+    case 4: renderIdResults(); break;
+  }
+}
+
+/* ── Pool info ── */
+function poolLabel() {
+  var n = scoreSpecies().length;
+  return n + ' espèce' + (n>1?'s':'') + ' candidates';
+}
+
+/* ── Étape 0 : morphologie ── */
+function renderMorphoStep() {
+  var html = '<p class="id-question">Quelle est la forme générale de l\'animal ?</p>'
+    + '<p class="id-subq">Regardez le dos et les appendices</p>'
+    + '<div class="morpho-grid">';
+  MORPHO_OPTIONS.forEach(function(opt) {
+    var sel = idState.morpho === opt.val ? ' sel' : '';
+    html += '<div class="morpho-opt'+sel+'" onclick="selectMorpho(\''+opt.val+'\')">'
+      + '<div class="morpho-ico">'+opt.ico+'</div>'
+      + '<div class="morpho-lbl">'+opt.lbl+'</div>'
+      + '<div class="morpho-dsc">'+opt.dsc+'</div>'
+      + '</div>';
+  });
+  html += '</div>'
+    + '<div class="id-nav">'
+    + '<button class="id-btn id-btn-p" onclick="idNext()">Suivant →</button>'
+    + '<button class="id-btn id-btn-s" onclick="idSkip()">Passer</button>'
+    + '<span class="id-pool">'+poolLabel()+'</span>'
+    + '</div>';
+  document.getElementById('id-body').innerHTML = html;
+}
+
+function selectMorpho(val) {
+  idState.morpho = (idState.morpho === val) ? null : val;
+  document.querySelectorAll('.morpho-opt').forEach(function(el){
+    el.classList.toggle('sel', el.getAttribute('onclick').indexOf("'"+val+"'") >= 0 && idState.morpho===val);
+  });
+  document.querySelector('.id-pool').textContent = poolLabel();
+}
+
+/* ── Étape 1 : taille ── */
+function renderTailleStep() {
+  var html = '<p class="id-question">Quelle est la taille de l\'animal ?</p>'
+    + '<p class="id-subq">Estimation visuelle sur le terrain</p>'
+    + '<div class="size-grid">';
+  SIZE_OPTIONS.forEach(function(opt, i) {
+    var sel = idState.tailleIdx === i ? ' sel' : '';
+    html += '<div class="size-opt'+sel+'" onclick="selectTaille('+i+')">'
+      + '<div class="size-lbl">'+opt.lbl+'</div>'
+      + '<div class="size-dsc">'+opt.dsc+'</div>'
+      + '</div>';
+  });
+  html += '</div>'
+    + '<div class="id-nav">'
+    + '<button class="id-btn id-btn-s" onclick="idBack()">← Retour</button>'
+    + '<button class="id-btn id-btn-p" onclick="idNext()">Suivant →</button>'
+    + '<button class="id-btn id-btn-s" onclick="idSkip()">Passer</button>'
+    + '<span class="id-pool">'+poolLabel()+'</span>'
+    + '</div>';
+  document.getElementById('id-body').innerHTML = html;
+}
+
+function selectTaille(idx) {
+  idState.tailleIdx = (idState.tailleIdx === idx) ? null : idx;
+  document.querySelectorAll('.size-opt').forEach(function(el, i){
+    el.classList.toggle('sel', i===idState.tailleIdx);
+  });
+  document.querySelector('.id-pool').textContent = poolLabel();
+}
+
+/* ── Étape 2 : couleurs ── */
+function renderCouleursStep() {
+  var html = '<p class="id-question">Quelles couleurs voyez-vous sur l\'animal ?</p>'
+    + '<p class="id-subq">Sélectionnez toutes les couleurs présentes (multi-sélection)</p>'
+    + '<div class="color-section">'
+    + '<div class="swatch-grid">';
+  SWATCH_COLORS.forEach(function(sw) {
+    var sel = idState.couleurs.indexOf(sw.val) >= 0 ? ' sel' : '';
+    var bg = sw.hex.indexOf('gradient') >= 0 ? sw.hex : sw.hex;
+    html += '<div class="swatch-item'+sel+'" title="'+sw.val
+      + '" style="background:'+sw.hex+';border-color:'+(sel?'#0f172a':sw.stroke)+';"'
+      + ' onclick="toggleCouleur(\''+sw.val+'\')"></div>';
+  });
+  html += '</div>'
+    + '<div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;">';
+  /* Labels des couleurs sélectionnées */
+  SWATCH_COLORS.forEach(function(sw) {
+    var sel = idState.couleurs.indexOf(sw.val) >= 0;
+    if (sel) html += '<span style="font-size:11px;background:#f0fdf9;border:1px solid #0d9488;border-radius:99px;padding:2px 9px;color:#0f172a;">'+sw.val+'</span>';
+  });
+  html += '</div></div>'
+    + '<div class="id-nav">'
+    + '<button class="id-btn id-btn-s" onclick="idBack()">← Retour</button>'
+    + '<button class="id-btn id-btn-p" onclick="idNext()">Suivant →</button>'
+    + '<button class="id-btn id-btn-s" onclick="idSkip()">Passer</button>'
+    + '<span class="id-pool">'+poolLabel()+'</span>'
+    + '</div>';
+  document.getElementById('id-body').innerHTML = html;
+}
+
+function toggleCouleur(val) {
+  var idx = idState.couleurs.indexOf(val);
+  if (idx >= 0) idState.couleurs.splice(idx, 1);
+  else idState.couleurs.push(val);
+  renderCouleursStep();
+}
+
+/* ── Étape 3 : motifs ── */
+function renderMotifsStep() {
+  var html = '<p class="id-question">Quel est le motif dominant ?</p>'
+    + '<p class="id-subq">Vous pouvez en sélectionner plusieurs</p>'
+    + '<div class="motif-row">';
+  MOTIF_OPTIONS.forEach(function(opt) {
+    var sel = idState.motifs.indexOf(opt.val) >= 0 ? ' sel' : '';
+    html += '<div class="motif-opt'+sel+'" onclick="toggleMotif(\''+opt.val+'\')">'+opt.lbl+'</div>';
+  });
+  html += '</div>'
+    + '<div class="id-nav">'
+    + '<button class="id-btn id-btn-s" onclick="idBack()">← Retour</button>'
+    + '<button class="id-btn id-btn-p" onclick="idNext()">Voir les résultats</button>'
+    + '<button class="id-btn id-btn-s" onclick="idSkip()">Passer</button>'
+    + '<span class="id-pool">'+poolLabel()+'</span>'
+    + '</div>';
+  document.getElementById('id-body').innerHTML = html;
+}
+
+function toggleMotif(val) {
+  var idx = idState.motifs.indexOf(val);
+  if (idx >= 0) idState.motifs.splice(idx, 1);
+  else idState.motifs.push(val);
+  renderMotifsStep();
+}
+
+/* ── Navigation entre étapes ── */
+function idNext() {
+  idState.step = Math.min(idState.step + 1, 4);
+  idState.pool = scoreSpecies();
+  renderIdScreen();
+}
+function idBack() {
+  idState.step = Math.max(idState.step - 1, 0);
+  idState.pool = scoreSpecies();
+  renderIdScreen();
+}
+function idSkip() {
+  idNext();
+}
+
+/* ── Étape 4 : résultats ── */
+function renderIdResults() {
+  renderIdSteps();
+  var ranked = scoreSpecies();
+  var top = ranked.slice(0, 24);
+  var spBySlug = {};
+  (window.DATA || []).forEach(function(sp){ spBySlug[sp.s] = sp; });
+
+  var html = '';
+  if (top.length === 0) {
+    html = '<div class="id-nf">'
+      + '<p>Aucune espèce ne correspond à ces critères.</p>'
+      + '<button class="id-btn id-btn-s" onclick="idBack()">← Modifier les critères</button>'
+      + '</div>';
+    document.getElementById('id-body').innerHTML = html;
+    return;
+  }
+
+  html += '<p style="font-size:12px;color:#64748b;margin-bottom:12px;">'
+    + top.length + ' candidat' + (top.length>1?'s':'')
+    + (ranked.length > top.length ? ' (sur '+ranked.length+' espèces filtrées)' : '')
+    + ' · Cliquer pour identifier</p>'
+    + '<div class="id-results-grid">';
+
+  top.forEach(function(slug) {
+    var sp = spBySlug[slug];
+    if (!sp) return;
+    var photos = sp.p || [];
+    var firstPhoto = photos[0] || '';
+    html += '<div class="id-rc" onclick="openLb(\''+esc(slug)+'\')">';
+    if (firstPhoto) {
+      html += '<img src="'+esc(firstPhoto)+'" alt="'+esc(sp.n||'')+'" loading="lazy">';
+    } else {
+      html += '<div class="id-rc-ph">🐌</div>';
+    }
+    html += '<div class="id-rc-name">'+esc(sp.n||slug)+'</div>'
+      + '<div class="id-rc-fam">'+esc(sp.f||'')+'</div>'
+      + '</div>';
+  });
+
+  html += '</div>'
+    + '<div class="id-nf">'
+    + '<p>Vous ne trouvez pas votre espèce ?</p>'
+    + '<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
+    + '<button class="id-btn id-btn-s" onclick="idBack()">← Modifier les critères</button>'
+    + '<button class="id-btn id-btn-s" onclick="idReset()">Recommencer</button>'
+    + '</div></div>';
+
+  document.getElementById('id-body').innerHTML = html;
+}
+
+function idReset() {
+  initIdentifyView();
 }
 
 /* ── Service Worker ── */

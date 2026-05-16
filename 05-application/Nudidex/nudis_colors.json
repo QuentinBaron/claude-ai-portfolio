@@ -1,0 +1,6183 @@
+{
+  "abronica-cf-payaso": {
+    "nom": "Abronica cf payaso",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Abronica",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "actinocyclus-verrucosus": {
+    "nom": "Actinocyclus verrucosus",
+    "ordre": "Doridida",
+    "famille": "Actinocyclidae",
+    "genre": "Actinocyclus",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "cercles",
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "aegires-cf-incusus": {
+    "nom": "Aegires cf incusus",
+    "ordre": "Doridida",
+    "famille": "Aegiridae",
+    "genre": "Aegires",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "aegires-exeches": {
+    "nom": "Aegires exeches",
+    "ordre": "Doridida",
+    "famille": "Aegiridae",
+    "genre": "Aegires",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "espece"
+  },
+  "aegires-pruvotfolae": {
+    "nom": "Aegires pruvotfolae",
+    "ordre": "Doridida",
+    "famille": "Aegiridae",
+    "genre": "Aegires",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "aegires-sp.1": {
+    "nom": "Aegires sp.1",
+    "ordre": "Doridida",
+    "famille": "Aegiridae",
+    "genre": "Aegires",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "aeolid-non-identifié-sp.4": {
+    "nom": "Aeolid non identifié sp.4",
+    "ordre": "Aeolida",
+    "famille": "",
+    "genre": "Aeolid",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "ordre"
+  },
+  "anaspidea-non-identifié-sp.1": {
+    "nom": "Anaspidea non identifié sp.1",
+    "ordre": "Aplysiida",
+    "famille": "",
+    "genre": "Anaspidea",
+    "morpho": "parapodes_epais",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "anteaeolidiella-sp.1": {
+    "nom": "Anteaeolidiella sp.1",
+    "ordre": "Aeolida",
+    "famille": "Aeolidiidae",
+    "genre": "Anteaeolidiella",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "aplustrum-amplustre": {
+    "nom": "Aplustrum amplustre",
+    "ordre": "Cephalaspidea",
+    "famille": "Aplustridae",
+    "genre": "Aplustrum",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "famille"
+  },
+  "aplysia-argus": {
+    "nom": "Aplysia argus",
+    "ordre": "Aplysiida",
+    "famille": "Aplysiidae",
+    "genre": "Aplysia",
+    "morpho": "parapodes_epais",
+    "taille": [
+      null,
+      30.0
+    ],
+    "couleurs": [
+      "blanc",
+      "noir",
+      "vert",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "aplysia-cf-parvula": {
+    "nom": "Aplysia cf parvula",
+    "ordre": "Aplysiida",
+    "famille": "Aplysiidae",
+    "genre": "Aplysia",
+    "morpho": "parapodes_epais",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "violet"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "aplysia-sp.1": {
+    "nom": "Aplysia sp.1",
+    "ordre": "Aplysiida",
+    "famille": "Aplysiidae",
+    "genre": "Aplysia",
+    "morpho": "parapodes_epais",
+    "taille": null,
+    "couleurs": [
+      "violet"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "ardeodoris-angustolutea": {
+    "nom": "Ardeodoris angustolutea",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Ardeodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "famille"
+  },
+  "ardeodoris-sp.-1": {
+    "nom": "Ardeodoris sp.1",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Ardeodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "famille"
+  },
+  "ardeodoris-sp.-2": {
+    "nom": "Ardeodoris sp.2",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Ardeodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "famille"
+  },
+  "atagema-cf-osseosa": {
+    "nom": "Atagema cf osseosa",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Atagema",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "motifs": [
+      "tubercules",
+      "uni"
+    ],
+    "source": "genre"
+  },
+  "atagema-sp.-3": {
+    "nom": "Atagema sp. 3",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Atagema",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "motifs": [
+      "uni"
+    ],
+    "source": "genre"
+  },
+  "atagema-sp.-4": {
+    "nom": "Atagema sp. 4",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Atagema",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "motifs": [
+      "uni"
+    ],
+    "source": "genre"
+  },
+  "atys-kuhnsi": {
+    "nom": "Atys kuhnsi",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Atys",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "atys-multistriatus": {
+    "nom": "Atys multistriatus",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Atys",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "atys-semistriatus": {
+    "nom": "Atys semistriatus",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Atys",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "uni"
+    ],
+    "source": "espece"
+  },
+  "atys-sp.1": {
+    "nom": "Atys sp.1",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Atys",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "babakina-indopacifica": {
+    "nom": "Babakina indopacifica",
+    "ordre": "Aeolida",
+    "famille": "Babakinidae",
+    "genre": "Babakina",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "cercles"
+    ],
+    "source": "famille"
+  },
+  "baeolidia-scottjohnsoni": {
+    "nom": "Baeolidia scottjohnsoni",
+    "ordre": "Aeolida",
+    "famille": "Aeolidiidae",
+    "genre": "Baeolidia",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "brun",
+      "gris"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "baeolidia-sp.1": {
+    "nom": "Baeolidia sp.1",
+    "ordre": "Aeolida",
+    "famille": "Aeolidiidae",
+    "genre": "Baeolidia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "brun",
+      "gris"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "bornella-pele": {
+    "nom": "Bornella pele",
+    "ordre": "Dendronotida",
+    "famille": "Bornellidae",
+    "genre": "Bornella",
+    "morpho": "cerates_ramifies",
+    "taille": [
+      null,
+      1.5
+    ],
+    "couleurs": [
+      "rouge",
+      "brun"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "berthella-stellata": {
+    "nom": "Berthella stellata",
+    "ordre": "Pleurobranchida",
+    "famille": "Pleurobranchidae",
+    "genre": "Berthella",
+    "morpho": "branchie_laterale",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "berthellina-delicata": {
+    "nom": "Berthellina delicata",
+    "ordre": "Pleurobranchida",
+    "famille": "Pleurobranchidae",
+    "genre": "Berthellina",
+    "morpho": "branchie_laterale",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "orange"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "berthelinia-cf-pseudochloris": {
+    "nom": "Berthelinia cf pseudochloris",
+    "ordre": "Sacoglossa",
+    "famille": "Juliidae",
+    "genre": "Berthelinia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "berthella-sp.-1": {
+    "nom": "Berthella sp. 1",
+    "ordre": "Pleurobranchida",
+    "famille": "Pleurobranchidae",
+    "genre": "Berthella",
+    "morpho": "branchie_laterale",
+    "taille": [
+      null,
+      2.5
+    ],
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "berthella-sp.-2": {
+    "nom": "Berthella sp.2",
+    "ordre": "Pleurobranchida",
+    "famille": "Pleurobranchidae",
+    "genre": "Berthella",
+    "morpho": "branchie_laterale",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "biuve-cf-fulvipunctata": {
+    "nom": "Biuve cf fulvipunctata",
+    "ordre": "Cephalaspidea",
+    "famille": "Aglajidae",
+    "genre": "Biuve",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "brun"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "biuve-sp.1": {
+    "nom": "biuve-sp#1",
+    "ordre": "Cephalaspidea",
+    "famille": "Aglajidae",
+    "genre": "biuve-sp#1",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "bornella-stellifer": {
+    "nom": "Bornella stellifer",
+    "ordre": "Dendronotida",
+    "famille": "Bornellidae",
+    "genre": "Bornella",
+    "morpho": "cerates_ramifies",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "brun"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "espece"
+  },
+  "bulbaeolidia-alba": {
+    "nom": "Bulbaeolidia alba",
+    "ordre": "Aeolida",
+    "famille": "Aeolidiidae",
+    "genre": "Bulbaeolidia",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "bulla-orientalis": {
+    "nom": "Bulla orientalis",
+    "ordre": "Cephalaspidea",
+    "famille": "Bullidae",
+    "genre": "Bulla",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "brun"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "bulla-vernicosa": {
+    "nom": "Bulla vernicosa",
+    "ordre": "Cephalaspidea",
+    "famille": "Bullidae",
+    "genre": "Bulla",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "uni"
+    ],
+    "source": "espece"
+  },
+  "bullina-nobilis": {
+    "nom": "Bullina lineata",
+    "ordre": "Cephalaspidea",
+    "famille": "Aplustridae",
+    "genre": "Bullina",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "rouge"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "famille"
+  },
+  "bullina-sp.-1": {
+    "nom": "Bullina sp.1",
+    "ordre": "Cephalaspidea",
+    "famille": "Aplustridae",
+    "genre": "Bullina",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "famille"
+  },
+  "caloria-indica": {
+    "nom": "Caloria indica",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Caloria",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "rouge",
+      "orange"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "caloria-sp.-1": {
+    "nom": "Caloria sp. 1",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Caloria",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "rouge",
+      "orange"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "carminodoris-flammea": {
+    "nom": "Carminodoris flammea",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Carminodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "violet"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "cephalopyge-trematoides": {
+    "nom": "Cephalopyge trematoides",
+    "ordre": "Dendronotida",
+    "famille": "Phylliroidae",
+    "genre": "Cephalopyge",
+    "morpho": "cerates_ramifies",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "ceratosoma-miamirana": {
+    "nom": "Ceratosoma miamirana (Miamira miamirana)",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Ceratosoma",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      8.0
+    ],
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "cerberilla-albopuncata": {
+    "nom": "Cerberilla albopunctata",
+    "ordre": "Aeolida",
+    "famille": "",
+    "genre": "Cerberilla",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      4.0
+    ],
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "espece"
+  },
+  "cerberilla-annulata": {
+    "nom": "Cerberilla annulata",
+    "ordre": "Aeolida",
+    "famille": "Aeolidiidae",
+    "genre": "Cerberilla",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      2.5
+    ],
+    "couleurs": [],
+    "motifs": [
+      "lignes",
+      "cercles"
+    ],
+    "source": "espece"
+  },
+  "cerberilla-sp.-1": {
+    "nom": "Cerberilla sp. 1",
+    "ordre": "Aeolida",
+    "famille": "Aeolidiidae",
+    "genre": "Cerberilla",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      1.5
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "cerberilla-sp.-2": {
+    "nom": "Cerberilla sp. 2",
+    "ordre": "Aeolida",
+    "famille": "Aeolidiidae",
+    "genre": "Cerberilla",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "chelidonura-alisonae": {
+    "nom": "Chelidonura alisonae",
+    "ordre": "Cephalaspidea",
+    "famille": "Aglajidae",
+    "genre": "Chelidonura",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "noir",
+      "bleu"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "chelidonura-hirundinina": {
+    "nom": "Chelidonura hirundinina",
+    "ordre": "Cephalaspidea",
+    "famille": "Aglajidae",
+    "genre": "Chelidonura",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "noir",
+      "bleu"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "chelidonura-sp.1": {
+    "nom": "Chelidonura sp.1",
+    "ordre": "Cephalaspidea",
+    "famille": "Aglajidae",
+    "genre": "Chelidonura",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "chromodoris-aspersa": {
+    "nom": "Chromodoris aspersa",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Chromodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "blanc",
+      "orange",
+      "jaune"
+    ],
+    "motifs": [
+      "points",
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "chromodoris-lochi": {
+    "nom": "Chromodoris lochi",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Chromodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "noir",
+      "orange",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes",
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "chromodoris-willani": {
+    "nom": "Chromodoris willani",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Chromodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.5
+    ],
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes",
+      "points",
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "chromodoris-sp.-1": {
+    "nom": "Chromodoris sp. 1",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Chromodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "genre"
+  },
+  "chromodoris-sp.-4": {
+    "nom": "Chromodoris sp. 4",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Chromodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "blanc",
+      "noir",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "genre"
+  },
+  "chromodoris-sp.-7": {
+    "nom": "Chromodoris sp. 7",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Chromodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "blanc",
+      "noir",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "genre"
+  },
+  "colpodaspis-thompsoni": {
+    "nom": "Colpodaspis thompsoni",
+    "ordre": "Cephalaspidea",
+    "famille": "Colpodaspididae",
+    "genre": "Colpodaspis",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "rose"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "coriocella-nigra": {
+    "nom": "Coriocella nigra",
+    "ordre": "Littorinimorpha",
+    "famille": "Velutinidae",
+    "genre": "Coriocella",
+    "morpho": "manteau_sur_coquille",
+    "taille": [
+      null,
+      10.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "costasiella-kuroshimae": {
+    "nom": "Costasiella kuroshimae",
+    "ordre": "Sacoglossa",
+    "famille": "Costasiellidae",
+    "genre": "Costasiella",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "costasiella-sp.-1": {
+    "nom": "Costasiella sp. 1",
+    "ordre": "Sacoglossa",
+    "famille": "Costasiellidae",
+    "genre": "Costasiella",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "costasiella-sp.-2": {
+    "nom": "Costasiella sp. 2",
+    "ordre": "Sacoglossa",
+    "famille": "Costasiellidae",
+    "genre": "Costasiella",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "costasiella-sp.-3": {
+    "nom": "Costasiella sp. 3",
+    "ordre": "Sacoglossa",
+    "famille": "Costasiellidae",
+    "genre": "Costasiella",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "costasiella-sp.-4": {
+    "nom": "Costasiella sp. 4",
+    "ordre": "Sacoglossa",
+    "famille": "Costasiellidae",
+    "genre": "Costasiella",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "costasiella-sp.-5": {
+    "nom": "Costasiella sp. 5",
+    "ordre": "Sacoglossa",
+    "famille": "Costasiellidae",
+    "genre": "Costasiella",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "cratena-affinis": {
+    "nom": "Cratena affinis",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Cratena",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "cratena-sp.-1": {
+    "nom": "Cratena sp. 1",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Cratena",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      0.7
+    ],
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "cratena-sp.-2": {
+    "nom": "Cratena sp.2",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Cratena",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "crosslandia-sp.1": {
+    "nom": "Crosslandia sp.1",
+    "ordre": "Sacoglossa",
+    "famille": "Scyllaeidae",
+    "genre": "Crosslandia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "crosslandia-sp.2": {
+    "nom": "Crosslandia sp.2",
+    "ordre": "Sacoglossa",
+    "famille": "Scyllaeidae",
+    "genre": "Crosslandia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "cyerce-bourbonica": {
+    "nom": "Cyerce bourbonica",
+    "ordre": "Sacoglossa",
+    "famille": "Caliphyllidae",
+    "genre": "Cyerce",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "brun",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "espece"
+  },
+  "cyerce-elegans": {
+    "nom": "Cyerce elegans",
+    "ordre": "Sacoglossa",
+    "famille": "Caliphyllidae",
+    "genre": "Cyerce",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      1.3
+    ],
+    "couleurs": [
+      "noir",
+      "jaune",
+      "bleu"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "cyerce-nigricans": {
+    "nom": "Cyerce nigricans",
+    "ordre": "Sacoglossa",
+    "famille": "Caliphyllidae",
+    "genre": "Cyerce",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      2.5
+    ],
+    "couleurs": [
+      "noir",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "cyerce-pavonina": {
+    "nom": "Cyerce Pavonina",
+    "ordre": "Sacoglossa",
+    "famille": "Caliphyllidae",
+    "genre": "Cyerce",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "cyerce-sp.1": {
+    "nom": "Cyerce sp.1",
+    "ordre": "Sacoglossa",
+    "famille": "Caliphyllidae",
+    "genre": "Cyerce",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "cylindrobulla-sp.1": {
+    "nom": "Cylindrobulla sp.1",
+    "ordre": "Sacoglossa",
+    "famille": "Cylindrobullidae",
+    "genre": "Cylindrobulla",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "cylindrobulla-sp.2": {
+    "nom": "Cylindrobulla sp.2",
+    "ordre": "Sacoglossa",
+    "famille": "Cylindrobullidae",
+    "genre": "Cylindrobulla",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "cylindrobulla-sp.3": {
+    "nom": "Cylindrobulla sp.3",
+    "ordre": "Sacoglossa",
+    "famille": "Cylindrobullidae",
+    "genre": "Cylindrobulla",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "dendrodoris-carbunculosa": {
+    "nom": "Dendrodoris carbunculosa",
+    "ordre": "Doridida",
+    "famille": "Dendrodorididae",
+    "genre": "Dendrodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      28.0
+    ],
+    "couleurs": [
+      "noir",
+      "rouge"
+    ],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "espece"
+  },
+  "dendrodoris-coronata": {
+    "nom": "Dendrodoris coronata",
+    "ordre": "Doridida",
+    "famille": "Dendrodorididae",
+    "genre": "Dendrodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "dendrodoris-elongata": {
+    "nom": "Dendrodoris elongata",
+    "ordre": "Doridida",
+    "famille": "Dendrodorididae",
+    "genre": "Dendrodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "dendrodoris-nigra": {
+    "nom": "Dendrodoris nigra",
+    "ordre": "Doridida",
+    "famille": "Dendrodorididae",
+    "genre": "Dendrodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      0.5
+    ],
+    "couleurs": [
+      "noir",
+      "brun"
+    ],
+    "motifs": [
+      "tubercules",
+      "uni"
+    ],
+    "source": "espece"
+  },
+  "dendrodoris-tuberculosa": {
+    "nom": "Dendrodoris tuberculosa",
+    "ordre": "Doridida",
+    "famille": "Dendrodorididae",
+    "genre": "Dendrodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      15.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "espece"
+  },
+  "dermatobranchus-fortunatus": {
+    "nom": "Dermatobranchus fortunatus",
+    "ordre": "Arminida",
+    "famille": "Arminidae",
+    "genre": "Dermatobranchus",
+    "morpho": "dos_lisse",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "dermatobranchus-cf.-albus": {
+    "nom": "Dermatobranchus cf. albus",
+    "ordre": "Arminida",
+    "famille": "Arminidae",
+    "genre": "Dermatobranchus",
+    "morpho": "dos_lisse",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [
+      "uni"
+    ],
+    "source": "espece"
+  },
+  "dermatobranchus-sp.-1": {
+    "nom": "Dermatobranchus sp. 1",
+    "ordre": "Arminida",
+    "famille": "Arminidae",
+    "genre": "Dermatobranchus",
+    "morpho": "dos_lisse",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "genre"
+  },
+  "diaphorodoris-sp.-1": {
+    "nom": "Diaphorodoris sp.1",
+    "ordre": "Doridida",
+    "famille": "Diaphorodorididae",
+    "genre": "Diaphorodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "diniatys-dentifer": {
+    "nom": "Diniatys dentifer",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Diniatys",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      0.5
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "diniatys-dubius": {
+    "nom": "Diniatys dubius",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Diniatys",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "discodorid-sp.-1-non-identifié": {
+    "nom": "Discodorid 1 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "discodorid-sp.-2-non-identifié": {
+    "nom": "Discodorid 2 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "discodorid-sp.-3-non-identifié": {
+    "nom": "Discodorid 3 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "discodorid-sp.-4-non-identifié": {
+    "nom": "Discodorid 4 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "discodorid-sp.-5-non-identifié": {
+    "nom": "Discodorid sp.5 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "discodorid-sp.-6-non-identifié": {
+    "nom": "Discodorid sp.6 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "discodorid-sp.-7-non-identifié": {
+    "nom": "Discodorid sp.7 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "discodorid-sp.-8-non-identifié": {
+    "nom": "Discodorid sp.8 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "discodorid-sp.-9-non-identifié": {
+    "nom": "Discodorid sp.9 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "discodorid-sp.-10-non-identifié": {
+    "nom": "Discodorid sp.10 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "discodorid-sp.-11-non-identifié": {
+    "nom": "Discodorid sp.11 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "discodorid-sp.-12-non-identifié": {
+    "nom": "Discodorid sp.12 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "discodorid-sp.-13-non-identifié": {
+    "nom": "Discodorid sp.13 non identifié",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Discodorid",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "diversidoris-flava": {
+    "nom": "Diversidoris flava",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Diversidoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "lignes",
+      "points"
+    ],
+    "source": "genre"
+  },
+  "dolabella-auricularia": {
+    "nom": "Dolabella auricularia",
+    "ordre": "Aplysiida",
+    "famille": "Aplysiidae",
+    "genre": "Dolabella",
+    "morpho": "parapodes_epais",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "dolabrifera-cf-dolabrifera": {
+    "nom": "Dolabrifera cf dolabrifera",
+    "ordre": "Aplysiida",
+    "famille": "Dolabriferidae",
+    "genre": "Dolabrifera",
+    "morpho": "parapodes_epais",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "vert",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "dorid-non-identifié-sp.-1": {
+    "nom": "Dorid non identifié sp.1",
+    "ordre": "Doridida",
+    "famille": "",
+    "genre": "Dorid",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "ordre"
+  },
+  "dorid-non-identifié-sp.-2": {
+    "nom": "Dorid non identifié sp.2",
+    "ordre": "Doridida",
+    "famille": "",
+    "genre": "Dorid",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "ordre"
+  },
+  "doris-granulosa": {
+    "nom": "Doris granulosa",
+    "ordre": "Doridida",
+    "famille": "Dorididae",
+    "genre": "Doris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "tubercules",
+      "uni"
+    ],
+    "source": "espece"
+  },
+  "doris-pecten": {
+    "nom": "Doris pecten",
+    "ordre": "Doridida",
+    "famille": "Dorididae",
+    "genre": "Doris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "doris-sp.-1": {
+    "nom": "Doris sp.1",
+    "ordre": "Doridida",
+    "famille": "Dorididae",
+    "genre": "Doris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "doris-viridis": {
+    "nom": "Doris viridis",
+    "ordre": "Doridida",
+    "famille": "Dorididae",
+    "genre": "Doris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "vert",
+      "brun",
+      "gris"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "doriprimatica-sibogae": {
+    "nom": "Doriprismatica sibogae",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Doriprismatica",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "orange"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "genre"
+  },
+  "doto-sp.-1": {
+    "nom": "Doto sp.1",
+    "ordre": "Dendronotida",
+    "famille": "Dotidae",
+    "genre": "Doto",
+    "morpho": "cerates_ramifies",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "famille"
+  },
+  "elysia-degeneri": {
+    "nom": "Elysia degeneri",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert",
+      "brun"
+    ],
+    "motifs": [
+      "lignes",
+      "points",
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "elysia-nealae": {
+    "nom": "Elysia nealae",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [
+      "uni"
+    ],
+    "source": "espece"
+  },
+  "elysia-nigropunctata": {
+    "nom": "Elysia nigropunctata",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "noir"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "espece"
+  },
+  "elysia-marginata": {
+    "nom": "Elysia marginata",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "elysia-obtusa": {
+    "nom": "Elysia obtusa",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "elysia-pusilla": {
+    "nom": "Elysia pusilla",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "elysia-rufescens": {
+    "nom": "Elysia rufescens",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "orange",
+      "vert",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "elysia-tomentosa": {
+    "nom": "Elysia tomentosa",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "elysia-sp.-1": {
+    "nom": "Elysia sp. 1",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-2": {
+    "nom": "Elysia sp. 2",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-3": {
+    "nom": "Elysia sp. 3",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-4": {
+    "nom": "Elysia sp. 4",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-5": {
+    "nom": "Elysia sp. 5",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-6": {
+    "nom": "Elysia sp. 6",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-7": {
+    "nom": "Elysia sp. 7",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-8": {
+    "nom": "Elysia sp. 8",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-9": {
+    "nom": "Elysia sp. 9",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-10": {
+    "nom": "Elysia sp. 10",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-11": {
+    "nom": "Elysia sp. 11",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-12": {
+    "nom": "Elysia sp. 12",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-13": {
+    "nom": "Elysia sp.13",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-15": {
+    "nom": "Elysia sp. 15",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-16": {
+    "nom": "Elysia sp.16",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-17": {
+    "nom": "Elysia sp.17",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-18": {
+    "nom": "Elysia sp.18",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-19": {
+    "nom": "Elysia sp.19",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-20": {
+    "nom": "Elysia sp.20",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-21": {
+    "nom": "Elysia sp.21",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-22": {
+    "nom": "Elysia sp.22",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.-23": {
+    "nom": "Elysia sp.23",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.24": {
+    "nom": "Elysia sp.24",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "elysia-sp.25": {
+    "nom": "Elysia sp.25",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Elysia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "embletonia-gracilis": {
+    "nom": "Embletonia gracilis",
+    "ordre": "Aeolida",
+    "famille": "Embletoniidae",
+    "genre": "Embletonia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "ercolania-sp.1": {
+    "nom": "Ercolania sp.1",
+    "ordre": "Sacoglossa",
+    "famille": "Limapontiidae",
+    "genre": "Ercolania",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "ercolania-anellyleorum": {
+    "nom": "Ercolania anellyleorum",
+    "ordre": "Sacoglossa",
+    "famille": "Limapontiidae",
+    "genre": "Ercolania",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "eubranchus-sp.-1": {
+    "nom": "Eubranchus sp.1",
+    "ordre": "Aeolida",
+    "famille": "Eubranchidae",
+    "genre": "Eubranchus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "eubranchus-sp.-2": {
+    "nom": "Eubranchus sp.2",
+    "ordre": "Aeolida",
+    "famille": "Eubranchidae",
+    "genre": "Eubranchus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "eubranchus-sp.-3": {
+    "nom": "Eubranchus sp.3",
+    "ordre": "Aeolida",
+    "famille": "Eubranchidae",
+    "genre": "Eubranchus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "eubranchus-sp.-4": {
+    "nom": "Eubranchus sp.4",
+    "ordre": "Aeolida",
+    "famille": "Eubranchidae",
+    "genre": "Eubranchus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "eubranchus-sp.-5": {
+    "nom": "Eubranchus sp.5",
+    "ordre": "Aeolida",
+    "famille": "Eubranchidae",
+    "genre": "Eubranchus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "eubranchus-sp.-6": {
+    "nom": "Eubranchus sp.6",
+    "ordre": "Aeolida",
+    "famille": "Eubranchidae",
+    "genre": "Eubranchus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "eubranchus-sp.-7": {
+    "nom": "Eubranchus sp.7",
+    "ordre": "Aeolida",
+    "famille": "Eubranchidae",
+    "genre": "Eubranchus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "eubranchus-sp.-8": {
+    "nom": "Eubranchus sp.8",
+    "ordre": "Aeolida",
+    "famille": "Eubranchidae",
+    "genre": "Eubranchus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "eubranchus-sp.-9": {
+    "nom": "Eubranchus sp.9",
+    "ordre": "Aeolida",
+    "famille": "Eubranchidae",
+    "genre": "Eubranchus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "eubranchus-sp.10": {
+    "nom": "Eubranchus sp.10",
+    "ordre": "Aeolida",
+    "famille": "Eubranchidae",
+    "genre": "Eubranchus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "eubranchus-sp.11": {
+    "nom": "Eubranchus sp.11",
+    "ordre": "Aeolida",
+    "famille": "Eubranchidae",
+    "genre": "Eubranchus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "eubranchus-sp.12": {
+    "nom": "Eubranchus sp.12",
+    "ordre": "Aeolida",
+    "famille": "Eubranchidae",
+    "genre": "Eubranchus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "facellina-sp.1": {
+    "nom": "Facellina sp.1",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Facellina",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "facelinid-non-identifié-sp.-1": {
+    "nom": "Facelinid non identifié sp.1",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Facelinid",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "facelinid-non-identifié-sp-.2": {
+    "nom": "Facelinid non identifié sp.2",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Facelinid",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "facelinid-non-identifié-sp.-4": {
+    "nom": "Facelinid non identifié sp.4",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Facelinid",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "facelinid-non-identifié-sp.5": {
+    "nom": "Facelinid non identifié sp.5",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Facelinid",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "favorinus-japonicus": {
+    "nom": "Favorinus japonicus",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Favorinus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "favorinus-sp.-1": {
+    "nom": "Favorinus sp.1",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Favorinus",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      0.7
+    ],
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "favorinus-sp.-2": {
+    "nom": "Favorinus sp.2",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Favorinus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "favorinus-sp.-3": {
+    "nom": "Favorinus sp. 3",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Favorinus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "favorinus-sp.-4": {
+    "nom": "Favorinus sp.4",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Favorinus",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "flabellina-exoptata": {
+    "nom": "Flabellina exopata",
+    "ordre": "Aeolida",
+    "famille": "Flabellinidae",
+    "genre": "Flabellina",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "violet",
+      "rose"
+    ],
+    "motifs": [
+      "cercles"
+    ],
+    "source": "genre"
+  },
+  "flabellina-rubrolineata": {
+    "nom": "Flabellina rubrolineata",
+    "ordre": "Aeolida",
+    "famille": "Flabellinidae",
+    "genre": "Flabellina",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "rouge"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "flabellina-sp.-1": {
+    "nom": "Flabellina sp. 1",
+    "ordre": "Aeolida",
+    "famille": "Flabellinidae",
+    "genre": "Flabellina",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "violet",
+      "rose"
+    ],
+    "motifs": [
+      "cercles"
+    ],
+    "source": "genre"
+  },
+  "flabellina-sp.-2": {
+    "nom": "Flabellina sp. 2",
+    "ordre": "Aeolida",
+    "famille": "Flabellinidae",
+    "genre": "Flabellina",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "violet",
+      "rose"
+    ],
+    "motifs": [
+      "cercles"
+    ],
+    "source": "genre"
+  },
+  "flabellina-sp.-3": {
+    "nom": "Sea slugs of Tahiti and French Polynesia",
+    "ordre": "Aeolida",
+    "famille": "Flabellinidae",
+    "genre": "Sea",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "violet",
+      "rose"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "flabellina-sp.4": {
+    "nom": "Flabellina sp.4",
+    "ordre": "Aeolida",
+    "famille": "Flabellinidae",
+    "genre": "Flabellina",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "violet",
+      "rose"
+    ],
+    "motifs": [
+      "cercles"
+    ],
+    "source": "genre"
+  },
+  "gastropteron-minutum": {
+    "nom": "Gastropteron minutum",
+    "ordre": "Cephalaspidea",
+    "famille": "Gastropteridae",
+    "genre": "Gastropteron",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "glaucus-atlanticus": {
+    "nom": "Glaucus atlanticus",
+    "ordre": "Aeolida",
+    "famille": "Glaucidae",
+    "genre": "Glaucus",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "bleu"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "goniobranchus-albonares": {
+    "nom": "Goniobranchus albonares",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Goniobranchus",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "goniobranchus-albopunctatus": {
+    "nom": "Goniobranchus albopunctatus",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Goniobranchus",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "blanc",
+      "orange",
+      "jaune"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "espece"
+  },
+  "goniobranchus-decorus": {
+    "nom": "Goniobranchus decorus",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Goniobranchus",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "noir",
+      "orange",
+      "jaune",
+      "vert",
+      "bleu",
+      "violet"
+    ],
+    "motifs": [
+      "lignes",
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "goniobranchus-cf.-geometricus": {
+    "nom": "Chromodoris cf geometrica",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Chromodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "blanc",
+      "noir",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "genre"
+  },
+  "goniobranchus-kuniei": {
+    "nom": "Goniobranchus kuniei",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Goniobranchus",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "orange",
+      "violet"
+    ],
+    "motifs": [
+      "points",
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "goniobranchus-cf.-reticulatus": {
+    "nom": "Goniobranchus cf. reticulatus",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Goniobranchus",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      5.0
+    ],
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "goniobranchus-verrieri": {
+    "nom": "Goniobranchus verrieri",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Goniobranchus",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "violet"
+    ],
+    "motifs": [
+      "bordure",
+      "cercles"
+    ],
+    "source": "espece"
+  },
+  "goniobranchus-sp.-1": {
+    "nom": "Goniobranchus sp. 1",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Goniobranchus",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "genre"
+  },
+  "goniobranchus-sp.-2": {
+    "nom": "Goniobranchus sp. 2",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Goniobranchus",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "genre"
+  },
+  "goniobranchus-sp.3": {
+    "nom": "Goniobranchus sp.3",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Goniobranchus",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "genre"
+  },
+  "goniobranchus-sp.4": {
+    "nom": "Goniobranchus sp.4",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Goniobranchus",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "genre"
+  },
+  "goniodoridella-unidonta": {
+    "nom": "Goniodoridella unidonta",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Goniodoridella",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "goniodoridella-sp.3": {
+    "nom": "Goniodoridella sp. 3",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Goniodoridella",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "goniodoridella-sp.4": {
+    "nom": "Goniodoridella sp.4",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Goniodoridella",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "goniodoridella-sp.5": {
+    "nom": "Goniodoridella sp.5",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Goniodoridella",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "glossodoris-cincta": {
+    "nom": "Glossodoris cincta",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Glossodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      4.0
+    ],
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange",
+      "jaune",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes",
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "glossodoris-hikuerensis": {
+    "nom": "Glossodoris hikuerensis",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Glossodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      4.0
+    ],
+    "couleurs": [
+      "rouge"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "glossodoris-rufomarginata": {
+    "nom": "Glossodoris rufomarginata",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Glossodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "rouge",
+      "orange"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "gymnodoris-alba": {
+    "nom": "Gymnodoris alba",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "gymnodoris-ceylonica": {
+    "nom": "Gymnodoris ceylonica",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "orange",
+      "brun"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "espece"
+  },
+  "gymnodoris-cf-citrina": {
+    "nom": "Gymnodoris cf citrina",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "gymnodoris-inornata": {
+    "nom": "Gymnodoris inornata",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "points",
+      "uni"
+    ],
+    "source": "espece"
+  },
+  "gymnodoris-sp.-1": {
+    "nom": "Gymnodoris sp. 1",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "gymnodoris-sp.-2": {
+    "nom": "Gymnodoris sp.2",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "gymnodoris-sp.-3": {
+    "nom": "Gymnodoris sp. 3",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "gymnodoris-sp.-4": {
+    "nom": "Gymnodoris sp.4",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "gymnodoris-sp.-5": {
+    "nom": "Gymnodoris sp. 5",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "gymnodoris-sp.-6": {
+    "nom": "Gymnodoris sp.6",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "gymnodoris-sp.-7": {
+    "nom": "Gymnodoris sp.7",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "gymnodoris-sp.-8": {
+    "nom": "Gymnodoris sp.8",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "gymnodoris-sp.-9": {
+    "nom": "Gymnodoris sp.9",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Gymnodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "hallaxa-cryptica": {
+    "nom": "Hallaxa cryptica",
+    "ordre": "Doridida",
+    "famille": "Actinocyclidae",
+    "genre": "Hallaxa",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "brun"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "hallaxa-iju": {
+    "nom": "Hallaxa iju",
+    "ordre": "Doridida",
+    "famille": "Actinocyclidae",
+    "genre": "Hallaxa",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "hallaxa-paulinae": {
+    "nom": "Hallaxa paulinae",
+    "ordre": "Doridida",
+    "famille": "Actinocyclidae",
+    "genre": "Hallaxa",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "uni"
+    ],
+    "source": "espece"
+  },
+  "hallaxa-sp.-2": {
+    "nom": "Hallaxa sp.2",
+    "ordre": "Doridida",
+    "famille": "Actinocyclidae",
+    "genre": "Hallaxa",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "hallaxa-sp.-3": {
+    "nom": "Hallaxa sp.3",
+    "ordre": "Doridida",
+    "famille": "Actinocyclidae",
+    "genre": "Hallaxa",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "halgerda-brunneomaculata": {
+    "nom": "Halgerda brunneomaculata",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Halgerda",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "brun"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "halgerda-willeyi": {
+    "nom": "Halgerda willeyi",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Halgerda",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "orange",
+      "jaune",
+      "brun"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "halgerda-sp.1": {
+    "nom": "Halgerda sp.1",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Halgerda",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "halgerda-sp.2": {
+    "nom": "Halgerda sp.2",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Halgerda",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "haloa-crocata": {
+    "nom": "Haloa Crocata",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Haloa",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "orange"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "haloa-sp.-1": {
+    "nom": "Haloa sp.1",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Haloa",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "orange"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "haloa-wallisi": {
+    "nom": "Haloa wallisi",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Haloa",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "orange"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "haminoea-cymbalum": {
+    "nom": "Haminoea cymbalum",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Haminoea",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      1.5
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "haminoea-cf-natalensis": {
+    "nom": "Haminoea cf natalensis",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Haminoea",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "vert",
+      "brun",
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "haminoea-sp.-1": {
+    "nom": "Haminoea sp.1",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Haminoea",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "vert",
+      "brun",
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "haminoeid-sp.1-lt": {
+    "nom": "Haminoeid sp.1 Lt",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Haminoeid",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "haminoeid-sp.2": {
+    "nom": "Haminoeid sp.2",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Haminoeid",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "haminoeid-sp.3": {
+    "nom": "Haminoeid sp.3",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Haminoeid",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "haminoeid-sp.4": {
+    "nom": "Haminoeid sp.4",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Haminoeid",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "hancockia-sp.1": {
+    "nom": "Hancockia sp.1",
+    "ordre": "Dendronotida",
+    "famille": "Hancockiidae",
+    "genre": "Hancockia",
+    "morpho": "cerates_ramifies",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "hancockia-sp.2": {
+    "nom": "Hancockia sp.2",
+    "ordre": "Dendronotida",
+    "famille": "Hancockiidae",
+    "genre": "Hancockia",
+    "morpho": "cerates_ramifies",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "hancockia-sp.3": {
+    "nom": "Hancockia sp.3",
+    "ordre": "Dendronotida",
+    "famille": "Hancockiidae",
+    "genre": "Hancockia",
+    "morpho": "cerates_ramifies",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "hermaea-sp.1": {
+    "nom": "Hermaea sp.1",
+    "ordre": "Sacoglossa",
+    "famille": "Hermaeidae",
+    "genre": "Hermaea",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "herviella-albida": {
+    "nom": "Herviella albida",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Herviella",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "motifs": [
+      "uni"
+    ],
+    "source": "espece"
+  },
+  "herviella-mietta": {
+    "nom": "Herviella mietta",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Herviella",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "orange",
+      "brun"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "herviella-yatsui": {
+    "nom": "Herviella yatsui",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Herviella",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [
+      "cercles"
+    ],
+    "source": "espece"
+  },
+  "herviella-sp.-1": {
+    "nom": "Herviella sp.1",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Herviella",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "hexabranchus-sp.-1": {
+    "nom": "Hexabranchus sp. 1",
+    "ordre": "Doridida",
+    "famille": "Hexabranchidae",
+    "genre": "Hexabranchus",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      18.0
+    ],
+    "couleurs": [
+      "rouge",
+      "orange"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "hexabranchus-sp.-2": {
+    "nom": "Hexabranchus sp. 2",
+    "ordre": "Doridida",
+    "famille": "Hexabranchidae",
+    "genre": "Hexabranchus",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      20.0
+    ],
+    "couleurs": [
+      "rouge",
+      "orange"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "hydatina-physis": {
+    "nom": "Hydatina physis",
+    "ordre": "Cephalaspidea",
+    "famille": "Aplustridae",
+    "genre": "Hydatina",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      6.0
+    ],
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "genre"
+  },
+  "hypselodoris-bertschi": {
+    "nom": "Hypselodoris bertschi",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Hypselodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "bleu"
+    ],
+    "motifs": [
+      "lignes",
+      "points"
+    ],
+    "source": "espece"
+  },
+  "hypselodoris-imperialis": {
+    "nom": "Hypselodoris imperialis",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Hypselodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      4.0
+    ],
+    "couleurs": [
+      "blanc",
+      "orange",
+      "jaune"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "espece"
+  },
+  "hypselodoris-maculosa": {
+    "nom": "Hypselodoris maculosa",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Hypselodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "points"
+    ],
+    "source": "espece"
+  },
+  "hypselodoris-sp.-1": {
+    "nom": "Hypselodoris sp.1",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Hypselodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "orange",
+      "jaune",
+      "bleu",
+      "violet",
+      "rose"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "genre"
+  },
+  "hypselodoris-tryoni": {
+    "nom": "Hypselodoris tryoni",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Hypselodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "hypselodoris-whitei": {
+    "nom": "Hypselodoris whitei",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Hypselodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.5
+    ],
+    "couleurs": [
+      "blanc",
+      "orange",
+      "jaune",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "hypselodoris-zephyra": {
+    "nom": "Hypselodoris zephyra",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Hypselodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "janolus-mirabilis": {
+    "nom": "Janolus mirabilis",
+    "ordre": "Janolina",
+    "famille": "Janolidae",
+    "genre": "Janolus",
+    "morpho": "cerates_digestive",
+    "taille": null,
+    "couleurs": [
+      "translucide",
+      "irisé"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "jorunna-funebris": {
+    "nom": "Jorunna funebris",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Jorunna",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "jorunna-parva": {
+    "nom": "Jorunna parva",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Jorunna",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "jorunna-sp.-1": {
+    "nom": "Jorunna sp. 1",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Jorunna",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "julia-exquisita": {
+    "nom": "Julia exquisita",
+    "ordre": "Sacoglossa",
+    "famille": "Juliidae",
+    "genre": "Julia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "vert",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "julia-sp.1": {
+    "nom": "Julia sp.1",
+    "ordre": "Sacoglossa",
+    "famille": "Juliidae",
+    "genre": "Julia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "julia-sp.2": {
+    "nom": "Julia sp.2",
+    "ordre": "Sacoglossa",
+    "famille": "Juliidae",
+    "genre": "Julia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "kaloplocamus-sp.-1": {
+    "nom": "Kaloplocamus sp.",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Kaloplocamus",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      4.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "julia-zebra": {
+    "nom": "Julia Zebra",
+    "ordre": "Sacoglossa",
+    "famille": "Juliidae",
+    "genre": "Julia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "kaloplocamus-sp.-2": {
+    "nom": "Kaloplocamus sp. 2",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Kaloplocamus",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "kaloplocamus-sp.-3": {
+    "nom": "Kaloplocamus sp. 3",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Kaloplocamus",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "lamprohaminoea-cf-ovalis": {
+    "nom": "Lamprohaminoea cf ovalis",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Lamprohaminoea",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "lamprohaminoea-ovalis": {
+    "nom": "Lamprohaminoea ovalis",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Lamprohaminoea",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "liloa-curta": {
+    "nom": "Liloa curta",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Liloa",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "liloa-sp.-1": {
+    "nom": "Liloa sp.1",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Liloa",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "liloa-sp.-2": {
+    "nom": "Liloa sp.2",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Liloa",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "liloa-sp.-3": {
+    "nom": "Liloa sp.3",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Liloa",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "limenandra-confusa": {
+    "nom": "Limenandra confusa",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Limenandra",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "limenandra-fusiformis": {
+    "nom": "Baeolidia fusiformis",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Baeolidia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "brun",
+      "gris"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "limenandra-rosanae": {
+    "nom": "Limenandra rosanae",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Limenandra",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "lobiger-viridis": {
+    "nom": "Lobiger viridis",
+    "ordre": "Sacoglossa",
+    "famille": "Oxynoidae",
+    "genre": "Lobiger",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "madrella-ferruginosa": {
+    "nom": "Madrella ferruginosa",
+    "ordre": "Janolina",
+    "famille": "Madrellidae",
+    "genre": "Madrella",
+    "morpho": "cerates_digestive",
+    "taille": null,
+    "couleurs": [
+      "rouge",
+      "orange"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "mariaglaja-cf-sandrana": {
+    "nom": "Mariaglaja cf sandrana",
+    "ordre": "Cephalaspidea",
+    "famille": "Aglajidae",
+    "genre": "Mariaglaja",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "marianina-rosea": {
+    "nom": "Marianina rosea",
+    "ordre": "Dendronotida",
+    "famille": "Tritoniidae",
+    "genre": "Marianina",
+    "morpho": "cerates_ramifies",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "melibe-engeli": {
+    "nom": "Melibe engeli",
+    "ordre": "Dendronotida",
+    "famille": "Tethydidae",
+    "genre": "Melibe",
+    "morpho": "cerates_ramifies",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "mexichromis-lemniscata": {
+    "nom": "Mexichromis lemniscata",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Mexichromis",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "orange",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "mexichromis-pusilla": {
+    "nom": "Mexichromis pusilla",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Mexichromis",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "espece"
+  },
+  "micromelo-scriptus": {
+    "nom": "Micromelo scriptus",
+    "ordre": "Cephalaspidea",
+    "famille": "Aplustridae",
+    "genre": "Micromelo",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      4.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "genre"
+  },
+  "moridilla-sp.-1": {
+    "nom": "Moridilla sp.1",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Moridilla",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "mourgona-sp.1": {
+    "nom": "Mourgona sp.1",
+    "ordre": "Sacoglossa",
+    "famille": "Philinidae",
+    "genre": "Mourgona",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "mourgona-sp.2": {
+    "nom": "Mourgona sp.2",
+    "ordre": "Sacoglossa",
+    "famille": "Philinidae",
+    "genre": "Mourgona",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "murphydoris-puncticulata": {
+    "nom": "Murphydoris puncticulata",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Murphydoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "motifs": [
+      "points",
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "niparaya-cf-regiscorona": {
+    "nom": "Niparaya cf regiscorona",
+    "ordre": "Doridida",
+    "famille": "Aegiridae",
+    "genre": "Niparaya",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "rose",
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "noumeaella-sp.-1": {
+    "nom": "Noumeaella sp.1",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Noumeaella",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "noumeaella-rehderi": {
+    "nom": "Noumeaella rehderi",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Noumeaella",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "okenia-pellucida": {
+    "nom": "Okenia pellucida",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Okenia",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "okenia-sp.-1": {
+    "nom": "Okenia sp. 1",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Okenia",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      0.5
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "okenia-sp.-2": {
+    "nom": "Okenia sp.2",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Okenia",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "okenia-sp.-3": {
+    "nom": "Okenia sp.3",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Okenia",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "okenia-sp.-4": {
+    "nom": "Okenia sp.4",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Okenia",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "oxynoe-cf-alicia": {
+    "nom": "Oxynoe cf alicia",
+    "ordre": "Sacoglossa",
+    "famille": "Oxynoidae",
+    "genre": "Oxynoe",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "oxynoe-kylei": {
+    "nom": "Oxynoe kylei",
+    "ordre": "Sacoglossa",
+    "famille": "Oxynoidae",
+    "genre": "Oxynoe",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "oxynoe-cf-viridis": {
+    "nom": "Oxynoe cf viridis",
+    "ordre": "Sacoglossa",
+    "famille": "Oxynoidae",
+    "genre": "Oxynoe",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "oxynoe-jacksoni": {
+    "nom": "Oxynoe jacksoni",
+    "ordre": "Sacoglossa",
+    "famille": "Oxynoidae",
+    "genre": "Oxynoe",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "espece"
+  },
+  "oxynoe-jordani": {
+    "nom": "Oxynoe jordani",
+    "ordre": "Sacoglossa",
+    "famille": "Oxynoidae",
+    "genre": "Oxynoe",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "oxynoe-sp.-1": {
+    "nom": "Oxynoe sp.1",
+    "ordre": "Sacoglossa",
+    "famille": "Oxynoidae",
+    "genre": "Oxynoe",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "oxynoe-sp.-2": {
+    "nom": "Oxynoe sp. 2",
+    "ordre": "Sacoglossa",
+    "famille": "Oxynoidae",
+    "genre": "Oxynoe",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "oxynoe-sp.-3": {
+    "nom": "Oxynoe sp.3",
+    "ordre": "Sacoglossa",
+    "famille": "Oxynoidae",
+    "genre": "Oxynoe",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "paradoris-sp.1": {
+    "nom": "Paradoris sp.1",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Paradoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "paradoris-sp.2": {
+    "nom": "Paradoris sp.2",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Paradoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      0.5
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "peltodoris-fellowsi": {
+    "nom": "Peltodoris fellowsi",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Peltodoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "petalifera-sp.1": {
+    "nom": "Petalifera sp.1",
+    "ordre": "Aplysiida",
+    "famille": "Aplysiidae",
+    "genre": "Petalifera",
+    "morpho": "parapodes_epais",
+    "taille": [
+      null,
+      0.5
+    ],
+    "couleurs": [
+      "violet"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "phanerophthalmus-albocollaris": {
+    "nom": "Phanerophthalmus cf albocollaris",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Phanerophthalmus",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "phanerophthalmus-cylindricus": {
+    "nom": "Phanerophthalmus cylindricus",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Phanerophthalmus",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "phanerophthalmus-sp.1": {
+    "nom": "Phanerophthalmus sp.1",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Phanerophthalmus",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "phanerophthalmus-sp.2": {
+    "nom": "Phanerophthalmus sp.2",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Phanerophthalmus",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "phanerophthalmus-sp.3": {
+    "nom": "Phanerophthalmus sp.3",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Phanerophthalmus",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "phanerophthalmus-sp.4": {
+    "nom": "Phanerophthalmus sp.4",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Phanerophthalmus",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "phidiana-salaamica": {
+    "nom": "Phidiana salaamica",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Phidiana",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "philine-orca": {
+    "nom": "Philine Orca",
+    "ordre": "Cephalaspidea",
+    "famille": "Philinidae",
+    "genre": "Philine",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "philine-rubrata": {
+    "nom": "Philine rubrata",
+    "ordre": "Cephalaspidea",
+    "famille": "Philinidae",
+    "genre": "Philine",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "noir",
+      "rouge",
+      "orange",
+      "rose"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "philine-sp.1": {
+    "nom": "Philine sp.1",
+    "ordre": "Cephalaspidea",
+    "famille": "Philinidae",
+    "genre": "Philine",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "philine-sp.2": {
+    "nom": "Philine sp.2",
+    "ordre": "Cephalaspidea",
+    "famille": "Philinidae",
+    "genre": "Philine",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "philinopsis-speciosa": {
+    "nom": "Philinopsis speciosa",
+    "ordre": "Cephalaspidea",
+    "famille": "Aglajidae",
+    "genre": "Philinopsis",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "phycophila-euchlora": {
+    "nom": "Phycophila euchlora",
+    "ordre": "Anaspidea",
+    "famille": "Aplysiidae",
+    "genre": "Phycophila",
+    "morpho": "parapodes_epais",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "phyllaplisia-lafonti": {
+    "nom": "Phyllaplisia lafonti",
+    "ordre": "Aplysiida",
+    "famille": "Aplysiidae",
+    "genre": "Phyllaplisia",
+    "morpho": "parapodes_epais",
+    "taille": null,
+    "couleurs": [
+      "vert",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "phyllidia-cf.-carlsonhoffi": {
+    "nom": "Phyllidia cf. carlsonhoffi",
+    "ordre": "Doridida",
+    "famille": "Phyllidiidae",
+    "genre": "Phyllidia",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "noir",
+      "orange",
+      "jaune"
+    ],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "espece"
+  },
+  "phyllidia-cf.-ocellata": {
+    "nom": "Phyllidia cf. ocellata",
+    "ordre": "Doridida",
+    "famille": "Phyllidiidae",
+    "genre": "Phyllidia",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      5.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "cercles",
+      "tubercules"
+    ],
+    "source": "espece"
+  },
+  "phyllidia-sp.-1": {
+    "nom": "Phyllidia sp. 1",
+    "ordre": "Doridida",
+    "famille": "Phyllidiidae",
+    "genre": "Phyllidia",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      5.0
+    ],
+    "couleurs": [
+      "noir"
+    ],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "phyllidiella-cf.-annulata": {
+    "nom": "Phyllidiella cf. annulata",
+    "ordre": "Doridida",
+    "famille": "Phyllidiidae",
+    "genre": "Phyllidiella",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "cercles"
+    ],
+    "source": "espece"
+  },
+  "phyllidiella-pustulosa": {
+    "nom": "Phyllidiella pustulosa",
+    "ordre": "Doridida",
+    "famille": "Phyllidiidae",
+    "genre": "Phyllidiella",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.5
+    ],
+    "couleurs": [
+      "noir",
+      "vert",
+      "gris"
+    ],
+    "motifs": [
+      "points",
+      "cercles",
+      "tubercules"
+    ],
+    "source": "espece"
+  },
+  "phyllidiella-rosans": {
+    "nom": "Phyllidiella rosans",
+    "ordre": "Doridida",
+    "famille": "Phyllidiidae",
+    "genre": "Phyllidiella",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.5
+    ],
+    "couleurs": [],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "espece"
+  },
+  "phylliroe-bucephalum": {
+    "nom": "Phylliroe bucephalum",
+    "ordre": "Dendronotida",
+    "famille": "Phylliroidae",
+    "genre": "Phylliroe",
+    "morpho": "cerates_ramifies",
+    "taille": [
+      null,
+      4.0
+    ],
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "phyllodesmium-sp.-1": {
+    "nom": "Phyllodesmium sp.1",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Phyllodesmium",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "placida-kevinleei": {
+    "nom": "Placida kevinleei",
+    "ordre": "Sacoglossa",
+    "famille": "Limapontiidae",
+    "genre": "Placida",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "placida-sp.1": {
+    "nom": "Placida sp.1",
+    "ordre": "Sacoglossa",
+    "famille": "Limapontiidae",
+    "genre": "Placida",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "placida-sp.2": {
+    "nom": "Placida sp.2",
+    "ordre": "Sacoglossa",
+    "famille": "Limapontiidae",
+    "genre": "Placida",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert",
+      "translucide"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "plakobranchus-ocellatus": {
+    "nom": "Plakobranchus ocellatus",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Plakobranchus",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "plakobranchus-sp.1": {
+    "nom": "Plakobranchus sp.1",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Plakobranchus",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "platydoris-cruenta": {
+    "nom": "Platydoris cruenta",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Platydoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "rouge"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "platydoris-scabra": {
+    "nom": "Platydoris scabra",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Platydoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "platydoris-sp.1": {
+    "nom": "Platydoris sp.1",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Platydoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "platydoris-sp.2": {
+    "nom": "Platydoris sp. 2",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Platydoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      4.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "platydoris-sp.3": {
+    "nom": "Platydoris sp.3",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Platydoris",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "pleurehdera-haraldi": {
+    "nom": "Pleurehdera haraldi",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Pleurehdera",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "pleurobranchus-albiguttatus": {
+    "nom": "Pleurobranchus albiguttatus",
+    "ordre": "Pleurobranchida",
+    "famille": "Pleurobranchidae",
+    "genre": "Pleurobranchus",
+    "morpho": "branchie_laterale",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "espece"
+  },
+  "pleurobranchus-grandis": {
+    "nom": "Pleurobranchus grandis",
+    "ordre": "Pleurobranchida",
+    "famille": "Pleurobranchidae",
+    "genre": "Pleurobranchus",
+    "morpho": "branchie_laterale",
+    "taille": [
+      null,
+      10.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "pleurobranchus-peroni": {
+    "nom": "Pleurobranchus peroni",
+    "ordre": "Pleurobranchida",
+    "famille": "Pleurobranchidae",
+    "genre": "Pleurobranchus",
+    "morpho": "branchie_laterale",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [
+      "tubercules"
+    ],
+    "source": "genre"
+  },
+  "plocamopherus-ceylonicus": {
+    "nom": "Plocamopherus ceylonicus",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Plocamopherus",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "jaune",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "plocamopherus-cf.-telesii": {
+    "nom": "Plocamopherus cf. telesii",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Plocamopherus",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      4.0
+    ],
+    "couleurs": [
+      "irisé"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "polybranchia-orientalis": {
+    "nom": "Polybranchia orientalis",
+    "ordre": "Sacoglossa",
+    "famille": "Caliphyllidae",
+    "genre": "Polybranchia",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "polycera-japonica": {
+    "nom": "Polycera japonica",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Polycera",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "polycera-sp.1": {
+    "nom": "Polycera sp.1",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Polycera",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "protaeolidia-juliae": {
+    "nom": "Protaeolidia juliae",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Protaeolidia",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "blanc",
+      "orange",
+      "brun"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "pteraeolidia-ianthina": {
+    "nom": "Pteraeolidia ianthina",
+    "ordre": "Aeolida",
+    "famille": "Facelinidae",
+    "genre": "Pteraeolidia",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "bleu",
+      "violet",
+      "irisé"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "roboastra-gracilis": {
+    "nom": "Roboastra gracilis",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Roboastra",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "jaune",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "genre"
+  },
+  "rostanga-sp.1": {
+    "nom": "Rostanga sp.1",
+    "ordre": "Doridida",
+    "famille": "Dorididae",
+    "genre": "Rostanga",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "rostanga-sp.2": {
+    "nom": "Rostanga sp.2",
+    "ordre": "Doridida",
+    "famille": "Dorididae",
+    "genre": "Rostanga",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "roxaniella-pittmani": {
+    "nom": "Roxaniella pittmani",
+    "ordre": "Cephalaspidea",
+    "famille": "Philinidae",
+    "genre": "Roxaniella",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "runcina-sp.-1": {
+    "nom": "Runcina sp. 1",
+    "ordre": "Runcinida",
+    "famille": "Runcinidae",
+    "genre": "Runcina",
+    "morpho": "corps_ovale_lisse",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "sagaminopteron-cf-pohnpei": {
+    "nom": "Sagaminopteron cf pohnpei",
+    "ordre": "Cephalaspidea",
+    "famille": "Gastropteridae",
+    "genre": "Sagaminopteron",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "orange",
+      "jaune"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "sagaminopteron-psychedelicum": {
+    "nom": "Sagaminopteron psychedelicum",
+    "ordre": "Cephalaspidea",
+    "famille": "Gastropteridae",
+    "genre": "Sagaminopteron",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "orange",
+      "jaune",
+      "vert",
+      "bleu"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "samla-bicolor": {
+    "nom": "Samla bicolor",
+    "ordre": "Aeolida",
+    "famille": "Samlidae",
+    "genre": "Samla",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "sclerodoris-tuberculata": {
+    "nom": "Sclerodoris tuberculata",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Sclerodoris",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "brun",
+      "gris"
+    ],
+    "motifs": [
+      "uni"
+    ],
+    "source": "genre"
+  },
+  "scyllae-sp.-1": {
+    "nom": "Scyllae sp.1",
+    "ordre": "Dendronotida",
+    "famille": "Scyllaeidae",
+    "genre": "Scyllae",
+    "morpho": "cerates_ramifies",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "siphopteron-brunneomarginatum": {
+    "nom": "Siphopteron brunneomarginatum",
+    "ordre": "Cephalaspidea",
+    "famille": "Gastropteridae",
+    "genre": "Siphopteron",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "noir",
+      "jaune",
+      "brun"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "siphopteron-flavum": {
+    "nom": "Siphopteron flavum",
+    "ordre": "Cephalaspidea",
+    "famille": "Gastropteridae",
+    "genre": "Siphopteron",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "jaune"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "siphopteron-nigromarginatum": {
+    "nom": "Siphopteron nigromarginatum",
+    "ordre": "Cephalaspidea",
+    "famille": "Gastropteridae",
+    "genre": "Siphopteron",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "noir",
+      "jaune",
+      "brun"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "siphopteron-sp.1": {
+    "nom": "Siphopteron sp.1",
+    "ordre": "Cephalaspidea",
+    "famille": "Gastropteridae",
+    "genre": "Siphopteron",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "motifs": [
+      "points"
+    ],
+    "source": "genre"
+  },
+  "smaragdinella-calyculata": {
+    "nom": "Smaragdinella calyculata",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Smaragdinella",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "vert"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "spinoaglaja-orientalis": {
+    "nom": "spinoaglaja-orientalis",
+    "ordre": "Cephalaspidea",
+    "famille": "Aglajidae",
+    "genre": "spinoaglaja-orientalis",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "famille"
+  },
+  "stiliger-sp.-1": {
+    "nom": "Stiliger sp.",
+    "ordre": "Sacoglossa",
+    "famille": "Limapontiidae",
+    "genre": "Stiliger",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      0.5
+    ],
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "stiliger-sp.-2": {
+    "nom": "Stiliger sp. 2",
+    "ordre": "Sacoglossa",
+    "famille": "Limapontiidae",
+    "genre": "Stiliger",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "stiliger-sp.3": {
+    "nom": "Stiliger sp.3",
+    "ordre": "Sacoglossa",
+    "famille": "Limapontiidae",
+    "genre": "Stiliger",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "stylocheilus-striatus": {
+    "nom": "Stylocheilus striatus",
+    "ordre": "Aplysiida",
+    "famille": "Aplysiidae",
+    "genre": "Stylocheilus",
+    "morpho": "parapodes_epais",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "espece"
+  },
+  "stylocheilus-longicauda": {
+    "nom": "Stylocheilus longicauda",
+    "ordre": "Aplysiida",
+    "famille": "Aplysiidae",
+    "genre": "Stylocheilus",
+    "morpho": "parapodes_epais",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "tambja-amakusana": {
+    "nom": "Tambja amakusana",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Tambja",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "orange",
+      "jaune",
+      "vert",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes",
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "tambja-morosa": {
+    "nom": "Tambja morosa",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Tambja",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "noir",
+      "bleu"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "tayuva-lilacina": {
+    "nom": "Tayuva lilacina",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Tayuva",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "noir",
+      "vert",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-lugubris": {
+    "nom": "Tenellia lugubris",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "noir",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "tenellia-minor": {
+    "nom": "Tenellia minor",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "tenellia-melanobranchia": {
+    "nom": "Tenellia melanobranchia",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "noir"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "tenellia-cf-pinnifera": {
+    "nom": "Tenellia cf pinnifera",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-poritophages": {
+    "nom": "Tenellia poritophages",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "tenellia-sp.-1": {
+    "nom": "Tenellia sp.1",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-2": {
+    "nom": "Tenellia sp. 2",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-3": {
+    "nom": "Tenellia sp. 3",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-4": {
+    "nom": "Tenellia sp.4",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-5": {
+    "nom": "Tenellia sp.5",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-6": {
+    "nom": "Tenellia sp.6",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-7": {
+    "nom": "Tenellia sp.7",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-8": {
+    "nom": "Tenellia sp.8",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-9": {
+    "nom": "Tenellia sp.9",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-10": {
+    "nom": "Tenellia sp.10",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-11": {
+    "nom": "Tenellia sp.11",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-13": {
+    "nom": "Tenellia sp.13",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-14": {
+    "nom": "Tenellia sp.14",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-15": {
+    "nom": "Tenellia sp.15",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-21": {
+    "nom": "Tenellia sp.21",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "noir",
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tenellia-sp.-22": {
+    "nom": "Tenellia sp.22",
+    "ordre": "Aeolida",
+    "famille": "Trinchesiidae",
+    "genre": "Tenellia",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tergiposacca-longicerata": {
+    "nom": "Tergiposacca longicerata",
+    "ordre": "Aeolida",
+    "famille": "Cuthonidae",
+    "genre": "Tergiposacca",
+    "morpho": "cerates_simples",
+    "taille": null,
+    "couleurs": [
+      "blanc"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "thecacera-pacifica": {
+    "nom": "Thecacera pacifica",
+    "ordre": "Doridida",
+    "famille": "Polyceridae",
+    "genre": "Thecacera",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "genre"
+  },
+  "thordisa-albomacula": {
+    "nom": "Thordisa albomacula",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Thordisa",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "thordisa-cf-tahala": {
+    "nom": "Thordisa cf tahala",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Thordisa",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.5
+    ],
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "thordisa-luteola": {
+    "nom": "Thordisa luteola",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Thordisa",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      4.0
+    ],
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "thordisa-sp.-1": {
+    "nom": "Thordisa sp.1",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Thordisa",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "thordisa-sp.-2": {
+    "nom": "Thordisa sp.2",
+    "ordre": "Doridida",
+    "famille": "Discodorididae",
+    "genre": "Thordisa",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "thorunna-daniellae": {
+    "nom": "Thorunna daniellae",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Thorunna",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "motifs": [
+      "points",
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "thorunna-florens": {
+    "nom": "Thorunna florens",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Thorunna",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "points"
+    ],
+    "source": "espece"
+  },
+  "thorunna-cf-halourga": {
+    "nom": "Thorunna cf halourga",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Thorunna",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "genre"
+  },
+  "thorunna-purpuropedis": {
+    "nom": "Thorunna purpuropedis",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Thorunna",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "violet"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "thorunna-sp.-1": {
+    "nom": "Thorunna sp. 1",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Thorunna",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "genre"
+  },
+  "thorunna-sp.-2": {
+    "nom": "Thorunna sp. 2",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Thorunna",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "genre"
+  },
+  "thorunna-sp.-3": {
+    "nom": "Thorunna sp.3",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Thorunna",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "genre"
+  },
+  "thorunna-sp.-4": {
+    "nom": "Thorunna sp.4",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Thorunna",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "genre"
+  },
+  "thuridilla-carlsoni": {
+    "nom": "Thuridilia carlsoni",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Thuridilia",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "thuridilla-gracilis": {
+    "nom": "Thuridilla gracilis",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Thuridilla",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "thuridilla-kathae": {
+    "nom": "Thuridilla kathae",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Thuridilla",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "noir",
+      "orange",
+      "jaune",
+      "bleu"
+    ],
+    "motifs": [
+      "points",
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "thuridilla-livida": {
+    "nom": "Thuridilla livida",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Thuridilla",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "orange",
+      "jaune",
+      "bleu",
+      "violet"
+    ],
+    "motifs": [
+      "bordure",
+      "uni"
+    ],
+    "source": "espece"
+  },
+  "thuridilla-cf-neona": {
+    "nom": "Thuridilla cf. neona",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Thuridilla",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "orange",
+      "vert",
+      "bleu"
+    ],
+    "motifs": [
+      "lignes",
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "thuridilla-vataae": {
+    "nom": "Thuridilla vataae",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Thuridilla",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      2.0
+    ],
+    "couleurs": [
+      "noir",
+      "orange",
+      "bleu"
+    ],
+    "motifs": [
+      "bordure"
+    ],
+    "source": "espece"
+  },
+  "thuridilla-sp.-1": {
+    "nom": "Thuridilla sp.1",
+    "ordre": "Sacoglossa",
+    "famille": "Plakobranchidae",
+    "genre": "Thuridilla",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      1.5
+    ],
+    "couleurs": [],
+    "motifs": [
+      "lignes"
+    ],
+    "source": "genre"
+  },
+  "trapania-cf-aurata": {
+    "nom": "Trapania cf aurata",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Trapania",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "orange"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "trapania-euryeia": {
+    "nom": "Trapania euryeia",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Trapania",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "jaune"
+    ],
+    "motifs": [],
+    "source": "espece"
+  },
+  "trapania-squama": {
+    "nom": "Trapania squama",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Trapania",
+    "morpho": "panache_branchial",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [],
+    "motifs": [
+      "points"
+    ],
+    "source": "espece"
+  },
+  "trapania-sp.-2": {
+    "nom": "Trapania sp.2",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Trapania",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "orange"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "trapania-sp.-3": {
+    "nom": "Trapania sp. 3",
+    "ordre": "Doridida",
+    "famille": "Goniodorididae",
+    "genre": "Trapania",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "orange"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tubulophilinopsis-pilsbryi": {
+    "nom": "Tubulophilinopsis pilsbryi",
+    "ordre": "Cephalaspidea",
+    "famille": "Aglajidae",
+    "genre": "Tubulophilinopsis",
+    "morpho": "bouclier_coquille",
+    "taille": [
+      null,
+      3.0
+    ],
+    "couleurs": [
+      "noir"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "tylodina-sp.1": {
+    "nom": "tylodina-sp#1",
+    "ordre": "Umbraculida",
+    "famille": "Tylodinidae",
+    "genre": "tylodina-sp#1",
+    "morpho": "coquille_externe",
+    "taille": null,
+    "couleurs": [
+      "jaune"
+    ],
+    "motifs": [],
+    "source": "famille"
+  },
+  "vayssierea-felis": {
+    "nom": "Vayssierea felis",
+    "ordre": "Doridida",
+    "famille": "Vayssiereidae",
+    "genre": "Vayssierea",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "orange"
+    ],
+    "motifs": [
+      "uni"
+    ],
+    "source": "genre"
+  },
+  "vellicolla-amphorella": {
+    "nom": "Vellicolla amphorella",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Vellicolla",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "vellicola-sp.1": {
+    "nom": "Vellicolla sp.1",
+    "ordre": "Cephalaspidea",
+    "famille": "Haminoeidae",
+    "genre": "Vellicolla",
+    "morpho": "bouclier_coquille",
+    "taille": null,
+    "couleurs": [
+      "translucide"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "verconia-simplex": {
+    "nom": "Verconia simplex",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Verconia",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "verconia-sp.2": {
+    "nom": "Verconia sp.2",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Verconia",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [
+      "orange",
+      "jaune"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "verconia-varians": {
+    "nom": "Verconia varians",
+    "ordre": "Doridida",
+    "famille": "Chromodorididae",
+    "genre": "Verconia",
+    "morpho": "panache_branchial",
+    "taille": null,
+    "couleurs": [],
+    "motifs": [],
+    "source": "espece"
+  },
+  "volvatella-sp.1": {
+    "nom": "Volvatella sp.1",
+    "ordre": "Sacoglossa",
+    "famille": "Volvatellidae",
+    "genre": "Volvatella",
+    "morpho": "parapodes_plats",
+    "taille": null,
+    "couleurs": [
+      "rouge",
+      "rose"
+    ],
+    "motifs": [],
+    "source": "genre"
+  },
+  "volvatella-vigourouxi": {
+    "nom": "Volvatella vigourouxi",
+    "ordre": "Sacoglossa",
+    "famille": "Volvatellidae",
+    "genre": "Volvatella",
+    "morpho": "parapodes_plats",
+    "taille": [
+      null,
+      1.0
+    ],
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "rose"
+    ],
+    "motifs": [],
+    "source": "genre"
+  }
+}
