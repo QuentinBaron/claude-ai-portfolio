@@ -1856,13 +1856,14 @@ var COLOR_ADJACENT = {
 };
 
 /* ── Options morpho ── */
-/* 5 catégories observateur — vocabulaire terrain, pas taxonomique */
+/* 6 catégories observateur — vocabulaire terrain, pas taxonomique */
 var MORPHO_OPTIONS = [
-  { val: 'filaments',         ico: '🪸', lbl: 'Filaments sur le dos',   dsc: 'Tentacules, cérates, papilles, feuilles ou branchies latérales dressées' },
-  { val: 'panache_branchial', ico: '🌸', lbl: 'Couronne de branchies',  dsc: 'Branchies en fleur au milieu du dos, rétractables — le plus courant en PF' },
-  { val: 'dos_lisse',         ico: '🫘', lbl: 'Dos lisse ou avec crêtes', dsc: 'Aucun filament ni panache visible, surface lisse ou avec reliefs longitudinaux' },
+  { val: 'filaments',         ico: '🪸', lbl: 'Filaments sur le dos',   dsc: 'Tentacules, cérates, papilles, feuilles dressées — éolides, sacoglosses, dendronotides' },
+  { val: 'panache_branchial', ico: '🌸', lbl: 'Couronne de branchies',  dsc: 'Branchies en fleur au milieu du dos, rétractables — le plus courant en PF (doridacés)' },
+  { val: 'dos_lisse',         ico: '🫘', lbl: 'Dos lisse ou avec crêtes', dsc: 'Aucun filament ni panache, surface lisse ou avec carènes/tubercules — arminides' },
   { val: 'gros_animal',       ico: '🍃', lbl: 'Grand animal voilé',     dsc: 'Voiles latéraux larges, rhinophores en oreilles — lièvres de mer (Aplysia)' },
-  { val: 'limace_compacte',   ico: '🛡️', lbl: 'Limace compacte',        dsc: 'Corps arrondi, pas d\'appendices distincts, moins de 2–3 cm' }
+  { val: 'limace_compacte',   ico: '🛡️', lbl: 'Limace compacte',        dsc: 'Petite limace arrondie sans appendices distincts — runcines, certains céphalopides' },
+  { val: 'coquille_visible',  ico: '🐚', lbl: 'Coquille externe visible', dsc: 'Coquille bulleuse ou en dôme clairement visible — bulles, Umbraculum' }
 ];
 
 /* ── Options taille ── */
@@ -1875,19 +1876,19 @@ var SIZE_OPTIONS = [
 
 /* ── Swatches couleur ── */
 var SWATCH_COLORS = [
-  { val: 'blanc',       hex: '#f8fafc', stroke: '#cbd5e1' },
-  { val: 'jaune',       hex: '#fde047', stroke: '#fde047' },
-  { val: 'orange',      hex: '#f97316', stroke: '#f97316' },
-  { val: 'rouge',       hex: '#ef4444', stroke: '#ef4444' },
-  { val: 'rose',        hex: '#f472b6', stroke: '#f472b6' },
-  { val: 'violet',      hex: '#a855f7', stroke: '#a855f7' },
-  { val: 'bleu',        hex: '#3b82f6', stroke: '#3b82f6' },
-  { val: 'vert',        hex: '#22c55e', stroke: '#22c55e' },
-  { val: 'brun',        hex: '#92400e', stroke: '#92400e' },
-  { val: 'gris',        hex: '#94a3b8', stroke: '#94a3b8' },
-  { val: 'noir',        hex: '#0f172a', stroke: '#0f172a' },
-  { val: 'translucide', hex: 'linear-gradient(135deg,#f1f5f9 50%,#e0f2fe 100%)', stroke: '#7dd3fc' },
-  { val: 'irisé',       hex: 'linear-gradient(135deg,#c084fc,#38bdf8,#4ade80)', stroke: '#c084fc' }
+  { val: 'blanc',       hex: '#ffffff',  stroke: '#94a3b8' },  /* blanc pur + bord gris visible */
+  { val: 'jaune',       hex: '#fde047',  stroke: '#ca8a04' },
+  { val: 'orange',      hex: '#f97316',  stroke: '#c2410c' },
+  { val: 'rouge',       hex: '#ef4444',  stroke: '#b91c1c' },
+  { val: 'rose',        hex: '#f472b6',  stroke: '#be185d' },
+  { val: 'violet',      hex: '#a855f7',  stroke: '#7c3aed' },
+  { val: 'bleu',        hex: '#3b82f6',  stroke: '#1d4ed8' },
+  { val: 'vert',        hex: '#22c55e',  stroke: '#15803d' },
+  { val: 'brun',        hex: '#a16207',  stroke: '#92400e' },
+  { val: 'gris',        hex: '#94a3b8',  stroke: '#475569' },
+  { val: 'noir',        hex: '#0f172a',  stroke: '#0f172a' },
+  { val: 'translucide', hex: '#bfdbfe',  stroke: '#60a5fa' },  /* bleu très pâle (pas gradient inline) */
+  { val: 'irisé',       hex: '#e9d5ff',  stroke: '#a855f7' }   /* lavande (pas gradient inline) */
 ];
 
 /* ── Options motif ── */
@@ -1949,21 +1950,40 @@ var MOTIF_RE = {
   'tubercules':/\btubercu\w+|bosse\w*|épineux\b|épine\w*/i,
   'uni':       /\buni(?:forme)?\b|homogène\b|monochrome\b/i
 };
-/* Mapping ordre → catégorie observateur (5 catégories visuelles) */
+/* Mapping ordre → catégorie observateur (6 catégories visuelles) */
 var MORPHO_MAP_JS = {
   'Aeolida':        'filaments',
   'Dendronotida':   'filaments',
   'Janolina':       'filaments',
-  'Sacoglossa':     'filaments',      /* Costasiella etc. : cérates feuillus visibles */
-  'Pleurobranchida':'filaments',      /* branchie latérale = filament pour l'observateur */
+  'Sacoglossa':     'filaments',       /* Costasiella etc. : cérates feuillus visibles */
+  'Pleurobranchida':'filaments',       /* branchie latérale = appendice pour l'observateur */
   'Doridida':       'panache_branchial',
   'Arminida':       'dos_lisse',
   'Aplysiida':      'gros_animal',
   'Anaspidea':      'gros_animal',
-  'Cephalaspidea':  'limace_compacte',
-  'Umbraculida':    'limace_compacte',
+  'Cephalaspidea':  'coquille_visible', /* coquille bulleuse caractéristique */
+  'Umbraculida':    'coquille_visible', /* Umbraculum umbraculum */
   'Runcinida':      'limace_compacte',
   'Littorinimorpha':'limace_compacte'
+};
+
+/* Normalisation : valeurs JSON générées avec l'ancien système → nouvelles catégories UI
+   nudis_colors.json utilise les anciens libellés (cerates_simples, parapodes_plats, etc.)
+   Le scoring doit comparer avec les nouvelles catégories observateur */
+var MORPHO_NORMALIZE = {
+  'cerates_simples':   'filaments',
+  'cerates_ramifies':  'filaments',
+  'cerates_digestive': 'filaments',
+  'parapodes_plats':   'filaments',
+  'parapodes_epais':   'gros_animal',
+  'branchie_laterale': 'filaments',
+  'panache_branchial': 'panache_branchial',
+  'dos_lisse':         'dos_lisse',
+  'bouclier_coquille': 'coquille_visible',
+  'coquille_externe':  'coquille_visible',
+  'manteau_sur_coquille':'limace_compacte',
+  'corps_ovale_lisse': 'limace_compacte',
+  'inconnu':           'inconnu'
 };
 
 function extractColorsMotifs(txt) {
@@ -2014,10 +2034,11 @@ function scoreSpecies() {
     var score = 0;
     var penalty = 0;
 
-    /* Morpho — filtre souple (bonus fort, pénalité modérée) */
+    /* Morpho — filtre souple avec normalisation ancien→nouveau système */
     if (idState.morpho && cd) {
-      if (cd.morpho === idState.morpho) score += 30;
-      else if (cd.morpho && cd.morpho !== 'inconnu') penalty += 18;
+      var spMorpho = MORPHO_NORMALIZE[cd.morpho] || cd.morpho;
+      if (spMorpho === idState.morpho) score += 30;
+      else if (spMorpho && spMorpho !== 'inconnu') penalty += 18;
     }
 
     /* Taille — filtre souple */
@@ -2068,7 +2089,13 @@ function scoreSpecies() {
   /* Seuil adaptatif large : on garde tout sauf les exclusions claires */
   var maxScore = entries.length > 0 ? entries[0].score : 0;
   var seuil = Math.max(-40, maxScore - 90);
-  return entries.filter(function(e){ return e.score >= seuil; }).map(function(e){ return e.slug; });
+  var result = entries.filter(function(e){ return e.score >= seuil; }).map(function(e){ return e.slug; });
+  /* Filet de sécurité : on retourne toujours au moins les 20 meilleures espèces */
+  if (result.length < 5 && entries.length > 0) {
+    result = entries.slice(0, Math.min(20, entries.length)).map(function(e){ return e.slug; });
+  }
+  console.log('[Identifier] maxScore='+maxScore+' seuil='+seuil.toFixed(0)+' pool='+result.length+'/'+entries.length);
+  return result;
 }
 
 /* ── Rendu principal ── */
@@ -2177,9 +2204,9 @@ function renderCouleursStep() {
     + '<div class="swatch-grid">';
   SWATCH_COLORS.forEach(function(sw) {
     var sel = idState.couleurs.indexOf(sw.val) >= 0 ? ' sel' : '';
-    var bg = sw.hex.indexOf('gradient') >= 0 ? sw.hex : sw.hex;
+    var borderCol = sel ? '#0f172a' : sw.stroke;
     html += '<div class="swatch-item'+sel+'" title="'+sw.val
-      + '" style="background:'+sw.hex+';border-color:'+(sel?'#0f172a':sw.stroke)+';"'
+      + '" style="background:'+sw.hex+';border-color:'+borderCol+';outline:'+(sel?'2px solid #0d9488':'none')+';outline-offset:2px;"'
       + ' onclick="toggleCouleur(\''+sw.val+'\')"></div>';
   });
   html += '</div>'
