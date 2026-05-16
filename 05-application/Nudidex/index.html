@@ -1856,16 +1856,13 @@ var COLOR_ADJACENT = {
 };
 
 /* ── Options morpho ── */
+/* 5 catégories observateur — vocabulaire terrain, pas taxonomique */
 var MORPHO_OPTIONS = [
-  { val: 'cerates_simples',   ico: '🪸', lbl: 'Cérates simples',    dsc: 'Filaments dorsaux en touffe — nudibranches éolides' },
-  { val: 'cerates_ramifies',  ico: '🌿', lbl: 'Cérates ramifiés',   dsc: 'Filaments dorsaux ramifiés — dendronotides' },
-  { val: 'panache_branchial', ico: '🌸', lbl: 'Panache branchial',  dsc: 'Branchies en couronne sur le dos — doridacés' },
-  { val: 'dos_lisse',         ico: '🫘', lbl: 'Dos lisse/crêtes',   dsc: 'Dos sans cérates ni panache — arminides' },
-  { val: 'parapodes_epais',   ico: '🍃', lbl: 'Parapodes larges',   dsc: 'Voiles latéraux épais — aplysies (lièvres de mer)' },
-  { val: 'parapodes_plats',   ico: '🍂', lbl: 'Parapodes plats',    dsc: 'Voiles latéraux fins — sacoglosses' },
-  { val: 'branchie_laterale', ico: '🔱', lbl: 'Branchie latérale',  dsc: 'Branchie sur le flanc — pleurobranches' },
-  { val: 'bouclier_coquille', ico: '🛡️', lbl: 'Bouclier/coquille',  dsc: 'Bouclier céphalique — céphalopides' },
-  { val: 'corps_ovale_lisse', ico: '🥚', lbl: 'Corps ovale lisse',  dsc: 'Corps compact sans appendices — runcines' }
+  { val: 'filaments',         ico: '🪸', lbl: 'Filaments sur le dos',   dsc: 'Tentacules, cérates, papilles, feuilles ou branchies latérales dressées' },
+  { val: 'panache_branchial', ico: '🌸', lbl: 'Couronne de branchies',  dsc: 'Branchies en fleur au milieu du dos, rétractables — le plus courant en PF' },
+  { val: 'dos_lisse',         ico: '🫘', lbl: 'Dos lisse ou avec crêtes', dsc: 'Aucun filament ni panache visible, surface lisse ou avec reliefs longitudinaux' },
+  { val: 'gros_animal',       ico: '🍃', lbl: 'Grand animal voilé',     dsc: 'Voiles latéraux larges, rhinophores en oreilles — lièvres de mer (Aplysia)' },
+  { val: 'limace_compacte',   ico: '🛡️', lbl: 'Limace compacte',        dsc: 'Corps arrondi, pas d\'appendices distincts, moins de 2–3 cm' }
 ];
 
 /* ── Options taille ── */
@@ -1905,7 +1902,7 @@ var MOTIF_OPTIONS = [
 
 /* ── État de la session d'identification ── */
 var idState = {
-  step: 0,           // 0=morpho, 1=taille, 2=couleurs, 3=motifs, 4=résultats
+  step: 0,           // 0=couleurs, 1=morpho, 2=taille, 3=résultats
   morpho: null,
   tailleIdx: null,
   couleurs: [],
@@ -1952,12 +1949,21 @@ var MOTIF_RE = {
   'tubercules':/\btubercu\w+|bosse\w*|épineux\b|épine\w*/i,
   'uni':       /\buni(?:forme)?\b|homogène\b|monochrome\b/i
 };
+/* Mapping ordre → catégorie observateur (5 catégories visuelles) */
 var MORPHO_MAP_JS = {
-  'Aeolida':'cerates_simples','Dendronotida':'cerates_ramifies','Janolina':'cerates_digestive',
-  'Doridida':'panache_branchial','Arminida':'dos_lisse','Pleurobranchida':'branchie_laterale',
-  'Aplysiida':'parapodes_epais','Anaspidea':'parapodes_epais','Sacoglossa':'parapodes_plats',
-  'Cephalaspidea':'bouclier_coquille','Umbraculida':'bouclier_coquille',
-  'Runcinida':'corps_ovale_lisse','Littorinimorpha':'bouclier_coquille'
+  'Aeolida':        'filaments',
+  'Dendronotida':   'filaments',
+  'Janolina':       'filaments',
+  'Sacoglossa':     'filaments',      /* Costasiella etc. : cérates feuillus visibles */
+  'Pleurobranchida':'filaments',      /* branchie latérale = filament pour l'observateur */
+  'Doridida':       'panache_branchial',
+  'Arminida':       'dos_lisse',
+  'Aplysiida':      'gros_animal',
+  'Anaspidea':      'gros_animal',
+  'Cephalaspidea':  'limace_compacte',
+  'Umbraculida':    'limace_compacte',
+  'Runcinida':      'limace_compacte',
+  'Littorinimorpha':'limace_compacte'
 };
 
 function extractColorsMotifs(txt) {
@@ -2008,10 +2014,10 @@ function scoreSpecies() {
     var score = 0;
     var penalty = 0;
 
-    /* Morpho — filtre dur si connu */
+    /* Morpho — filtre souple (bonus fort, pénalité modérée) */
     if (idState.morpho && cd) {
       if (cd.morpho === idState.morpho) score += 30;
-      else if (cd.morpho && cd.morpho !== 'inconnu') penalty += 40;
+      else if (cd.morpho && cd.morpho !== 'inconnu') penalty += 18;
     }
 
     /* Taille — filtre souple */
@@ -2059,9 +2065,9 @@ function scoreSpecies() {
   /* Trier et retourner slugs avec score > seuil */
   var entries = allSlugs.map(function(s){ return { slug:s, score: scores[s] || 0 }; });
   entries.sort(function(a,b){ return b.score - a.score; });
-  /* Seuil adaptatif : on exclut les scores très négatifs */
+  /* Seuil adaptatif large : on garde tout sauf les exclusions claires */
   var maxScore = entries.length > 0 ? entries[0].score : 0;
-  var seuil = Math.max(-20, maxScore - 60);
+  var seuil = Math.max(-40, maxScore - 90);
   return entries.filter(function(e){ return e.score >= seuil; }).map(function(e){ return e.slug; });
 }
 
@@ -2077,7 +2083,8 @@ function initIdentifyView() {
   });
 }
 
-var ID_STEPS = ['Morphologie','Taille','Couleurs','Motifs'];
+/* Ordre repensé : couleurs (1er observable) → forme → taille → résultats */
+var ID_STEPS = ['Couleurs','Forme','Taille'];
 
 function renderIdSteps() {
   var el = document.getElementById('id-steps');
@@ -2094,11 +2101,10 @@ function renderIdSteps() {
 function renderIdScreen() {
   renderIdSteps();
   switch(idState.step) {
-    case 0: renderMorphoStep(); break;
-    case 1: renderTailleStep(); break;
-    case 2: renderCouleursStep(); break;
-    case 3: renderMotifsStep(); break;
-    case 4: renderIdResults(); break;
+    case 0: renderCouleursStep(); break;
+    case 1: renderMorphoStep(); break;
+    case 2: renderTailleStep(); break;
+    case 3: renderIdResults(); break;
   }
 }
 
@@ -2108,10 +2114,10 @@ function poolLabel() {
   return n + ' espèce' + (n>1?'s':'') + ' candidates';
 }
 
-/* ── Étape 0 : morphologie ── */
+/* ── Étape 1 : morphologie (forme générale) ── */
 function renderMorphoStep() {
   var html = '<p class="id-question">Quelle est la forme générale de l\'animal ?</p>'
-    + '<p class="id-subq">Regardez le dos et les appendices</p>'
+    + '<p class="id-subq">Regardez le dos et les appendices visibles</p>'
     + '<div class="morpho-grid">';
   MORPHO_OPTIONS.forEach(function(opt) {
     var sel = idState.morpho === opt.val ? ' sel' : '';
@@ -2119,35 +2125,6 @@ function renderMorphoStep() {
       + '<div class="morpho-ico">'+opt.ico+'</div>'
       + '<div class="morpho-lbl">'+opt.lbl+'</div>'
       + '<div class="morpho-dsc">'+opt.dsc+'</div>'
-      + '</div>';
-  });
-  html += '</div>'
-    + '<div class="id-nav">'
-    + '<button class="id-btn id-btn-p" onclick="idNext()">Suivant →</button>'
-    + '<button class="id-btn id-btn-s" onclick="idSkip()">Passer</button>'
-    + '<span class="id-pool">'+poolLabel()+'</span>'
-    + '</div>';
-  document.getElementById('id-body').innerHTML = html;
-}
-
-function selectMorpho(val) {
-  idState.morpho = (idState.morpho === val) ? null : val;
-  document.querySelectorAll('.morpho-opt').forEach(function(el){
-    el.classList.toggle('sel', el.getAttribute('onclick').indexOf("'"+val+"'") >= 0 && idState.morpho===val);
-  });
-  document.querySelector('.id-pool').textContent = poolLabel();
-}
-
-/* ── Étape 1 : taille ── */
-function renderTailleStep() {
-  var html = '<p class="id-question">Quelle est la taille de l\'animal ?</p>'
-    + '<p class="id-subq">Estimation visuelle sur le terrain</p>'
-    + '<div class="size-grid">';
-  SIZE_OPTIONS.forEach(function(opt, i) {
-    var sel = idState.tailleIdx === i ? ' sel' : '';
-    html += '<div class="size-opt'+sel+'" onclick="selectTaille('+i+')">'
-      + '<div class="size-lbl">'+opt.lbl+'</div>'
-      + '<div class="size-dsc">'+opt.dsc+'</div>'
       + '</div>';
   });
   html += '</div>'
@@ -2160,12 +2137,36 @@ function renderTailleStep() {
   document.getElementById('id-body').innerHTML = html;
 }
 
+function selectMorpho(val) {
+  idState.morpho = (idState.morpho === val) ? null : val;
+  renderMorphoStep();
+}
+
+/* ── Étape 2 : taille ── */
+function renderTailleStep() {
+  var html = '<p class="id-question">Quelle est la taille de l\'animal ?</p>'
+    + '<p class="id-subq">Estimation visuelle — en cas de doute, choisir la tranche la plus large</p>'
+    + '<div class="size-grid">';
+  SIZE_OPTIONS.forEach(function(opt, i) {
+    var sel = idState.tailleIdx === i ? ' sel' : '';
+    html += '<div class="size-opt'+sel+'" onclick="selectTaille('+i+')">'
+      + '<div class="size-lbl">'+opt.lbl+'</div>'
+      + '<div class="size-dsc">'+opt.dsc+'</div>'
+      + '</div>';
+  });
+  html += '</div>'
+    + '<div class="id-nav">'
+    + '<button class="id-btn id-btn-s" onclick="idBack()">← Retour</button>'
+    + '<button class="id-btn id-btn-p" onclick="idNext()">Voir les résultats</button>'
+    + '<button class="id-btn id-btn-s" onclick="idSkip()">Passer</button>'
+    + '<span class="id-pool">'+poolLabel()+'</span>'
+    + '</div>';
+  document.getElementById('id-body').innerHTML = html;
+}
+
 function selectTaille(idx) {
   idState.tailleIdx = (idState.tailleIdx === idx) ? null : idx;
-  document.querySelectorAll('.size-opt').forEach(function(el, i){
-    el.classList.toggle('sel', i===idState.tailleIdx);
-  });
-  document.querySelector('.id-pool').textContent = poolLabel();
+  renderTailleStep();
 }
 
 /* ── Étape 2 : couleurs ── */
