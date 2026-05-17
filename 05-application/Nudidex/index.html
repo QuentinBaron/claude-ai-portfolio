@@ -308,6 +308,14 @@ td { padding: 9px 12px; vertical-align: middle; }
 .id-nf { background: #f8fafc; border-radius: 10px; padding: 14px 16px; text-align: center; border: 1px dashed #cbd5e1; margin-top: 8px; }
 .id-nf p { font-size: 13px; color: #64748b; margin-bottom: 10px; }
 .id-loading { text-align: center; padding: 40px 20px; color: #64748b; font-style: italic; }
+.id-followup { background: #f0fdf9; border: 1.5px solid #99f6e4; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; }
+.id-followup-q { font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 3px; }
+.id-followup-hint { font-size: 11px; color: #64748b; font-style: italic; margin-bottom: 10px; }
+.id-followup-btns { display: flex; gap: 7px; flex-wrap: wrap; }
+.id-fq-btn { padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; border: 1.5px solid; transition: all .15s; }
+.id-fq-oui  { background: #0d9488; color: #fff; border-color: #0d9488; }
+.id-fq-non  { background: #fff; color: #475569; border-color: #cbd5e1; }
+.id-fq-pass { background: transparent; color: #94a3b8; border-color: transparent; font-size: 11px; }
 </style>
 </head>
 <body>
@@ -1901,6 +1909,50 @@ var MOTIF_OPTIONS = [
   { val: 'tubercules',lbl: 'Tubercules / relief' }
 ];
 
+/* ── Questions de suivi (discriminantes par famille) ── */
+var FOLLOWUP_QUESTIONS = [
+  {
+    id: 'queue_fourchue',
+    ico: '🍴',
+    q: 'La queue de l\'animal est-elle fourchue (bifide) ?',
+    hint: 'Caractéristique des Aglajidae (Chelidonura, Navarchus…)',
+    yesKeepFam:   ['Aglajidae'],
+    noExcludeFam: ['Aglajidae']
+  },
+  {
+    id: 'coquille',
+    ico: '🐚',
+    q: 'Une coquille est-elle visible sur le dos ?',
+    hint: 'Même petite ou translucide — exclut Aglajidae et Gastropteridae',
+    yesKeepFam:   ['Haminoeidae','Bullidae','Aplustridae','Ringiculidae','Oxynoidae','Volvatellidae','Juliidae'],
+    noExcludeFam: ['Haminoeidae','Bullidae','Aplustridae','Ringiculidae','Oxynoidae','Volvatellidae','Juliidae']
+  },
+  {
+    id: 'voiles_natatoires',
+    ico: '🦋',
+    q: 'L\'animal a-t-il de larges voiles ou "ailes" sur les côtés ?',
+    hint: 'Gastropteridae (Sagaminopteron psychedelicum)',
+    yesKeepFam:   ['Gastropteridae'],
+    noExcludeFam: ['Gastropteridae']
+  },
+  {
+    id: 'corps_plat_feuille',
+    ico: '🍃',
+    q: 'Le corps est-il très plat et allongé (forme de feuille) ?',
+    hint: 'Elysiidae, Plakobranchidae — parapodes aplatis soudés',
+    yesKeepFam:   ['Elysiidae','Plakobranchidae','Caliphyllidae'],
+    noExcludeFam: ['Elysiidae','Plakobranchidae','Caliphyllidae']
+  },
+  {
+    id: 'cerates_feuilles',
+    ico: '🌿',
+    q: 'Les cérates ressemblent-ils à de petites feuilles ou algues vertes ?',
+    hint: 'Costasiellidae — souvent vert vif avec des cérates chloroplastides',
+    yesKeepFam:   ['Costasiellidae'],
+    noExcludeFam: ['Costasiellidae']
+  }
+];
+
 /* ── État de la session d'identification ── */
 var idState = {
   step: 0,           // 0=couleurs, 1=morpho, 2=taille, 3=résultats
@@ -1908,7 +1960,8 @@ var idState = {
   tailleIdx: null,
   couleurs: [],
   motifs: [],
-  pool: []           // slugs candidats courants
+  pool: [],
+  followup: {}       // {questionId: true/false} réponses aux questions de suivi
 };
 
 /* ── Données couleurs (nudis_colors.json) ── */
@@ -1950,12 +2003,37 @@ var MOTIF_RE = {
   'tubercules':/\btubercu\w+|bosse\w*|épineux\b|épine\w*/i,
   'uni':       /\buni(?:forme)?\b|homogène\b|monochrome\b/i
 };
+/* Mapping famille → catégorie observateur (prioritaire sur l'ordre) */
+var FAMILY_MORPHO_MAP_JS = {
+  // Sacoglossa — classement par famille
+  'Costasiellidae':   'filaments',
+  'Hermaeidae':       'filaments',
+  'Caliphyllidae':    'filaments',
+  'Elysiidae':        'limace_compacte',
+  'Plakobranchidae':  'limace_compacte',
+  'Limapontiidae':    'limace_compacte',
+  'Oxynoidae':        'coquille_visible',
+  'Volvatellidae':    'coquille_visible',
+  'Juliidae':         'coquille_visible',
+  // Cephalaspidea — pas de coquille pour Aglajidae et Gastropteridae
+  'Aglajidae':        'limace_compacte',
+  'Gastropteridae':   'limace_compacte',
+  'Haminoeidae':      'coquille_visible',
+  'Bullidae':         'coquille_visible',
+  'Aplustridae':      'coquille_visible',
+  'Ringiculidae':     'coquille_visible',
+  // Pleurobranchida — dos lisse (branchie latérale, pas de panache)
+  'Pleurobranchidae': 'dos_lisse',
+  'Berthellidae':     'dos_lisse',
+  'Berthelliniidae':  'dos_lisse',
+};
+
 /* Mapping ordre → catégorie observateur (6 catégories visuelles) */
 var MORPHO_MAP_JS = {
   'Aeolida':        'filaments',
   'Dendronotida':   'filaments',
   'Janolina':       'filaments',
-  'Sacoglossa':     'filaments',       /* Costasiella etc. : cérates feuillus visibles */
+  'Sacoglossa':     'inconnu',         /* trop hétérogène : cérates/parapodes/coquille selon genre */
   'Pleurobranchida':'filaments',       /* branchie latérale = appendice pour l'observateur */
   'Doridida':       'panache_branchial',
   'Arminida':       'dos_lisse',
@@ -1971,10 +2049,11 @@ var MORPHO_MAP_JS = {
    nudis_colors.json utilise les anciens libellés (cerates_simples, parapodes_plats, etc.)
    Le scoring doit comparer avec les nouvelles catégories observateur */
 var MORPHO_NORMALIZE = {
+  /* Anciennes valeurs JSON → nouvelles catégories UI */
   'cerates_simples':   'filaments',
   'cerates_ramifies':  'filaments',
   'cerates_digestive': 'filaments',
-  'parapodes_plats':   'filaments',
+  'parapodes_plats':   'inconnu',      /* Sacoglossa : trop mixte pour forcer filaments */
   'parapodes_epais':   'gros_animal',
   'branchie_laterale': 'filaments',
   'panache_branchial': 'panache_branchial',
@@ -1983,7 +2062,12 @@ var MORPHO_NORMALIZE = {
   'coquille_externe':  'coquille_visible',
   'manteau_sur_coquille':'limace_compacte',
   'corps_ovale_lisse': 'limace_compacte',
-  'inconnu':           'inconnu'
+  'inconnu':           'inconnu',
+  /* Nouvelles valeurs (JSON régénéré) → passthrough */
+  'filaments':         'filaments',
+  'gros_animal':       'gros_animal',
+  'coquille_visible':  'coquille_visible',
+  'limace_compacte':   'limace_compacte'
 };
 
 function extractColorsMotifs(txt) {
@@ -2006,7 +2090,7 @@ function buildColorsDataFallback() {
     var taille = parseTailleJS(sp.t || '');
     result[slug] = {
       nom: nom, ordre: sp.o||'', famille: sp.f||'', genre: genus,
-      morpho: MORPHO_MAP_JS[sp.o] || 'inconnu',
+      morpho: FAMILY_MORPHO_MAP_JS[sp.f] || MORPHO_MAP_JS[sp.o] || 'inconnu',
       taille: taille, couleurs: feats.couleurs, motifs: feats.motifs,
       source: CH[nom] ? 'espece' : CH[genus] ? 'genre' : 'aucune'
     };
@@ -2034,11 +2118,12 @@ function scoreSpecies() {
     var score = 0;
     var penalty = 0;
 
-    /* Morpho — filtre souple avec normalisation ancien→nouveau système */
-    if (idState.morpho && cd) {
-      var spMorpho = MORPHO_NORMALIZE[cd.morpho] || cd.morpho;
+    /* Morpho — filtre fort (symétrique : bonus = pénalité) */
+    if (idState.morpho) {
+      var spMorpho = cd ? (MORPHO_NORMALIZE[cd.morpho] || cd.morpho) : 'inconnu';
       if (spMorpho === idState.morpho) score += 30;
-      else if (spMorpho && spMorpho !== 'inconnu') penalty += 18;
+      else if (spMorpho === 'inconnu') penalty += 10;  /* pas de donnée morpho */
+      else penalty += 30;                               /* morpho clairement différente */
     }
 
     /* Taille — filtre souple */
@@ -2053,17 +2138,19 @@ function scoreSpecies() {
       }
     }
 
-    /* Couleurs — scoring avec adjacences */
-    if (idState.couleurs.length > 0 && cd) {
-      var spCouleurs = cd.couleurs || [];
+    /* Couleurs — scoring avec adjacences + pénalité si aucune donnée */
+    if (idState.couleurs.length > 0) {
+      var spCouleurs = (cd && cd.couleurs) ? cd.couleurs : [];
+      var hasColorData = spCouleurs.length > 0;
       idState.couleurs.forEach(function(c) {
         if (spCouleurs.indexOf(c) >= 0) {
           score += 12;
         } else {
           var adj = COLOR_ADJACENT[c] || [];
           var hasAdj = adj.some(function(ac){ return spCouleurs.indexOf(ac) >= 0; });
-          if (hasAdj) score += 4;
-          else if (spCouleurs.length > 0) penalty += 6;
+          if (hasAdj)         score += 4;
+          else if (hasColorData) penalty += 6;  /* couleur absente des données */
+          else                   penalty += 3;  /* pas de données couleur du tout */
         }
       });
     }
@@ -2083,21 +2170,36 @@ function scoreSpecies() {
   /* Trier et retourner slugs avec score > seuil */
   var entries = slugs.map(function(s){ return { slug:s, score: scores[s] || 0 }; });
   entries.sort(function(a,b){ return b.score - a.score; });
-  /* Seuil adaptatif large : on garde tout sauf les exclusions claires */
+
+  /* Seuil adaptatif : se resserre au fur et à mesure que des critères sont ajoutés */
+  var criteriaCount = (idState.morpho ? 1 : 0)
+                    + (idState.couleurs.length > 0 ? 1 : 0)
+                    + (idState.tailleIdx !== null ? 1 : 0);
   var maxScore = entries.length > 0 ? entries[0].score : 0;
-  var seuil = Math.max(-40, maxScore - 90);
+  /* floor_min : plus on a de critères, moins on tolère les mauvais scores */
+  var floorMin  = criteriaCount === 0 ? 0
+                : criteriaCount === 1 ? -15
+                : criteriaCount === 2 ? -5
+                : 5;
+  /* spread : écart max par rapport au meilleur score qu'on tolère */
+  var spread    = criteriaCount === 0 ? 9999
+                : criteriaCount === 1 ? 60
+                : criteriaCount === 2 ? 45
+                : 35;
+  var seuil = Math.max(floorMin, maxScore - spread);
+
   var result = entries.filter(function(e){ return e.score >= seuil; }).map(function(e){ return e.slug; });
-  /* Filet de sécurité : on retourne toujours au moins les 20 meilleures espèces */
-  if (result.length < 5 && entries.length > 0) {
+  /* Filet de sécurité : toujours au moins 8 résultats si données disponibles */
+  if (result.length < 8 && entries.length > 0) {
     result = entries.slice(0, Math.min(20, entries.length)).map(function(e){ return e.slug; });
   }
-  console.log('[Identifier] maxScore='+maxScore+' seuil='+seuil.toFixed(0)+' pool='+result.length+'/'+entries.length);
+  console.log('[Identifier] criteria='+criteriaCount+' maxScore='+maxScore+' seuil='+seuil.toFixed(0)+' pool='+result.length+'/'+entries.length);
   return result;
 }
 
 /* ── Rendu principal ── */
 function initIdentifyView() {
-  idState = { step:0, morpho:null, tailleIdx:null, couleurs:[], motifs:[], pool:[] };
+  idState = { step:0, morpho:null, tailleIdx:null, couleurs:[], motifs:[], pool:[], followup:{} };
   document.getElementById('id-title').textContent = 'Identifier une espèce';
   var body = document.getElementById('id-body');
   body.innerHTML = '<div class="id-loading">Chargement des données morphologiques…</div>';
@@ -2283,6 +2385,7 @@ function idNext() {
   renderIdScreen();
 }
 function idBack() {
+  if (idState.step === 3) idState.followup = {}; /* retour depuis résultats → réinitialise les filtres de suivi */
   idState.step = Math.max(idState.step - 1, 0);
   idState.pool = safeScore();
   renderIdScreen();
@@ -2291,13 +2394,82 @@ function idSkip() {
   idNext();
 }
 
+/* ── Filtres de suivi (follow-up questions) ── */
+
+/**
+ * Applique les réponses enregistrées dans idState.followup au pool.
+ * YES → garde uniquement les espèces des familles cibles (yesKeepFam)
+ * NO  → exclut les espèces des familles cibles (noExcludeFam)
+ * skip → pas de filtre pour cette question
+ */
+function applyFollowupFilters(pool, spBySlug) {
+  var filtered = pool;
+  Object.keys(idState.followup).forEach(function(fqId) {
+    var answer = idState.followup[fqId];
+    if (answer === 'skip') return;
+    var fq = null;
+    FOLLOWUP_QUESTIONS.forEach(function(q){ if (q.id === fqId) fq = q; });
+    if (!fq) return;
+    if (answer === true) {
+      /* OUI : trait distinctif présent → ne garder que les familles qui ont ce trait */
+      filtered = filtered.filter(function(slug) {
+        var sp = spBySlug[slug];
+        return sp && fq.yesKeepFam.indexOf(sp.f || '') >= 0;
+      });
+    } else {
+      /* NON : trait absent → exclure les familles qui requièrent ce trait */
+      filtered = filtered.filter(function(slug) {
+        var sp = spBySlug[slug];
+        return !sp || fq.noExcludeFam.indexOf(sp.f || '') < 0;
+      });
+    }
+  });
+  return filtered;
+}
+
+/**
+ * Choisit la question de suivi la plus discriminante pour le pool actuel.
+ * Ne propose une question que si sa famille cible est présente dans le pool.
+ * Préfère les questions qui coupent le pool le plus près de 50/50.
+ */
+function chooseBestFollowup(pool, spBySlug) {
+  var best = null, bestScore = -1;
+  FOLLOWUP_QUESTIONS.forEach(function(fq) {
+    if (idState.followup.hasOwnProperty(fq.id)) return; /* déjà répondu */
+    var inFam = 0, outFam = 0;
+    pool.forEach(function(slug) {
+      var sp = spBySlug[slug];
+      if (!sp) return;
+      if (fq.yesKeepFam.indexOf(sp.f || '') >= 0) inFam++;
+      else outFam++;
+    });
+    if (inFam === 0) return; /* famille pas représentée dans ce pool → question inutile */
+    /* Score = min(inFam, outFam) — plus la division est proche de 50/50, plus c'est discriminant */
+    var disc = Math.min(inFam, outFam);
+    if (disc > bestScore) { bestScore = disc; best = fq; }
+  });
+  return best;
+}
+
+/**
+ * Enregistre la réponse à une question de suivi et recharge les résultats.
+ * answer : true (oui), false (non), 'skip' (passer)
+ */
+function answerFollowup(fqId, answer) {
+  idState.followup[fqId] = answer;
+  renderIdResults();
+}
+
 /* ── Étape 4 : résultats ── */
 function renderIdResults() {
   renderIdSteps();
-  var ranked = safeScore();
-  var top = ranked.slice(0, 24);
   var spBySlug = {};
   (window.SPECIES || []).forEach(function(sp){ spBySlug[sp.s] = sp; });
+
+  var ranked = safeScore();
+  /* Appliquer les filtres de suivi (réponses aux questions discriminantes) */
+  var filtered = applyFollowupFilters(ranked, spBySlug);
+  var top = filtered.slice(0, 24);
 
   var html = '';
   if (top.length === 0) {
@@ -2309,17 +2481,32 @@ function renderIdResults() {
     return;
   }
 
+  /* Question de suivi si le pool reste trop large */
+  if (filtered.length > 12) {
+    var nextQ = chooseBestFollowup(filtered, spBySlug);
+    if (nextQ) {
+      html += '<div class="id-followup">'
+        + '<div class="id-followup-q">'+nextQ.ico+' '+nextQ.q+'</div>'
+        + '<div class="id-followup-hint">'+nextQ.hint+'</div>'
+        + '<div class="id-followup-btns">'
+        + '<button class="id-fq-btn id-fq-oui" onclick="answerFollowup(\''+nextQ.id+'\',true)">Oui</button>'
+        + '<button class="id-fq-btn id-fq-non" onclick="answerFollowup(\''+nextQ.id+'\',false)">Non</button>'
+        + '<button class="id-fq-btn id-fq-pass" onclick="answerFollowup(\''+nextQ.id+'\',\'skip\')">Passer</button>'
+        + '</div></div>';
+    }
+  }
+
   html += '<p style="font-size:12px;color:#64748b;margin-bottom:12px;">'
     + top.length + ' candidat' + (top.length>1?'s':'')
-    + (ranked.length > top.length ? ' (sur '+ranked.length+' espèces filtrées)' : '')
+    + (filtered.length > top.length ? ' (sur '+filtered.length+' espèces filtrées)' : '')
     + ' · Cliquer pour identifier</p>'
     + '<div class="id-results-grid">';
 
   top.forEach(function(slug) {
     var sp = spBySlug[slug];
     if (!sp) return;
-    var photos = sp.p || [];
-    var firstPhoto = photos[0] || '';
+    /* sp.ps = tableau de photos, sp.p = URL principale unique */
+    var firstPhoto = (sp.ps && sp.ps.length) ? sp.ps[0] : (sp.p || '');
     html += '<div class="id-rc" onclick="openLb(\''+esc(slug)+'\')">';
     if (firstPhoto) {
       html += '<img src="'+esc(firstPhoto)+'" alt="'+esc(sp.n||'')+'" loading="lazy">';
