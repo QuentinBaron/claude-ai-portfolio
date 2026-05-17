@@ -405,7 +405,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.17-0951</span>
+  <span title="Version de déploiement">v2026.05.17-1158</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -1945,17 +1945,23 @@ var L2_PARAPODES = {
 
 /* ── Coloration générale → famille ── */
 var COLORATION_FAMILY = {
-  'Chromodorididae':'vif','Hexabranchidae':'vif','Facelinidae':'vif',
-  'Flabellinidae':'vif','Polyceridae':'vif','Goniodorididae':'vif',
-  'Vayssiereidae':'vif','Costasiellidae':'vif','Elysiidae':'vif',
+  /* VIVES — couleurs franches sur tout le corps */
+  'Chromodorididae':'vives','Hexabranchidae':'vives','Facelinidae':'vives',
+  'Flabellinidae':'vives','Polyceridae':'vives','Goniodorididae':'vives',
+  'Vayssiereidae':'vives','Costasiellidae':'vives','Elysiidae':'vives',
+  'Eubranchidae':'vives','Samlidae':'vives',
+  /* MOTIFS — fond sobre + motifs contrastes */
   'Phyllidiidae':'motifs','Dorididae':'motifs','Discodorididae':'motifs',
-  'Aegiridae':'motifs','Tritoniidae':'motifs','Arminidae':'motifs',
-  'Aeolidiidae':'camouflé','Pleurobranchidae':'camouflé','Aplysiidae':'camouflé',
-  'Dolabriferidae':'camouflé','Dendrodorididae':'camouflé','Bornellidae':'camouflé',
-  'Dotidae':'camouflé','Trinchesiidae':'camouflé','Eubranchidae':'camouflé',
-  'Scyllaeidae':'camouflé','Tethydidae':'camouflé','Actinocyclidae':'camouflé',
-  'Aglajidae':'sobre','Runcinidae':'sobre','Limapontiidae':'sobre',
-  'Haminoeidae':'sobre','Velutinidae':'camouflé','Bullidae':'camouflé',
+  'Aegiridae':'motifs','Arminidae':'motifs','Aplustridae':'motifs',
+  'Aglajidae':'motifs',   /* sobre uniforme — a verifier par espece */
+  /* CAMOUFLAGE — discret, proche substrat */
+  'Aeolidiidae':'camouflage','Pleurobranchidae':'camouflage','Aplysiidae':'camouflage',
+  'Dolabriferidae':'camouflage','Dendrodorididae':'camouflage','Bornellidae':'camouflage',
+  'Dotidae':'camouflage','Trinchesiidae':'camouflage',
+  'Scyllaeidae':'camouflage','Tethydidae':'camouflage','Actinocyclidae':'camouflage',
+  'Tritoniidae':'camouflage','Runcinidae':'camouflage','Limapontiidae':'camouflage',
+  'Haminoeidae':'camouflage','Velutinidae':'camouflage','Bullidae':'camouflage',
+  'Gastropteridae':'camouflage','Janolidae':'camouflage','Madrellidae':'camouflage',
 };
 
 /* ── Adjacences couleur (profondeur / perception) ── */
@@ -2109,7 +2115,7 @@ function scoreSpecies() {
     if (idState.coloration) {
       var _cdC = COLORS_DATA ? COLORS_DATA[slug] : null;
       var cl = (_cdC && _cdC.coloration) || COLORATION_FAMILY[fam];
-      if (cl === idState.coloration) score += 15; else if (cl) penalty += 10;
+      if (cl === idState.coloration) score += 12; else if (cl) penalty += 6;
     }
 
     /* Couleurs (COLORS_DATA) — deux tiers : certaines (+12) / acceptables (+6) */
@@ -2386,10 +2392,9 @@ function selectL2(field, val) {
 
 /* ── Étape 2 : Coloration + Couleurs ── */
 var COLORATION_OPTIONS = [
-  { val:'vif',      ico:'🌈', lbl:'Vif et coloré',    dsc:'Couleurs franches, contrastées, attire l\'œil' },
-  { val:'motifs',   ico:'🎨', lbl:'Uni avec motifs',   dsc:'Points, lignes, bordures sur fond de couleur' },
-  { val:'camouflé', ico:'🪨', lbl:'Camouflé',          dsc:'Se confond avec le substrat — brun, gris, vert sombre' },
-  { val:'sobre',    ico:'🤍', lbl:'Uni et sobre',      dsc:'Blanc, gris clair, beige — peu de contraste' },
+  { val:'vives',      ico:'🌈', lbl:'Couleurs vives',        dsc:'Couleurs franches et saturées sur tout le corps — attire immédiatement l\'œil. Ex : bleu + blanc + violet, rouge vif, orange brillant, jaune lumineux' },
+  { val:'motifs',     ico:'🎨', lbl:'Sobre avec motifs',     dsc:'Fond clair (blanc, gris, bleu pâle) avec éléments identifiables : lignes, anneaux, points, marbrures, bordures colorées. Ex : blanc avec lignes noires et rhinophores oranges' },
+  { val:'camouflage', ico:'🪨', lbl:'Camouflage ou discrète', dsc:'Se fond dans le substrat — teintes brunes, beiges, grises ou vertes ternes. Discret, difficile à repérer à distance' },
 ];
 
 function renderColorStep() {
@@ -2402,8 +2407,14 @@ function renderColorStep() {
     html += '<div class="motif-opt'+sel+'" onclick="selectColoration(\''+opt.val+'\')" title="'+opt.dsc+'">'
       + opt.ico+' '+opt.lbl+'</div>';
   });
-  html += '</div>'
-    + '<p class="id-subq" style="font-weight:700;color:#0f172a;margin-top:14px;">Couleurs observées <span style="font-weight:400">(multi-sélection)</span></p>'
+  html += '</div>';
+  // Description de l'option sélectionnée
+  var selOpt = COLORATION_OPTIONS.filter(function(o){ return o.val === idState.coloration; })[0];
+  if (selOpt) {
+    html += '<p style="font-size:12px;color:#475569;background:#f8fafc;border-left:3px solid #0d9488;padding:6px 10px;margin:6px 0 0;border-radius:0 6px 6px 0;line-height:1.5;">'
+      + selOpt.dsc + '</p>';
+  }
+  html += '<p class="id-subq" style="font-weight:700;color:#0f172a;margin-top:14px;">Couleurs observées <span style="font-weight:400">(multi-sélection)</span></p>'
     + '<div class="swatch-grid">';
   SWATCH_COLORS.forEach(function(sw) {
     var sel = idState.couleurs.indexOf(sw.val) >= 0;
