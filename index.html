@@ -2027,9 +2027,9 @@ function parseTailleJS(txt) {
 /* ── Scoring / filtrage ── */
 function scoreSpecies() {
   var scores = {};
-  var allSlugs = (window.DATA || []).map(function(sp){ return sp.s; });
+  var slugs = allSlugs();   /* tableau de slugs, allSlugs() = fonction définie plus haut */
 
-  allSlugs.forEach(function(slug) {
+  slugs.forEach(function(slug) {
     var cd = COLORS_DATA ? COLORS_DATA[slug] : null;
     var score = 0;
     var penalty = 0;
@@ -2048,11 +2048,9 @@ function scoreSpecies() {
         var maxSp = cd.taille[1];
         var minSp = cd.taille[0] || 0;
         var obsMin = sizeOpt.val[0], obsMax = sizeOpt.val[1];
-        /* chevauchement plages */
         if (maxSp >= obsMin && minSp <= obsMax) score += 15;
         else penalty += 20;
       }
-      /* si pas de donnée taille → pas de pénalité */
     }
 
     /* Couleurs — scoring avec adjacences */
@@ -2060,9 +2058,8 @@ function scoreSpecies() {
       var spCouleurs = cd.couleurs || [];
       idState.couleurs.forEach(function(c) {
         if (spCouleurs.indexOf(c) >= 0) {
-          score += 12;  /* correspondance directe */
+          score += 12;
         } else {
-          /* couleurs adjacentes (perception sous l'eau) */
           var adj = COLOR_ADJACENT[c] || [];
           var hasAdj = adj.some(function(ac){ return spCouleurs.indexOf(ac) >= 0; });
           if (hasAdj) score += 4;
@@ -2084,7 +2081,7 @@ function scoreSpecies() {
   });
 
   /* Trier et retourner slugs avec score > seuil */
-  var entries = allSlugs.map(function(s){ return { slug:s, score: scores[s] || 0 }; });
+  var entries = slugs.map(function(s){ return { slug:s, score: scores[s] || 0 }; });
   entries.sort(function(a,b){ return b.score - a.score; });
   /* Seuil adaptatif large : on garde tout sauf les exclusions claires */
   var maxScore = entries.length > 0 ? entries[0].score : 0;
@@ -2136,9 +2133,29 @@ function renderIdScreen() {
 }
 
 /* ── Pool info ── */
+function allSlugs() {
+  return (window.DATA || []).map(function(sp){ return sp.s; });
+}
+
 function poolLabel() {
-  var n = scoreSpecies().length;
-  return n + ' espèce' + (n>1?'s':'') + ' candidates';
+  /* Aucun critère sélectionné → total brut, pas de scoring */
+  var hasAny = idState.morpho || idState.tailleIdx !== null || idState.couleurs.length > 0;
+  if (!hasAny) {
+    var total = (window.DATA || []).length;
+    return total + ' espèce' + (total > 1 ? 's' : '');
+  }
+  var pool = safeScore();
+  return pool.length + ' espèce' + (pool.length > 1 ? 's' : '') + ' candidate' + (pool.length > 1 ? 's' : '');
+}
+
+/* scoreSpecies() protégée par try-catch — retourne toutes les espèces si erreur */
+function safeScore() {
+  try {
+    return scoreSpecies();
+  } catch(e) {
+    console.error('[Identifier] scoreSpecies error:', e);
+    return allSlugs();
+  }
 }
 
 /* ── Étape 1 : morphologie (forme générale) ── */
@@ -2261,13 +2278,13 @@ function toggleMotif(val) {
 
 /* ── Navigation entre étapes ── */
 function idNext() {
-  idState.step = Math.min(idState.step + 1, 4);
-  idState.pool = scoreSpecies();
+  idState.step = Math.min(idState.step + 1, 3);
+  idState.pool = safeScore();
   renderIdScreen();
 }
 function idBack() {
   idState.step = Math.max(idState.step - 1, 0);
-  idState.pool = scoreSpecies();
+  idState.pool = safeScore();
   renderIdScreen();
 }
 function idSkip() {
@@ -2277,7 +2294,7 @@ function idSkip() {
 /* ── Étape 4 : résultats ── */
 function renderIdResults() {
   renderIdSteps();
-  var ranked = scoreSpecies();
+  var ranked = safeScore();
   var top = ranked.slice(0, 24);
   var spBySlug = {};
   (window.DATA || []).forEach(function(sp){ spBySlug[sp.s] = sp; });
