@@ -25,8 +25,13 @@
     "genre": "Actinocyclus",
     "morpho": "panache_branchial",
     "taille": null,
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rose",
+      "gris"
+    ],
     "motifs": [
       "cercles",
       "tubercules"
@@ -262,8 +267,14 @@
     "genre": "Ardeodoris",
     "morpho": "panache_branchial",
     "taille": null,
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu"
+    ],
     "motifs": [
       "lignes"
     ],
@@ -277,8 +288,15 @@
     "genre": "Ardeodoris",
     "morpho": "panache_branchial",
     "taille": null,
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "violet"
+    ],
     "motifs": [
       "lignes"
     ],
@@ -295,8 +313,14 @@
       null,
       2.0
     ],
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "rouge"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu"
+    ],
     "motifs": [
       "lignes"
     ],
@@ -908,15 +932,15 @@
       8.0
     ],
     "couleurs": [
-      "vert"
+      "vert",
+      "bleu"
     ],
     "couleurs_adj": [
-      "bleu",
-      "brun",
-      "jaune"
+      "jaune",
+      "brun"
     ],
     "motifs": [],
-    "coloration": "vif",
+    "coloration": "camouflage",
     "source": "genre"
   },
   "cerberilla-albopuncata": {
@@ -1066,16 +1090,14 @@
     ],
     "couleurs": [
       "blanc",
-      "orange",
-      "jaune"
+      "jaune",
+      "violet"
     ],
     "couleurs_adj": [
-      "bleu",
-      "brun",
-      "gris",
-      "rose",
       "rouge",
-      "vert"
+      "orange",
+      "bleu",
+      "rose"
     ],
     "motifs": [
       "points",
@@ -1095,24 +1117,21 @@
       2.0
     ],
     "couleurs": [
+      "blanc",
       "noir",
-      "orange",
-      "bleu"
+      "orange"
     ],
     "couleurs_adj": [
-      "brun",
-      "gris",
-      "jaune",
-      "rose",
       "rouge",
-      "vert",
-      "violet"
+      "jaune",
+      "bleu",
+      "rose"
     ],
     "motifs": [
       "lignes",
       "bordure"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "chromodoris-willani": {
@@ -1127,25 +1146,18 @@
     ],
     "couleurs": [
       "blanc",
-      "noir",
-      "orange",
-      "bleu"
+      "noir"
     ],
     "couleurs_adj": [
-      "brun",
-      "gris",
-      "jaune",
-      "rose",
-      "rouge",
-      "vert",
-      "violet"
+      "bleu",
+      "gris"
     ],
     "motifs": [
       "lignes",
       "points",
       "bordure"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "chromodoris-sp.-1": {
@@ -1161,21 +1173,16 @@
     "couleurs": [
       "blanc",
       "noir",
-      "jaune",
-      "bleu"
+      "jaune"
     ],
     "couleurs_adj": [
-      "brun",
-      "gris",
       "orange",
-      "rose",
-      "vert",
-      "violet"
+      "bleu"
     ],
     "motifs": [
       "lignes"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "genre"
   },
   "chromodoris-sp.-4": {
@@ -1191,20 +1198,16 @@
     "couleurs": [
       "blanc",
       "noir",
-      "bleu"
+      "jaune"
     ],
     "couleurs_adj": [
-      "brun",
-      "gris",
-      "jaune",
-      "rose",
-      "vert",
-      "violet"
+      "orange",
+      "bleu"
     ],
     "motifs": [
       "lignes"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "genre"
   },
   "chromodoris-sp.-7": {
@@ -1219,21 +1222,17 @@
     ],
     "couleurs": [
       "blanc",
-      "noir",
-      "bleu"
+      "orange"
     ],
     "couleurs_adj": [
-      "brun",
-      "gris",
+      "rouge",
       "jaune",
-      "rose",
-      "vert",
-      "violet"
+      "bleu"
     ],
     "motifs": [
       "lignes"
     ],
-    "coloration": "vif",
+    "coloration": "sobre",
     "source": "genre"
   },
   "colpodaspis-thompsoni": {
@@ -1244,15 +1243,17 @@
     "morpho": "coquille_visible",
     "taille": null,
     "couleurs": [
-      "rose"
+      "blanc",
+      "noir",
+      "jaune"
     ],
     "couleurs_adj": [
-      "blanc",
-      "rouge",
-      "violet"
+      "orange",
+      "vert",
+      "bleu"
     ],
     "motifs": [],
-    "coloration": "",
+    "coloration": "motifs",
     "source": "genre"
   },
   "costasiella-kuroshimae": {
@@ -2034,13 +2035,19 @@
       null,
       1.0
     ],
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "rouge",
+      "jaune",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "orange"
+    ],
     "motifs": [
       "lignes",
       "points"
     ],
-    "coloration": "vif",
+    "coloration": "camouflage",
     "source": "genre"
   },
   "dolabella-auricularia": {
@@ -2203,13 +2210,13 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [
-      "orange"
+      "blanc",
+      "noir",
+      "jaune"
     ],
     "couleurs_adj": [
-      "brun",
-      "jaune",
-      "rose",
-      "rouge"
+      "orange",
+      "bleu"
     ],
     "motifs": [
       "bordure"
@@ -3435,17 +3442,16 @@
       "orange"
     ],
     "couleurs_adj": [
-      "bleu",
-      "brun",
-      "gris",
+      "rouge",
       "jaune",
-      "rose",
-      "rouge"
+      "bleu",
+      "gris",
+      "translucide"
     ],
     "motifs": [
       "lignes"
     ],
-    "coloration": "vif",
+    "coloration": "sobre",
     "source": "espece"
   },
   "goniobranchus-albopunctatus": {
@@ -3461,15 +3467,13 @@
     "couleurs": [
       "blanc",
       "orange",
-      "jaune"
+      "jaune",
+      "bleu"
     ],
     "couleurs_adj": [
-      "bleu",
-      "brun",
-      "gris",
-      "rose",
       "rouge",
-      "vert"
+      "vert",
+      "violet"
     ],
     "motifs": [
       "points"
@@ -3488,19 +3492,17 @@
       1.0
     ],
     "couleurs": [
+      "blanc",
       "noir",
       "orange",
-      "jaune",
-      "vert",
-      "bleu",
-      "violet"
+      "rose"
     ],
     "couleurs_adj": [
-      "blanc",
-      "brun",
-      "gris",
-      "rose",
-      "rouge"
+      "rouge",
+      "jaune",
+      "bleu",
+      "violet",
+      "translucide"
     ],
     "motifs": [
       "lignes",
@@ -3521,21 +3523,18 @@
     ],
     "couleurs": [
       "blanc",
-      "noir",
-      "bleu"
+      "bleu",
+      "violet"
     ],
     "couleurs_adj": [
-      "brun",
-      "gris",
-      "jaune",
-      "rose",
-      "vert",
-      "violet"
+      "noir",
+      "bleu",
+      "rose"
     ],
     "motifs": [
       "lignes"
     ],
-    "coloration": "vif",
+    "coloration": "sobre",
     "source": "genre"
   },
   "goniobranchus-kuniei": {
@@ -3550,17 +3549,15 @@
     ],
     "couleurs": [
       "blanc",
-      "rouge",
-      "orange",
+      "jaune",
       "violet"
     ],
     "couleurs_adj": [
-      "bleu",
-      "brun",
-      "gris",
-      "jaune",
       "noir",
-      "rose"
+      "orange",
+      "bleu",
+      "rose",
+      "brun"
     ],
     "motifs": [
       "points",
@@ -3581,20 +3578,19 @@
     ],
     "couleurs": [
       "blanc",
-      "orange"
+      "rouge",
+      "jaune"
     ],
     "couleurs_adj": [
+      "orange",
       "bleu",
-      "brun",
-      "gris",
-      "jaune",
       "rose",
-      "rouge"
+      "brun"
     ],
     "motifs": [
       "lignes"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "goniobranchus-verrieri": {
@@ -3605,18 +3601,21 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [
-      "violet"
+      "blanc",
+      "orange"
     ],
     "couleurs_adj": [
-      "bleu",
       "noir",
+      "rouge",
+      "jaune",
+      "bleu",
       "rose"
     ],
     "motifs": [
       "bordure",
       "cercles"
     ],
-    "coloration": "vif",
+    "coloration": "sobre",
     "source": "espece"
   },
   "goniobranchus-sp.-1": {
@@ -3626,8 +3625,15 @@
     "genre": "Goniobranchus",
     "morpho": "panache_branchial",
     "taille": null,
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu"
+    ],
     "motifs": [
       "bordure"
     ],
@@ -3641,8 +3647,16 @@
     "genre": "Goniobranchus",
     "morpho": "panache_branchial",
     "taille": null,
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "bleu"
+    ],
     "motifs": [
       "bordure"
     ],
@@ -3659,12 +3673,19 @@
       null,
       3.0
     ],
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu"
+    ],
     "motifs": [
       "bordure"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "genre"
   },
   "goniobranchus-sp.4": {
@@ -3677,12 +3698,20 @@
       null,
       3.0
     ],
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "violet"
+    ],
     "motifs": [
       "bordure"
     ],
-    "coloration": "vif",
+    "coloration": "sobre",
     "source": "genre"
   },
   "goniodoridella-unidonta": {
@@ -3751,16 +3780,14 @@
       "blanc",
       "noir",
       "orange",
-      "jaune",
       "bleu"
     ],
     "couleurs_adj": [
-      "brun",
-      "gris",
-      "rose",
       "rouge",
-      "vert",
-      "violet"
+      "jaune",
+      "violet",
+      "rose",
+      "gris"
     ],
     "motifs": [
       "lignes",
@@ -3780,12 +3807,14 @@
       4.0
     ],
     "couleurs": [
-      "rouge"
+      "blanc",
+      "rouge",
+      "bleu"
     ],
     "couleurs_adj": [
-      "brun",
       "orange",
-      "rose"
+      "rose",
+      "brun"
     ],
     "motifs": [
       "bordure"
@@ -3801,13 +3830,14 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [
-      "rouge",
+      "blanc",
       "orange"
     ],
     "couleurs_adj": [
-      "brun",
+      "rouge",
       "jaune",
-      "rose"
+      "rose",
+      "brun"
     ],
     "motifs": [
       "bordure"
@@ -4161,13 +4191,12 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [
-      "brun"
+      "blanc"
     ],
     "couleurs_adj": [
-      "gris",
-      "noir",
       "orange",
-      "rouge"
+      "brun",
+      "gris"
     ],
     "motifs": [],
     "coloration": "camouflage",
@@ -4180,8 +4209,14 @@
     "genre": "Hallaxa",
     "morpho": "panache_branchial",
     "taille": null,
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rose",
+      "gris"
+    ],
     "motifs": [],
     "coloration": "camouflage",
     "source": "espece"
@@ -4752,18 +4787,21 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [
-      "bleu"
+      "blanc",
+      "noir",
+      "orange"
     ],
     "couleurs_adj": [
-      "gris",
-      "vert",
-      "violet"
+      "jaune",
+      "bleu",
+      "violet",
+      "gris"
     ],
     "motifs": [
       "lignes",
       "points"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "hypselodoris-imperialis": {
@@ -4778,21 +4816,19 @@
     ],
     "couleurs": [
       "blanc",
-      "orange",
-      "jaune"
+      "jaune",
+      "violet"
     ],
     "couleurs_adj": [
+      "noir",
+      "orange",
       "bleu",
-      "brun",
-      "gris",
-      "rose",
-      "rouge",
-      "vert"
+      "brun"
     ],
     "motifs": [
       "points"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "hypselodoris-maculosa": {
@@ -4805,12 +4841,21 @@
       null,
       1.0
     ],
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "violet",
+      "brun"
+    ],
     "motifs": [
       "points"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "hypselodoris-sp.-1": {
@@ -4821,19 +4866,16 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [
+      "blanc",
       "orange",
-      "jaune",
-      "bleu",
-      "violet",
-      "rose"
+      "violet"
     ],
     "couleurs_adj": [
-      "blanc",
-      "brun",
-      "gris",
       "noir",
       "rouge",
-      "vert"
+      "jaune",
+      "bleu",
+      "rose"
     ],
     "motifs": [
       "lignes"
@@ -4850,22 +4892,21 @@
     "taille": null,
     "couleurs": [
       "blanc",
-      "noir",
-      "jaune",
-      "bleu"
+      "orange",
+      "violet"
     ],
     "couleurs_adj": [
-      "brun",
-      "gris",
-      "orange",
+      "noir",
+      "rouge",
+      "jaune",
+      "bleu",
       "rose",
-      "vert",
-      "violet"
+      "brun"
     ],
     "motifs": [
       "lignes"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "hypselodoris-whitei": {
@@ -4881,21 +4922,18 @@
     "couleurs": [
       "blanc",
       "orange",
-      "jaune",
-      "bleu"
+      "violet"
     ],
     "couleurs_adj": [
-      "brun",
-      "gris",
-      "rose",
       "rouge",
-      "vert",
-      "violet"
+      "jaune",
+      "bleu",
+      "brun"
     ],
     "motifs": [
       "lignes"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "hypselodoris-zephyra": {
@@ -4908,10 +4946,19 @@
       null,
       2.0
     ],
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu",
+      "rose"
+    ],
     "motifs": [],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "janolus-mirabilis": {
@@ -5381,22 +5428,18 @@
       1.0
     ],
     "couleurs": [
-      "orange",
-      "bleu"
+      "blanc",
+      "violet"
     ],
     "couleurs_adj": [
-      "brun",
-      "gris",
-      "jaune",
-      "rose",
-      "rouge",
-      "vert",
-      "violet"
+      "orange",
+      "bleu",
+      "rose"
     ],
     "motifs": [
       "lignes"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "mexichromis-pusilla": {
@@ -5406,8 +5449,17 @@
     "genre": "Mexichromis",
     "morpho": "panache_branchial",
     "taille": null,
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "violet",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "bleu",
+      "brun"
+    ],
     "motifs": [
       "tubercules"
     ],
@@ -7729,19 +7781,20 @@
     "taille": null,
     "couleurs": [
       "blanc",
-      "translucide"
+      "rouge",
+      "violet"
     ],
     "couleurs_adj": [
+      "orange",
       "bleu",
-      "gris",
-      "jaune",
-      "rose"
+      "rose",
+      "translucide"
     ],
     "motifs": [
       "points",
       "bordure"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "thorunna-florens": {
@@ -7754,12 +7807,20 @@
       null,
       2.0
     ],
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu"
+    ],
     "motifs": [
       "points"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "thorunna-cf-halourga": {
@@ -7774,16 +7835,14 @@
     ],
     "couleurs": [
       "blanc",
-      "jaune",
-      "bleu",
-      "translucide"
+      "orange",
+      "violet"
     ],
     "couleurs_adj": [
-      "gris",
-      "orange",
+      "jaune",
+      "bleu",
       "rose",
-      "vert",
-      "violet"
+      "translucide"
     ],
     "motifs": [
       "bordure"
@@ -7799,12 +7858,16 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [
+      "blanc",
+      "orange",
       "violet"
     ],
     "couleurs_adj": [
-      "bleu",
       "noir",
-      "rose"
+      "rouge",
+      "bleu",
+      "rose",
+      "brun"
     ],
     "motifs": [
       "bordure"
@@ -7824,21 +7887,19 @@
     ],
     "couleurs": [
       "blanc",
-      "jaune",
-      "bleu",
-      "translucide"
+      "orange",
+      "violet"
     ],
     "couleurs_adj": [
-      "gris",
-      "orange",
+      "rouge",
+      "bleu",
       "rose",
-      "vert",
-      "violet"
+      "translucide"
     ],
     "motifs": [
       "bordure"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "genre"
   },
   "thorunna-sp.-2": {
@@ -7853,21 +7914,19 @@
     ],
     "couleurs": [
       "blanc",
-      "jaune",
-      "bleu",
-      "translucide"
+      "orange",
+      "violet"
     ],
     "couleurs_adj": [
-      "gris",
-      "orange",
+      "jaune",
+      "bleu",
       "rose",
-      "vert",
-      "violet"
+      "translucide"
     ],
     "motifs": [
       "bordure"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "genre"
   },
   "thorunna-sp.-3": {
@@ -7879,21 +7938,18 @@
     "taille": null,
     "couleurs": [
       "blanc",
-      "jaune",
-      "bleu",
+      "orange",
+      "violet",
       "translucide"
     ],
     "couleurs_adj": [
-      "gris",
-      "orange",
-      "rose",
-      "vert",
-      "violet"
+      "jaune",
+      "rose"
     ],
     "motifs": [
       "bordure"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "genre"
   },
   "thorunna-sp.-4": {
@@ -7905,21 +7961,20 @@
     "taille": null,
     "couleurs": [
       "blanc",
-      "jaune",
-      "bleu",
+      "orange",
+      "violet",
       "translucide"
     ],
     "couleurs_adj": [
-      "gris",
-      "orange",
-      "rose",
-      "vert",
-      "violet"
+      "rouge",
+      "jaune",
+      "bleu",
+      "rose"
     ],
     "motifs": [
       "bordure"
     ],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "genre"
   },
   "thuridilla-carlsoni": {
@@ -8299,10 +8354,16 @@
     "genre": "Verconia",
     "morpho": "panache_branchial",
     "taille": null,
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune"
+    ],
     "motifs": [],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "verconia-sp.2": {
@@ -8313,18 +8374,20 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [
-      "orange",
-      "jaune"
+      "blanc",
+      "rouge",
+      "violet"
     ],
     "couleurs_adj": [
       "blanc",
-      "brun",
-      "rose",
       "rouge",
-      "vert"
+      "jaune",
+      "bleu",
+      "rose",
+      "translucide"
     ],
     "motifs": [],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "genre"
   },
   "verconia-varians": {
@@ -8334,10 +8397,18 @@
     "genre": "Verconia",
     "morpho": "panache_branchial",
     "taille": null,
-    "couleurs": [],
-    "couleurs_adj": [],
+    "couleurs": [
+      "blanc",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "bleu",
+      "violet"
+    ],
     "motifs": [],
-    "coloration": "vif",
+    "coloration": "motifs",
     "source": "espece"
   },
   "volvatella-sp.1": {
