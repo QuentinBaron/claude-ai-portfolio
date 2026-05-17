@@ -343,15 +343,15 @@ td { padding: 9px 12px; vertical-align: middle; }
 
 <div class="view-toggle">
   <span class="filter-label">Vue</span>
-  <button class="vt-btn active" data-view="table" onclick="setView('table',this)">Liste</button>
-  <button class="vt-btn"        data-view="cards" onclick="setView('cards',this)">Nudidex</button>
+  <button class="vt-btn"        data-view="table" onclick="setView('table',this)">Liste</button>
+  <button class="vt-btn active" data-view="cards" onclick="setView('cards',this)">Nudidex</button>
   <button class="vt-btn"        data-view="game"     onclick="setView('game',this)">Jeu</button>
   <button class="vt-btn"        data-view="identify" onclick="setView('identify',this)">Identifier</button>
   <span class="vt-hint">Cliquer sur une photo pour agrandir</span>
 </div>
 
 <!-- ── TABLE VIEW ── -->
-<div class="table-wrap v-active" id="view-table">
+<div class="table-wrap" id="view-table">
   <table id="species-table">
   <thead><tr>
     <th class="td-photo" style="cursor:default">Photo</th>
@@ -367,7 +367,7 @@ td { padding: 9px 12px; vertical-align: middle; }
 </div>
 
 <!-- ── CARD GRID VIEW ── -->
-<div class="card-grid" id="view-cards"></div>
+<div class="card-grid v-active" id="view-cards"></div>
 <div class="no-results" id="no-results-cards">Aucun résultat</div>
 
 <!-- ── GAME VIEW ── -->
@@ -404,7 +404,8 @@ td { padding: 9px 12px; vertical-align: middle; }
   Nudidex · Nudibranches de Polynésie Française ·
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
-  <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a>
+  <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
+  <span title="Version de déploiement">v2026.05.16-2041</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
