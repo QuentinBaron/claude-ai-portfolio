@@ -2189,9 +2189,10 @@ function scoreSpecies() {
   var seuil = Math.max(floorMin, maxScore - spread);
 
   var result = entries.filter(function(e){ return e.score >= seuil; }).map(function(e){ return e.slug; });
-  /* Filet de sécurité : toujours au moins 8 résultats si données disponibles */
-  if (result.length < 8 && entries.length > 0) {
-    result = entries.slice(0, Math.min(20, entries.length)).map(function(e){ return e.slug; });
+  /* Filet de sécurité minimal : si le seuil exclut TOUT (score maximal < 0 ou données trop
+     rares), on propose les 6 meilleurs plutôt que rien. On ne force jamais un plancher de 20. */
+  if (result.length === 0 && entries.length > 0) {
+    result = entries.slice(0, Math.min(6, entries.length)).map(function(e){ return e.slug; });
   }
   console.log('[Identifier] criteria='+criteriaCount+' maxScore='+maxScore+' seuil='+seuil.toFixed(0)+' pool='+result.length+'/'+entries.length);
   return result;
@@ -2469,10 +2470,9 @@ function renderIdResults() {
   var ranked = safeScore();
   /* Appliquer les filtres de suivi (réponses aux questions discriminantes) */
   var filtered = applyFollowupFilters(ranked, spBySlug);
-  var top = filtered.slice(0, 24);
 
   var html = '';
-  if (top.length === 0) {
+  if (filtered.length === 0) {
     html = '<div class="id-nf">'
       + '<p>Aucune espèce ne correspond à ces critères.</p>'
       + '<button class="id-btn id-btn-s" onclick="idBack()">← Modifier les critères</button>'
@@ -2497,19 +2497,19 @@ function renderIdResults() {
   }
 
   html += '<p style="font-size:12px;color:#64748b;margin-bottom:12px;">'
-    + top.length + ' candidat' + (top.length>1?'s':'')
-    + (filtered.length > top.length ? ' (sur '+filtered.length+' espèces filtrées)' : '')
+    + filtered.length + ' candidat' + (filtered.length>1?'s':'')
     + ' · Cliquer pour identifier</p>'
     + '<div class="id-results-grid">';
 
-  top.forEach(function(slug) {
+  filtered.forEach(function(slug) {
     var sp = spBySlug[slug];
     if (!sp) return;
-    /* sp.ps = tableau de photos, sp.p = URL principale unique */
-    var firstPhoto = (sp.ps && sp.ps.length) ? sp.ps[0] : (sp.p || '');
+    /* getPhotos() gère les overrides locaux et les fallbacks sp.ps / sp.p */
+    var photos = getPhotos(sp);
+    var firstPhoto = photos.length ? photos[0] : '';
     html += '<div class="id-rc" onclick="openLb(\''+esc(slug)+'\')">';
     if (firstPhoto) {
-      html += '<img src="'+esc(firstPhoto)+'" alt="'+esc(sp.n||'')+'" loading="lazy">';
+      html += '<img src="'+esc(firstPhoto)+'" alt="'+esc(sp.n||'')+'" onerror="this.style.opacity=\'.15\'">';
     } else {
       html += '<div class="id-rc-ph">🐌</div>';
     }
