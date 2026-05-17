@@ -405,7 +405,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.16-2206</span>
+  <span title="Version de déploiement">v2026.05.16-2328</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -640,15 +640,15 @@ function buildHierFilter() {
   allBtn.onclick = function(){ setFilter('ordre','all'); };
   row1.appendChild(allBtn);
 
-  var ordres = [], seen = {};
+  var ordreCnt = {}, seen = {};
   SPECIES.forEach(function(s) {
     var o = s.o || '';
-    if (o && o !== 'Nudibranchia' && !seen[o]) { seen[o]=1; ordres.push(o); }
+    if (o && o !== 'Nudibranchia') { ordreCnt[o] = (ordreCnt[o]||0) + 1; }
   });
-  ordres.sort();
+  var ordres = Object.keys(ordreCnt).sort(function(a,b){ return ordreCnt[b]-ordreCnt[a]; });
   ordres.forEach(function(o) {
     var col = ORDER_COLORS[o] || { bg:'#f8fafc', text:'#475569', border:'#cbd5e1' };
-    var cnt = SPECIES.filter(function(s){ return s.o===o; }).length;
+    var cnt = ordreCnt[o];
     var btn = document.createElement('button');
     btn.className = 'f-btn';
     btn.title = cnt + ' espèce' + (cnt>1?'s':'');
