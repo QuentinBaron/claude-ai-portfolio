@@ -1997,7 +1997,7 @@ function extractColorsMotifs(txt) {
 function buildColorsDataFallback() {
   var CH = window.CLADE_HINTS || {};
   var result = {};
-  (window.DATA || []).forEach(function(sp) {
+  (window.SPECIES || []).forEach(function(sp) {
     var slug = sp.s;
     var nom  = sp.n || '';
     var genus = nom.split(' ')[0];
@@ -2102,7 +2102,7 @@ function initIdentifyView() {
   var body = document.getElementById('id-body');
   body.innerHTML = '<div class="id-loading">Chargement des données morphologiques…</div>';
   loadColorsData(function(){
-    idState.pool = (window.DATA || []).map(function(sp){ return sp.s; });
+    idState.pool = (window.SPECIES || []).map(function(sp){ return sp.s; });
     renderIdScreen();
   });
 }
@@ -2134,14 +2134,14 @@ function renderIdScreen() {
 
 /* ── Pool info ── */
 function allSlugs() {
-  return (window.DATA || []).map(function(sp){ return sp.s; });
+  return (window.SPECIES || []).map(function(sp){ return sp.s; });
 }
 
 function poolLabel() {
   /* Aucun critère sélectionné → total brut, pas de scoring */
   var hasAny = idState.morpho || idState.tailleIdx !== null || idState.couleurs.length > 0;
   if (!hasAny) {
-    var total = (window.DATA || []).length;
+    var total = (window.SPECIES || []).length;
     return total + ' espèce' + (total > 1 ? 's' : '');
   }
   var pool = safeScore();
@@ -2297,7 +2297,7 @@ function renderIdResults() {
   var ranked = safeScore();
   var top = ranked.slice(0, 24);
   var spBySlug = {};
-  (window.DATA || []).forEach(function(sp){ spBySlug[sp.s] = sp; });
+  (window.SPECIES || []).forEach(function(sp){ spBySlug[sp.s] = sp; });
 
   var html = '';
   if (top.length === 0) {
