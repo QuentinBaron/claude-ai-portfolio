@@ -405,7 +405,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.16-2328</span>
+  <span title="Version de déploiement">v2026.05.17-0901</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -1969,7 +1969,7 @@ var COLOR_ADJACENT = {
   'vert':   ['jaune','bleu','brun'],
   'brun':   ['rouge','orange','gris','noir'],
   'gris':   ['blanc','noir','bleu'],
-  'blanc':  ['gris','rose','jaune'],
+  'blanc':  ['gris','rose','jaune','bleu'],
   'noir':   ['brun','gris','violet'],
 };
 
@@ -2055,8 +2055,9 @@ function scoreSpecies() {
 
     /* L1 — ce qu'il y a sur le dos */
     if (idState.dos) {
-      var spL1 = L1_FAMILY[fam] || 'rien';
-      var tol  = L1_TOLERANCE[fam];
+      var _cd0 = COLORS_DATA ? COLORS_DATA[slug] : null;
+      var spL1 = (_cd0 && _cd0.l1_override) || L1_FAMILY[fam] || 'rien';
+      var tol  = (_cd0 && _cd0.l1_override) ? null : L1_TOLERANCE[fam];
       if (spL1 === idState.dos) {
         score += 50;
       } else if (tol && tol.indexOf(idState.dos) >= 0) {
@@ -2106,23 +2107,28 @@ function scoreSpecies() {
 
     /* Coloration générale */
     if (idState.coloration) {
-      var cl = COLORATION_FAMILY[fam];
+      var _cdC = COLORS_DATA ? COLORS_DATA[slug] : null;
+      var cl = (_cdC && _cdC.coloration) || COLORATION_FAMILY[fam];
       if (cl === idState.coloration) score += 15; else if (cl) penalty += 10;
     }
 
-    /* Couleurs (COLORS_DATA) */
+    /* Couleurs (COLORS_DATA) — deux tiers : certaines (+12) / acceptables (+6) */
     if (idState.couleurs.length > 0) {
       var cd = COLORS_DATA ? COLORS_DATA[slug] : null;
-      var spCouleurs = (cd && cd.couleurs) ? cd.couleurs : [];
-      var hasData = spCouleurs.length > 0;
+      var spCouleurs    = (cd && cd.couleurs)     ? cd.couleurs     : [];
+      var spCoulAdj     = (cd && cd.couleurs_adj) ? cd.couleurs_adj : [];
+      var hasData = spCouleurs.length > 0 || spCoulAdj.length > 0;
+      var allSpCoul = spCouleurs.concat(spCoulAdj);
       idState.couleurs.forEach(function(c) {
         if (spCouleurs.indexOf(c) >= 0) {
-          score += 12;
+          score += 12;                              /* couleur certaine */
+        } else if (spCoulAdj.indexOf(c) >= 0) {
+          score += 6;                               /* confusion connue, pas de pénalité */
         } else {
           var adj = COLOR_ADJACENT[c] || [];
-          var hasAdj = adj.some(function(ac){ return spCouleurs.indexOf(ac) >= 0; });
+          var hasAdj = adj.some(function(ac){ return allSpCoul.indexOf(ac) >= 0; });
           if (hasAdj) score += 4;
-          else if (hasData) penalty += 6;
+          else if (hasData) penalty += 5;           /* légèrement moins sévère qu'avant */
           else penalty += 3;
         }
       });

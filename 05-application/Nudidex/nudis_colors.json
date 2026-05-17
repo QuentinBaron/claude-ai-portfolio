@@ -9,7 +9,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "actinocyclus-verrucosus": {
@@ -20,10 +26,12 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "cercles",
       "tubercules"
     ],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "aegires-cf-incusus": {
@@ -37,9 +45,17 @@
       "blanc",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "orange",
+      "rose",
+      "vert"
+    ],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "aegires-exeches": {
@@ -50,9 +66,11 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "espece"
   },
   "aegires-pruvotfolae": {
@@ -66,9 +84,17 @@
       "blanc",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "orange",
+      "rose",
+      "vert"
+    ],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "aegires-sp.1": {
@@ -82,9 +108,17 @@
       "blanc",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "orange",
+      "rose",
+      "vert"
+    ],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "aeolid-non-identifié-sp.4": {
@@ -98,7 +132,9 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "ordre"
   },
   "anaspidea-non-identifié-sp.1": {
@@ -109,7 +145,9 @@
     "morpho": "gros_animal",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "anteaeolidiella-sp.1": {
@@ -120,7 +158,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "aplustrum-amplustre": {
@@ -133,9 +173,16 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "",
     "source": "famille"
   },
   "aplysia-argus": {
@@ -154,7 +201,17 @@
       "vert",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "orange",
+      "rose",
+      "rouge",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "aplysia-cf-parvula": {
@@ -170,7 +227,13 @@
     "couleurs": [
       "violet"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "noir",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "aplysia-sp.1": {
@@ -183,7 +246,13 @@
     "couleurs": [
       "violet"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "noir",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "ardeodoris-angustolutea": {
@@ -194,9 +263,11 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "famille"
   },
   "ardeodoris-sp.-1": {
@@ -207,9 +278,11 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "famille"
   },
   "ardeodoris-sp.-2": {
@@ -223,9 +296,11 @@
       2.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "famille"
   },
   "atagema-cf-osseosa": {
@@ -239,10 +314,20 @@
       "blanc",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "tubercules",
       "uni"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "atagema-sp.-3": {
@@ -256,9 +341,19 @@
       "blanc",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "uni"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "atagema-sp.-4": {
@@ -272,9 +367,19 @@
       "blanc",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "uni"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "atys-kuhnsi": {
@@ -288,9 +393,11 @@
       3.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes"
     ],
+    "coloration": "sobre",
     "source": "espece"
   },
   "atys-multistriatus": {
@@ -304,9 +411,11 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes"
     ],
+    "coloration": "sobre",
     "source": "espece"
   },
   "atys-semistriatus": {
@@ -317,9 +426,11 @@
     "morpho": "coquille_visible",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "uni"
     ],
+    "coloration": "sobre",
     "source": "espece"
   },
   "atys-sp.1": {
@@ -332,7 +443,14 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "babakina-indopacifica": {
@@ -343,9 +461,11 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "cercles"
     ],
+    "coloration": "",
     "source": "famille"
   },
   "baeolidia-scottjohnsoni": {
@@ -362,7 +482,15 @@
       "brun",
       "gris"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "baeolidia-sp.1": {
@@ -376,7 +504,15 @@
       "brun",
       "gris"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "bornella-pele": {
@@ -393,9 +529,16 @@
       "rouge",
       "brun"
     ],
+    "couleurs_adj": [
+      "gris",
+      "noir",
+      "orange",
+      "rose"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "berthella-stellata": {
@@ -409,7 +552,15 @@
       "blanc",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "orange",
+      "rose",
+      "vert"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "berthellina-delicata": {
@@ -427,7 +578,15 @@
       "rouge",
       "orange"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "berthelinia-cf-pseudochloris": {
@@ -440,7 +599,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "berthella-sp.-1": {
@@ -457,7 +622,15 @@
       "blanc",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "orange",
+      "rose",
+      "vert"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "berthella-sp.-2": {
@@ -471,7 +644,15 @@
       "blanc",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "orange",
+      "rose",
+      "vert"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "biuve-cf-fulvipunctata": {
@@ -487,7 +668,14 @@
     "couleurs": [
       "brun"
     ],
+    "couleurs_adj": [
+      "gris",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "biuve-sp.1": {
@@ -498,7 +686,9 @@
     "morpho": "limace_compacte",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "sobre",
     "source": "famille"
   },
   "bornella-stellifer": {
@@ -514,9 +704,16 @@
     "couleurs": [
       "brun"
     ],
+    "couleurs_adj": [
+      "gris",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "bulbaeolidia-alba": {
@@ -530,7 +727,9 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "bulla-orientalis": {
@@ -546,7 +745,14 @@
     "couleurs": [
       "brun"
     ],
+    "couleurs_adj": [
+      "gris",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "bulla-vernicosa": {
@@ -557,9 +763,11 @@
     "morpho": "coquille_visible",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "uni"
     ],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "bullina-nobilis": {
@@ -572,9 +780,15 @@
     "couleurs": [
       "rouge"
     ],
+    "couleurs_adj": [
+      "brun",
+      "orange",
+      "rose"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "",
     "source": "famille"
   },
   "bullina-sp.-1": {
@@ -588,9 +802,11 @@
       2.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes"
     ],
+    "coloration": "",
     "source": "famille"
   },
   "caloria-indica": {
@@ -607,7 +823,13 @@
       "rouge",
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "caloria-sp.-1": {
@@ -624,7 +846,13 @@
       "rouge",
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "carminodoris-flammea": {
@@ -637,9 +865,15 @@
     "couleurs": [
       "violet"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "noir",
+      "rose"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "cephalopyge-trematoides": {
@@ -655,7 +889,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "ceratosoma-miamirana": {
@@ -671,7 +910,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "cerberilla-albopuncata": {
@@ -688,9 +933,16 @@
       "blanc",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "cerberilla-annulata": {
@@ -704,10 +956,12 @@
       2.5
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes",
       "cercles"
     ],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "cerberilla-sp.-1": {
@@ -721,7 +975,9 @@
       1.5
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "cerberilla-sp.-2": {
@@ -735,7 +991,9 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "chelidonura-alisonae": {
@@ -752,7 +1010,14 @@
       "noir",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "vert",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "espece"
   },
   "chelidonura-hirundinina": {
@@ -766,7 +1031,14 @@
       "noir",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "vert",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "espece"
   },
   "chelidonura-sp.1": {
@@ -777,7 +1049,9 @@
     "morpho": "limace_compacte",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "chromodoris-aspersa": {
@@ -795,10 +1069,19 @@
       "orange",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "rose",
+      "rouge",
+      "vert"
+    ],
     "motifs": [
       "points",
       "bordure"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "chromodoris-lochi": {
@@ -816,10 +1099,20 @@
       "orange",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "lignes",
       "bordure"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "chromodoris-willani": {
@@ -838,11 +1131,21 @@
       "orange",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "lignes",
       "points",
       "bordure"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "chromodoris-sp.-1": {
@@ -861,9 +1164,18 @@
       "jaune",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "orange",
+      "rose",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "chromodoris-sp.-4": {
@@ -881,9 +1193,18 @@
       "noir",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "chromodoris-sp.-7": {
@@ -901,9 +1222,18 @@
       "noir",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "colpodaspis-thompsoni": {
@@ -916,7 +1246,13 @@
     "couleurs": [
       "rose"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "costasiella-kuroshimae": {
@@ -930,9 +1266,17 @@
       "blanc",
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "costasiella-sp.-1": {
@@ -946,9 +1290,17 @@
       "blanc",
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "costasiella-sp.-2": {
@@ -962,9 +1314,17 @@
       "blanc",
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "costasiella-sp.-3": {
@@ -978,9 +1338,17 @@
       "blanc",
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "costasiella-sp.-4": {
@@ -994,9 +1362,17 @@
       "blanc",
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "costasiella-sp.-5": {
@@ -1010,9 +1386,17 @@
       "blanc",
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "cratena-affinis": {
@@ -1025,7 +1409,14 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "cratena-sp.-1": {
@@ -1041,7 +1432,14 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "cratena-sp.-2": {
@@ -1054,7 +1452,14 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "crosslandia-sp.1": {
@@ -1065,7 +1470,9 @@
     "morpho": "inconnu",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "crosslandia-sp.2": {
@@ -1076,7 +1483,9 @@
     "morpho": "inconnu",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "cyerce-bourbonica": {
@@ -1090,9 +1499,17 @@
       "brun",
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "cyerce-elegans": {
@@ -1110,9 +1527,18 @@
       "jaune",
       "bleu"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "gris",
+      "orange",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "cyerce-nigricans": {
@@ -1129,7 +1555,14 @@
       "noir",
       "brun"
     ],
+    "couleurs_adj": [
+      "gris",
+      "orange",
+      "rouge",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "espece"
   },
   "cyerce-pavonina": {
@@ -1140,7 +1573,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "cyerce-sp.1": {
@@ -1151,7 +1586,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "cylindrobulla-sp.1": {
@@ -1162,7 +1599,9 @@
     "morpho": "inconnu",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "cylindrobulla-sp.2": {
@@ -1173,7 +1612,9 @@
     "morpho": "inconnu",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "cylindrobulla-sp.3": {
@@ -1184,7 +1625,9 @@
     "morpho": "inconnu",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "dendrodoris-carbunculosa": {
@@ -1201,9 +1644,17 @@
       "noir",
       "rouge"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "orange",
+      "rose",
+      "violet"
+    ],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "dendrodoris-coronata": {
@@ -1214,9 +1665,11 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "bordure"
     ],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "dendrodoris-elongata": {
@@ -1227,9 +1680,11 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes"
     ],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "dendrodoris-nigra": {
@@ -1246,10 +1701,17 @@
       "noir",
       "brun"
     ],
+    "couleurs_adj": [
+      "gris",
+      "orange",
+      "rouge",
+      "violet"
+    ],
     "motifs": [
       "tubercules",
       "uni"
     ],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "dendrodoris-tuberculosa": {
@@ -1263,9 +1725,11 @@
       15.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "dermatobranchus-fortunatus": {
@@ -1276,9 +1740,11 @@
     "morpho": "dos_lisse",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes"
     ],
+    "coloration": "motifs",
     "source": "espece"
   },
   "dermatobranchus-cf.-albus": {
@@ -1291,9 +1757,16 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "uni"
     ],
+    "coloration": "motifs",
     "source": "espece"
   },
   "dermatobranchus-sp.-1": {
@@ -1310,9 +1783,18 @@
       "blanc",
       "orange"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "diaphorodoris-sp.-1": {
@@ -1325,7 +1807,14 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "diniatys-dentifer": {
@@ -1339,7 +1828,9 @@
       0.5
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "sobre",
     "source": "espece"
   },
   "diniatys-dubius": {
@@ -1350,7 +1841,9 @@
     "morpho": "coquille_visible",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "sobre",
     "source": "espece"
   },
   "discodorid-sp.-1-non-identifié": {
@@ -1364,7 +1857,9 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "discodorid-sp.-2-non-identifié": {
@@ -1378,7 +1873,9 @@
       2.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "discodorid-sp.-3-non-identifié": {
@@ -1392,7 +1889,9 @@
       3.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "discodorid-sp.-4-non-identifié": {
@@ -1403,7 +1902,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "discodorid-sp.-5-non-identifié": {
@@ -1414,7 +1915,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "discodorid-sp.-6-non-identifié": {
@@ -1425,7 +1928,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "discodorid-sp.-7-non-identifié": {
@@ -1436,7 +1941,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "discodorid-sp.-8-non-identifié": {
@@ -1447,7 +1954,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "discodorid-sp.-9-non-identifié": {
@@ -1458,7 +1967,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "discodorid-sp.-10-non-identifié": {
@@ -1469,7 +1980,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "discodorid-sp.-11-non-identifié": {
@@ -1480,7 +1993,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "discodorid-sp.-12-non-identifié": {
@@ -1491,7 +2006,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "discodorid-sp.-13-non-identifié": {
@@ -1502,7 +2019,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "diversidoris-flava": {
@@ -1516,10 +2035,12 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes",
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "dolabella-auricularia": {
@@ -1533,7 +2054,9 @@
       3.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "dolabrifera-cf-dolabrifera": {
@@ -1550,7 +2073,16 @@
       "vert",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "dorid-non-identifié-sp.-1": {
@@ -1561,7 +2093,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "ordre"
   },
   "dorid-non-identifié-sp.-2": {
@@ -1572,7 +2106,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "ordre"
   },
   "doris-granulosa": {
@@ -1583,10 +2119,12 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "tubercules",
       "uni"
     ],
+    "coloration": "motifs",
     "source": "espece"
   },
   "doris-pecten": {
@@ -1600,9 +2138,11 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "bordure"
     ],
+    "coloration": "motifs",
     "source": "espece"
   },
   "doris-sp.-1": {
@@ -1616,9 +2156,19 @@
       "blanc",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "doris-viridis": {
@@ -1633,7 +2183,16 @@
       "brun",
       "gris"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "jaune",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "motifs",
     "source": "espece"
   },
   "doriprimatica-sibogae": {
@@ -1646,9 +2205,16 @@
     "couleurs": [
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "doto-sp.-1": {
@@ -1659,9 +2225,11 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "elysia-degeneri": {
@@ -1675,11 +2243,20 @@
       "vert",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [
       "lignes",
       "points",
       "bordure"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "elysia-nealae": {
@@ -1692,9 +2269,15 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [
       "uni"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "elysia-nigropunctata": {
@@ -1707,9 +2290,15 @@
     "couleurs": [
       "noir"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "violet"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "elysia-marginata": {
@@ -1723,9 +2312,11 @@
       2.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "bordure"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "elysia-obtusa": {
@@ -1736,7 +2327,9 @@
     "morpho": "limace_compacte",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "espece"
   },
   "elysia-pusilla": {
@@ -1750,7 +2343,9 @@
       2.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "espece"
   },
   "elysia-rufescens": {
@@ -1767,7 +2362,15 @@
       "vert",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "espece"
   },
   "elysia-tomentosa": {
@@ -1778,7 +2381,9 @@
     "morpho": "limace_compacte",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "espece"
   },
   "elysia-sp.-1": {
@@ -1791,7 +2396,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-2": {
@@ -1807,7 +2418,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-3": {
@@ -1823,7 +2440,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-4": {
@@ -1839,7 +2462,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-5": {
@@ -1855,7 +2484,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-6": {
@@ -1871,7 +2506,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-7": {
@@ -1887,7 +2528,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-8": {
@@ -1903,7 +2550,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-9": {
@@ -1916,7 +2569,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-10": {
@@ -1932,7 +2591,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-11": {
@@ -1948,7 +2613,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-12": {
@@ -1961,7 +2632,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-13": {
@@ -1974,7 +2651,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-15": {
@@ -1987,7 +2670,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-16": {
@@ -2000,7 +2689,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-17": {
@@ -2013,7 +2708,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-18": {
@@ -2026,7 +2727,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-19": {
@@ -2039,7 +2746,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-20": {
@@ -2052,7 +2765,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-21": {
@@ -2065,7 +2784,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-22": {
@@ -2078,7 +2803,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.-23": {
@@ -2091,7 +2822,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.24": {
@@ -2104,7 +2841,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "elysia-sp.25": {
@@ -2117,7 +2860,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "embletonia-gracilis": {
@@ -2130,7 +2879,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "ercolania-sp.1": {
@@ -2143,7 +2897,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "ercolania-anellyleorum": {
@@ -2156,7 +2915,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "eubranchus-sp.-1": {
@@ -2167,7 +2931,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "eubranchus-sp.-2": {
@@ -2178,7 +2944,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "eubranchus-sp.-3": {
@@ -2189,7 +2957,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "eubranchus-sp.-4": {
@@ -2200,7 +2970,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "eubranchus-sp.-5": {
@@ -2211,7 +2983,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "eubranchus-sp.-6": {
@@ -2222,7 +2996,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "eubranchus-sp.-7": {
@@ -2233,7 +3009,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "eubranchus-sp.-8": {
@@ -2244,7 +3022,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "eubranchus-sp.-9": {
@@ -2255,7 +3035,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "eubranchus-sp.10": {
@@ -2266,7 +3048,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "eubranchus-sp.11": {
@@ -2277,7 +3061,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "eubranchus-sp.12": {
@@ -2288,7 +3074,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "facellina-sp.1": {
@@ -2299,7 +3087,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "famille"
   },
   "facelinid-non-identifié-sp.-1": {
@@ -2313,7 +3103,9 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "famille"
   },
   "facelinid-non-identifié-sp-.2": {
@@ -2324,7 +3116,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "famille"
   },
   "facelinid-non-identifié-sp.-4": {
@@ -2335,7 +3129,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "famille"
   },
   "facelinid-non-identifié-sp.5": {
@@ -2346,7 +3142,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "famille"
   },
   "favorinus-japonicus": {
@@ -2359,7 +3157,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "favorinus-sp.-1": {
@@ -2375,7 +3178,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "favorinus-sp.-2": {
@@ -2388,7 +3196,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "favorinus-sp.-3": {
@@ -2401,7 +3214,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "favorinus-sp.-4": {
@@ -2414,7 +3232,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "flabellina-exoptata": {
@@ -2431,9 +3254,16 @@
       "violet",
       "rose"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "noir",
+      "rouge"
+    ],
     "motifs": [
       "cercles"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "flabellina-rubrolineata": {
@@ -2449,9 +3279,15 @@
     "couleurs": [
       "rouge"
     ],
+    "couleurs_adj": [
+      "brun",
+      "orange",
+      "rose"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "flabellina-sp.-1": {
@@ -2465,9 +3301,16 @@
       "violet",
       "rose"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "noir",
+      "rouge"
+    ],
     "motifs": [
       "cercles"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "flabellina-sp.-2": {
@@ -2481,9 +3324,16 @@
       "violet",
       "rose"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "noir",
+      "rouge"
+    ],
     "motifs": [
       "cercles"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "flabellina-sp.-3": {
@@ -2500,7 +3350,14 @@
       "violet",
       "rose"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "noir",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "famille"
   },
   "flabellina-sp.4": {
@@ -2514,9 +3371,16 @@
       "violet",
       "rose"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "noir",
+      "rouge"
+    ],
     "motifs": [
       "cercles"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "gastropteron-minutum": {
@@ -2529,7 +3393,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "glaucus-atlanticus": {
@@ -2545,7 +3414,13 @@
     "couleurs": [
       "bleu"
     ],
+    "couleurs_adj": [
+      "gris",
+      "vert",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "goniobranchus-albonares": {
@@ -2559,9 +3434,18 @@
       "blanc",
       "orange"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "goniobranchus-albopunctatus": {
@@ -2579,9 +3463,18 @@
       "orange",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "rose",
+      "rouge",
+      "vert"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "goniobranchus-decorus": {
@@ -2602,10 +3495,18 @@
       "bleu",
       "violet"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "gris",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "lignes",
       "bordure"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "goniobranchus-cf.-geometricus": {
@@ -2623,9 +3524,18 @@
       "noir",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "goniobranchus-kuniei": {
@@ -2644,10 +3554,19 @@
       "orange",
       "violet"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "noir",
+      "rose"
+    ],
     "motifs": [
       "points",
       "bordure"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "goniobranchus-cf.-reticulatus": {
@@ -2664,9 +3583,18 @@
       "blanc",
       "orange"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "goniobranchus-verrieri": {
@@ -2679,10 +3607,16 @@
     "couleurs": [
       "violet"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "noir",
+      "rose"
+    ],
     "motifs": [
       "bordure",
       "cercles"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "goniobranchus-sp.-1": {
@@ -2693,9 +3627,11 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "goniobranchus-sp.-2": {
@@ -2706,9 +3642,11 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "goniobranchus-sp.3": {
@@ -2722,9 +3660,11 @@
       3.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "goniobranchus-sp.4": {
@@ -2738,9 +3678,11 @@
       3.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "goniodoridella-unidonta": {
@@ -2751,7 +3693,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "goniodoridella-sp.3": {
@@ -2762,7 +3706,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "goniodoridella-sp.4": {
@@ -2773,7 +3719,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "goniodoridella-sp.5": {
@@ -2784,7 +3732,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "glossodoris-cincta": {
@@ -2804,10 +3754,19 @@
       "jaune",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "rose",
+      "rouge",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "lignes",
       "bordure"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "glossodoris-hikuerensis": {
@@ -2823,9 +3782,15 @@
     "couleurs": [
       "rouge"
     ],
+    "couleurs_adj": [
+      "brun",
+      "orange",
+      "rose"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "glossodoris-rufomarginata": {
@@ -2839,9 +3804,15 @@
       "rouge",
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "gymnodoris-alba": {
@@ -2859,7 +3830,15 @@
       "jaune",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "orange",
+      "rose",
+      "vert"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "espece"
   },
   "gymnodoris-ceylonica": {
@@ -2873,9 +3852,17 @@
       "orange",
       "brun"
     ],
+    "couleurs_adj": [
+      "gris",
+      "jaune",
+      "noir",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "gymnodoris-cf-citrina": {
@@ -2890,9 +3877,18 @@
       "orange",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "gymnodoris-inornata": {
@@ -2906,10 +3902,12 @@
       3.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "points",
       "uni"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "gymnodoris-sp.-1": {
@@ -2927,9 +3925,18 @@
       "orange",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "gymnodoris-sp.-2": {
@@ -2944,9 +3951,18 @@
       "orange",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "gymnodoris-sp.-3": {
@@ -2964,9 +3980,18 @@
       "orange",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "gymnodoris-sp.-4": {
@@ -2981,9 +4006,18 @@
       "orange",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "gymnodoris-sp.-5": {
@@ -3001,9 +4035,18 @@
       "orange",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "gymnodoris-sp.-6": {
@@ -3018,9 +4061,18 @@
       "orange",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "gymnodoris-sp.-7": {
@@ -3035,9 +4087,18 @@
       "orange",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "gymnodoris-sp.-8": {
@@ -3052,9 +4113,18 @@
       "orange",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "gymnodoris-sp.-9": {
@@ -3069,9 +4139,18 @@
       "orange",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "hallaxa-cryptica": {
@@ -3084,7 +4163,14 @@
     "couleurs": [
       "brun"
     ],
+    "couleurs_adj": [
+      "gris",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "hallaxa-iju": {
@@ -3095,7 +4181,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "hallaxa-paulinae": {
@@ -3106,9 +4194,11 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "uni"
     ],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "hallaxa-sp.-2": {
@@ -3122,9 +4212,17 @@
       "blanc",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "orange",
+      "rose",
+      "vert"
+    ],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "hallaxa-sp.-3": {
@@ -3138,9 +4236,17 @@
       "blanc",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "orange",
+      "rose",
+      "vert"
+    ],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "halgerda-brunneomaculata": {
@@ -3153,7 +4259,14 @@
     "couleurs": [
       "brun"
     ],
+    "couleurs_adj": [
+      "gris",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "motifs",
     "source": "espece"
   },
   "halgerda-willeyi": {
@@ -3169,9 +4282,18 @@
       "jaune",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "noir",
+      "rose",
+      "rouge",
+      "vert"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "motifs",
     "source": "espece"
   },
   "halgerda-sp.1": {
@@ -3182,7 +4304,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "genre"
   },
   "halgerda-sp.2": {
@@ -3193,7 +4317,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "genre"
   },
   "haloa-crocata": {
@@ -3206,7 +4332,14 @@
     "couleurs": [
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "haloa-sp.-1": {
@@ -3219,7 +4352,14 @@
     "couleurs": [
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "haloa-wallisi": {
@@ -3232,7 +4372,14 @@
     "couleurs": [
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "haminoea-cymbalum": {
@@ -3246,7 +4393,9 @@
       1.5
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "sobre",
     "source": "espece"
   },
   "haminoea-cf-natalensis": {
@@ -3264,7 +4413,17 @@
       "brun",
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "haminoea-sp.-1": {
@@ -3279,7 +4438,17 @@
       "brun",
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "haminoeid-sp.1-lt": {
@@ -3292,7 +4461,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "famille"
   },
   "haminoeid-sp.2": {
@@ -3305,7 +4479,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "famille"
   },
   "haminoeid-sp.3": {
@@ -3318,7 +4497,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "famille"
   },
   "haminoeid-sp.4": {
@@ -3331,7 +4515,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "famille"
   },
   "hancockia-sp.1": {
@@ -3342,7 +4531,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "hancockia-sp.2": {
@@ -3353,7 +4544,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "hancockia-sp.3": {
@@ -3364,7 +4557,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "hermaea-sp.1": {
@@ -3377,7 +4572,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "herviella-albida": {
@@ -3391,9 +4592,16 @@
       "blanc",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "uni"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "herviella-mietta": {
@@ -3407,9 +4615,17 @@
       "orange",
       "brun"
     ],
+    "couleurs_adj": [
+      "gris",
+      "jaune",
+      "noir",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "herviella-yatsui": {
@@ -3422,9 +4638,16 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "cercles"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "herviella-sp.-1": {
@@ -3437,7 +4660,14 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "hexabranchus-sp.-1": {
@@ -3454,7 +4684,13 @@
       "rouge",
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "hexabranchus-sp.-2": {
@@ -3471,7 +4707,13 @@
       "rouge",
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "hydatina-physis": {
@@ -3488,9 +4730,18 @@
       "blanc",
       "orange"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "",
     "source": "genre"
   },
   "hypselodoris-bertschi": {
@@ -3503,10 +4754,16 @@
     "couleurs": [
       "bleu"
     ],
+    "couleurs_adj": [
+      "gris",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "lignes",
       "points"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "hypselodoris-imperialis": {
@@ -3524,9 +4781,18 @@
       "orange",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "rose",
+      "rouge",
+      "vert"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "hypselodoris-maculosa": {
@@ -3540,9 +4806,11 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "hypselodoris-sp.-1": {
@@ -3559,9 +4827,18 @@
       "violet",
       "rose"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "gris",
+      "noir",
+      "rouge",
+      "vert"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "hypselodoris-tryoni": {
@@ -3577,9 +4854,18 @@
       "jaune",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "orange",
+      "rose",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "hypselodoris-whitei": {
@@ -3598,9 +4884,18 @@
       "jaune",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "rose",
+      "rouge",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "hypselodoris-zephyra": {
@@ -3614,7 +4909,9 @@
       2.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "espece"
   },
   "janolus-mirabilis": {
@@ -3628,7 +4925,12 @@
       "translucide",
       "irisé"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "jorunna-funebris": {
@@ -3639,9 +4941,11 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "jorunna-parva": {
@@ -3652,9 +4956,11 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "jorunna-sp.-1": {
@@ -3668,9 +4974,11 @@
       2.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "julia-exquisita": {
@@ -3685,7 +4993,17 @@
       "vert",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rose",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "espece"
   },
   "julia-sp.1": {
@@ -3699,7 +5017,16 @@
       "vert",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "julia-sp.2": {
@@ -3713,7 +5040,16 @@
       "vert",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "kaloplocamus-sp.-1": {
@@ -3727,7 +5063,9 @@
       4.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "famille"
   },
   "julia-zebra": {
@@ -3741,7 +5079,16 @@
       "vert",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "kaloplocamus-sp.-2": {
@@ -3755,7 +5102,9 @@
       3.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "famille"
   },
   "kaloplocamus-sp.-3": {
@@ -3769,7 +5118,9 @@
       3.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "famille"
   },
   "lamprohaminoea-cf-ovalis": {
@@ -3783,9 +5134,11 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "points"
     ],
+    "coloration": "sobre",
     "source": "genre"
   },
   "lamprohaminoea-ovalis": {
@@ -3796,7 +5149,9 @@
     "morpho": "coquille_visible",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "sobre",
     "source": "espece"
   },
   "liloa-curta": {
@@ -3813,7 +5168,14 @@
       "blanc",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "liloa-sp.-1": {
@@ -3827,7 +5189,14 @@
       "blanc",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "liloa-sp.-2": {
@@ -3841,7 +5210,14 @@
       "blanc",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "liloa-sp.-3": {
@@ -3855,7 +5231,14 @@
       "blanc",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "limenandra-confusa": {
@@ -3866,7 +5249,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "espece"
   },
   "limenandra-fusiformis": {
@@ -3880,7 +5265,15 @@
       "brun",
       "gris"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "limenandra-rosanae": {
@@ -3894,7 +5287,9 @@
       3.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "espece"
   },
   "lobiger-viridis": {
@@ -3908,7 +5303,9 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "madrella-ferruginosa": {
@@ -3922,7 +5319,13 @@
       "rouge",
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "mariaglaja-cf-sandrana": {
@@ -3933,7 +5336,9 @@
     "morpho": "limace_compacte",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "marianina-rosea": {
@@ -3944,7 +5349,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "genre"
   },
   "melibe-engeli": {
@@ -3958,7 +5365,9 @@
       2.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "mexichromis-lemniscata": {
@@ -3975,9 +5384,19 @@
       "orange",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "mexichromis-pusilla": {
@@ -3988,9 +5407,11 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "micromelo-scriptus": {
@@ -4004,9 +5425,11 @@
       4.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes"
     ],
+    "coloration": "",
     "source": "genre"
   },
   "moridilla-sp.-1": {
@@ -4017,7 +5440,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "famille"
   },
   "mourgona-sp.1": {
@@ -4028,7 +5453,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "mourgona-sp.2": {
@@ -4039,7 +5466,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "murphydoris-puncticulata": {
@@ -4053,10 +5482,19 @@
       "blanc",
       "orange"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points",
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "niparaya-cf-regiscorona": {
@@ -4070,7 +5508,14 @@
       "rose",
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris",
+      "rouge",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "motifs",
     "source": "genre"
   },
   "noumeaella-sp.-1": {
@@ -4084,7 +5529,14 @@
       "blanc",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "noumeaella-rehderi": {
@@ -4098,7 +5550,14 @@
       "blanc",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "okenia-pellucida": {
@@ -4109,7 +5568,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "okenia-sp.-1": {
@@ -4123,7 +5584,9 @@
       0.5
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "okenia-sp.-2": {
@@ -4134,7 +5597,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "okenia-sp.-3": {
@@ -4145,7 +5610,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "okenia-sp.-4": {
@@ -4156,7 +5623,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "oxynoe-cf-alicia": {
@@ -4169,7 +5638,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "oxynoe-kylei": {
@@ -4180,7 +5655,9 @@
     "morpho": "coquille_visible",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "espece"
   },
   "oxynoe-cf-viridis": {
@@ -4196,7 +5673,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "oxynoe-jacksoni": {
@@ -4209,9 +5692,15 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "oxynoe-jordani": {
@@ -4222,7 +5711,9 @@
     "morpho": "coquille_visible",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "espece"
   },
   "oxynoe-sp.-1": {
@@ -4235,7 +5726,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "oxynoe-sp.-2": {
@@ -4248,7 +5745,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "oxynoe-sp.-3": {
@@ -4261,7 +5764,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "paradoris-sp.1": {
@@ -4272,7 +5781,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "paradoris-sp.2": {
@@ -4286,7 +5797,9 @@
       0.5
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "peltodoris-fellowsi": {
@@ -4299,9 +5812,16 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "petalifera-sp.1": {
@@ -4317,7 +5837,13 @@
     "couleurs": [
       "violet"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "noir",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "phanerophthalmus-albocollaris": {
@@ -4333,7 +5859,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "phanerophthalmus-cylindricus": {
@@ -4347,7 +5878,9 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "sobre",
     "source": "espece"
   },
   "phanerophthalmus-sp.1": {
@@ -4360,7 +5893,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "phanerophthalmus-sp.2": {
@@ -4373,7 +5911,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "phanerophthalmus-sp.3": {
@@ -4386,7 +5929,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "phanerophthalmus-sp.4": {
@@ -4399,7 +5947,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "phidiana-salaamica": {
@@ -4413,7 +5966,9 @@
       2.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "philine-orca": {
@@ -4426,7 +5981,14 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "philine-rubrata": {
@@ -4443,7 +6005,15 @@
       "orange",
       "rose"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "espece"
   },
   "philine-sp.1": {
@@ -4456,7 +6026,14 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "philine-sp.2": {
@@ -4469,7 +6046,14 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "philinopsis-speciosa": {
@@ -4480,7 +6064,9 @@
     "morpho": "limace_compacte",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "sobre",
     "source": "famille"
   },
   "phycophila-euchlora": {
@@ -4493,7 +6079,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "phyllaplisia-lafonti": {
@@ -4507,7 +6099,16 @@
       "vert",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "phyllidia-cf.-carlsonhoffi": {
@@ -4525,9 +6126,19 @@
       "orange",
       "jaune"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "gris",
+      "rose",
+      "rouge",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "espece"
   },
   "phyllidia-cf.-ocellata": {
@@ -4541,10 +6152,12 @@
       5.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "cercles",
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "espece"
   },
   "phyllidia-sp.-1": {
@@ -4560,9 +6173,15 @@
     "couleurs": [
       "noir"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "violet"
+    ],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "phyllidiella-cf.-annulata": {
@@ -4573,9 +6192,11 @@
     "morpho": "dos_lisse",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "cercles"
     ],
+    "coloration": "motifs",
     "source": "espece"
   },
   "phyllidiella-pustulosa": {
@@ -4593,11 +6214,19 @@
       "vert",
       "gris"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "brun",
+      "jaune",
+      "violet"
+    ],
     "motifs": [
       "points",
       "cercles",
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "espece"
   },
   "phyllidiella-rosans": {
@@ -4611,9 +6240,11 @@
       2.5
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "motifs",
     "source": "espece"
   },
   "phylliroe-bucephalum": {
@@ -4629,7 +6260,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "phyllodesmium-sp.-1": {
@@ -4640,7 +6276,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "famille"
   },
   "placida-kevinleei": {
@@ -4654,9 +6292,17 @@
       "vert",
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "brun",
+      "gris",
+      "jaune"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "sobre",
     "source": "genre"
   },
   "placida-sp.1": {
@@ -4670,9 +6316,17 @@
       "vert",
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "brun",
+      "gris",
+      "jaune"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "sobre",
     "source": "genre"
   },
   "placida-sp.2": {
@@ -4686,9 +6340,17 @@
       "vert",
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "brun",
+      "gris",
+      "jaune"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "sobre",
     "source": "genre"
   },
   "plakobranchus-ocellatus": {
@@ -4701,7 +6363,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "plakobranchus-sp.1": {
@@ -4714,7 +6382,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "platydoris-cruenta": {
@@ -4727,7 +6401,13 @@
     "couleurs": [
       "rouge"
     ],
+    "couleurs_adj": [
+      "brun",
+      "orange",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "motifs",
     "source": "espece"
   },
   "platydoris-scabra": {
@@ -4738,7 +6418,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "espece"
   },
   "platydoris-sp.1": {
@@ -4752,7 +6434,9 @@
       2.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "genre"
   },
   "platydoris-sp.2": {
@@ -4766,7 +6450,9 @@
       4.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "genre"
   },
   "platydoris-sp.3": {
@@ -4777,7 +6463,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "genre"
   },
   "pleurehdera-haraldi": {
@@ -4788,7 +6476,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "pleurobranchus-albiguttatus": {
@@ -4804,9 +6494,16 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "pleurobranchus-grandis": {
@@ -4820,7 +6517,9 @@
       10.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "pleurobranchus-peroni": {
@@ -4831,9 +6530,11 @@
     "morpho": "dos_lisse",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "tubercules"
     ],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "plocamopherus-ceylonicus": {
@@ -4847,7 +6548,16 @@
       "jaune",
       "brun"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris",
+      "noir",
+      "orange",
+      "rouge",
+      "vert"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "espece"
   },
   "plocamopherus-cf.-telesii": {
@@ -4863,9 +6573,11 @@
     "couleurs": [
       "irisé"
     ],
+    "couleurs_adj": [],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "polybranchia-orientalis": {
@@ -4878,7 +6590,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "polycera-japonica": {
@@ -4892,7 +6610,9 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "polycera-sp.1": {
@@ -4903,7 +6623,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "protaeolidia-juliae": {
@@ -4921,9 +6643,18 @@
       "orange",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "pteraeolidia-ianthina": {
@@ -4941,7 +6672,14 @@
       "violet",
       "irisé"
     ],
+    "couleurs_adj": [
+      "gris",
+      "noir",
+      "rose",
+      "vert"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "roboastra-gracilis": {
@@ -4958,9 +6696,17 @@
       "jaune",
       "bleu"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris",
+      "orange",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "lignes"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "rostanga-sp.1": {
@@ -4971,7 +6717,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "rostanga-sp.2": {
@@ -4982,7 +6730,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "motifs",
     "source": "famille"
   },
   "roxaniella-pittmani": {
@@ -4993,7 +6743,9 @@
     "morpho": "coquille_visible",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "runcina-sp.-1": {
@@ -5006,7 +6758,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "famille"
   },
   "sagaminopteron-cf-pohnpei": {
@@ -5020,7 +6777,15 @@
       "orange",
       "jaune"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "rose",
+      "rouge",
+      "vert"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "sagaminopteron-psychedelicum": {
@@ -5039,7 +6804,16 @@
       "vert",
       "bleu"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "gris",
+      "rose",
+      "rouge",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "espece"
   },
   "samla-bicolor": {
@@ -5052,7 +6826,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "sclerodoris-tuberculata": {
@@ -5069,9 +6848,17 @@
       "brun",
       "gris"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "bleu",
+      "noir",
+      "orange",
+      "rouge"
+    ],
     "motifs": [
       "uni"
     ],
+    "coloration": "motifs",
     "source": "genre"
   },
   "scyllae-sp.-1": {
@@ -5082,7 +6869,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "famille"
   },
   "siphopteron-brunneomarginatum": {
@@ -5097,9 +6886,18 @@
       "jaune",
       "brun"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris",
+      "orange",
+      "rouge",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "siphopteron-flavum": {
@@ -5112,9 +6910,15 @@
     "couleurs": [
       "jaune"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "vert"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "siphopteron-nigromarginatum": {
@@ -5129,9 +6933,18 @@
       "jaune",
       "brun"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris",
+      "orange",
+      "rouge",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "siphopteron-sp.1": {
@@ -5145,9 +6958,17 @@
       "blanc",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "orange",
+      "rose",
+      "vert"
+    ],
     "motifs": [
       "points"
     ],
+    "coloration": "",
     "source": "genre"
   },
   "smaragdinella-calyculata": {
@@ -5160,7 +6981,13 @@
     "couleurs": [
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "jaune"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "spinoaglaja-orientalis": {
@@ -5171,7 +6998,9 @@
     "morpho": "limace_compacte",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "sobre",
     "source": "famille"
   },
   "stiliger-sp.-1": {
@@ -5187,7 +7016,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "famille"
   },
   "stiliger-sp.-2": {
@@ -5203,7 +7037,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "famille"
   },
   "stiliger-sp.3": {
@@ -5216,7 +7055,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "famille"
   },
   "stylocheilus-striatus": {
@@ -5230,9 +7074,11 @@
       2.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes"
     ],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "stylocheilus-longicauda": {
@@ -5243,7 +7089,9 @@
     "morpho": "gros_animal",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "tambja-amakusana": {
@@ -5262,10 +7110,19 @@
       "vert",
       "bleu"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "gris",
+      "rose",
+      "rouge",
+      "violet"
+    ],
     "motifs": [
       "lignes",
       "bordure"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "tambja-morosa": {
@@ -5279,7 +7136,14 @@
       "noir",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "vert",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "espece"
   },
   "tayuva-lilacina": {
@@ -5297,7 +7161,16 @@
       "vert",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "orange",
+      "rouge",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "motifs",
     "source": "genre"
   },
   "tenellia-lugubris": {
@@ -5314,7 +7187,14 @@
       "noir",
       "brun"
     ],
+    "couleurs_adj": [
+      "gris",
+      "orange",
+      "rouge",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "tenellia-minor": {
@@ -5325,7 +7205,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "tenellia-melanobranchia": {
@@ -5341,7 +7223,13 @@
     "couleurs": [
       "noir"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "tenellia-cf-pinnifera": {
@@ -5357,7 +7245,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-poritophages": {
@@ -5368,7 +7261,9 @@
     "morpho": "filaments",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "espece"
   },
   "tenellia-sp.-1": {
@@ -5381,7 +7276,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-2": {
@@ -5394,7 +7294,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-3": {
@@ -5410,7 +7315,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-4": {
@@ -5423,7 +7333,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-5": {
@@ -5436,7 +7351,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-6": {
@@ -5449,7 +7369,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-7": {
@@ -5462,7 +7387,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-8": {
@@ -5475,7 +7405,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-9": {
@@ -5488,7 +7423,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-10": {
@@ -5501,7 +7441,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-11": {
@@ -5514,7 +7459,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-13": {
@@ -5527,7 +7477,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-14": {
@@ -5540,7 +7495,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-15": {
@@ -5553,7 +7513,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-21": {
@@ -5567,7 +7532,14 @@
       "noir",
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "gris",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tenellia-sp.-22": {
@@ -5580,7 +7552,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "tergiposacca-longicerata": {
@@ -5593,7 +7570,14 @@
     "couleurs": [
       "blanc"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "camouflage",
     "source": "genre"
   },
   "thecacera-pacifica": {
@@ -5604,7 +7588,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "thordisa-albomacula": {
@@ -5621,7 +7607,17 @@
       "blanc",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rose",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "motifs",
     "source": "genre"
   },
   "thordisa-cf-tahala": {
@@ -5638,7 +7634,17 @@
       "blanc",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rose",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "motifs",
     "source": "genre"
   },
   "thordisa-luteola": {
@@ -5655,7 +7661,15 @@
       "blanc",
       "jaune"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "orange",
+      "rose",
+      "vert"
+    ],
     "motifs": [],
+    "coloration": "motifs",
     "source": "espece"
   },
   "thordisa-sp.-1": {
@@ -5669,7 +7683,17 @@
       "blanc",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rose",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "motifs",
     "source": "genre"
   },
   "thordisa-sp.-2": {
@@ -5683,7 +7707,17 @@
       "blanc",
       "brun"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "noir",
+      "orange",
+      "rose",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "motifs",
     "source": "genre"
   },
   "thorunna-daniellae": {
@@ -5697,10 +7731,17 @@
       "blanc",
       "translucide"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [
       "points",
       "bordure"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "thorunna-florens": {
@@ -5714,9 +7755,11 @@
       2.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "thorunna-cf-halourga": {
@@ -5735,9 +7778,17 @@
       "bleu",
       "translucide"
     ],
+    "couleurs_adj": [
+      "gris",
+      "orange",
+      "rose",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "thorunna-purpuropedis": {
@@ -5750,9 +7801,15 @@
     "couleurs": [
       "violet"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "noir",
+      "rose"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "thorunna-sp.-1": {
@@ -5771,9 +7828,17 @@
       "bleu",
       "translucide"
     ],
+    "couleurs_adj": [
+      "gris",
+      "orange",
+      "rose",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "thorunna-sp.-2": {
@@ -5792,9 +7857,17 @@
       "bleu",
       "translucide"
     ],
+    "couleurs_adj": [
+      "gris",
+      "orange",
+      "rose",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "thorunna-sp.-3": {
@@ -5810,9 +7883,17 @@
       "bleu",
       "translucide"
     ],
+    "couleurs_adj": [
+      "gris",
+      "orange",
+      "rose",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "thorunna-sp.-4": {
@@ -5828,9 +7909,17 @@
       "bleu",
       "translucide"
     ],
+    "couleurs_adj": [
+      "gris",
+      "orange",
+      "rose",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "thuridilla-carlsoni": {
@@ -5847,7 +7936,15 @@
       "blanc",
       "vert"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "rose"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "thuridilla-gracilis": {
@@ -5858,7 +7955,9 @@
     "morpho": "limace_compacte",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "",
     "source": "espece"
   },
   "thuridilla-kathae": {
@@ -5874,10 +7973,20 @@
       "jaune",
       "bleu"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "gris",
+      "rose",
+      "rouge",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "points",
       "bordure"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "thuridilla-livida": {
@@ -5893,10 +8002,20 @@
       "bleu",
       "violet"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "gris",
+      "noir",
+      "rose",
+      "rouge",
+      "vert"
+    ],
     "motifs": [
       "bordure",
       "uni"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "thuridilla-cf-neona": {
@@ -5911,10 +8030,19 @@
       "vert",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge",
+      "violet"
+    ],
     "motifs": [
       "lignes",
       "bordure"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "thuridilla-vataae": {
@@ -5932,9 +8060,19 @@
       "orange",
       "bleu"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "jaune",
+      "rose",
+      "rouge",
+      "vert",
+      "violet"
+    ],
     "motifs": [
       "bordure"
     ],
+    "coloration": "",
     "source": "espece"
   },
   "thuridilla-sp.-1": {
@@ -5948,9 +8086,11 @@
       1.5
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "lignes"
     ],
+    "coloration": "",
     "source": "genre"
   },
   "trapania-cf-aurata": {
@@ -5966,7 +8106,14 @@
     "couleurs": [
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "trapania-euryeia": {
@@ -5979,7 +8126,13 @@
     "couleurs": [
       "jaune"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "vert"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "espece"
   },
   "trapania-squama": {
@@ -5993,9 +8146,11 @@
       1.0
     ],
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [
       "points"
     ],
+    "coloration": "vif",
     "source": "espece"
   },
   "trapania-sp.-2": {
@@ -6008,7 +8163,14 @@
     "couleurs": [
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "trapania-sp.-3": {
@@ -6021,7 +8183,14 @@
     "couleurs": [
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "tubulophilinopsis-pilsbryi": {
@@ -6037,7 +8206,13 @@
     "couleurs": [
       "noir"
     ],
+    "couleurs_adj": [
+      "brun",
+      "gris",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "tylodina-sp.1": {
@@ -6050,7 +8225,13 @@
     "couleurs": [
       "jaune"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "vert"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "famille"
   },
   "vayssierea-felis": {
@@ -6063,9 +8244,16 @@
     "couleurs": [
       "orange"
     ],
+    "couleurs_adj": [
+      "brun",
+      "jaune",
+      "rose",
+      "rouge"
+    ],
     "motifs": [
       "uni"
     ],
+    "coloration": "vif",
     "source": "genre"
   },
   "vellicolla-amphorella": {
@@ -6078,7 +8266,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "vellicola-sp.1": {
@@ -6091,7 +8284,12 @@
     "couleurs": [
       "translucide"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
     "motifs": [],
+    "coloration": "sobre",
     "source": "genre"
   },
   "verconia-simplex": {
@@ -6102,7 +8300,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "espece"
   },
   "verconia-sp.2": {
@@ -6116,7 +8316,15 @@
       "orange",
       "jaune"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "rose",
+      "rouge",
+      "vert"
+    ],
     "motifs": [],
+    "coloration": "vif",
     "source": "genre"
   },
   "verconia-varians": {
@@ -6127,7 +8335,9 @@
     "morpho": "panache_branchial",
     "taille": null,
     "couleurs": [],
+    "couleurs_adj": [],
     "motifs": [],
+    "coloration": "vif",
     "source": "espece"
   },
   "volvatella-sp.1": {
@@ -6141,7 +8351,14 @@
       "rouge",
       "rose"
     ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "orange",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   },
   "volvatella-vigourouxi": {
@@ -6159,7 +8376,16 @@
       "rouge",
       "rose"
     ],
+    "couleurs_adj": [
+      "bleu",
+      "brun",
+      "gris",
+      "jaune",
+      "orange",
+      "violet"
+    ],
     "motifs": [],
+    "coloration": "",
     "source": "genre"
   }
 }
