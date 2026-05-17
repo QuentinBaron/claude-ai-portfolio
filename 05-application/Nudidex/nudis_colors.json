@@ -919,20 +919,6 @@
     "motifs": [],
     "source": "genre"
   },
-  "coriocella-nigra": {
-    "nom": "Coriocella nigra",
-    "ordre": "Littorinimorpha",
-    "famille": "Velutinidae",
-    "genre": "Coriocella",
-    "morpho": "limace_compacte",
-    "taille": [
-      null,
-      10.0
-    ],
-    "couleurs": [],
-    "motifs": [],
-    "source": "genre"
-  },
   "costasiella-kuroshimae": {
     "nom": "Costasiella kuroshimae",
     "ordre": "Sacoglossa",
@@ -3927,7 +3913,7 @@
   },
   "madrella-ferruginosa": {
     "nom": "Madrella ferruginosa",
-    "ordre": "Janolina",
+    "ordre": "Aeolida",
     "famille": "Madrellidae",
     "genre": "Madrella",
     "morpho": "filaments",
@@ -4037,26 +4023,22 @@
   "mourgona-sp.1": {
     "nom": "Mourgona sp.1",
     "ordre": "Sacoglossa",
-    "famille": "Philinidae",
+    "famille": "Caliphyllidae",
     "genre": "Mourgona",
-    "morpho": "inconnu",
+    "morpho": "filaments",
     "taille": null,
-    "couleurs": [
-      "blanc"
-    ],
+    "couleurs": [],
     "motifs": [],
     "source": "famille"
   },
   "mourgona-sp.2": {
     "nom": "Mourgona sp.2",
     "ordre": "Sacoglossa",
-    "famille": "Philinidae",
+    "famille": "Caliphyllidae",
     "genre": "Mourgona",
-    "morpho": "inconnu",
+    "morpho": "filaments",
     "taille": null,
-    "couleurs": [
-      "blanc"
-    ],
+    "couleurs": [],
     "motifs": [],
     "source": "famille"
   },
@@ -4503,7 +4485,7 @@
   },
   "phycophila-euchlora": {
     "nom": "Phycophila euchlora",
-    "ordre": "Anaspidea",
+    "ordre": "Aplysiida",
     "famille": "Aplysiidae",
     "genre": "Phycophila",
     "morpho": "gros_animal",
@@ -4533,7 +4515,7 @@
     "ordre": "Doridida",
     "famille": "Phyllidiidae",
     "genre": "Phyllidia",
-    "morpho": "panache_branchial",
+    "morpho": "dos_lisse",
     "taille": [
       null,
       2.0
@@ -4553,7 +4535,7 @@
     "ordre": "Doridida",
     "famille": "Phyllidiidae",
     "genre": "Phyllidia",
-    "morpho": "panache_branchial",
+    "morpho": "dos_lisse",
     "taille": [
       null,
       5.0
@@ -4570,7 +4552,7 @@
     "ordre": "Doridida",
     "famille": "Phyllidiidae",
     "genre": "Phyllidia",
-    "morpho": "panache_branchial",
+    "morpho": "dos_lisse",
     "taille": [
       null,
       5.0
@@ -4588,7 +4570,7 @@
     "ordre": "Doridida",
     "famille": "Phyllidiidae",
     "genre": "Phyllidiella",
-    "morpho": "panache_branchial",
+    "morpho": "dos_lisse",
     "taille": null,
     "couleurs": [],
     "motifs": [
@@ -4601,7 +4583,7 @@
     "ordre": "Doridida",
     "famille": "Phyllidiidae",
     "genre": "Phyllidiella",
-    "morpho": "panache_branchial",
+    "morpho": "dos_lisse",
     "taille": [
       null,
       2.5
@@ -4623,7 +4605,7 @@
     "ordre": "Doridida",
     "famille": "Phyllidiidae",
     "genre": "Phyllidiella",
-    "morpho": "panache_branchial",
+    "morpho": "dos_lisse",
     "taille": [
       null,
       2.5
@@ -5604,7 +5586,7 @@
   "tergiposacca-longicerata": {
     "nom": "Tergiposacca longicerata",
     "ordre": "Aeolida",
-    "famille": "Cuthonidae",
+    "famille": "Trinchesiidae",
     "genre": "Tergiposacca",
     "morpho": "filaments",
     "taille": null,
