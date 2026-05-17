@@ -405,7 +405,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.16-2041</span>
+  <span title="Version de déploiement">v2026.05.16-2206</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -1844,128 +1844,184 @@ function esc(s) {
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   IDENTIFY VIEW — Identification terrain par critères morphologiques
+   IDENTIFY VIEW — Arbre de décision morphologique terrain
    ══════════════════════════════════════════════════════════════════ */
+
+/* ── Mapping famille → critère L1 (ce qu'il y a sur le dos) ── */
+var L1_FAMILY = {
+  /* CÉRATES */
+  'Aeolidiidae':'cerates','Facelinidae':'cerates','Flabellinidae':'cerates',
+  'Trinchesiidae':'cerates','Cuthonidae':'cerates','Eubranchidae':'cerates',
+  'Babakinidae':'cerates','Glaucidae':'cerates','Samlidae':'cerates','Embletoniidae':'cerates',
+  'Tritoniidae':'cerates','Bornellidae':'cerates','Dotidae':'cerates',
+  'Scyllaeidae':'cerates','Tethydidae':'cerates','Hancockiidae':'cerates','Phylliroidae':'cerates',
+  'Janolidae':'cerates','Madrellidae':'cerates',
+  'Costasiellidae':'cerates','Hermaeidae':'cerates','Caliphyllidae':'cerates',
+  /* COURONNE */
+  'Chromodorididae':'couronne','Dorididae':'couronne','Discodorididae':'couronne',
+  'Dendrodorididae':'couronne','Hexabranchidae':'couronne','Polyceridae':'couronne',
+  'Goniodorididae':'couronne','Aegiridae':'couronne','Actinocyclidae':'couronne',
+  'Diaphorodorididae':'couronne','Vayssiereidae':'couronne',
+  /* COQUILLE */
+  'Haminoeidae':'coquille','Bullidae':'coquille','Aplustridae':'coquille',
+  'Tylodinidae':'coquille',
+  'Oxynoidae':'coquille','Juliidae':'coquille','Volvatellidae':'coquille','Cylindrobullidae':'coquille',
+  /* CRÊTE */
+  'Arminidae':'crete',
+  /* RIEN */
+  'Pleurobranchidae':'rien','Berthellidae':'rien','Berthelliniidae':'rien',
+  'Aglajidae':'rien','Gastropteridae':'rien',
+  'Aplysiidae':'rien','Dolabriferidae':'rien',
+  'Phyllidiidae':'rien','Phyllididae':'rien',
+  'Runcinidae':'rien','Velutinidae':'rien','Limapontiidae':'rien',
+  'Philinidae':'rien','Colpodaspididae':'rien',
+  'Elysiidae':'rien','Plakobranchidae':'rien',
+};
+
+/* Tolérance : familles acceptant plusieurs valeurs L1 selon posture observée */
+var L1_TOLERANCE = {
+  'Elysiidae':      ['crete','rien'],
+  'Plakobranchidae':['crete','rien'],
+};
+
+/* ── L2 : forme des cérates ── */
+var L2_CERATES_FORME = {
+  'Aeolidiidae':'charnus','Babakinidae':'charnus',
+  'Facelinidae':'filaments','Flabellinidae':'filaments','Eubranchidae':'filaments',
+  'Embletoniidae':'filaments','Janolidae':'filaments','Madrellidae':'filaments',
+  'Hermaeidae':'filaments','Hancockiidae':'filaments',
+  'Trinchesiidae':'courts','Cuthonidae':'courts','Samlidae':'courts',
+  'Dotidae':'courts','Glaucidae':'courts',
+  'Tritoniidae':'arborescents','Bornellidae':'arborescents',
+  'Scyllaeidae':'arborescents','Tethydidae':'arborescents',
+  'Costasiellidae':'petales','Caliphyllidae':'petales',
+};
+
+/* ── L2 : disposition des cérates ── */
+var L2_CERATES_DISPO = {
+  'Aeolidiidae':'arcs','Facelinidae':'arcs','Flabellinidae':'arcs',
+  'Trinchesiidae':'arcs','Cuthonidae':'arcs','Eubranchidae':'arcs',
+  'Dotidae':'arcs','Samlidae':'arcs','Embletoniidae':'arcs',
+  'Babakinidae':'arcs','Glaucidae':'arcs',
+  'Tritoniidae':'dense','Tethydidae':'dense',
+  'Bornellidae':'cotes','Scyllaeidae':'cotes','Janolidae':'cotes',
+  'Madrellidae':'cotes','Hancockiidae':'cotes',
+  'Costasiellidae':'cotes','Hermaeidae':'cotes','Caliphyllidae':'cotes',
+};
+
+/* ── L2 : type de notum (branche couronne) ── */
+var L2_NOTUM = {
+  'Chromodorididae':'lisse','Aegiridae':'lisse','Dendrodorididae':'lisse',
+  'Hexabranchidae':'lisse','Polyceridae':'lisse','Goniodorididae':'lisse',
+  'Vayssiereidae':'lisse','Diaphorodorididae':'lisse',
+  'Dorididae':'papilles','Discodorididae':'papilles','Actinocyclidae':'papilles',
+};
+
+/* ── L2 : type de coquille ── */
+var L2_COQUILLE = {
+  'Tylodinidae':'plate',
+  'Haminoeidae':'ovale','Bullidae':'ovale',
+  'Aplustridae':'enroulee',
+  'Oxynoidae':'cachee','Juliidae':'cachee','Volvatellidae':'cachee','Cylindrobullidae':'cachee',
+};
+
+/* ── L2 : forme générale (branche rien) ── */
+var L2_FORME = {
+  'Aplysiidae':'escargot','Dolabriferidae':'escargot',
+  'Aglajidae':'allonge','Phylliroidae':'allonge',
+  'Pleurobranchidae':'ovale','Berthellidae':'ovale','Berthelliniidae':'ovale',
+  'Gastropteridae':'ovale','Phyllidiidae':'ovale','Phyllididae':'ovale',
+  'Elysiidae':'ovale','Plakobranchidae':'ovale','Philinidae':'ovale',
+  'Runcinidae':'limace','Velutinidae':'limace',
+  'Limapontiidae':'limace','Colpodaspididae':'limace',
+};
+
+/* ── L2 : parapodes (branche rien) ── */
+var L2_PARAPODES = {
+  'Aplysiidae':'rideaux','Dolabriferidae':'rideaux',
+  'Gastropteridae':'larges',
+  'Elysiidae':'replis','Plakobranchidae':'replis',
+};
+
+/* ── Coloration générale → famille ── */
+var COLORATION_FAMILY = {
+  'Chromodorididae':'vif','Hexabranchidae':'vif','Facelinidae':'vif',
+  'Flabellinidae':'vif','Polyceridae':'vif','Goniodorididae':'vif',
+  'Vayssiereidae':'vif','Costasiellidae':'vif','Elysiidae':'vif',
+  'Phyllidiidae':'motifs','Dorididae':'motifs','Discodorididae':'motifs',
+  'Aegiridae':'motifs','Tritoniidae':'motifs','Arminidae':'motifs',
+  'Aeolidiidae':'camouflé','Pleurobranchidae':'camouflé','Aplysiidae':'camouflé',
+  'Dolabriferidae':'camouflé','Dendrodorididae':'camouflé','Bornellidae':'camouflé',
+  'Dotidae':'camouflé','Trinchesiidae':'camouflé','Eubranchidae':'camouflé',
+  'Scyllaeidae':'camouflé','Tethydidae':'camouflé','Actinocyclidae':'camouflé',
+  'Aglajidae':'sobre','Runcinidae':'sobre','Limapontiidae':'sobre',
+  'Haminoeidae':'sobre','Velutinidae':'camouflé','Bullidae':'camouflé',
+};
 
 /* ── Adjacences couleur (profondeur / perception) ── */
 var COLOR_ADJACENT = {
-  'rouge':       ['orange','rose','brun'],
-  'orange':      ['rouge','jaune','rose','brun'],
-  'jaune':       ['orange','vert','blanc'],
-  'rose':        ['rouge','orange','violet','blanc'],
-  'violet':      ['rose','bleu','noir'],
-  'bleu':        ['violet','vert','gris'],
-  'vert':        ['jaune','bleu','brun'],
-  'brun':        ['rouge','orange','noir','gris'],
-  'gris':        ['blanc','noir','bleu','brun'],
-  'blanc':       ['jaune','gris','rose'],
-  'noir':        ['brun','violet','gris'],
-  'translucide': ['blanc','gris'],
-  'irisé':       ['blanc','bleu','violet']
+  'rouge':  ['orange','rose','brun'],
+  'orange': ['rouge','jaune','rose','brun'],
+  'bleu':   ['violet','vert','gris'],
+  'violet': ['rose','bleu','noir'],
+  'rose':   ['rouge','violet','blanc'],
+  'jaune':  ['orange','vert','blanc'],
+  'vert':   ['jaune','bleu','brun'],
+  'brun':   ['rouge','orange','gris','noir'],
+  'gris':   ['blanc','noir','bleu'],
+  'blanc':  ['gris','rose','jaune'],
+  'noir':   ['brun','gris','violet'],
 };
 
-/* ── Options morpho ── */
-/* 6 catégories observateur — vocabulaire terrain, pas taxonomique */
-var MORPHO_OPTIONS = [
-  { val: 'filaments',         ico: '🪸', lbl: 'Filaments sur le dos',   dsc: 'Tentacules, cérates, papilles, feuilles dressées — éolides, sacoglosses, dendronotides' },
-  { val: 'panache_branchial', ico: '🌸', lbl: 'Couronne de branchies',  dsc: 'Branchies en fleur au milieu du dos, rétractables — le plus courant en PF (doridacés)' },
-  { val: 'dos_lisse',         ico: '🫘', lbl: 'Dos lisse ou avec crêtes', dsc: 'Aucun filament ni panache, surface lisse ou avec carènes/tubercules — arminides' },
-  { val: 'gros_animal',       ico: '🍃', lbl: 'Grand animal voilé',     dsc: 'Voiles latéraux larges, rhinophores en oreilles — lièvres de mer (Aplysia)' },
-  { val: 'limace_compacte',   ico: '🛡️', lbl: 'Limace compacte',        dsc: 'Petite limace arrondie sans appendices distincts — runcines, certains céphalopides' },
-  { val: 'coquille_visible',  ico: '🐚', lbl: 'Coquille externe visible', dsc: 'Coquille bulleuse ou en dôme clairement visible — bulles, Umbraculum' }
-];
-
-/* ── Options taille ── */
-var SIZE_OPTIONS = [
-  { val: [0, 1.5],  lbl: '< 1,5 cm',  dsc: 'Minuscule' },
-  { val: [1, 4],    lbl: '1 – 4 cm',   dsc: 'Petit' },
-  { val: [3, 10],   lbl: '3 – 10 cm',  dsc: 'Moyen' },
-  { val: [8, 30],   lbl: '> 8 cm',     dsc: 'Grand' }
-];
-
-/* ── Swatches couleur ── */
+/* ── Swatches couleurs ── */
 var SWATCH_COLORS = [
-  { val: 'blanc',       hex: '#ffffff',  stroke: '#94a3b8' },  /* blanc pur + bord gris visible */
-  { val: 'jaune',       hex: '#fde047',  stroke: '#ca8a04' },
-  { val: 'orange',      hex: '#f97316',  stroke: '#c2410c' },
-  { val: 'rouge',       hex: '#ef4444',  stroke: '#b91c1c' },
-  { val: 'rose',        hex: '#f472b6',  stroke: '#be185d' },
-  { val: 'violet',      hex: '#a855f7',  stroke: '#7c3aed' },
-  { val: 'bleu',        hex: '#3b82f6',  stroke: '#1d4ed8' },
-  { val: 'vert',        hex: '#22c55e',  stroke: '#15803d' },
-  { val: 'brun',        hex: '#a16207',  stroke: '#92400e' },
-  { val: 'gris',        hex: '#94a3b8',  stroke: '#475569' },
-  { val: 'noir',        hex: '#0f172a',  stroke: '#0f172a' },
-  { val: 'translucide', hex: '#bfdbfe',  stroke: '#60a5fa' },  /* bleu très pâle (pas gradient inline) */
-  { val: 'irisé',       hex: '#e9d5ff',  stroke: '#a855f7' }   /* lavande (pas gradient inline) */
+  {val:'blanc',      hex:'#ffffff', stroke:'#94a3b8'},
+  {val:'gris',       hex:'#94a3b8', stroke:'#64748b'},
+  {val:'noir',       hex:'#1e293b', stroke:'#475569'},
+  {val:'brun',       hex:'#92400e', stroke:'#78350f'},
+  {val:'rouge',      hex:'#dc2626', stroke:'#b91c1c'},
+  {val:'orange',     hex:'#ea580c', stroke:'#c2410c'},
+  {val:'jaune',      hex:'#ca8a04', stroke:'#a16207'},
+  {val:'vert',       hex:'#16a34a', stroke:'#15803d'},
+  {val:'bleu',       hex:'#2563eb', stroke:'#1d4ed8'},
+  {val:'violet',     hex:'#7c3aed', stroke:'#6d28d9'},
+  {val:'rose',       hex:'#db2777', stroke:'#be185d'},
+  {val:'translucide',hex:'#bae6fd', stroke:'#7dd3fc'},
+  {val:'irisé',      hex:'#c4b5fd', stroke:'#a78bfa'},
 ];
 
-/* ── Options motif ── */
-var MOTIF_OPTIONS = [
-  { val: 'uni',       lbl: 'Uni / uniforme' },
-  { val: 'points',    lbl: 'Points / taches' },
-  { val: 'lignes',    lbl: 'Lignes / bandes' },
-  { val: 'bordure',   lbl: 'Bordure colorée' },
-  { val: 'cercles',   lbl: 'Anneaux / cercles' },
-  { val: 'tubercules',lbl: 'Tubercules / relief' }
-];
-
-/* ── Questions de suivi (discriminantes par famille) ── */
+/* ── Questions spéciales (follow-up) ── */
 var FOLLOWUP_QUESTIONS = [
-  {
-    id: 'queue_fourchue',
-    ico: '🍴',
-    q: 'La queue de l\'animal est-elle fourchue (bifide) ?',
-    hint: 'Caractéristique des Aglajidae (Chelidonura, Navarchus…)',
-    yesKeepFam:   ['Aglajidae'],
-    noExcludeFam: ['Aglajidae']
-  },
-  {
-    id: 'coquille',
-    ico: '🐚',
-    q: 'Une coquille est-elle visible sur le dos ?',
-    hint: 'Même petite ou translucide — exclut Aglajidae et Gastropteridae',
-    yesKeepFam:   ['Haminoeidae','Bullidae','Aplustridae','Ringiculidae','Oxynoidae','Volvatellidae','Juliidae'],
-    noExcludeFam: ['Haminoeidae','Bullidae','Aplustridae','Ringiculidae','Oxynoidae','Volvatellidae','Juliidae']
-  },
-  {
-    id: 'voiles_natatoires',
-    ico: '🦋',
-    q: 'L\'animal a-t-il de larges voiles ou "ailes" sur les côtés ?',
-    hint: 'Gastropteridae (Sagaminopteron psychedelicum)',
-    yesKeepFam:   ['Gastropteridae'],
-    noExcludeFam: ['Gastropteridae']
-  },
-  {
-    id: 'corps_plat_feuille',
-    ico: '🍃',
-    q: 'Le corps est-il très plat et allongé (forme de feuille) ?',
-    hint: 'Elysiidae, Plakobranchidae — parapodes aplatis soudés',
-    yesKeepFam:   ['Elysiidae','Plakobranchidae','Caliphyllidae'],
-    noExcludeFam: ['Elysiidae','Plakobranchidae','Caliphyllidae']
-  },
-  {
-    id: 'cerates_feuilles',
-    ico: '🌿',
-    q: 'Les cérates ressemblent-ils à de petites feuilles ou algues vertes ?',
-    hint: 'Costasiellidae — souvent vert vif avec des cérates chloroplastides',
-    yesKeepFam:   ['Costasiellidae'],
-    noExcludeFam: ['Costasiellidae']
-  }
+  { id:'queue_fourchue', ico:'🍴', q:'La queue est-elle fourchue (bifide) ?',
+    hint:'Caractéristique des Aglajidae (Chelidonura, Navarchus…)',
+    yesKeepFam:['Aglajidae'], noExcludeFam:['Aglajidae'] },
+  { id:'voiles_natatoires', ico:'🦋', q:'L\'animal a-t-il de larges voiles ou "ailes" sur les côtés ?',
+    hint:'Gastropteridae (Sagaminopteron psychedelicum)',
+    yesKeepFam:['Gastropteridae'], noExcludeFam:['Gastropteridae'] },
+  { id:'petit_pikachu', ico:'⚡', q:'L\'animal a-t-il deux appendices dressés à l\'avant comme des oreilles ?',
+    hint:'Thecacera (Polyceridae)',
+    yesKeepFam:['Polyceridae'], noExcludeFam:[] },
+  { id:'nage_pleine_eau', ico:'🏊', q:'L\'animal nage-t-il activement en pleine eau (pas sur le fond) ?',
+    hint:'Hexabranchus, Glaucus, Phylliroe',
+    yesKeepFam:['Hexabranchidae','Glaucidae','Phylliroidae'],
+    noExcludeFam:['Hexabranchidae','Glaucidae','Phylliroidae'] },
 ];
 
-/* ── État de la session d'identification ── */
+/* ── État de la session ── */
 var idState = {
-  step: 0,           // 0=couleurs, 1=morpho, 2=taille, 3=résultats
-  morpho: null,
-  tailleIdx: null,
+  step: 0,           /* 0=dos L1, 1=L2, 2=couleurs, 3=résultats */
+  dos: null,
+  cerates_forme: null, cerates_dispo: null,
+  notum: null,
+  coquille_type: null,
+  forme: null, parapodes: null,
+  coloration: null,
   couleurs: [],
-  motifs: [],
   pool: [],
-  followup: {}       // {questionId: true/false} réponses aux questions de suivi
+  followup: {},
 };
 
-/* ── Données couleurs (nudis_colors.json) ── */
+/* ── Données couleurs ── */
 var COLORS_DATA = null;
 
 function loadColorsData(cb) {
@@ -1973,274 +2029,153 @@ function loadColorsData(cb) {
   fetch('./nudis_colors.json')
     .then(function(r){ return r.json(); })
     .then(function(d){ COLORS_DATA = d; cb(); })
-    .catch(function(){
-      /* Si le JSON n'est pas dispo, on construit un fallback minimal depuis CLADE_HINTS + DATA */
-      COLORS_DATA = buildColorsDataFallback();
-      cb();
-    });
+    .catch(function(){ COLORS_DATA = {}; cb(); });
 }
 
-/* ── Fallback : extraire couleurs depuis CLADE_HINTS en JS ── */
-var COLOR_RE = {
-  'blanc':       /\bblanch?\w*|crème|ivoire|pâle/i,
-  'noir':        /\bnoir\w*|sombr\w*|foncé\w*/i,
-  'rouge':       /\brouge\w*|écarlate|sang/i,
-  'orange':      /\borang[eé]\w*/i,
-  'jaune':       /\bjaune\w*|doré\w*|\bor\b/i,
-  'vert':        /\bvert\w*|émeraude/i,
-  'bleu':        /\bbleu\w*|azur|cyan/i,
-  'violet':      /\bviolet\w*|violacé\w*|mauve|pourpre|lilas/i,
-  'rose':        /\brose\w*|rosé\w*/i,
-  'brun':        /\bbrun\w*|marron|chocolat|beige/i,
-  'gris':        /\bgris\w*|argenté\w*/i,
-  'translucide': /translucid\w+|transparent\w*/i,
-  'irisé':       /\birisé\w*|nacré\w*|iridescent\w*/i
-};
-var MOTIF_RE = {
-  'lignes':    /\bligne\w*|bande\w*|longitudinal\w*|rayé\w*|strié\w*/i,
-  'points':    /\bpoint\w*|tache\w*|mouchet\w*|pustule\w*/i,
-  'bordure':   /\bbordure\w*|marge\w*|liseré\w*|marginal\w*/i,
-  'cercles':   /\bcercle\w*|concentrique\w*|anneau\w*|annelé\w*/i,
-  'tubercules':/\btubercu\w+|bosse\w*|épineux\b|épine\w*/i,
-  'uni':       /\buni(?:forme)?\b|homogène\b|monochrome\b/i
-};
-/* Mapping famille → catégorie observateur (prioritaire sur l'ordre) */
-var FAMILY_MORPHO_MAP_JS = {
-  // Sacoglossa — classement par famille
-  'Costasiellidae':   'filaments',
-  'Hermaeidae':       'filaments',
-  'Caliphyllidae':    'filaments',
-  'Elysiidae':        'limace_compacte',  /* corps plat, parapodes soudés — adjacent dos_lisse */
-  'Plakobranchidae':  'limace_compacte',
-  'Limapontiidae':    'limace_compacte',
-  'Oxynoidae':        'coquille_visible',
-  'Volvatellidae':    'coquille_visible',
-  'Juliidae':         'coquille_visible',
-  // Cephalaspidea — pas de coquille pour Aglajidae et Gastropteridae
-  'Aglajidae':        'limace_compacte',
-  'Gastropteridae':   'limace_compacte',
-  'Haminoeidae':      'coquille_visible',
-  'Bullidae':         'coquille_visible',
-  'Aplustridae':      'coquille_visible',
-  'Ringiculidae':     'coquille_visible',
-  // Pleurobranchida — dos lisse (branchie latérale, pas de panache)
-  'Pleurobranchidae': 'dos_lisse',
-  'Berthellidae':     'dos_lisse',
-  'Berthelliniidae':  'dos_lisse',
-  // Phyllidiidae — branchies latérales sous le manteau, dos bosselé/lisse visible d'en haut
-  // L'observateur ne voit PAS de panache dorsal → ne pas hériter panache_branchial de Doridida
-  'Phyllidiidae':     'dos_lisse',
-  'Phyllididae':      'dos_lisse',
-};
-
-/* Mapping ordre → catégorie observateur (6 catégories visuelles) */
-var MORPHO_MAP_JS = {
-  'Aeolida':        'filaments',
-  'Dendronotida':   'filaments',
-  'Janolina':       'filaments',
-  'Sacoglossa':     'inconnu',         /* trop hétérogène : cérates/parapodes/coquille selon genre */
-  'Pleurobranchida':'filaments',       /* branchie latérale = appendice pour l'observateur */
-  'Doridida':       'panache_branchial',
-  'Arminida':       'dos_lisse',
-  'Aplysiida':      'gros_animal',
-  'Anaspidea':      'gros_animal',
-  'Cephalaspidea':  'coquille_visible', /* coquille bulleuse caractéristique */
-  'Umbraculida':    'coquille_visible', /* Umbraculum umbraculum */
-  'Runcinida':      'limace_compacte',
-  'Littorinimorpha':'limace_compacte'
-};
-
-/* Normalisation : valeurs JSON générées avec l'ancien système → nouvelles catégories UI
-   nudis_colors.json utilise les anciens libellés (cerates_simples, parapodes_plats, etc.)
-   Le scoring doit comparer avec les nouvelles catégories observateur */
-var MORPHO_NORMALIZE = {
-  /* Anciennes valeurs JSON → nouvelles catégories UI */
-  'cerates_simples':   'filaments',
-  'cerates_ramifies':  'filaments',
-  'cerates_digestive': 'filaments',
-  'parapodes_plats':   'inconnu',      /* Sacoglossa : trop mixte pour forcer filaments */
-  'parapodes_epais':   'gros_animal',
-  'branchie_laterale': 'filaments',
-  'panache_branchial': 'panache_branchial',
-  'dos_lisse':         'dos_lisse',
-  'bouclier_coquille': 'coquille_visible',
-  'coquille_externe':  'coquille_visible',
-  'manteau_sur_coquille':'limace_compacte',
-  'corps_ovale_lisse': 'limace_compacte',
-  'inconnu':           'inconnu',
-  /* Nouvelles valeurs (JSON régénéré) → passthrough */
-  'filaments':         'filaments',
-  'gros_animal':       'gros_animal',
-  'coquille_visible':  'coquille_visible',
-  'limace_compacte':   'limace_compacte'
-};
-
-function extractColorsMotifs(txt) {
-  if (!txt) return { couleurs:[], motifs:[] };
-  var c = [], m = [];
-  for (var k in COLOR_RE) { if (COLOR_RE[k].test(txt)) c.push(k); }
-  for (var k in MOTIF_RE) { if (MOTIF_RE[k].test(txt)) m.push(k); }
-  return { couleurs: c, motifs: m };
+/* ── Helpers ── */
+function allSlugs() {
+  return (window.SPECIES || []).map(function(sp){ return sp.s; });
 }
 
-function buildColorsDataFallback() {
-  var CH = window.CLADE_HINTS || {};
-  var result = {};
-  (window.SPECIES || []).forEach(function(sp) {
-    var slug = sp.s;
-    var nom  = sp.n || '';
-    var genus = nom.split(' ')[0];
-    var txt = CH[nom] || CH[genus] || CH[sp.f] || CH[sp.o] || sp.d || '';
-    var feats = extractColorsMotifs(txt);
-    var taille = parseTailleJS(sp.t || '');
-    result[slug] = {
-      nom: nom, ordre: sp.o||'', famille: sp.f||'', genre: genus,
-      morpho: FAMILY_MORPHO_MAP_JS[sp.f] || MORPHO_MAP_JS[sp.o] || 'inconnu',
-      taille: taille, couleurs: feats.couleurs, motifs: feats.motifs,
-      source: CH[nom] ? 'espece' : CH[genus] ? 'genre' : 'aucune'
-    };
-  });
-  return result;
+function getSpBySlug() {
+  var m = {};
+  (window.SPECIES || []).forEach(function(sp){ m[sp.s] = sp; });
+  return m;
 }
 
-function parseTailleJS(txt) {
-  if (!txt) return null;
-  txt = txt.replace(',','.');
-  var m = txt.match(/(\d+(?:\.\d+)?)\s*[-–à]\s*(\d+(?:\.\d+)?)\s*cm/);
-  if (m) return [parseFloat(m[1]), parseFloat(m[2])];
-  m = txt.match(/(\d+(?:\.\d+)?)\s*cm/);
-  if (m) return [null, parseFloat(m[1])];
-  return null;
-}
-
-/* ── Morphologies voisines (pénalité réduite au lieu d'exclusion dure) ── */
-var MORPHO_ADJACENT = {
-  /* dos_lisse ↔ limace_compacte : corps lisse sans appendices dorsaux
-     Un Elysia vu du dessus ressemble à un dos plat — acceptable comme dos_lisse */
-  'dos_lisse':        ['limace_compacte'],
-  'limace_compacte':  ['dos_lisse']
-};
-
-/* ── Scoring / filtrage ── */
+/* ── Scoring ── */
 function scoreSpecies() {
+  var spBySlug = getSpBySlug();
   var scores = {};
-  var slugs = allSlugs();   /* tableau de slugs, allSlugs() = fonction définie plus haut */
 
-  slugs.forEach(function(slug) {
-    var cd = COLORS_DATA ? COLORS_DATA[slug] : null;
-    var score = 0;
-    var penalty = 0;
+  allSlugs().forEach(function(slug) {
+    var sp  = spBySlug[slug];
+    var fam = sp ? (sp.f || '') : '';
+    var score = 0, penalty = 0;
 
-    /* Morpho — filtre fort ; les morphos adjacentes reçoivent une pénalité partielle */
-    if (idState.morpho) {
-      var spMorpho = cd ? (MORPHO_NORMALIZE[cd.morpho] || cd.morpho) : 'inconnu';
-      if (spMorpho === idState.morpho) {
-        score += 30;
-      } else if (spMorpho === 'inconnu') {
-        penalty += 10;                                  /* pas de donnée morpho */
+    /* L1 — ce qu'il y a sur le dos */
+    if (idState.dos) {
+      var spL1 = L1_FAMILY[fam] || 'rien';
+      var tol  = L1_TOLERANCE[fam];
+      if (spL1 === idState.dos) {
+        score += 50;
+      } else if (tol && tol.indexOf(idState.dos) >= 0) {
+        score += 20;
       } else {
-        var adj = MORPHO_ADJACENT[idState.morpho] || [];
-        if (adj.indexOf(spMorpho) >= 0) penalty += 12; /* morpho voisine : pénalité partielle */
-        else penalty += 30;                             /* morpho clairement différente */
+        penalty += 50;
       }
     }
 
-    /* Taille — filtre souple */
-    if (idState.tailleIdx !== null) {
-      var sizeOpt = SIZE_OPTIONS[idState.tailleIdx];
-      if (cd && cd.taille && cd.taille[1] !== null) {
-        var maxSp = cd.taille[1];
-        var minSp = cd.taille[0] || 0;
-        var obsMin = sizeOpt.val[0], obsMax = sizeOpt.val[1];
-        if (maxSp >= obsMin && minSp <= obsMax) score += 15;
-        else penalty += 20;
+    /* L2 — cérates */
+    if (idState.cerates_forme) {
+      var cf = L2_CERATES_FORME[fam];
+      if (cf === idState.cerates_forme) score += 30; else if (cf) penalty += 25;
+    }
+    if (idState.cerates_dispo) {
+      var cd2 = L2_CERATES_DISPO[fam];
+      if (cd2 === idState.cerates_dispo) score += 20; else if (cd2) penalty += 15;
+    }
+
+    /* L2 — notum (couronne) */
+    if (idState.notum) {
+      var nt = L2_NOTUM[fam];
+      if (nt === idState.notum) score += 30; else if (nt) penalty += 25;
+    }
+
+    /* L2 — coquille */
+    if (idState.coquille_type) {
+      var cq = L2_COQUILLE[fam];
+      if (cq === idState.coquille_type) score += 30; else if (cq) penalty += 25;
+    }
+
+    /* L2 — forme + parapodes (rien) */
+    if (idState.forme) {
+      var fm = L2_FORME[fam];
+      if (fm === idState.forme) score += 25; else if (fm) penalty += 20;
+    }
+    if (idState.parapodes) {
+      var pp = L2_PARAPODES[fam];
+      if (pp === idState.parapodes) {
+        score += 20;
+      } else if (idState.parapodes === 'rien') {
+        if (pp) penalty += 10;
+      } else {
+        if (pp) penalty += 15;
       }
     }
 
-    /* Couleurs — scoring avec adjacences + pénalité si aucune donnée */
+    /* Coloration générale */
+    if (idState.coloration) {
+      var cl = COLORATION_FAMILY[fam];
+      if (cl === idState.coloration) score += 15; else if (cl) penalty += 10;
+    }
+
+    /* Couleurs (COLORS_DATA) */
     if (idState.couleurs.length > 0) {
+      var cd = COLORS_DATA ? COLORS_DATA[slug] : null;
       var spCouleurs = (cd && cd.couleurs) ? cd.couleurs : [];
-      var hasColorData = spCouleurs.length > 0;
+      var hasData = spCouleurs.length > 0;
       idState.couleurs.forEach(function(c) {
         if (spCouleurs.indexOf(c) >= 0) {
           score += 12;
         } else {
           var adj = COLOR_ADJACENT[c] || [];
           var hasAdj = adj.some(function(ac){ return spCouleurs.indexOf(ac) >= 0; });
-          if (hasAdj)         score += 4;
-          else if (hasColorData) penalty += 6;  /* couleur absente des données */
-          else                   penalty += 3;  /* pas de données couleur du tout */
+          if (hasAdj) score += 4;
+          else if (hasData) penalty += 6;
+          else penalty += 3;
         }
-      });
-    }
-
-    /* Motifs — scoring souple */
-    if (idState.motifs.length > 0 && cd) {
-      var spMotifs = cd.motifs || [];
-      idState.motifs.forEach(function(m) {
-        if (spMotifs.indexOf(m) >= 0) score += 8;
-        else if (spMotifs.length > 0) penalty += 4;
       });
     }
 
     scores[slug] = score - penalty;
   });
 
-  /* Trier et retourner slugs avec score > seuil */
-  var entries = slugs.map(function(s){ return { slug:s, score: scores[s] || 0 }; });
+  var entries = allSlugs().map(function(s){ return {slug:s, score:scores[s]||0}; });
   entries.sort(function(a,b){ return b.score - a.score; });
 
-  /* Seuil adaptatif : chaque couleur sélectionnée compte comme critère distinct,
-     ce qui resserre le seuil quand l'utilisateur sélectionne plusieurs couleurs */
-  var criteriaCount = (idState.morpho ? 1 : 0)
-                    + idState.couleurs.length           /* 0, 1, 2, 3… couleurs */
-                    + (idState.tailleIdx !== null ? 1 : 0);
-  var maxScore = entries.length > 0 ? entries[0].score : 0;
-  /* floorMin : score absolu minimum accepté (plus de critères = seuil plus strict) */
-  var floorMin  = criteriaCount === 0 ? 0
-                : criteriaCount === 1 ? -15
-                : criteriaCount === 2 ? -5
-                : criteriaCount === 3 ? 5
-                : 12;   /* 4+ critères : exige un vrai matching */
-  /* spread : écart max par rapport au meilleur score (se resserre avec plus de critères) */
-  var spread    = criteriaCount === 0 ? 9999
-                : criteriaCount === 1 ? 60
-                : criteriaCount === 2 ? 45
-                : criteriaCount === 3 ? 35
-                : 25;   /* 4+ critères : tolérance faible */
-  var seuil = Math.max(floorMin, maxScore - spread);
+  /* Seuil : L1 sélectionné → exclure tout ce qui a reçu -50 */
+  var seuil = idState.dos ? 0 : -9999;
+  /* Plusieurs couleurs → resserrer davantage */
+  if (idState.couleurs.length >= 2 && entries.length > 0)
+    seuil = Math.max(seuil, entries[0].score - 30);
 
   var result = entries.filter(function(e){ return e.score >= seuil; }).map(function(e){ return e.slug; });
-  /* Filet de sécurité minimal : si le seuil exclut TOUT (score maximal < 0 ou données trop
-     rares), on propose les 6 meilleurs plutôt que rien. On ne force jamais un plancher de 20. */
-  if (result.length === 0 && entries.length > 0) {
-    result = entries.slice(0, Math.min(6, entries.length)).map(function(e){ return e.slug; });
-  }
-  console.log('[Identifier] criteria='+criteriaCount+' maxScore='+maxScore+' seuil='+seuil.toFixed(0)+' pool='+result.length+'/'+entries.length);
+  if (result.length === 0 && entries.length > 0)
+    result = entries.slice(0, 6).map(function(e){ return e.slug; });
+
+  console.log('[Identifier] L1='+idState.dos+' pool='+result.length+'/'+entries.length+' seuil='+seuil);
   return result;
 }
 
-/* ── Rendu principal ── */
+function safeScore() {
+  try { return scoreSpecies(); }
+  catch(e) { console.error('[Identifier]', e); return allSlugs(); }
+}
+
+/* ── Init ── */
 function initIdentifyView() {
-  idState = { step:0, morpho:null, tailleIdx:null, couleurs:[], motifs:[], pool:[], followup:{} };
+  idState = { step:0, dos:null, cerates_forme:null, cerates_dispo:null,
+    notum:null, coquille_type:null, forme:null, parapodes:null,
+    coloration:null, couleurs:[], pool:[], followup:{} };
   document.getElementById('id-title').textContent = 'Identifier une espèce';
-  var body = document.getElementById('id-body');
-  body.innerHTML = '<div class="id-loading">Chargement des données morphologiques…</div>';
+  document.getElementById('id-body').innerHTML =
+    '<div class="id-loading">Chargement des données…</div>';
   loadColorsData(function(){
-    idState.pool = (window.SPECIES || []).map(function(sp){ return sp.s; });
+    idState.pool = allSlugs();
     renderIdScreen();
   });
 }
 
-/* Ordre repensé : couleurs (1er observable) → forme → taille → résultats */
-var ID_STEPS = ['Couleurs','Forme','Taille'];
+/* ── Rendu principal ── */
+var ID_STEPS = ['Dos','Détails','Couleurs'];
 
 function renderIdSteps() {
   var el = document.getElementById('id-steps');
   if (!el) return;
   var html = '';
   ID_STEPS.forEach(function(_, i){
-    html += '<div class="id-step-dot' + (i===idState.step?' act':'') + '" title="'+ID_STEPS[i]+'"></div>';
+    html += '<div class="id-step-dot'+(i===idState.step?' act':'')+'" title="'+ID_STEPS[i]+'"></div>';
   });
   el.innerHTML = html;
   document.getElementById('id-title').textContent =
@@ -2250,181 +2185,273 @@ function renderIdSteps() {
 function renderIdScreen() {
   renderIdSteps();
   switch(idState.step) {
-    case 0: renderCouleursStep(); break;
-    case 1: renderMorphoStep(); break;
-    case 2: renderTailleStep(); break;
-    case 3: renderIdResults(); break;
+    case 0: renderDosStep();    break;
+    case 1: renderL2Step();     break;
+    case 2: renderColorStep();  break;
+    case 3: renderIdResults();  break;
   }
 }
 
-/* ── Pool info ── */
-function allSlugs() {
-  return (window.SPECIES || []).map(function(sp){ return sp.s; });
-}
-
 function poolLabel() {
-  /* Aucun critère sélectionné → total brut, pas de scoring */
-  var hasAny = idState.morpho || idState.tailleIdx !== null || idState.couleurs.length > 0;
-  if (!hasAny) {
+  if (!idState.dos) {
     var total = (window.SPECIES || []).length;
     return total + ' espèce' + (total > 1 ? 's' : '');
   }
   var pool = safeScore();
-  return pool.length + ' espèce' + (pool.length > 1 ? 's' : '') + ' candidate' + (pool.length > 1 ? 's' : '');
+  return pool.length + ' espèce' + (pool.length !== 1 ? 's' : '') + ' candidate' + (pool.length !== 1 ? 's' : '');
 }
 
-/* scoreSpecies() protégée par try-catch — retourne toutes les espèces si erreur */
-function safeScore() {
-  try {
-    return scoreSpecies();
-  } catch(e) {
-    console.error('[Identifier] scoreSpecies error:', e);
-    return allSlugs();
+function navHtml(backVisible, nextLabel) {
+  return '<div class="id-nav">'
+    + (backVisible ? '<button class="id-btn id-btn-s" onclick="idBack()">← Retour</button>' : '')
+    + '<button class="id-btn id-btn-p" onclick="idNext()">'+(nextLabel||'Suivant →')+'</button>'
+    + '<button class="id-btn id-btn-s" onclick="idSkip()">Passer</button>'
+    + '<span class="id-pool">'+poolLabel()+'</span>'
+    + '</div>';
+}
+
+/* ── Étape 0 : Ce qu'il y a sur le dos ── */
+var DOS_OPTIONS = [
+  { val:'cerates',  ico:'🪸', lbl:'Cérates',                dsc:'Appendices dorsaux — filaments, boules, arborescences, pétales' },
+  { val:'couronne', ico:'🌸', lbl:'Couronne de branchies',   dsc:'Bouquet ou panache bien visible au centre du dos' },
+  { val:'coquille', ico:'🐚', lbl:'Coquille',                dsc:'Visible, devinable ou transparente sur le dos' },
+  { val:'crete',    ico:'🔱', lbl:'Crête',                   dsc:'Crête longitudinale, dos bosselé, ou parapodes repliés formant une crête' },
+  { val:'rien',     ico:'◾', lbl:'Rien ou rhinophores seuls',dsc:'Dos lisse, pas d\'appendice notable hormis les rhinophores' },
+];
+
+function renderDosStep() {
+  var html = '<p class="id-question">Qu\'observez-vous sur le dos de l\'animal ?</p>'
+    + '<p class="id-subq">Critère le plus facile à observer — choisissez ce qui correspond le mieux</p>'
+    + '<div class="morpho-grid">';
+  DOS_OPTIONS.forEach(function(opt) {
+    var sel = idState.dos === opt.val ? ' sel' : '';
+    html += '<div class="morpho-opt'+sel+'" onclick="selectDos(\''+opt.val+'\')">'
+      + '<div class="morpho-ico">'+opt.ico+'</div>'
+      + '<div class="morpho-lbl">'+opt.lbl+'</div>'
+      + '<div class="morpho-dsc">'+opt.dsc+'</div>'
+      + '</div>';
+  });
+  html += '</div>' + navHtml(false);
+  document.getElementById('id-body').innerHTML = html;
+}
+
+function selectDos(val) {
+  idState.dos = (idState.dos === val) ? null : val;
+  renderDosStep();
+}
+
+/* ── Étape 1 : L2 ── */
+function renderL2Step() {
+  switch(idState.dos) {
+    case 'cerates':  renderCeratesStep();  break;
+    case 'couronne': renderCouronneStep(); break;
+    case 'coquille': renderCoquilleStep(); break;
+    case 'crete':    idNext(); break;   /* pas de L2 → directement couleurs */
+    case 'rien':     renderRienStep();    break;
+    default:         renderColorStep();   break;
   }
 }
 
-/* ── Étape 1 : morphologie (forme générale) ── */
-function renderMorphoStep() {
-  var html = '<p class="id-question">Quelle est la forme générale de l\'animal ?</p>'
-    + '<p class="id-subq">Regardez le dos et les appendices visibles</p>'
-    + '<div class="morpho-grid">';
-  MORPHO_OPTIONS.forEach(function(opt) {
-    var sel = idState.morpho === opt.val ? ' sel' : '';
-    html += '<div class="morpho-opt'+sel+'" onclick="selectMorpho(\''+opt.val+'\')">'
+/* ── L2a : Cérates ── */
+var CERATES_FORME_OPTIONS = [
+  { val:'charnus',      ico:'🌶️', lbl:'Ovales et charnus',    dsc:'Gonflés, turgides, contiennent la glande digestive' },
+  { val:'filaments',    ico:'🧵', lbl:'Filaments',             dsc:'Longs, fins et souples' },
+  { val:'arborescents', ico:'🌿', lbl:'Arborescents',          dsc:'Ramifiés comme des branches ou arbustes' },
+  { val:'courts',       ico:'🍇', lbl:'Courts, en boule',      dsc:'Trapus, courts, ronds — parfois en grappe' },
+  { val:'petales',      ico:'🍃', lbl:'Pétales ou feuilles',   dsc:'Aplatis, larges, ressemblent à des feuilles ou algues' },
+];
+var CERATES_DISPO_OPTIONS = [
+  { val:'arcs',  lbl:'En arcs réguliers',        dsc:'Rangées symétriques de part et d\'autre du dos' },
+  { val:'dense', lbl:'Dense, couvre tout le dos', dsc:'Appendices nombreux, couvrent toute la surface dorsale' },
+  { val:'cotes', lbl:'Sur les côtés',             dsc:'Principalement sur les flancs ou de manière latérale' },
+];
+
+function renderCeratesStep() {
+  var html = '<p class="id-question">Décrivez les cérates</p>'
+    + '<p class="id-subq" style="font-weight:700;color:#0f172a;margin-top:10px;">Forme</p>'
+    + '<div class="morpho-grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr));">';
+  CERATES_FORME_OPTIONS.forEach(function(opt) {
+    var sel = idState.cerates_forme === opt.val ? ' sel' : '';
+    html += '<div class="morpho-opt'+sel+'" onclick="selectL2(\'cerates_forme\',\''+opt.val+'\')">'
       + '<div class="morpho-ico">'+opt.ico+'</div>'
       + '<div class="morpho-lbl">'+opt.lbl+'</div>'
       + '<div class="morpho-dsc">'+opt.dsc+'</div>'
       + '</div>';
   });
   html += '</div>'
-    + '<div class="id-nav">'
-    + '<button class="id-btn id-btn-s" onclick="idBack()">← Retour</button>'
-    + '<button class="id-btn id-btn-p" onclick="idNext()">Suivant →</button>'
-    + '<button class="id-btn id-btn-s" onclick="idSkip()">Passer</button>'
-    + '<span class="id-pool">'+poolLabel()+'</span>'
-    + '</div>';
+    + '<p class="id-subq" style="font-weight:700;color:#0f172a;margin-top:14px;">Disposition</p>'
+    + '<div class="motif-row">';
+  CERATES_DISPO_OPTIONS.forEach(function(opt) {
+    var sel = idState.cerates_dispo === opt.val ? ' sel' : '';
+    html += '<div class="motif-opt'+sel+'" onclick="selectL2(\'cerates_dispo\',\''+opt.val+'\')" title="'+opt.dsc+'">'+opt.lbl+'</div>';
+  });
+  html += '</div>' + navHtml(true);
   document.getElementById('id-body').innerHTML = html;
 }
 
-function selectMorpho(val) {
-  idState.morpho = (idState.morpho === val) ? null : val;
-  renderMorphoStep();
+/* ── L2b : Couronne / Notum ── */
+var NOTUM_OPTIONS = [
+  { val:'lisse',    ico:'🔵', lbl:'Lisse',               dsc:'Surface dorsale lisse ou légèrement granuleuse' },
+  { val:'papilles', ico:'🔴', lbl:'Papilles ou pustules', dsc:'Tubercules, bosses ou excroissances sur le manteau' },
+  { val:'cretes',   ico:'〰️', lbl:'Crêtes réticulées',    dsc:'Réseau de crêtes sur le manteau (ex. Halgerda)' },
+  { val:'poils',    ico:'🟡', lbl:'Poils ou cils',        dsc:'Surface velue ou ciliée' },
+];
+
+function renderCouronneStep() {
+  var html = '<p class="id-question">Comment est la surface du dos (notum) ?</p>'
+    + '<p class="id-subq">En dehors de la couronne de branchies elle-même</p>'
+    + '<div class="morpho-grid">';
+  NOTUM_OPTIONS.forEach(function(opt) {
+    var sel = idState.notum === opt.val ? ' sel' : '';
+    html += '<div class="morpho-opt'+sel+'" onclick="selectL2(\'notum\',\''+opt.val+'\')">'
+      + '<div class="morpho-ico">'+opt.ico+'</div>'
+      + '<div class="morpho-lbl">'+opt.lbl+'</div>'
+      + '<div class="morpho-dsc">'+opt.dsc+'</div>'
+      + '</div>';
+  });
+  html += '</div>' + navHtml(true);
+  document.getElementById('id-body').innerHTML = html;
 }
 
-/* ── Étape 2 : taille ── */
-function renderTailleStep() {
-  var html = '<p class="id-question">Quelle est la taille de l\'animal ?</p>'
-    + '<p class="id-subq">Estimation visuelle — en cas de doute, choisir la tranche la plus large</p>'
-    + '<div class="size-grid">';
-  SIZE_OPTIONS.forEach(function(opt, i) {
-    var sel = idState.tailleIdx === i ? ' sel' : '';
-    html += '<div class="size-opt'+sel+'" onclick="selectTaille('+i+')">'
-      + '<div class="size-lbl">'+opt.lbl+'</div>'
-      + '<div class="size-dsc">'+opt.dsc+'</div>'
+/* ── L2c : Coquille ── */
+var COQUILLE_OPTIONS = [
+  { val:'plate',    ico:'🪩', lbl:'Plate et circulaire',      dsc:'Large, aplatie sur le dos (ex. Umbraculum)' },
+  { val:'ovale',    ico:'🥚', lbl:'Ovale et visible',         dsc:'Coquille bulleuse bien visible (ex. Bulla, Haminoea)' },
+  { val:'enroulee', ico:'🌀', lbl:'Enroulée',                 dsc:'Coquille enroulée, souvent striée et colorée (ex. Hydatina)' },
+  { val:'cachee',   ico:'👻', lbl:'Devinée sous le manteau',  dsc:'Transparente ou en relief sous la peau (ex. Oxynoe, Julia)' },
+];
+
+function renderCoquilleStep() {
+  var html = '<p class="id-question">Quelle est la forme de la coquille ?</p>'
+    + '<div class="morpho-grid">';
+  COQUILLE_OPTIONS.forEach(function(opt) {
+    var sel = idState.coquille_type === opt.val ? ' sel' : '';
+    html += '<div class="morpho-opt'+sel+'" onclick="selectL2(\'coquille_type\',\''+opt.val+'\')">'
+      + '<div class="morpho-ico">'+opt.ico+'</div>'
+      + '<div class="morpho-lbl">'+opt.lbl+'</div>'
+      + '<div class="morpho-dsc">'+opt.dsc+'</div>'
+      + '</div>';
+  });
+  html += '</div>' + navHtml(true);
+  document.getElementById('id-body').innerHTML = html;
+}
+
+/* ── L2d : Rien/rhinophores ── */
+var FORME_OPTIONS = [
+  { val:'allonge',  ico:'🐍', lbl:'Allongé et fin',       dsc:'Corps effilé, queue pointue (ex. Aglajidae)' },
+  { val:'ovale',    ico:'🥏', lbl:'Ovale et aplati',       dsc:'Corps plat et ovale, sans appendices dorsaux notables' },
+  { val:'limace',   ico:'🔵', lbl:'Petite limace',         dsc:'Corps compact, arrondi, moins de 2 cm' },
+  { val:'escargot', ico:'🐌', lbl:'Grand animal / Aplysie', dsc:'Grand, avec de larges parapodes en "oreilles"' },
+];
+var PARAPODES_OPTIONS = [
+  { val:'rien',    lbl:'Pas de parapodes visibles', dsc:'Corps nu sur les côtés' },
+  { val:'rideaux', lbl:'En voile ou en rideau',      dsc:'Larges replis latéraux retombants (ex. Aplysia)' },
+  { val:'larges',  lbl:'Larges et natatoires',       dsc:'Voiles étendus permettant la nage (ex. Gastropteridae)' },
+  { val:'replis',  lbl:'Repliés ou en crête',        dsc:'Parapodes relevés formant une crête dorsale (ex. Elysia)' },
+];
+
+function renderRienStep() {
+  var html = '<p class="id-question">Forme générale et appendices latéraux</p>'
+    + '<p class="id-subq" style="font-weight:700;color:#0f172a;margin-top:10px;">Forme générale</p>'
+    + '<div class="morpho-grid">';
+  FORME_OPTIONS.forEach(function(opt) {
+    var sel = idState.forme === opt.val ? ' sel' : '';
+    html += '<div class="morpho-opt'+sel+'" onclick="selectL2(\'forme\',\''+opt.val+'\')">'
+      + '<div class="morpho-ico">'+opt.ico+'</div>'
+      + '<div class="morpho-lbl">'+opt.lbl+'</div>'
+      + '<div class="morpho-dsc">'+opt.dsc+'</div>'
       + '</div>';
   });
   html += '</div>'
-    + '<div class="id-nav">'
-    + '<button class="id-btn id-btn-s" onclick="idBack()">← Retour</button>'
-    + '<button class="id-btn id-btn-p" onclick="idNext()">Voir les résultats</button>'
-    + '<button class="id-btn id-btn-s" onclick="idSkip()">Passer</button>'
-    + '<span class="id-pool">'+poolLabel()+'</span>'
-    + '</div>';
+    + '<p class="id-subq" style="font-weight:700;color:#0f172a;margin-top:14px;">Parapodes</p>'
+    + '<div class="motif-row">';
+  PARAPODES_OPTIONS.forEach(function(opt) {
+    var sel = idState.parapodes === opt.val ? ' sel' : '';
+    html += '<div class="motif-opt'+sel+'" onclick="selectL2(\'parapodes\',\''+opt.val+'\')" title="'+opt.dsc+'">'+opt.lbl+'</div>';
+  });
+  html += '</div>' + navHtml(true);
   document.getElementById('id-body').innerHTML = html;
 }
 
-function selectTaille(idx) {
-  idState.tailleIdx = (idState.tailleIdx === idx) ? null : idx;
-  renderTailleStep();
+function selectL2(field, val) {
+  idState[field] = (idState[field] === val) ? null : val;
+  renderL2Step();
 }
 
-/* ── Étape 2 : couleurs ── */
-function renderCouleursStep() {
-  var html = '<p class="id-question">Quelles couleurs voyez-vous sur l\'animal ?</p>'
-    + '<p class="id-subq">Sélectionnez toutes les couleurs présentes (multi-sélection)</p>'
-    + '<div class="color-section">'
-    + '<div class="swatch-grid">';
-  SWATCH_COLORS.forEach(function(sw) {
-    var sel = idState.couleurs.indexOf(sw.val) >= 0 ? ' sel' : '';
-    var borderCol = sel ? '#0f172a' : sw.stroke;
-    html += '<div class="swatch-item'+sel+'" title="'+sw.val
-      + '" style="background:'+sw.hex+';border-color:'+borderCol+';outline:'+(sel?'2px solid #0d9488':'none')+';outline-offset:2px;"'
-      + ' onclick="toggleCouleur(\''+sw.val+'\')"></div>';
+/* ── Étape 2 : Coloration + Couleurs ── */
+var COLORATION_OPTIONS = [
+  { val:'vif',      ico:'🌈', lbl:'Vif et coloré',    dsc:'Couleurs franches, contrastées, attire l\'œil' },
+  { val:'motifs',   ico:'🎨', lbl:'Uni avec motifs',   dsc:'Points, lignes, bordures sur fond de couleur' },
+  { val:'camouflé', ico:'🪨', lbl:'Camouflé',          dsc:'Se confond avec le substrat — brun, gris, vert sombre' },
+  { val:'sobre',    ico:'🤍', lbl:'Uni et sobre',      dsc:'Blanc, gris clair, beige — peu de contraste' },
+];
+
+function renderColorStep() {
+  renderIdSteps();
+  var html = '<p class="id-question">Coloration et couleurs</p>'
+    + '<p class="id-subq" style="font-weight:700;color:#0f172a;margin-top:6px;">Aspect général</p>'
+    + '<div class="motif-row">';
+  COLORATION_OPTIONS.forEach(function(opt) {
+    var sel = idState.coloration === opt.val ? ' sel' : '';
+    html += '<div class="motif-opt'+sel+'" onclick="selectColoration(\''+opt.val+'\')" title="'+opt.dsc+'">'
+      + opt.ico+' '+opt.lbl+'</div>';
   });
   html += '</div>'
-    + '<div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;">';
-  /* Labels des couleurs sélectionnées */
+    + '<p class="id-subq" style="font-weight:700;color:#0f172a;margin-top:14px;">Couleurs observées <span style="font-weight:400">(multi-sélection)</span></p>'
+    + '<div class="swatch-grid">';
   SWATCH_COLORS.forEach(function(sw) {
     var sel = idState.couleurs.indexOf(sw.val) >= 0;
-    if (sel) html += '<span style="font-size:11px;background:#f0fdf9;border:1px solid #0d9488;border-radius:99px;padding:2px 9px;color:#0f172a;">'+sw.val+'</span>';
+    html += '<div class="swatch-item'+(sel?' sel':'')+'" title="'+sw.val
+      + '" style="background:'+sw.hex+';border-color:'+(sel?'#0f172a':sw.stroke)
+      + ';outline:'+(sel?'2px solid #0d9488':'none')+';outline-offset:2px;"'
+      + ' onclick="toggleCouleur(\''+sw.val+'\')"></div>';
   });
-  html += '</div></div>'
-    + '<div class="id-nav">'
-    + '<button class="id-btn id-btn-s" onclick="idBack()">← Retour</button>'
-    + '<button class="id-btn id-btn-p" onclick="idNext()">Suivant →</button>'
-    + '<button class="id-btn id-btn-s" onclick="idSkip()">Passer</button>'
-    + '<span class="id-pool">'+poolLabel()+'</span>'
-    + '</div>';
+  html += '</div><div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;">';
+  SWATCH_COLORS.forEach(function(sw) {
+    if (idState.couleurs.indexOf(sw.val) >= 0)
+      html += '<span style="font-size:11px;background:#f0fdf9;border:1px solid #0d9488;border-radius:99px;padding:2px 9px;color:#0f172a;">'+sw.val+'</span>';
+  });
+  html += '</div>' + navHtml(true, 'Voir les résultats');
   document.getElementById('id-body').innerHTML = html;
+}
+
+function selectColoration(val) {
+  idState.coloration = (idState.coloration === val) ? null : val;
+  renderColorStep();
 }
 
 function toggleCouleur(val) {
   var idx = idState.couleurs.indexOf(val);
   if (idx >= 0) idState.couleurs.splice(idx, 1);
   else idState.couleurs.push(val);
-  renderCouleursStep();
+  renderColorStep();
 }
 
-/* ── Étape 3 : motifs ── */
-function renderMotifsStep() {
-  var html = '<p class="id-question">Quel est le motif dominant ?</p>'
-    + '<p class="id-subq">Vous pouvez en sélectionner plusieurs</p>'
-    + '<div class="motif-row">';
-  MOTIF_OPTIONS.forEach(function(opt) {
-    var sel = idState.motifs.indexOf(opt.val) >= 0 ? ' sel' : '';
-    html += '<div class="motif-opt'+sel+'" onclick="toggleMotif(\''+opt.val+'\')">'+opt.lbl+'</div>';
-  });
-  html += '</div>'
-    + '<div class="id-nav">'
-    + '<button class="id-btn id-btn-s" onclick="idBack()">← Retour</button>'
-    + '<button class="id-btn id-btn-p" onclick="idNext()">Voir les résultats</button>'
-    + '<button class="id-btn id-btn-s" onclick="idSkip()">Passer</button>'
-    + '<span class="id-pool">'+poolLabel()+'</span>'
-    + '</div>';
-  document.getElementById('id-body').innerHTML = html;
-}
-
-function toggleMotif(val) {
-  var idx = idState.motifs.indexOf(val);
-  if (idx >= 0) idState.motifs.splice(idx, 1);
-  else idState.motifs.push(val);
-  renderMotifsStep();
-}
-
-/* ── Navigation entre étapes ── */
+/* ── Navigation ── */
 function idNext() {
-  idState.step = Math.min(idState.step + 1, 3);
+  if (idState.step === 0 && idState.dos === 'crete') {
+    idState.step = 2;   /* crête : pas de L2, sauter directement aux couleurs */
+  } else {
+    idState.step = Math.min(idState.step + 1, 3);
+  }
   idState.pool = safeScore();
   renderIdScreen();
 }
+
 function idBack() {
-  if (idState.step === 3) idState.followup = {}; /* retour depuis résultats → réinitialise les filtres de suivi */
-  idState.step = Math.max(idState.step - 1, 0);
+  if (idState.step === 3) idState.followup = {};
+  if (idState.step === 2 && idState.dos === 'crete') {
+    idState.step = 0;   /* crête : retour depuis couleurs → retour à dos */
+  } else {
+    idState.step = Math.max(idState.step - 1, 0);
+  }
   idState.pool = safeScore();
   renderIdScreen();
 }
-function idSkip() {
-  idNext();
-}
 
-/* ── Filtres de suivi (follow-up questions) ── */
+function idSkip() { idNext(); }
 
-/**
- * Applique les réponses enregistrées dans idState.followup au pool.
- * YES → garde uniquement les espèces des familles cibles (yesKeepFam)
- * NO  → exclut les espèces des familles cibles (noExcludeFam)
- * skip → pas de filtre pour cette question
- */
+/* ── Follow-up ── */
 function applyFollowupFilters(pool, spBySlug) {
   var filtered = pool;
   Object.keys(idState.followup).forEach(function(fqId) {
@@ -2434,13 +2461,11 @@ function applyFollowupFilters(pool, spBySlug) {
     FOLLOWUP_QUESTIONS.forEach(function(q){ if (q.id === fqId) fq = q; });
     if (!fq) return;
     if (answer === true) {
-      /* OUI : trait distinctif présent → ne garder que les familles qui ont ce trait */
       filtered = filtered.filter(function(slug) {
         var sp = spBySlug[slug];
         return sp && fq.yesKeepFam.indexOf(sp.f || '') >= 0;
       });
     } else {
-      /* NON : trait absent → exclure les familles qui requièrent ce trait */
       filtered = filtered.filter(function(slug) {
         var sp = spBySlug[slug];
         return !sp || fq.noExcludeFam.indexOf(sp.f || '') < 0;
@@ -2450,15 +2475,10 @@ function applyFollowupFilters(pool, spBySlug) {
   return filtered;
 }
 
-/**
- * Choisit la question de suivi la plus discriminante pour le pool actuel.
- * Ne propose une question que si sa famille cible est présente dans le pool.
- * Préfère les questions qui coupent le pool le plus près de 50/50.
- */
 function chooseBestFollowup(pool, spBySlug) {
   var best = null, bestScore = -1;
   FOLLOWUP_QUESTIONS.forEach(function(fq) {
-    if (idState.followup.hasOwnProperty(fq.id)) return; /* déjà répondu */
+    if (idState.followup.hasOwnProperty(fq.id)) return;
     var inFam = 0, outFam = 0;
     pool.forEach(function(slug) {
       var sp = spBySlug[slug];
@@ -2466,45 +2486,34 @@ function chooseBestFollowup(pool, spBySlug) {
       if (fq.yesKeepFam.indexOf(sp.f || '') >= 0) inFam++;
       else outFam++;
     });
-    if (inFam === 0) return; /* famille pas représentée dans ce pool → question inutile */
-    /* Score = min(inFam, outFam) — plus la division est proche de 50/50, plus c'est discriminant */
+    if (inFam === 0) return;
     var disc = Math.min(inFam, outFam);
     if (disc > bestScore) { bestScore = disc; best = fq; }
   });
   return best;
 }
 
-/**
- * Enregistre la réponse à une question de suivi et recharge les résultats.
- * answer : true (oui), false (non), 'skip' (passer)
- */
 function answerFollowup(fqId, answer) {
   idState.followup[fqId] = answer;
   renderIdResults();
 }
 
-/* ── Étape 4 : résultats ── */
+/* ── Résultats ── */
 function renderIdResults() {
   renderIdSteps();
-  var spBySlug = {};
-  (window.SPECIES || []).forEach(function(sp){ spBySlug[sp.s] = sp; });
-
-  var ranked = safeScore();
-  /* Appliquer les filtres de suivi (réponses aux questions discriminantes) */
+  var spBySlug = getSpBySlug();
+  var ranked   = safeScore();
   var filtered = applyFollowupFilters(ranked, spBySlug);
 
   var html = '';
   if (filtered.length === 0) {
-    html = '<div class="id-nf">'
-      + '<p>Aucune espèce ne correspond à ces critères.</p>'
-      + '<button class="id-btn id-btn-s" onclick="idBack()">← Modifier les critères</button>'
-      + '</div>';
+    html = '<div class="id-nf"><p>Aucune espèce ne correspond à ces critères.</p>'
+      + '<button class="id-btn id-btn-s" onclick="idBack()">← Modifier</button></div>';
     document.getElementById('id-body').innerHTML = html;
     return;
   }
 
-  /* Question de suivi si le pool reste trop large */
-  if (filtered.length > 12) {
+  if (filtered.length > 10) {
     var nextQ = chooseBestFollowup(filtered, spBySlug);
     if (nextQ) {
       html += '<div class="id-followup">'
@@ -2519,32 +2528,26 @@ function renderIdResults() {
   }
 
   html += '<p style="font-size:12px;color:#64748b;margin-bottom:12px;">'
-    + filtered.length + ' candidat' + (filtered.length>1?'s':'')
+    + filtered.length + ' candidat' + (filtered.length !== 1 ? 's' : '')
     + ' · Cliquer pour identifier</p>'
     + '<div class="id-results-grid">';
 
   filtered.forEach(function(slug) {
     var sp = spBySlug[slug];
     if (!sp) return;
-    /* getPhotos() gère les overrides locaux et les fallbacks sp.ps / sp.p */
     var photos = getPhotos(sp);
-    var firstPhoto = photos.length ? photos[0] : '';
+    var photo  = photos.length ? photos[0] : '';
     html += '<div class="id-rc" onclick="openLb(\''+esc(slug)+'\')">';
-    if (firstPhoto) {
-      html += '<img src="'+esc(firstPhoto)+'" alt="'+esc(sp.n||'')+'" onerror="this.style.opacity=\'.15\'">';
-    } else {
-      html += '<div class="id-rc-ph">🐌</div>';
-    }
+    if (photo) html += '<img src="'+esc(photo)+'" alt="'+esc(sp.n||'')+'" onerror="this.style.opacity=\'.15\'">';
+    else       html += '<div class="id-rc-ph">🐌</div>';
     html += '<div class="id-rc-name">'+esc(sp.n||slug)+'</div>'
       + '<div class="id-rc-fam">'+esc(sp.f||'')+'</div>'
       + '</div>';
   });
 
-  html += '</div>'
-    + '<div class="id-nf">'
-    + '<p>Vous ne trouvez pas votre espèce ?</p>'
+  html += '</div><div class="id-nf"><p>Vous ne trouvez pas votre espèce ?</p>'
     + '<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
-    + '<button class="id-btn id-btn-s" onclick="idBack()">← Modifier les critères</button>'
+    + '<button class="id-btn id-btn-s" onclick="idBack()">← Modifier</button>'
     + '<button class="id-btn id-btn-s" onclick="idReset()">Recommencer</button>'
     + '</div></div>';
 
