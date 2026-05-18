@@ -405,7 +405,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.17-1158</span>
+  <span title="Version de déploiement">v2026.05.17-1740</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -2392,9 +2392,9 @@ function selectL2(field, val) {
 
 /* ── Étape 2 : Coloration + Couleurs ── */
 var COLORATION_OPTIONS = [
-  { val:'vives',      ico:'🌈', lbl:'Couleurs vives',        dsc:'Couleurs franches et saturées sur tout le corps — attire immédiatement l\'œil. Ex : bleu + blanc + violet, rouge vif, orange brillant, jaune lumineux' },
-  { val:'motifs',     ico:'🎨', lbl:'Sobre avec motifs',     dsc:'Fond clair (blanc, gris, bleu pâle) avec éléments identifiables : lignes, anneaux, points, marbrures, bordures colorées. Ex : blanc avec lignes noires et rhinophores oranges' },
-  { val:'camouflage', ico:'🪨', lbl:'Camouflage ou discrète', dsc:'Se fond dans le substrat — teintes brunes, beiges, grises ou vertes ternes. Discret, difficile à repérer à distance' },
+  { val:'vives',      ico:'🌈', lbl:'Couleurs vives',        dsc:'Se détache immédiatement du substrat — couleurs saturées ou contraste fort avec l\'environnement. Difficile à rater.' },
+  { val:'motifs',     ico:'🎨', lbl:'Sobre avec motifs',     dsc:'Fond neutre (blanc, gris, bleu pâle) avec éléments identifiables : lignes, anneaux, points, marbrures, bordures colorées. Ex : blanc avec lignes noires et rhinophores oranges.' },
+  { val:'camouflage', ico:'🪨', lbl:'Camouflage ou discrète', dsc:'Se fond dans le substrat — cryptique par sa couleur ou sa texture, quelle que soit la teinte (brun, beige, gris, translucide, blanc par mimétisme).' },
 ];
 
 function renderColorStep() {
