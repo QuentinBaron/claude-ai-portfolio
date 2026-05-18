@@ -405,7 +405,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.17-1740</span>
+  <span title="Version de déploiement">v2026.05.17-1821</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -2016,6 +2016,7 @@ var FOLLOWUP_QUESTIONS = [
 /* ── État de la session ── */
 var idState = {
   step: 0,           /* 0=dos L1, 1=L2, 2=couleurs, 3=résultats */
+  relaxed: false,
   dos: null,
   cerates_forme: null, cerates_dispo: null,
   notum: null,
@@ -2112,10 +2113,10 @@ function scoreSpecies() {
     }
 
     /* Coloration générale */
-    if (idState.coloration) {
+    if (idState.coloration && !idState.relaxed) {
       var _cdC = COLORS_DATA ? COLORS_DATA[slug] : null;
       var cl = (_cdC && _cdC.coloration) || COLORATION_FAMILY[fam];
-      if (cl === idState.coloration) score += 12; else if (cl) penalty += 6;
+      if (cl === idState.coloration) score += 12; else if (cl) penalty += 10;
     }
 
     /* Couleurs (COLORS_DATA) — deux tiers : certaines (+12) / acceptables (+6) */
@@ -2134,7 +2135,7 @@ function scoreSpecies() {
           var adj = COLOR_ADJACENT[c] || [];
           var hasAdj = adj.some(function(ac){ return allSpCoul.indexOf(ac) >= 0; });
           if (hasAdj) score += 4;
-          else if (hasData) penalty += 5;           /* légèrement moins sévère qu'avant */
+          else if (hasData) penalty += 10;
           else penalty += 3;
         }
       });
@@ -2146,17 +2147,22 @@ function scoreSpecies() {
   var entries = allSlugs().map(function(s){ return {slug:s, score:scores[s]||0}; });
   entries.sort(function(a,b){ return b.score - a.score; });
 
-  /* Seuil : L1 sélectionné → exclure tout ce qui a reçu -50 */
+  /* Seuil de base : L1 sélectionné → exclure les -50 */
   var seuil = idState.dos ? 0 : -9999;
-  /* Plusieurs couleurs → resserrer davantage */
-  if (idState.couleurs.length >= 2 && entries.length > 0)
-    seuil = Math.max(seuil, entries[0].score - 30);
+  /* Fenêtre relative au meilleur score */
+  if (idState.couleurs.length >= 2 && entries.length > 0) {
+    var window = idState.relaxed ? 35 : 18;
+    seuil = Math.max(seuil, entries[0].score - window);
+  }
 
   var result = entries.filter(function(e){ return e.score >= seuil; }).map(function(e){ return e.slug; });
   if (result.length === 0 && entries.length > 0)
     result = entries.slice(0, 6).map(function(e){ return e.slug; });
 
-  console.log('[Identifier] L1='+idState.dos+' pool='+result.length+'/'+entries.length+' seuil='+seuil);
+  /* Cap : max 20 en mode normal, illimité en mode relaxé */
+  if (!idState.relaxed && result.length > 20) result = result.slice(0, 20);
+
+  console.log('[Identifier] L1='+idState.dos+' pool='+result.length+'/'+entries.length+' seuil='+seuil+' relaxed='+!!idState.relaxed);
   return result;
 }
 
@@ -2167,7 +2173,7 @@ function safeScore() {
 
 /* ── Init ── */
 function initIdentifyView() {
-  idState = { step:0, dos:null, cerates_forme:null, cerates_dispo:null,
+  idState = { step:0, relaxed:false, dos:null, cerates_forme:null, cerates_dispo:null,
     notum:null, coquille_type:null, forme:null, parapodes:null,
     coloration:null, couleurs:[], pool:[], followup:{} };
   document.getElementById('id-title').textContent = 'Identifier une espèce';
@@ -2562,13 +2568,26 @@ function renderIdResults() {
       + '</div>';
   });
 
+  var relaxBtn = idState.relaxed
+    ? ''
+    : '<button class="id-btn id-btn-s" onclick="idRelax()">🔍 Élargir la recherche</button>';
   html += '</div><div class="id-nf"><p>Vous ne trouvez pas votre espèce ?</p>'
     + '<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
+    + relaxBtn
     + '<button class="id-btn id-btn-s" onclick="idBack()">← Modifier</button>'
     + '<button class="id-btn id-btn-s" onclick="idReset()">Recommencer</button>'
-    + '</div></div>';
+    + '</div>'
+    + (idState.relaxed ? '<p style="font-size:11px;color:#94a3b8;margin-top:6px;">Recherche élargie — critère coloration ignoré</p>' : '')
+    + '</div>';
 
   document.getElementById('id-body').innerHTML = html;
+}
+
+function idRelax() {
+  idState.relaxed = true;
+  idState.followup = {};
+  idState.pool = safeScore();
+  renderResultsScreen();
 }
 
 function idReset() {
