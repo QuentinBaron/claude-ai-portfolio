@@ -405,7 +405,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.17-1821</span>
+  <span title="Version de déploiement">v2026.05.17-1840</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -2016,7 +2016,7 @@ var FOLLOWUP_QUESTIONS = [
 /* ── État de la session ── */
 var idState = {
   step: 0,           /* 0=dos L1, 1=L2, 2=couleurs, 3=résultats */
-  relaxed: false,
+  displayCount: 10,
   dos: null,
   cerates_forme: null, cerates_dispo: null,
   notum: null,
@@ -2147,22 +2147,14 @@ function scoreSpecies() {
   var entries = allSlugs().map(function(s){ return {slug:s, score:scores[s]||0}; });
   entries.sort(function(a,b){ return b.score - a.score; });
 
-  /* Seuil de base : L1 sélectionné → exclure les -50 */
+  /* Exclure uniquement ce qui a reçu la pénalité L1 (-50) */
   var seuil = idState.dos ? 0 : -9999;
-  /* Fenêtre relative au meilleur score */
-  if (idState.couleurs.length >= 2 && entries.length > 0) {
-    var window = idState.relaxed ? 35 : 18;
-    seuil = Math.max(seuil, entries[0].score - window);
-  }
 
   var result = entries.filter(function(e){ return e.score >= seuil; }).map(function(e){ return e.slug; });
   if (result.length === 0 && entries.length > 0)
     result = entries.slice(0, 6).map(function(e){ return e.slug; });
 
-  /* Cap : max 20 en mode normal, illimité en mode relaxé */
-  if (!idState.relaxed && result.length > 20) result = result.slice(0, 20);
-
-  console.log('[Identifier] L1='+idState.dos+' pool='+result.length+'/'+entries.length+' seuil='+seuil+' relaxed='+!!idState.relaxed);
+  console.log('[Identifier] L1='+idState.dos+' pool='+result.length+'/'+entries.length);
   return result;
 }
 
@@ -2173,7 +2165,7 @@ function safeScore() {
 
 /* ── Init ── */
 function initIdentifyView() {
-  idState = { step:0, relaxed:false, dos:null, cerates_forme:null, cerates_dispo:null,
+  idState = { step:0, displayCount:10, dos:null, cerates_forme:null, cerates_dispo:null,
     notum:null, coquille_type:null, forme:null, parapodes:null,
     coloration:null, couleurs:[], pool:[], followup:{} };
   document.getElementById('id-title').textContent = 'Identifier une espèce';
@@ -2462,7 +2454,7 @@ function idNext() {
 }
 
 function idBack() {
-  if (idState.step === 3) idState.followup = {};
+  if (idState.step === 3) { idState.followup = {}; idState.displayCount = 10; }
   if (idState.step === 2 && idState.dos === 'crete') {
     idState.step = 0;   /* crête : retour depuis couleurs → retour à dos */
   } else {
@@ -2536,8 +2528,13 @@ function renderIdResults() {
     return;
   }
 
-  if (filtered.length > 10) {
-    var nextQ = chooseBestFollowup(filtered, spBySlug);
+  /* Tranche affichée */
+  var shown     = filtered.slice(0, idState.displayCount);
+  var remaining = filtered.length - shown.length;
+
+  /* Question de suivi si le pool affiché est encore grand */
+  if (shown.length > 10) {
+    var nextQ = chooseBestFollowup(shown, spBySlug);
     if (nextQ) {
       html += '<div class="id-followup">'
         + '<div class="id-followup-q">'+nextQ.ico+' '+nextQ.q+'</div>'
@@ -2550,12 +2547,14 @@ function renderIdResults() {
     }
   }
 
+  /* Compteur */
   html += '<p style="font-size:12px;color:#64748b;margin-bottom:12px;">'
-    + filtered.length + ' candidat' + (filtered.length !== 1 ? 's' : '')
+    + shown.length + ' candidat' + (shown.length !== 1 ? 's' : '')
+    + (remaining > 0 ? ' sur ' + filtered.length + ' — par pertinence' : ' · liste complète')
     + ' · Cliquer pour identifier</p>'
     + '<div class="id-results-grid">';
 
-  filtered.forEach(function(slug) {
+  shown.forEach(function(slug) {
     var sp = spBySlug[slug];
     if (!sp) return;
     var photos = getPhotos(sp);
@@ -2568,26 +2567,23 @@ function renderIdResults() {
       + '</div>';
   });
 
-  var relaxBtn = idState.relaxed
-    ? ''
-    : '<button class="id-btn id-btn-s" onclick="idRelax()">🔍 Élargir la recherche</button>';
-  html += '</div><div class="id-nf"><p>Vous ne trouvez pas votre espèce ?</p>'
+  html += '</div><div class="id-nf">';
+  if (remaining > 0) {
+    html += '<button class="id-btn id-btn-s" style="margin-bottom:10px;" onclick="idRelax()">'
+      + 'Afficher 10 de plus (' + remaining + ' restants)</button>';
+  }
+  html += '<p style="margin-top:4px;">Vous ne trouvez pas votre espèce ?</p>'
     + '<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">'
-    + relaxBtn
     + '<button class="id-btn id-btn-s" onclick="idBack()">← Modifier</button>'
     + '<button class="id-btn id-btn-s" onclick="idReset()">Recommencer</button>'
-    + '</div>'
-    + (idState.relaxed ? '<p style="font-size:11px;color:#94a3b8;margin-top:6px;">Recherche élargie — critère coloration ignoré</p>' : '')
-    + '</div>';
+    + '</div></div>';
 
   document.getElementById('id-body').innerHTML = html;
 }
 
 function idRelax() {
-  idState.relaxed = true;
-  idState.followup = {};
-  idState.pool = safeScore();
-  renderResultsScreen();
+  idState.displayCount += 10;
+  renderIdResults();
 }
 
 function idReset() {
