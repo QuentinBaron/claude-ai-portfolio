@@ -457,7 +457,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.19-2053</span>
+  <span title="Version de déploiement">v2026.05.19-2116</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -2693,14 +2693,14 @@ var OBS_FLAGS = ['Appendices "oreilles" (Thecacera)','Queue fourchue','Voiles na
 function obsNewState() {
   return {
     date: new Date().toLocaleDateString('fr-FR') + ' ' + new Date().toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'}),
-    site: '', depth: null, substrats: [], comportements: [],
+    site: '', depth: null, substrats: [], comportements: [], proie: '', eclairage: null,
     taille: null, forme: null, structure: null, texture: null,
     couleurs: [], aspect: null, motifs: [], bord_type: null, bord_couleur: null,
     rhino_forme: null, rhino_couleur_base: null, rhino_couleur_pointe: null, rhino_gaine: null,
     panache_branches: null, panache_couleur: null, panache_pointes: null, panache_pointes_couleur: null,
     cerates_dispo: null, cerates_forme: null, cerates_ext: null,
     dos_branchie_lat: null, couleur_dessous: null,
-    flags: [], notes: '', photos: []
+    flags: [], notes: '', photos: [], ponte_forme: null, ponte_couleur: null
   };
 }
 
@@ -2939,6 +2939,10 @@ function renderObsStep0() {
   OBS_SUBSTRATS.forEach(function(v){ h += obsBtn(v,'substrats',v,true); });
   h += '</div></div>'
     + '<div class="obs-section">'
+    + '<div class="obs-label">Animal observé sur / en train de manger <span class="obs-req">facultatif</span></div>'
+    + '<input class="obs-input" placeholder="Ex : éponge rose encroûtante, hydroïde blanc filamenteux, bryozoaire…" value="' + esc(obsState.proie) + '" oninput="obsState.proie=this.value">'
+    + '</div>'
+    + '<div class="obs-section">'
     + '<div class="obs-label">Comportement <span class="obs-req">multi-sélection</span></div>'
     + '<div class="obs-btn-grid">';
   OBS_COMPORTEMENTS.forEach(function(v){ h += obsBtn(v,'comportements',v,true); });
@@ -2974,6 +2978,16 @@ function renderObsStep1() {
 /* ── STEP 2 : Coloration ── */
 function renderObsStep2() {
   var h = '<div class="obs-section">'
+    + '<div class="obs-label">Éclairage lors de l\'observation</div>'
+    + '<div class="obs-btn-grid">'
+    + obsBtn('Torche / lumière artificielle','eclairage','torche',false)
+    + obsBtn('Lumière naturelle uniquement','eclairage','naturelle',false)
+    + '</div>';
+  if (obsState.eclairage === 'naturelle') {
+    h += '<p style="font-size:11px;color:#b45309;background:#fffbeb;border-radius:6px;padding:5px 10px;margin-top:4px;">⚠️ Sans torche, les rouges et oranges disparaissent en profondeur — les couleurs notées peuvent être altérées.</p>';
+  }
+  h += '</div>'
+    + '<div class="obs-section">'
     + '<div class="obs-label">Couleurs observées <span class="obs-req">multi-sélection</span></div>'
     + '<div class="obs-swatches">';
   SWATCH_COLORS.forEach(function(sw){ h += obsSwatchMultiBtn(sw); });
@@ -3090,7 +3104,22 @@ function renderObsStep5() {
     + '<div class="obs-label">Caractères particuliers <span class="obs-req">multi-sélection</span></div>'
     + '<div class="obs-btn-grid">';
   OBS_FLAGS.forEach(function(v){ h += obsBtn(v,'flags',v,true); });
-  h += '</div></div>'
+  h += '</div>';
+  if (obsState.flags.indexOf('Ponte à proximité') >= 0) {
+    h += '<div class="obs-cond" style="margin-top:8px;"><div class="obs-cond-title">Description de la ponte</div>'
+      + '<div class="obs-label" style="font-size:11px;margin-bottom:6px;">Forme</div>'
+      + '<div class="obs-btn-grid">'
+      + obsBtn('Ruban spiralé','ponte_forme','ruban_spirale',false)
+      + obsBtn('Rosace / volute','ponte_forme','rosace',false)
+      + obsBtn('Cordon droit','ponte_forme','cordon',false)
+      + obsBtn('Amas compact','ponte_forme','amas',false)
+      + '</div>'
+      + '<div class="obs-label" style="font-size:11px;margin:10px 0 6px;">Couleur de la ponte</div>'
+      + '<div class="obs-swatches">';
+    SWATCH_COLORS.forEach(function(sw){ h += obsSwatchBtn(sw,'ponte_couleur'); });
+    h += '</div></div>';
+  }
+  h += '</div>'
     + '<div class="obs-section">'
     + '<div class="obs-label">Notes <span class="obs-req">description libre, doutes, comportement</span></div>'
     + '<textarea class="obs-textarea" placeholder="Ex : animal très mobile, posé sur une éponge rouge, légère odeur de vanille…" oninput="obsState.notes=this.value">' + esc(obsState.notes) + '</textarea>'
@@ -3141,6 +3170,7 @@ function obsFormatSummary() {
   if (s.site)   lines.push('Site     : ' + s.site);
   if (s.depth)  lines.push('Profond. : ' + s.depth);
   if (s.substrats.length) lines.push('Substrat : ' + s.substrats.join(', '));
+  if (s.proie)           lines.push('Proie/hôte: ' + s.proie);
   if (s.comportements.length) lines.push('Comportt : ' + s.comportements.join(', '));
   lines.push('');
   lines.push('── Morphologie ──');
@@ -3150,6 +3180,7 @@ function obsFormatSummary() {
   if (s.texture)   lines.push('Texture  : ' + s.texture);
   lines.push('');
   lines.push('── Coloration ──');
+  if (s.eclairage) lines.push('Éclairage: ' + s.eclairage);
   if (s.couleurs.length) lines.push('Couleurs : ' + s.couleurs.join(', '));
   if (s.aspect)    lines.push('Aspect   : ' + s.aspect);
   if (s.motifs.length) lines.push('Motifs   : ' + s.motifs.join(', '));
@@ -3178,10 +3209,11 @@ function obsFormatSummary() {
     if (s.dos_branchie_lat) lines.push('Branch.lat: ' + s.dos_branchie_lat);
     if (s.couleur_dessous)  lines.push('Dessous  : ' + s.couleur_dessous);
   }
-  if (s.flags.length || s.notes) {
+  if (s.flags.length || s.notes || s.ponte_forme || s.ponte_couleur) {
     lines.push('');
     lines.push('── Remarques ──');
     if (s.flags.length) lines.push('Flags    : ' + s.flags.join(', '));
+    if (s.ponte_forme)  lines.push('Ponte    : ' + s.ponte_forme + (s.ponte_couleur ? ' · ' + s.ponte_couleur : ''));
     if (s.notes)        lines.push('Notes    : ' + s.notes);
   }
   if (s.photos.length) lines.push('\n[' + s.photos.length + ' photo(s) jointe(s)]');
