@@ -316,6 +316,46 @@ td { padding: 9px 12px; vertical-align: middle; }
 .id-fq-oui  { background: #0d9488; color: #fff; border-color: #0d9488; }
 .id-fq-non  { background: #fff; color: #475569; border-color: #cbd5e1; }
 .id-fq-pass { background: transparent; color: #94a3b8; border-color: transparent; font-size: 11px; }
+
+/* ── OBS VIEW ── */
+.obs-view { display: none; }
+.obs-view.v-active { display: block; }
+.obs-header { background: #1e3a5f; color: #e2e8f0; padding: 12px 20px; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.obs-steps { display: flex; gap: 5px; }
+.obs-step-dot { width: 8px; height: 8px; border-radius: 50%; background: #334155; transition: background .2s; }
+.obs-step-dot.act { background: #60a5fa; }
+.obs-body { padding: 16px; max-width: 660px; margin: 0 auto; }
+.obs-section { margin-bottom: 18px; }
+.obs-label { font-size: 12px; font-weight: 700; color: #0f172a; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.obs-req { font-size: 10px; color: #94a3b8; font-weight: 400; }
+.obs-btn-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2px; }
+.obs-btn { padding: 6px 12px; border-radius: 8px; border: 1.5px solid #cbd5e1; background: #f8fafc; color: #475569; font-size: 12px; cursor: pointer; transition: all .15s; }
+.obs-btn:hover { border-color: #93c5fd; background: #eff6ff; }
+.obs-btn.sel { background: #1e3a5f; color: #fff; border-color: #1e3a5f; }
+.obs-btn.sel-multi { background: #dbeafe; color: #1e40af; border-color: #93c5fd; }
+.obs-input { width: 100%; padding: 8px 10px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 13px; color: #0f172a; background: #fff; }
+.obs-input:focus { outline: none; border-color: #60a5fa; }
+.obs-textarea { width: 100%; padding: 8px 10px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 12px; color: #0f172a; background: #fff; min-height: 80px; resize: vertical; }
+.obs-swatch { width: 32px; height: 32px; border-radius: 6px; border: 2px solid transparent; cursor: pointer; transition: all .15s; }
+.obs-swatch.sel { border-color: #0f172a; box-shadow: 0 0 0 2px #60a5fa; }
+.obs-swatches { display: flex; flex-wrap: wrap; gap: 5px; }
+.obs-photo-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+.obs-photo-thumb { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; border: 1.5px solid #e2e8f0; }
+.obs-photo-del { position: absolute; top: 2px; right: 2px; background: #ef4444; color: #fff; border: none; border-radius: 50%; width: 18px; height: 18px; font-size: 11px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.obs-photo-wrap { position: relative; display: inline-block; }
+.obs-nav { display: flex; gap: 8px; margin-top: 20px; padding-top: 14px; border-top: 1px solid #e2e8f0; }
+.obs-btn-nav { padding: 9px 20px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; border: 1.5px solid; transition: all .15s; }
+.obs-btn-primary { background: #1e3a5f; color: #fff; border-color: #1e3a5f; }
+.obs-btn-primary:hover { background: #1e40af; }
+.obs-btn-sec { background: #fff; color: #475569; border-color: #cbd5e1; }
+.obs-btn-sec:hover { background: #f8fafc; }
+.obs-btn-action { background: #0d9488; color: #fff; border-color: #0d9488; }
+.obs-btn-action:hover { background: #0f766e; }
+.obs-summary { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; font-size: 12px; line-height: 1.9; white-space: pre-wrap; color: #1e293b; font-family: monospace; }
+.obs-cond { padding: 12px 14px; background: #eff6ff; border-radius: 8px; border: 1px solid #bfdbfe; margin-bottom: 4px; }
+.obs-cond-title { font-size: 11px; font-weight: 700; color: #1e40af; margin-bottom: 8px; }
+.obs-history-item { border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; margin-bottom: 8px; cursor: pointer; }
+.obs-history-item:hover { border-color: #60a5fa; background: #eff6ff; }
 </style>
 </head>
 <body>
@@ -347,6 +387,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   <button class="vt-btn active" data-view="cards" onclick="setView('cards',this)">Nudidex</button>
   <button class="vt-btn"        data-view="game"     onclick="setView('game',this)">Jeu</button>
   <button class="vt-btn"        data-view="identify" onclick="setView('identify',this)">Identifier</button>
+  <button class="vt-btn"        data-view="obs"      onclick="setView('obs',this)">Observer</button>
   <span class="vt-hint">Cliquer sur une photo pour agrandir</span>
 </div>
 
@@ -400,12 +441,21 @@ td { padding: 9px 12px; vertical-align: middle; }
   </div>
 </div>
 
+<!-- ── OBS VIEW ── -->
+<div class="obs-view" id="view-obs">
+  <div class="obs-header">
+    <span id="obs-title">Observer</span>
+    <div class="obs-steps" id="obs-steps"></div>
+  </div>
+  <div class="obs-body" id="obs-body"></div>
+</div>
+
 <div class="page-footer">
   Nudidex · Nudibranches de Polynésie Française ·
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.17-1840</span>
+  <span title="Version de déploiement">v2026.05.19-2027</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -975,8 +1025,10 @@ function setView(v, btn) {
   document.getElementById('view-cards').classList.toggle('v-active',    v==='cards');
   document.getElementById('view-game').classList.toggle('v-active',     v==='game');
   document.getElementById('view-identify').classList.toggle('v-active', v==='identify');
+  document.getElementById('view-obs').classList.toggle('v-active',      v==='obs');
   if (v==='game')     initGameView();
   if (v==='identify') initIdentifyView();
+  if (v==='obs')      initObsView();
 }
 
 /* ── Sort ── */
@@ -1916,6 +1968,10 @@ var L2_NOTUM = {
   'Vayssiereidae':'lisse','Diaphorodorididae':'lisse',
   'Dorididae':'papilles','Discodorididae':'papilles','Actinocyclidae':'papilles',
 };
+/* Overrides genus-level (prioritaire sur L2_NOTUM[fam]) */
+var L2_NOTUM_GENUS = {
+  'Jorunna': 'poils',   /* caryophyllidia = aspect velouté, distinct des papilles */
+};
 
 /* ── L2 : type de coquille ── */
 var L2_COQUILLE = {
@@ -2006,7 +2062,7 @@ var FOLLOWUP_QUESTIONS = [
     yesKeepFam:['Gastropteridae'], noExcludeFam:['Gastropteridae'] },
   { id:'petit_pikachu', ico:'⚡', q:'L\'animal a-t-il deux appendices dressés à l\'avant comme des oreilles ?',
     hint:'Thecacera (Polyceridae)',
-    yesKeepFam:['Polyceridae'], noExcludeFam:[] },
+    yesKeepFam:['Polyceridae'], noExcludeFam:['Polyceridae'] },
   { id:'nage_pleine_eau', ico:'🏊', q:'L\'animal nage-t-il activement en pleine eau (pas sur le fond) ?',
     hint:'Hexabranchus, Glaucus, Phylliroe',
     yesKeepFam:['Hexabranchidae','Glaucidae','Phylliroidae'],
@@ -2086,7 +2142,8 @@ function scoreSpecies() {
 
     /* L2 — notum (couronne) */
     if (idState.notum) {
-      var nt = L2_NOTUM[fam];
+      var _genus = sp ? (sp.n || '').split(' ')[0] : '';
+      var nt = L2_NOTUM_GENUS[_genus] || L2_NOTUM[fam];
       if (nt === idState.notum) score += 30; else if (nt) penalty += 25;
     }
 
@@ -2492,17 +2549,23 @@ function applyFollowupFilters(pool, spBySlug) {
 
 function chooseBestFollowup(pool, spBySlug) {
   var best = null, bestScore = -1;
+  var total = pool.length;
   FOLLOWUP_QUESTIONS.forEach(function(fq) {
     if (idState.followup.hasOwnProperty(fq.id)) return;
-    var inFam = 0, outFam = 0;
+    var inFam = 0, inExclude = 0;
     pool.forEach(function(slug) {
       var sp = spBySlug[slug];
       if (!sp) return;
-      if (fq.yesKeepFam.indexOf(sp.f || '') >= 0) inFam++;
-      else outFam++;
+      var f = sp.f || '';
+      if (fq.yesKeepFam.indexOf(f) >= 0)   inFam++;
+      if (fq.noExcludeFam.indexOf(f) >= 0)  inExclude++;
     });
-    if (inFam === 0) return;
-    var disc = Math.min(inFam, outFam);
+    /* La question doit être utile sur les DEUX réponses */
+    if (inFam === 0 || inExclude === 0) return;
+    /* Exiger au moins 15% du pool pour que ça vaille la peine */
+    if (inFam / total < 0.15 && inExclude / total < 0.15) return;
+    /* Score = produit des espèces filtrées dans chaque cas */
+    var disc = Math.min(inFam, inExclude);
     if (disc > bestScore) { bestScore = disc; best = fq; }
   });
   return best;
@@ -2588,6 +2651,474 @@ function idRelax() {
 
 function idReset() {
   initIdentifyView();
+}
+
+/* ═══════════════════════════════════════════════════════
+   MODULE OBSERVATION
+   ═══════════════════════════════════════════════════════ */
+
+var OBS_STEPS = ['Contexte','Morphologie','Coloration','Rhinophores','Branchies','Photos & notes','Récapitulatif'];
+var OBS_SUBSTRATS = ['Corail dur','Corail mou','Éponge','Roche','Sable','Hydroïde','Bryozoaire','Algue'];
+var OBS_COMPORTEMENTS = ['Statique','En déplacement','Ponte visible','Nage en pleine eau'];
+var OBS_TAILLES = ['< 1 cm','1–3 cm','3–6 cm','6–12 cm','> 12 cm'];
+var OBS_FORMES = ['Ovale compact','Allongé & fin','Très aplati','Globuleux'];
+var OBS_STRUCTURES = [
+  {k:'panache',   l:'Panache branchial'},
+  {k:'cerates',   l:'Cérates / filaments'},
+  {k:'dos_lisse', l:'Dos lisse'},
+  {k:'dos_cretes',l:'Dos avec crêtes'},
+  {k:'coquille',  l:'Coquille visible'},
+];
+var OBS_TEXTURES = ['Lisse','Granuleux','Papilles / bosses','Velouté (Jorunna)','Crêtes longitudinales'];
+var OBS_ASPECTS = [{k:'vives',l:'Couleurs vives 🌈'},{k:'motifs',l:'Sobre + motifs 🎨'},{k:'camouflage',l:'Camouflage 🪨'}];
+var OBS_MOTIFS = ['Lignes longitudinales','Lignes transversales','Points / taches','Bordure colorée','Anneaux','Marbrures','Uniforme / uni'];
+var OBS_BORDS = ['Lisse','Ondulé / festonné','Tubercules périphériques'];
+var OBS_RHINO_FORMES = ['Lamellés (anneaux)','Lisses / coniques','En massue','Ramifiés / plumeux','Absents'];
+var OBS_PANACHE_BRANCHES = ['2–4','5–8','> 8'];
+var OBS_CERATES_DISPO = ['Tapis dense (tout le dos)','Rangées latérales'];
+var OBS_CERATES_FORMES = ['Cylindriques','Aplatis / foliacés','Gonflés / bulbeux'];
+var OBS_FLAGS = ['Appendices "oreilles" (Thecacera)','Queue fourchue','Voiles natatoires','Odeur forte','Animaux groupés','Ponte à proximité'];
+
+function obsNewState() {
+  return {
+    date: new Date().toLocaleDateString('fr-FR') + ' ' + new Date().toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'}),
+    site: '', depth: null, substrats: [], comportements: [],
+    taille: null, forme: null, structure: null, texture: null,
+    couleurs: [], aspect: null, motifs: [], bord_type: null, bord_couleur: null,
+    rhino_forme: null, rhino_couleur_base: null, rhino_couleur_pointe: null, rhino_gaine: null,
+    panache_branches: null, panache_couleur: null, panache_pointes: null, panache_pointes_couleur: null,
+    cerates_dispo: null, cerates_forme: null, cerates_ext: null,
+    dos_branchie_lat: null, couleur_dessous: null,
+    flags: [], notes: '', photos: []
+  };
+}
+
+var obsState = obsNewState();
+var obsStep  = 0;
+var OBS_STORE = 'nudis_obs_v1';
+
+function obsGetHistory() {
+  try { return JSON.parse(localStorage.getItem(OBS_STORE) || '[]'); } catch(e) { return []; }
+}
+function obsSaveHistory(h) { try { localStorage.setItem(OBS_STORE, JSON.stringify(h)); } catch(e) {} }
+
+function initObsView() {
+  obsStep = 0;
+  obsState = obsNewState();
+  renderObsStep();
+}
+
+function renderObsDots() {
+  var h = '';
+  for (var i = 0; i < OBS_STEPS.length; i++)
+    h += '<div class="obs-step-dot' + (i === obsStep ? ' act' : '') + '"></div>';
+  document.getElementById('obs-steps').innerHTML = h;
+  document.getElementById('obs-title').textContent = 'Observer — ' + OBS_STEPS[obsStep];
+}
+
+/* ── Helpers ── */
+function obsToggle(arr, val) {
+  var i = arr.indexOf(val);
+  if (i >= 0) arr.splice(i, 1); else arr.push(val);
+}
+function obsSel(key, val) { obsState[key] = (obsState[key] === val) ? null : val; renderObsStep(); }
+function obsMulti(key, val) { obsToggle(obsState[key], val); renderObsStep(); }
+
+function obsBtn(label, key, val, multiKey) {
+  var sel = multiKey ? obsState[key].indexOf(val) >= 0 : obsState[key] === val;
+  var cls = sel ? (multiKey ? 'obs-btn sel-multi' : 'obs-btn sel') : 'obs-btn';
+  var fn  = multiKey ? 'obsMulti' : 'obsSel';
+  return '<button class="' + cls + '" onclick="' + fn + '(\'' + key + '\',\'' + val.replace(/'/g,"\\'") + '\')">' + esc(label) + '</button>';
+}
+
+function obsSwatchBtn(sw, key) {
+  var sel = obsState[key] === sw.val;
+  return '<div class="obs-swatch' + (sel ? ' sel' : '') + '" title="' + sw.val + '" style="background:' + sw.hex + ';border-color:' + (sel ? '#0f172a' : sw.stroke) + ';" onclick="obsSel(\'' + key + '\',\'' + sw.val + '\')"></div>';
+}
+function obsSwatchMultiBtn(sw) {
+  var sel = obsState.couleurs.indexOf(sw.val) >= 0;
+  return '<div class="obs-swatch' + (sel ? ' sel' : '') + '" title="' + sw.val + '" style="background:' + sw.hex + ';border-color:' + (sel ? '#0f172a' : sw.stroke) + ';" onclick="obsMulti(\'couleurs\',\'' + sw.val + '\')"></div>';
+}
+
+function obsNavHtml(showBack, nextLabel) {
+  var back = showBack ? '<button class="obs-btn-nav obs-btn-sec" onclick="obsBack()">← Retour</button>' : '';
+  return '<div class="obs-nav">' + back + '<button class="obs-btn-nav obs-btn-primary" onclick="obsNext()" style="margin-left:auto">' + (nextLabel||'Suivant →') + '</button></div>';
+}
+
+/* ── STEP 0 : Contexte ── */
+function renderObsStep0() {
+  var h = '<div class="obs-section">'
+    + '<div class="obs-label">Date & heure</div>'
+    + '<input class="obs-input" value="' + esc(obsState.date) + '" oninput="obsState.date=this.value" style="max-width:220px;">'
+    + '</div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Site / localisation <span class="obs-req">facultatif</span></div>'
+    + '<input class="obs-input" placeholder="Ex : Passe de Tiputa, tombant nord" value="' + esc(obsState.site) + '" oninput="obsState.site=this.value">'
+    + '</div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Profondeur</div>'
+    + '<div class="obs-btn-grid">';
+  ['< 5 m','5–15 m','15–30 m','> 30 m'].forEach(function(v){ h += obsBtn(v,'depth',v,false); });
+  h += '</div></div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Substrat <span class="obs-req">multi-sélection</span></div>'
+    + '<div class="obs-btn-grid">';
+  OBS_SUBSTRATS.forEach(function(v){ h += obsBtn(v,'substrats',v,true); });
+  h += '</div></div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Comportement <span class="obs-req">multi-sélection</span></div>'
+    + '<div class="obs-btn-grid">';
+  OBS_COMPORTEMENTS.forEach(function(v){ h += obsBtn(v,'comportements',v,true); });
+  h += '</div></div>' + obsNavHtml(false);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+/* ── STEP 1 : Morphologie ── */
+function renderObsStep1() {
+  var h = '<div class="obs-section">'
+    + '<div class="obs-label">Taille estimée</div>'
+    + '<div class="obs-btn-grid">';
+  OBS_TAILLES.forEach(function(v){ h += obsBtn(v,'taille',v,false); });
+  h += '</div></div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Forme générale <span class="obs-req">vue de dessus</span></div>'
+    + '<div class="obs-btn-grid">';
+  OBS_FORMES.forEach(function(v){ h += obsBtn(v,'forme',v,false); });
+  h += '</div></div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Structure dorsale</div>'
+    + '<div class="obs-btn-grid">';
+  OBS_STRUCTURES.forEach(function(s){ h += obsBtn(s.l,'structure',s.k,false); });
+  h += '</div></div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Texture du dos</div>'
+    + '<div class="obs-btn-grid">';
+  OBS_TEXTURES.forEach(function(v){ h += obsBtn(v,'texture',v,false); });
+  h += '</div></div>' + obsNavHtml(true);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+/* ── STEP 2 : Coloration ── */
+function renderObsStep2() {
+  var h = '<div class="obs-section">'
+    + '<div class="obs-label">Couleurs observées <span class="obs-req">multi-sélection</span></div>'
+    + '<div class="obs-swatches">';
+  SWATCH_COLORS.forEach(function(sw){ h += obsSwatchMultiBtn(sw); });
+  h += '</div>';
+  if (obsState.couleurs.length) {
+    h += '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;">';
+    obsState.couleurs.forEach(function(c){ h += '<span style="font-size:11px;background:#dbeafe;color:#1e40af;border-radius:99px;padding:2px 8px;">' + c + '</span>'; });
+    h += '</div>';
+  }
+  h += '</div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Aspect général</div>'
+    + '<div class="obs-btn-grid">';
+  OBS_ASPECTS.forEach(function(a){ h += obsBtn(a.l,'aspect',a.k,false); });
+  h += '</div></div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Motifs <span class="obs-req">multi-sélection</span></div>'
+    + '<div class="obs-btn-grid">';
+  OBS_MOTIFS.forEach(function(v){ h += obsBtn(v,'motifs',v,true); });
+  h += '</div></div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Bord du manteau</div>'
+    + '<div class="obs-btn-grid">';
+  OBS_BORDS.forEach(function(v){ h += obsBtn(v,'bord_type',v,false); });
+  h += '</div>'
+    + '<div style="margin-top:8px;"><div class="obs-label" style="font-size:11px;color:#64748b;">Couleur du bord <span class="obs-req">(si différente du corps)</span></div>'
+    + '<div class="obs-swatches" style="margin-top:4px;">';
+  SWATCH_COLORS.forEach(function(sw){ h += obsSwatchBtn(sw,'bord_couleur'); });
+  h += '</div></div></div>' + obsNavHtml(true);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+/* ── STEP 3 : Rhinophores ── */
+function renderObsStep3() {
+  var h = '<div class="obs-section">'
+    + '<div class="obs-label">Forme des rhinophores</div>'
+    + '<div class="obs-btn-grid">';
+  OBS_RHINO_FORMES.forEach(function(v){ h += obsBtn(v,'rhino_forme',v,false); });
+  h += '</div></div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Couleur de base</div>'
+    + '<div class="obs-swatches">';
+  SWATCH_COLORS.forEach(function(sw){ h += obsSwatchBtn(sw,'rhino_couleur_base'); });
+  h += '</div></div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Pointe colorée (si différente)</div>'
+    + '<div class="obs-swatches">';
+  SWATCH_COLORS.forEach(function(sw){ h += obsSwatchBtn(sw,'rhino_couleur_pointe'); });
+  h += '</div></div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Gaine des rhinophores visible</div>'
+    + '<div class="obs-btn-grid">'
+    + obsBtn('Oui','rhino_gaine','oui',false)
+    + obsBtn('Non','rhino_gaine','non',false)
+    + '</div></div>' + obsNavHtml(true);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+/* ── STEP 4 : Branchies (conditionnel) ── */
+function renderObsStep4() {
+  var s = obsState.structure;
+  var h = '';
+
+  if (s === 'panache') {
+    h += '<div class="obs-cond"><div class="obs-cond-title">Panache branchial</div>'
+      + '<div class="obs-section"><div class="obs-label">Nombre de branches</div><div class="obs-btn-grid">';
+    OBS_PANACHE_BRANCHES.forEach(function(v){ h += obsBtn(v,'panache_branches',v,false); });
+    h += '</div></div><div class="obs-section"><div class="obs-label">Couleur du panache</div><div class="obs-swatches">';
+    SWATCH_COLORS.forEach(function(sw){ h += obsSwatchBtn(sw,'panache_couleur'); });
+    h += '</div></div><div class="obs-section"><div class="obs-label">Pointes des branches colorées</div><div class="obs-btn-grid">'
+      + obsBtn('Oui','panache_pointes','oui',false)
+      + obsBtn('Non','panache_pointes','non',false)
+      + '</div></div>';
+    if (obsState.panache_pointes === 'oui') {
+      h += '<div class="obs-section"><div class="obs-label">Couleur des pointes</div><div class="obs-swatches">';
+      SWATCH_COLORS.forEach(function(sw){ h += obsSwatchBtn(sw,'panache_pointes_couleur'); });
+      h += '</div></div>';
+    }
+    h += '</div>';
+  } else if (s === 'cerates') {
+    h += '<div class="obs-cond"><div class="obs-cond-title">Cérates / filaments</div>'
+      + '<div class="obs-section"><div class="obs-label">Disposition</div><div class="obs-btn-grid">';
+    OBS_CERATES_DISPO.forEach(function(v){ h += obsBtn(v,'cerates_dispo',v,false); });
+    h += '</div></div><div class="obs-section"><div class="obs-label">Forme des cérates</div><div class="obs-btn-grid">';
+    OBS_CERATES_FORMES.forEach(function(v){ h += obsBtn(v,'cerates_forme',v,false); });
+    h += '</div></div><div class="obs-section"><div class="obs-label">Extrémité des cérates</div><div class="obs-btn-grid">'
+      + obsBtn('Translucide','cerates_ext','translucide',false)
+      + obsBtn('Colorée distinctement','cerates_ext','coloree',false)
+      + '</div></div></div>';
+  } else if (s === 'dos_lisse' || s === 'dos_cretes') {
+    h += '<div class="obs-cond"><div class="obs-cond-title">Dos lisse / crêtes</div>'
+      + '<div class="obs-section"><div class="obs-label">Branchie visible sur le flanc droit</div><div class="obs-btn-grid">'
+      + obsBtn('Oui','dos_branchie_lat','oui',false)
+      + obsBtn('Non','dos_branchie_lat','non',false)
+      + '</div></div><div class="obs-section"><div class="obs-label">Couleur du dessous</div><div class="obs-swatches">';
+    SWATCH_COLORS.forEach(function(sw){ h += obsSwatchBtn(sw,'couleur_dessous'); });
+    h += '</div></div></div>';
+  } else {
+    h += '<div style="padding:20px;text-align:center;color:#94a3b8;font-size:13px;">Aucune structure dorsale sélectionnée à l\'étape Morphologie.</div>';
+  }
+
+  h += obsNavHtml(true);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+/* ── STEP 5 : Photos & notes ── */
+function renderObsStep5() {
+  var thumbs = '';
+  obsState.photos.forEach(function(p, i) {
+    thumbs += '<div class="obs-photo-wrap"><img class="obs-photo-thumb" src="' + p + '"><button class="obs-photo-del" onclick="obsDelPhoto(' + i + ')">×</button></div>';
+  });
+
+  var h = '<div class="obs-section">'
+    + '<div class="obs-label">Caractères particuliers <span class="obs-req">multi-sélection</span></div>'
+    + '<div class="obs-btn-grid">';
+  OBS_FLAGS.forEach(function(v){ h += obsBtn(v,'flags',v,true); });
+  h += '</div></div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Notes <span class="obs-req">description libre, doutes, comportement</span></div>'
+    + '<textarea class="obs-textarea" placeholder="Ex : animal très mobile, posé sur une éponge rouge, légère odeur de vanille…" oninput="obsState.notes=this.value">' + esc(obsState.notes) + '</textarea>'
+    + '</div>'
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Photos <span class="obs-req">max 3 — dessus, côté, rhinophores</span></div>'
+    + '<div class="obs-photo-row">' + thumbs + '</div>';
+  if (obsState.photos.length < 3) {
+    h += '<label style="display:inline-block;margin-top:8px;padding:7px 14px;background:#f8fafc;border:1.5px dashed #cbd5e1;border-radius:8px;cursor:pointer;font-size:12px;color:#64748b;">'
+      + '+ Ajouter une photo<input type="file" accept="image/*" style="display:none;" onchange="obsAddPhoto(event)"></label>';
+  }
+  h += '</div>' + obsNavHtml(true, 'Voir le récapitulatif →');
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+function obsAddPhoto(evt) {
+  var file = evt.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var img = new Image();
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      var maxW = 600;
+      var scale = Math.min(1, maxW / img.width);
+      canvas.width  = Math.round(img.width  * scale);
+      canvas.height = Math.round(img.height * scale);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      obsState.photos.push(canvas.toDataURL('image/jpeg', 0.75));
+      renderObsStep();
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function obsDelPhoto(i) {
+  obsState.photos.splice(i, 1);
+  renderObsStep();
+}
+
+/* ── STEP 6 : Récapitulatif ── */
+function obsFormatSummary() {
+  var s = obsState;
+  var lines = [];
+  lines.push('=== OBSERVATION NUDIBRANCH ===');
+  lines.push('Date     : ' + s.date);
+  if (s.site)   lines.push('Site     : ' + s.site);
+  if (s.depth)  lines.push('Profond. : ' + s.depth);
+  if (s.substrats.length) lines.push('Substrat : ' + s.substrats.join(', '));
+  if (s.comportements.length) lines.push('Comportt : ' + s.comportements.join(', '));
+  lines.push('');
+  lines.push('── Morphologie ──');
+  if (s.taille)    lines.push('Taille   : ' + s.taille);
+  if (s.forme)     lines.push('Forme    : ' + s.forme);
+  if (s.structure) lines.push('Structure: ' + s.structure);
+  if (s.texture)   lines.push('Texture  : ' + s.texture);
+  lines.push('');
+  lines.push('── Coloration ──');
+  if (s.couleurs.length) lines.push('Couleurs : ' + s.couleurs.join(', '));
+  if (s.aspect)    lines.push('Aspect   : ' + s.aspect);
+  if (s.motifs.length) lines.push('Motifs   : ' + s.motifs.join(', '));
+  if (s.bord_type) lines.push('Bord     : ' + s.bord_type + (s.bord_couleur ? ' (' + s.bord_couleur + ')' : ''));
+  lines.push('');
+  lines.push('── Rhinophores ──');
+  if (s.rhino_forme) lines.push('Forme    : ' + s.rhino_forme);
+  if (s.rhino_couleur_base) lines.push('Base     : ' + s.rhino_couleur_base);
+  if (s.rhino_couleur_pointe) lines.push('Pointe   : ' + s.rhino_couleur_pointe);
+  if (s.rhino_gaine) lines.push('Gaine    : ' + s.rhino_gaine);
+  if (s.structure === 'panache') {
+    lines.push('');
+    lines.push('── Panache ──');
+    if (s.panache_branches) lines.push('Branches : ' + s.panache_branches);
+    if (s.panache_couleur)  lines.push('Couleur  : ' + s.panache_couleur);
+    if (s.panache_pointes)  lines.push('Pointes  : ' + s.panache_pointes + (s.panache_pointes_couleur ? ' (' + s.panache_pointes_couleur + ')' : ''));
+  } else if (s.structure === 'cerates') {
+    lines.push('');
+    lines.push('── Cérates ──');
+    if (s.cerates_dispo) lines.push('Dispo    : ' + s.cerates_dispo);
+    if (s.cerates_forme) lines.push('Forme    : ' + s.cerates_forme);
+    if (s.cerates_ext)   lines.push('Extrémité: ' + s.cerates_ext);
+  } else if (s.structure === 'dos_lisse' || s.structure === 'dos_cretes') {
+    lines.push('');
+    lines.push('── Dos ──');
+    if (s.dos_branchie_lat) lines.push('Branch.lat: ' + s.dos_branchie_lat);
+    if (s.couleur_dessous)  lines.push('Dessous  : ' + s.couleur_dessous);
+  }
+  if (s.flags.length || s.notes) {
+    lines.push('');
+    lines.push('── Remarques ──');
+    if (s.flags.length) lines.push('Flags    : ' + s.flags.join(', '));
+    if (s.notes)        lines.push('Notes    : ' + s.notes);
+  }
+  if (s.photos.length) lines.push('\n[' + s.photos.length + ' photo(s) jointe(s)]');
+  return lines.join('\n');
+}
+
+function renderObsStep6() {
+  var summary = obsFormatSummary();
+  var h = '<div class="obs-section">'
+    + '<div class="obs-label">Résumé de l\'observation</div>'
+    + '<div class="obs-summary">' + esc(summary) + '</div>'
+    + '</div>';
+
+  if (obsState.photos.length) {
+    h += '<div class="obs-section"><div class="obs-label">Photos</div><div class="obs-photo-row">';
+    obsState.photos.forEach(function(p){ h += '<img class="obs-photo-thumb" src="' + p + '">'; });
+    h += '</div></div>';
+  }
+
+  h += '<div class="obs-nav" style="flex-wrap:wrap;gap:8px;">'
+    + '<button class="obs-btn-nav obs-btn-sec" onclick="obsBack()">← Modifier</button>'
+    + '<button class="obs-btn-nav obs-btn-sec" onclick="obsCopyText()">📋 Copier</button>'
+    + '<button class="obs-btn-nav obs-btn-action" onclick="obsSave()">💾 Sauvegarder</button>'
+    + '<button class="obs-btn-nav obs-btn-primary" onclick="obsLaunchIdentifier()">🔍 Identifier</button>'
+    + '</div>'
+    + '<div id="obs-saved-msg" style="display:none;text-align:center;margin-top:10px;color:#0d9488;font-size:12px;font-weight:700;">✓ Observation sauvegardée</div>'
+    + '<div style="margin-top:16px;text-align:center;">'
+    + '<button class="obs-btn-nav obs-btn-sec" onclick="initObsView()" style="font-size:11px;">Nouvelle observation</button>'
+    + '&nbsp;&nbsp;<button class="obs-btn-nav obs-btn-sec" onclick="obsShowHistory()" style="font-size:11px;">Historique (' + obsGetHistory().length + ')</button>'
+    + '</div>';
+
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+function obsCopyText() {
+  var txt = obsFormatSummary();
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt).then(function(){ alert('Copié dans le presse-papiers'); });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = txt; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+    alert('Copié');
+  }
+}
+
+function obsSave() {
+  var h = obsGetHistory();
+  h.unshift({ ts: Date.now(), data: JSON.parse(JSON.stringify(obsState)) });
+  if (h.length > 50) h = h.slice(0, 50);
+  obsSaveHistory(h);
+  var msg = document.getElementById('obs-saved-msg');
+  if (msg) { msg.style.display = 'block'; setTimeout(function(){ msg.style.display = 'none'; }, 2500); }
+}
+
+function obsShowHistory() {
+  var h = obsGetHistory();
+  if (!h.length) { alert('Aucune observation sauvegardée.'); return; }
+  var html = '<div class="obs-label" style="margin-bottom:10px;">Observations sauvegardées (' + h.length + ')</div>';
+  h.forEach(function(rec, i) {
+    var d = rec.data;
+    var label = [d.date, d.site, d.taille, d.structure].filter(Boolean).join(' · ');
+    html += '<div class="obs-history-item" onclick="obsLoadRec(' + i + ')">' + esc(label) + '</div>';
+  });
+  html += '<div class="obs-nav"><button class="obs-btn-nav obs-btn-sec" onclick="renderObsStep()">← Retour</button></div>';
+  document.getElementById('obs-body').innerHTML = html;
+}
+
+function obsLoadRec(i) {
+  var h = obsGetHistory();
+  if (!h[i]) return;
+  obsState = JSON.parse(JSON.stringify(h[i].data));
+  obsStep = 6;
+  renderObsStep();
+}
+
+function obsLaunchIdentifier() {
+  var strucMap = { panache:'panache_branchial', cerates:'filaments', dos_lisse:'dos_lisse', dos_cretes:'dos_lisse', coquille:'coquille_visible' };
+  initIdentifyView();
+  setTimeout(function() {
+    if (obsState.structure && strucMap[obsState.structure]) idState.dos = strucMap[obsState.structure];
+    if (obsState.couleurs.length) idState.couleurs = obsState.couleurs.slice();
+    if (obsState.aspect) idState.coloration = obsState.aspect;
+    idState.step = 3;
+    idState.pool = safeScore();
+    renderIdScreen();
+    setView('identify', document.querySelector('[data-view="identify"]'));
+  }, 100);
+}
+
+/* ── Navigation ── */
+function renderObsStep() {
+  renderObsDots();
+  if      (obsStep === 0) renderObsStep0();
+  else if (obsStep === 1) renderObsStep1();
+  else if (obsStep === 2) renderObsStep2();
+  else if (obsStep === 3) renderObsStep3();
+  else if (obsStep === 4) renderObsStep4();
+  else if (obsStep === 5) renderObsStep5();
+  else if (obsStep === 6) renderObsStep6();
+}
+
+function obsNext() {
+  obsStep = Math.min(obsStep + 1, OBS_STEPS.length - 1);
+  renderObsStep();
+  document.getElementById('view-obs').scrollTop = 0;
+}
+
+function obsBack() {
+  obsStep = Math.max(obsStep - 1, 0);
+  renderObsStep();
 }
 
 /* ── Service Worker ── */
