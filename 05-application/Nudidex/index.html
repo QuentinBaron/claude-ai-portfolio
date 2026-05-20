@@ -446,6 +446,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   <div class="obs-header">
     <span id="obs-title">Observer</span>
     <div class="obs-steps" id="obs-steps"></div>
+    <button onclick="obsShowHistory()" style="margin-left:auto;padding:4px 10px;border-radius:6px;border:1px solid #334155;background:transparent;color:#93c5fd;font-size:11px;cursor:pointer;">Historique</button>
   </div>
   <div class="obs-body" id="obs-body"></div>
 </div>
@@ -455,7 +456,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.19-2027</span>
+  <span title="Version de déploiement">v2026.05.19-2041</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -2086,6 +2087,7 @@ var idState = {
 
 /* ── Données couleurs ── */
 var COLORS_DATA = null;
+var obsPreFill  = null;   /* pre-fill identifieur depuis formulaire obs */
 
 function loadColorsData(cb) {
   if (COLORS_DATA) { cb(); return; }
@@ -2229,7 +2231,15 @@ function initIdentifyView() {
   document.getElementById('id-body').innerHTML =
     '<div class="id-loading">Chargement des données…</div>';
   loadColorsData(function(){
-    idState.pool = allSlugs();
+    if (obsPreFill) {
+      if (obsPreFill.dos)      idState.dos       = obsPreFill.dos;
+      if (obsPreFill.couleurs) idState.couleurs   = obsPreFill.couleurs;
+      if (obsPreFill.aspect)   idState.coloration = obsPreFill.aspect;
+      idState.step         = 3;
+      idState.displayCount = 10;
+      obsPreFill = null;
+    }
+    idState.pool = safeScore();
     renderIdScreen();
   });
 }
@@ -2677,7 +2687,7 @@ var OBS_RHINO_FORMES = ['Lamellés (anneaux)','Lisses / coniques','En massue','R
 var OBS_PANACHE_BRANCHES = ['2–4','5–8','> 8'];
 var OBS_CERATES_DISPO = ['Tapis dense (tout le dos)','Rangées latérales'];
 var OBS_CERATES_FORMES = ['Cylindriques','Aplatis / foliacés','Gonflés / bulbeux'];
-var OBS_FLAGS = ['Appendices "oreilles" (Thecacera)','Queue fourchue','Voiles natatoires','Odeur forte','Animaux groupés','Ponte à proximité'];
+var OBS_FLAGS = ['Appendices "oreilles" (Thecacera)','Queue fourchue','Voiles natatoires','Animaux groupés','Ponte à proximité'];
 
 function obsNewState() {
   return {
@@ -2703,8 +2713,12 @@ function obsGetHistory() {
 function obsSaveHistory(h) { try { localStorage.setItem(OBS_STORE, JSON.stringify(h)); } catch(e) {} }
 
 function initObsView() {
-  obsStep = 0;
-  obsState = obsNewState();
+  /* Si une observation est déjà en cours, reprendre où on en était */
+  var hasDraft = obsState.structure || obsState.couleurs.length || obsState.site || obsState.depth;
+  if (!hasDraft) {
+    obsStep  = 0;
+    obsState = obsNewState();
+  }
   renderObsStep();
 }
 
@@ -3072,7 +3086,8 @@ function obsShowHistory() {
     var label = [d.date, d.site, d.taille, d.structure].filter(Boolean).join(' · ');
     html += '<div class="obs-history-item" onclick="obsLoadRec(' + i + ')">' + esc(label) + '</div>';
   });
-  html += '<div class="obs-nav"><button class="obs-btn-nav obs-btn-sec" onclick="renderObsStep()">← Retour</button></div>';
+  html += '<div class="obs-nav"><button class="obs-btn-nav obs-btn-sec" onclick="renderObsStep()">← Reprendre le formulaire</button>'
+    + '<button class="obs-btn-nav obs-btn-sec" onclick="obsStep=0;obsState=obsNewState();renderObsStep();" style="margin-left:8px;">+ Nouvelle observation</button></div>';
   document.getElementById('obs-body').innerHTML = html;
 }
 
@@ -3086,16 +3101,13 @@ function obsLoadRec(i) {
 
 function obsLaunchIdentifier() {
   var strucMap = { panache:'panache_branchial', cerates:'filaments', dos_lisse:'dos_lisse', dos_cretes:'dos_lisse', coquille:'coquille_visible' };
+  obsPreFill = {
+    dos:     obsState.structure ? strucMap[obsState.structure] || null : null,
+    couleurs: obsState.couleurs.slice(),
+    aspect:  obsState.aspect
+  };
+  setView('identify', document.querySelector('[data-view="identify"]'));
   initIdentifyView();
-  setTimeout(function() {
-    if (obsState.structure && strucMap[obsState.structure]) idState.dos = strucMap[obsState.structure];
-    if (obsState.couleurs.length) idState.couleurs = obsState.couleurs.slice();
-    if (obsState.aspect) idState.coloration = obsState.aspect;
-    idState.step = 3;
-    idState.pool = safeScore();
-    renderIdScreen();
-    setView('identify', document.querySelector('[data-view="identify"]'));
-  }, 100);
 }
 
 /* ── Navigation ── */
