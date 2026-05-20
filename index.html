@@ -382,10 +382,11 @@ td { padding: 9px 12px; vertical-align: middle; }
 </div>
 
 <div class="view-toggle">
-  <span class="filter-label">Vue</span>
+  <span class="filter-label">Explorer</span>
   <button class="vt-btn"        data-view="table" onclick="setView('table',this)">Liste</button>
   <button class="vt-btn active" data-view="cards" onclick="setView('cards',this)">Nudidex</button>
-  <button class="vt-btn"        data-view="game"     onclick="setView('game',this)">Jeu</button>
+  <span class="filter-label" style="margin-left:4px;">Activités</span>
+  <button class="vt-btn"        data-view="game"     onclick="setView('game',this)">Jouer</button>
   <button class="vt-btn"        data-view="identify" onclick="setView('identify',this)">Identifier</button>
   <button class="vt-btn"        data-view="obs"      onclick="setView('obs',this)">Observer</button>
   <span class="vt-hint">Cliquer sur une photo pour agrandir</span>
@@ -456,7 +457,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.19-2041</span>
+  <span title="Version de déploiement">v2026.05.19-2053</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -2713,13 +2714,171 @@ function obsGetHistory() {
 function obsSaveHistory(h) { try { localStorage.setItem(OBS_STORE, JSON.stringify(h)); } catch(e) {} }
 
 function initObsView() {
-  /* Si une observation est déjà en cours, reprendre où on en était */
   var hasDraft = obsState.structure || obsState.couleurs.length || obsState.site || obsState.depth;
   if (!hasDraft) {
-    obsStep  = 0;
-    obsState = obsNewState();
+    renderObsWelcome();
+  } else {
+    renderObsStep();
   }
-  renderObsStep();
+}
+
+function renderObsWelcome() {
+  renderObsDots();
+  document.getElementById('obs-title').textContent = 'Observer';
+  var histCount = obsGetHistory().length;
+  document.getElementById('obs-body').innerHTML =
+    '<div style="max-width:560px;margin:0 auto;">'
+    + '<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:20px 22px;margin-bottom:16px;">'
+    + '<div style="font-size:15px;font-weight:700;color:#1e3a5f;margin-bottom:10px;">🐌 Module d\'observation</div>'
+    + '<p style="font-size:13px;color:#1e40af;line-height:1.7;margin-bottom:10px;">'
+    + 'Ce formulaire vous permet de documenter une observation de nudibranche de façon structurée. '
+    + 'Les informations collectées permettent à un spécialiste d\'identifier l\'espèce, même sans photo de qualité.'
+    + '</p>'
+    + '<p style="font-size:12px;color:#3b82f6;line-height:1.6;">'
+    + 'Remplissez ce que vous pouvez — chaque critère renseigné améliore les chances d\'identification. '
+    + 'À la fin du formulaire, vous pouvez lancer l\'identification automatique ou copier un résumé à envoyer à un spécialiste.'
+    + '</p>'
+    + '</div>'
+    + '<div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;">'
+    + '<button class="obs-btn-nav obs-btn-sec" style="flex:1;min-width:180px;" onclick="obsDownloadForm()">📋 Formulaire vierge (impression)</button>'
+    + '<button class="obs-btn-nav obs-btn-sec" style="flex:1;min-width:180px;" onclick="obsDownloadBriefing()">📖 Guide de l\'observateur</button>'
+    + '</div>'
+    + '<div style="display:flex;flex-wrap:wrap;gap:10px;">'
+    + '<button class="obs-btn-nav obs-btn-primary" style="flex:2;min-width:200px;" onclick="obsStep=0;obsState=obsNewState();renderObsStep();">Commencer une observation →</button>'
+    + (histCount ? '<button class="obs-btn-nav obs-btn-sec" style="flex:1;" onclick="obsShowHistory()">Historique (' + histCount + ')</button>' : '')
+    + '</div>'
+    + '</div>';
+}
+
+function obsDownloadForm() {
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">'
+    + '<title>Formulaire observation nudibranche — Nudidex</title>'
+    + '<style>body{font-family:Arial,sans-serif;max-width:700px;margin:20px auto;font-size:12px;color:#111}'
+    + 'h1{font-size:16px;border-bottom:2px solid #1e3a5f;padding-bottom:6px;color:#1e3a5f}'
+    + 'h2{font-size:13px;background:#eff6ff;padding:5px 10px;border-left:4px solid #1e3a5f;margin-top:18px}'
+    + '.field{margin:8px 0;display:flex;align-items:baseline;gap:8px}'
+    + '.lbl{min-width:130px;font-weight:bold;color:#374151}'
+    + '.line{flex:1;border-bottom:1px solid #9ca3af;min-width:180px}'
+    + '.boxes{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 4px 138px}'
+    + '.box{border:1px solid #6b7280;padding:3px 10px;border-radius:4px;font-size:11px}'
+    + '.note{font-size:10px;color:#6b7280;margin-left:138px}'
+    + '@media print{body{margin:10px}}'
+    + '</style></head><body>'
+    + '<h1>Formulaire d\'observation — Nudibranches PF</h1>'
+    + '<div class="field"><span class="lbl">Date / heure</span><span class="line"></span></div>'
+    + '<div class="field"><span class="lbl">Site</span><span class="line"></span></div>'
+    + '<h2>Contexte</h2>'
+    + '<div class="field"><span class="lbl">Profondeur</span></div>'
+    + '<div class="boxes"><span class="box">□ &lt;5m</span><span class="box">□ 5–15m</span><span class="box">□ 15–30m</span><span class="box">□ &gt;30m</span></div>'
+    + '<div class="field"><span class="lbl">Substrat</span></div>'
+    + '<div class="boxes"><span class="box">□ Corail dur</span><span class="box">□ Corail mou</span><span class="box">□ Éponge</span><span class="box">□ Roche</span><span class="box">□ Sable</span><span class="box">□ Hydroïde</span><span class="box">□ Bryozoaire</span><span class="box">□ Algue</span></div>'
+    + '<div class="field"><span class="lbl">Comportement</span></div>'
+    + '<div class="boxes"><span class="box">□ Statique</span><span class="box">□ En déplacement</span><span class="box">□ Ponte visible</span><span class="box">□ Nage en pleine eau</span></div>'
+    + '<h2>Morphologie</h2>'
+    + '<div class="field"><span class="lbl">Taille estimée</span></div>'
+    + '<div class="boxes"><span class="box">□ &lt;1cm</span><span class="box">□ 1–3cm</span><span class="box">□ 3–6cm</span><span class="box">□ 6–12cm</span><span class="box">□ &gt;12cm</span></div>'
+    + '<div class="note">Référence : une pièce de 2€ = 2,5 cm, un stylo bille = 14 cm</div>'
+    + '<div class="field"><span class="lbl">Forme générale</span></div>'
+    + '<div class="boxes"><span class="box">□ Ovale compact</span><span class="box">□ Allongé &amp; fin</span><span class="box">□ Très aplati</span><span class="box">□ Globuleux</span></div>'
+    + '<div class="field"><span class="lbl">Structure dorsale</span></div>'
+    + '<div class="boxes"><span class="box">□ Panache branchial</span><span class="box">□ Cérates / filaments</span><span class="box">□ Dos lisse</span><span class="box">□ Dos avec crêtes</span><span class="box">□ Coquille visible</span></div>'
+    + '<div class="field"><span class="lbl">Texture du dos</span></div>'
+    + '<div class="boxes"><span class="box">□ Lisse</span><span class="box">□ Granuleux</span><span class="box">□ Papilles/bosses</span><span class="box">□ Velouté</span><span class="box">□ Crêtes</span></div>'
+    + '<h2>Coloration</h2>'
+    + '<div class="field"><span class="lbl">Couleurs</span><span class="line"></span></div>'
+    + '<div class="field"><span class="lbl">Aspect général</span></div>'
+    + '<div class="boxes"><span class="box">□ Couleurs vives</span><span class="box">□ Sobre + motifs</span><span class="box">□ Camouflage</span></div>'
+    + '<div class="field"><span class="lbl">Motifs</span></div>'
+    + '<div class="boxes"><span class="box">□ Lignes longit.</span><span class="box">□ Lignes transv.</span><span class="box">□ Points/taches</span><span class="box">□ Bordure colorée</span><span class="box">□ Anneaux</span><span class="box">□ Marbrures</span><span class="box">□ Uniforme</span></div>'
+    + '<div class="field"><span class="lbl">Bord du manteau</span></div>'
+    + '<div class="boxes"><span class="box">□ Lisse</span><span class="box">□ Ondulé</span><span class="box">□ Tubercules périph.</span></div>'
+    + '<div class="field"><span class="lbl">Couleur du bord</span><span class="line"></span></div>'
+    + '<h2>Rhinophores</h2>'
+    + '<div class="field"><span class="lbl">Forme</span></div>'
+    + '<div class="boxes"><span class="box">□ Lamellés</span><span class="box">□ Lisses/coniques</span><span class="box">□ En massue</span><span class="box">□ Ramifiés/plumeux</span><span class="box">□ Absents</span></div>'
+    + '<div class="field"><span class="lbl">Couleur base</span><span class="line"></span><span class="lbl">Couleur pointe</span><span class="line"></span></div>'
+    + '<div class="field"><span class="lbl">Gaine visible</span></div><div class="boxes"><span class="box">□ Oui</span><span class="box">□ Non</span></div>'
+    + '<h2>Branchies / structure dorsale</h2>'
+    + '<div class="field"><span class="lbl">Si panache :</span></div>'
+    + '<div class="boxes"><span class="box">□ 2–4 branches</span><span class="box">□ 5–8 branches</span><span class="box">□ &gt;8 branches</span><span class="box">□ Pointes colorées</span></div>'
+    + '<div class="field"><span class="lbl">Couleur panache</span><span class="line"></span></div>'
+    + '<div class="field"><span class="lbl">Si cérates :</span></div>'
+    + '<div class="boxes"><span class="box">□ Tapis dense</span><span class="box">□ Rangées latérales</span><span class="box">□ Cylindriques</span><span class="box">□ Aplatis</span><span class="box">□ Gonflés</span><span class="box">□ Extr. colorée</span></div>'
+    + '<div class="field"><span class="lbl">Si dos lisse :</span></div>'
+    + '<div class="boxes"><span class="box">□ Branchie lat. droite visible</span><span class="box">□ Crêtes longit.</span></div>'
+    + '<h2>Notes et caractères particuliers</h2>'
+    + '<div class="boxes"><span class="box">□ Appendices "oreilles"</span><span class="box">□ Queue fourchue</span><span class="box">□ Voiles natatoires</span><span class="box">□ Animaux groupés</span><span class="box">□ Ponte à proximité</span></div>'
+    + '<div class="field"><span class="lbl">Notes libres</span></div>'
+    + '<div style="border:1px solid #9ca3af;height:60px;margin:4px 0;border-radius:4px;"></div>'
+    + '<div class="field"><span class="lbl">Réf. photos</span><span class="line"></span></div>'
+    + '<div style="margin-top:20px;font-size:10px;color:#9ca3af;text-align:center;">Nudidex — nudibranches.pf — © Quentin Baron</div>'
+    + '</body></html>';
+  var blob = new Blob([html], {type:'text/html'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'nudidex_observation_vierge.html';
+  a.click();
+}
+
+function obsDownloadBriefing() {
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">'
+    + '<title>Guide de l\'observateur — Nudidex</title>'
+    + '<style>body{font-family:Georgia,serif;max-width:680px;margin:24px auto;font-size:13px;color:#111;line-height:1.7}'
+    + 'h1{font-size:18px;color:#1e3a5f;border-bottom:2px solid #1e3a5f;padding-bottom:8px}'
+    + 'h2{font-size:14px;color:#1e3a5f;margin-top:22px;margin-bottom:6px}'
+    + 'ul{padding-left:20px;margin:6px 0}'
+    + 'li{margin-bottom:4px}'
+    + '.tip{background:#fffbeb;border-left:4px solid #f59e0b;padding:8px 12px;border-radius:0 6px 6px 0;margin:10px 0;font-size:12px}'
+    + '.important{background:#eff6ff;border-left:4px solid #3b82f6;padding:8px 12px;border-radius:0 6px 6px 0;margin:10px 0}'
+    + '@media print{body{margin:10px}}'
+    + '</style></head><body>'
+    + '<h1>Guide de l\'observateur de nudibranches</h1>'
+    + '<p>Ce guide vous explique <strong>quoi observer et comment le noter</strong> pour qu\'une spécialiste puisse identifier l\'espèce, même à partir de photos imparfaites.</p>'
+    + '<div class="important"><strong>Règle d\'or :</strong> notez ce que vous voyez, pas ce que vous pensez. Une observation neutre et factuelle est toujours plus utile qu\'une interprétation.</div>'
+    + '<h2>1. Contexte d\'observation</h2>'
+    + '<ul><li><strong>Site et profondeur :</strong> certaines espèces sont strictement cantonnées à des zones bathymétriques.</li>'
+    + '<li><strong>Substrat :</strong> le support sur lequel l\'animal est posé est souvent lié à sa proie. Un nudibranche sur hydroïde ≠ sur éponge.</li>'
+    + '<li><strong>Comportement :</strong> la ponte est un indice fort — sa forme et sa couleur peuvent elles-mêmes aider à l\'identification.</li></ul>'
+    + '<h2>2. Taille</h2>'
+    + '<p>Estimez la longueur totale de l\'animal. Références utiles :</p>'
+    + '<ul><li>Pièce de 2€ = 2,5 cm</li><li>Largeur d\'un doigt = ~1,5 cm</li><li>Stylo bille = ~14 cm</li><li>Carte bancaire = 8,5 cm</li></ul>'
+    + '<div class="tip">Photographiez l\'animal avec un objet de référence si possible.</div>'
+    + '<h2>3. Structure dorsale — critère le plus important</h2>'
+    + '<ul><li><strong>Panache branchial :</strong> couronne de branchies sur le dos, rétractile. Les doridacés ont cette structure.</li>'
+    + '<li><strong>Cérates / filaments :</strong> appendices dorsaux non rétractiles, souvent nombreux. Caractéristiques des éolidacés.</li>'
+    + '<li><strong>Dos lisse :</strong> sans structure visible sur le dessus. Les Phyllidiidae ont leurs branchies sous le manteau.</li>'
+    + '<li><strong>Coquille visible :</strong> coquille externe ou semi-externe.</li></ul>'
+    + '<h2>4. Coloration</h2>'
+    + '<p>Décrivez les couleurs <strong>en conditions de lumière artificielle</strong> (torche) si possible — la lumière naturelle dénature les rouges et oranges en profondeur.</p>'
+    + '<ul><li>Notez la couleur dominante du corps, puis les couleurs secondaires.</li>'
+    + '<li>Décrivez les motifs : lignes, points, bordures, anneaux.</li>'
+    + '<li>La couleur du <strong>bord du manteau</strong> est souvent un critère discriminant.</li></ul>'
+    + '<div class="tip">Un animal "blanc avec des lignes noires et des rhinophores oranges" est bien plus utile qu\'un animal "coloré".</div>'
+    + '<h2>5. Rhinophores</h2>'
+    + '<p>Les rhinophores sont les deux antennes à l\'avant de l\'animal. Notez :</p>'
+    + '<ul><li>Leur forme : lamellés (anneaux horizontaux visibles), lisses, ramifiés…</li>'
+    + '<li>Leur couleur, et en particulier si la <strong>pointe est d\'une couleur différente</strong>.</li>'
+    + '<li>La présence d\'une <strong>gaine</strong> à leur base (tube coloré d\'où sortent les rhinophores).</li></ul>'
+    + '<h2>6. Photographies utiles</h2>'
+    + '<ul><li><strong>Vue de dessus</strong> : le critère le plus important, montre la forme générale et la coloration.</li>'
+    + '<li><strong>Vue de côté</strong> : montre la hauteur du corps et la structure latérale.</li>'
+    + '<li><strong>Rhinophores en gros plan</strong> : leur forme est discriminante.</li>'
+    + '<li><strong>Branchies / panache en gros plan</strong> : nombre de branches, couleur des pointes.</li>'
+    + '<li><strong>Ponte</strong> si visible : sa forme et sa couleur sont souvent spécifiques à l\'espèce.</li></ul>'
+    + '<div class="important"><strong>Conseil :</strong> prenez d\'abord la photo avant d\'approcher — beaucoup d\'espèces rétractent leur panache ou s\'enroulent au moindre contact avec l\'eau déplacée.</div>'
+    + '<h2>7. Ce qu\'il ne faut PAS faire</h2>'
+    + '<ul><li>Ne jamais toucher, manipuler ou déplacer l\'animal.</li>'
+    + '<li>Ne pas interpréter — notez ce que vous voyez, pas l\'espèce que vous pensez reconnaître.</li>'
+    + '<li>Ne pas photographier uniquement en lumière naturelle en profondeur (les couleurs seront faussées).</li></ul>'
+    + '<div style="margin-top:30px;font-size:11px;color:#9ca3af;text-align:center;border-top:1px solid #e5e7eb;padding-top:12px;">'
+    + 'Nudidex — Nudibranches de Polynésie Française — © Quentin Baron<br>'
+    + 'Sources : tahitinudi.jimdoweb.com · iNaturalist Polynésie française</div>'
+    + '</body></html>';
+  var blob = new Blob([html], {type:'text/html'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'nudidex_guide_observateur.html';
+  a.click();
 }
 
 function renderObsDots() {
