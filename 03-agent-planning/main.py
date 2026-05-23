@@ -33,13 +33,14 @@ from tools import calendar, gmail, trello
 
 TOOLS = [
     trello.TOOL_DEFINITION,
+    trello.ADD_LABEL_TOOL_DEFINITION,   # ← ajouté
     calendar.TOOL_DEFINITION,
     gmail.TOOL_DEFINITION,
 ]
 
-# Map tool name → run() function
 TOOL_RUNNERS = {
     "get_trello_tasks": trello.run,
+    "add_today_label": trello.run_add_label,   # ← ajouté
     "get_calendar_events": calendar.run,
     "get_gmail_threads": gmail.run,
 }
