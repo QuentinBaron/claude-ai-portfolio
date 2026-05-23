@@ -128,10 +128,10 @@ def _find_current_sprint(lists: list[dict]) -> dict | None:
 # ---------------------------------------------------------------------------
 
 META_RE = re.compile(
-    r"\[(?P<priority>P\d)"
-    r"\s*\|\s*(?P<type>[^|]+?)"
-    r"\s*\|\s*(?P<cl>[^|]+?)"
-    r"\s*\|\s*(?P<size>[^\]]+?)\]",
+    r"\[P:(?P<priority>P\d)"
+    r"\s*\|\s*T:(?P<type>[^|]+?)"
+    r"\s*\|\s*CL:(?P<cl>[^|]+?)"
+    r"\s*\|\s*S:(?P<size>[^\]]+?)\]",
     re.IGNORECASE,
 )
 
