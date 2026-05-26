@@ -45,7 +45,7 @@ Agent Python autonome qui génère un planning journalier à partir du calendrie
 claude-ai-portfolio/
 ├── 05-application/
 │   └── Nudidex/          # PWA nudibranches Polynésie
-└── 06-agent/
+└── 03-agent/
     └── planning/         # Agent planning quotidien (WIP)
 ```
 
@@ -53,7 +53,7 @@ claude-ai-portfolio/
 
 ## Contact
 
-**Quentin Baron** — Ingénieur · Scientifique  
-📍 Polynésie française  
+**Quentin Baron**  
+📍 Tahiti  
 📧 qb.baron@gmail.com  
 🔗 [LinkedIn](https://www.linkedin.com/in/quentinbaron)
