@@ -11,7 +11,7 @@
 
 ---
 
-## TL;DR
+## Approche
 
 Aucun outil numérique n'existait pour identifier les nudibranches de Polynésie française sur le terrain. Nudidex est une **PWA installable** couvrant 423 espèces, conçue et développée en développement IA-assisté avec Claude — du pipeline de données à l'interface mobile-first, en passant par l'identificateur interactif.
 
