@@ -1,0 +1,25 @@
+# Credentials & tokens Google OAuth
+google_credentials.json
+google_token.json
+google_token_gmail.json
+
+# Clés API et variables d'environnement
+.env
+*.env
+secrets.json
+
+# Fichiers runtime de l'agent
+today_plan.json
+
+# Contexte personnel (données privées)
+03-agent-planning/context/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Artefacts divers
+.write_test

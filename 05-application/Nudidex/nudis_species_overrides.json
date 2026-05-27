@@ -1,0 +1,5247 @@
+{
+  "actinocyclus-verrucosus": {
+    "couleurs": [
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rose",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "hallaxa-cryptica": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "hallaxa-iju": {
+    "couleurs": [
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rose",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "ardeodoris-angustolutea": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "ardeodoris-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "violet"
+    ],
+    "coloration": "motifs"
+  },
+  "ardeodoris-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "rouge"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "ceratosoma-miamirana": {
+    "couleurs": [
+      "vert",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "chromodoris-aspersa": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "bleu",
+      "rose"
+    ],
+    "coloration": "motifs"
+  },
+  "goniobranchus-cf.-geometricus": {
+    "couleurs": [
+      "blanc",
+      "bleu",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "bleu",
+      "rose"
+    ],
+    "coloration": "motifs"
+  },
+  "chromodoris-lochi": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu",
+      "rose"
+    ],
+    "coloration": "motifs"
+  },
+  "chromodoris-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "chromodoris-sp.-4": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "chromodoris-sp.-7": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "chromodoris-willani": {
+    "couleurs": [
+      "blanc",
+      "noir"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "gris"
+    ],
+    "coloration": "motifs"
+  },
+  "diversidoris-flava": {
+    "couleurs": [
+      "rouge",
+      "jaune",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "orange"
+    ],
+    "coloration": "camouflage"
+  },
+  "doriprimatica-sibogae": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu"
+    ],
+    "coloration": "vives"
+  },
+  "glossodoris-cincta": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "violet",
+      "rose",
+      "gris"
+    ]
+  },
+  "glossodoris-hikuerensis": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "rose",
+      "brun"
+    ]
+  },
+  "glossodoris-rufomarginata": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "rose",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "goniobranchus-albonares": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "goniobranchus-albopunctatus": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "vert",
+      "violet"
+    ],
+    "coloration": "vives"
+  },
+  "goniobranchus-cf.-reticulatus": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "rose",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "goniobranchus-decorus": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu",
+      "violet",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "goniobranchus-kuniei": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "bleu",
+      "rose",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "goniobranchus-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "goniobranchus-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "bleu"
+    ],
+    "coloration": "vives"
+  },
+  "goniobranchus-sp.3": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "goniobranchus-sp.4": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "violet"
+    ],
+    "coloration": "motifs"
+  },
+  "goniobranchus-verrieri": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "jaune",
+      "bleu",
+      "rose"
+    ],
+    "coloration": "motifs"
+  },
+  "hypselodoris-bertschi": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "violet",
+      "gris"
+    ],
+    "coloration": "motifs"
+  },
+  "hypselodoris-imperialis": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "hypselodoris-maculosa": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "violet",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "hypselodoris-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "jaune",
+      "bleu",
+      "rose"
+    ],
+    "coloration": "vives"
+  },
+  "hypselodoris-tryoni": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "jaune",
+      "bleu",
+      "rose",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "hypselodoris-whitei": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "hypselodoris-zephyra": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu",
+      "rose"
+    ],
+    "coloration": "motifs"
+  },
+  "mexichromis-lemniscata": {
+    "couleurs": [
+      "blanc",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "rose"
+    ],
+    "coloration": "motifs"
+  },
+  "mexichromis-pusilla": {
+    "couleurs": [
+      "blanc",
+      "violet",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "thorunna-cf-halourga": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "rose",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "thorunna-daniellae": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "rose",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "thorunna-florens": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "thorunna-purpuropedis": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "bleu",
+      "rose",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "thorunna-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "bleu",
+      "rose",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "thorunna-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "rose",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "thorunna-sp.-3": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "rose"
+    ],
+    "coloration": "motifs"
+  },
+  "thorunna-sp.-4": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu",
+      "rose"
+    ],
+    "coloration": "vives"
+  },
+  "verconia-simplex": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune"
+    ],
+    "coloration": "motifs"
+  },
+  "verconia-sp.2": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "bleu",
+      "rose",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "verconia-varians": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "bleu",
+      "violet"
+    ],
+    "coloration": "vives"
+  },
+  "colpodaspis-thompsoni": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "costasiella-kuroshimae": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "costasiella-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "vert",
+      "bleu",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "costasiella-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "costasiella-sp.-3": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "costasiella-sp.-4": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "costasiella-sp.-5": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "cylindrobulla-sp.1": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "vert",
+      "bleu",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "cylindrobulla-sp.2": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "cylindrobulla-sp.3": {
+    "couleurs": [
+      "blanc",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "vert",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "dendrodoris-carbunculosa": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "violet",
+      "rose",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "dendrodoris-coronata": {
+    "couleurs": [
+      "blanc",
+      "noir"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "vert",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "dendrodoris-elongata": {
+    "couleurs": [
+      "brun"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "dendrodoris-nigra": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "dendrodoris-tuberculosa": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "diaphorodoris-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "atagema-cf-osseosa": {
+    "couleurs": [
+      "jaune",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "atagema-sp.-3": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "atagema-sp.-4": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "vert",
+      "bleu",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "thordisa-albomacula": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "carminodoris-flammea": {
+    "couleurs": [
+      "rose"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "violet",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "discodorid-sp.-1-non-identifié": {
+    "couleurs": [
+      "orange"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "discodorid-sp.-2-non-identifié": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "vert",
+      "rose"
+    ],
+    "coloration": "camouflage"
+  },
+  "discodorid-sp.-3-non-identifié": {
+    "couleurs": [
+      "brun",
+      "gris"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "discodorid-sp.-4-non-identifié": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "discodorid-sp.-10-non-identifié": {
+    "couleurs": [
+      "gris"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rose",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "discodorid-sp.-11-non-identifié": {
+    "couleurs": [
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "discodorid-sp.-12-non-identifié": {
+    "couleurs": [
+      "orange"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "discodorid-sp.-13-non-identifié": {
+    "couleurs": [
+      "gris"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "rose",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "discodorid-sp.-5-non-identifié": {
+    "couleurs": [
+      "blanc",
+      "rouge"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "violet",
+      "rose",
+      "gris"
+    ],
+    "coloration": "motifs"
+  },
+  "discodorid-sp.-6-non-identifié": {
+    "couleurs": [
+      "orange"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "discodorid-sp.-7-non-identifié": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "discodorid-sp.-8-non-identifié": {
+    "couleurs": [
+      "gris"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "noir",
+      "rouge",
+      "orange",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "discodorid-sp.-9-non-identifié": {
+    "couleurs": [
+      "gris"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "noir",
+      "orange",
+      "jaune",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "halgerda-sp.2": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "halgerda-brunneomaculata": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "orange",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "halgerda-sp.1": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "halgerda-willeyi": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "orange",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "jorunna-funebris": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "jorunna-parva": {
+    "couleurs": [
+      "jaune",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "jorunna-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "murphydoris-puncticulata": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "orange",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "paradoris-sp.1": {
+    "couleurs": [
+      "brun"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rose",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "paradoris-sp.2": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "peltodoris-fellowsi": {
+    "couleurs": [
+      "blanc",
+      "noir"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "platydoris-cruenta": {
+    "couleurs": [
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "platydoris-scabra": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "platydoris-sp.2": {
+    "couleurs": [
+      "orange",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "platydoris-sp.1": {
+    "couleurs": [
+      "orange"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "noir",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "platydoris-sp.3": {
+    "couleurs": [
+      "brun"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "bleu",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "pleurehdera-haraldi": {
+    "couleurs": [
+      "rouge"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "sclerodoris-tuberculata": {
+    "couleurs": [
+      "rouge"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "noir",
+      "orange",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "tayuva-lilacina": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "thordisa-cf-tahala": {
+    "couleurs": [
+      "brun"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "noir",
+      "rouge",
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "thordisa-luteola": {
+    "couleurs": [
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "vert",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "thordisa-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "orange",
+      "bleu",
+      "rose",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "thordisa-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "dolabrifera-cf-dolabrifera": {
+    "couleurs": [
+      "vert",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "doris-granulosa": {
+    "couleurs": [
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "vert",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "doris-pecten": {
+    "couleurs": [
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "vert",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "doris-sp.-1": {
+    "couleurs": [
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "doris-viridis": {
+    "couleurs": [
+      "jaune",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "rostanga-sp.1": {
+    "couleurs": [
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "vert",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "rostanga-sp.2": {
+    "couleurs": [
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "doto-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "embletonia-gracilis": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "eubranchus-sp.-1": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "eubranchus-sp.10": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "eubranchus-sp.11": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "eubranchus-sp.12": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "vert",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "eubranchus-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "bleu",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "eubranchus-sp.-3": {
+    "couleurs": [
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "bleu"
+    ],
+    "coloration": "vives"
+  },
+  "eubranchus-sp.-4": {
+    "couleurs": [
+      "blanc",
+      "bleu",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "violet"
+    ],
+    "coloration": "vives"
+  },
+  "eubranchus-sp.-5": {
+    "couleurs": [
+      "noir",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "eubranchus-sp.-6": {
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "eubranchus-sp.-7": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange"
+    ],
+    "coloration": "camouflage"
+  },
+  "eubranchus-sp.-8": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "eubranchus-sp.-9": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "camouflage"
+  },
+  "abronica-cf-payaso": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "limenandra-fusiformis": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "caloria-indica": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "caloria-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "cratena-affinis": {
+    "couleurs": [
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "cratena-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "cratena-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "facelinid-non-identifié-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "facelinid-non-identifié-sp-.2": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "facelinid-non-identifié-sp.-4": {
+    "couleurs": [
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "facelinid-non-identifié-sp.5": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "violet",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "facellina-sp.1": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "favorinus-japonicus": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "bleu"
+    ],
+    "coloration": "camouflage"
+  },
+  "favorinus-sp.-3": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "violet",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "favorinus-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "favorinus-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "favorinus-sp.-4": {
+    "couleurs": [
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange"
+    ],
+    "coloration": "camouflage"
+  },
+  "herviella-albida": {
+    "couleurs": [
+      "blanc",
+      "brun",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "jaune",
+      "bleu",
+      "rose",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "herviella-mietta": {
+    "couleurs": [
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "jaune",
+      "vert",
+      "rose",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "herviella-sp.-1": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "vert",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "herviella-yatsui": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "bleu",
+      "rose",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "limenandra-confusa": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "vert",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "limenandra-rosanae": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert"
+    ],
+    "coloration": "camouflage"
+  },
+  "moridilla-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "noumeaella-rehderi": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "camouflage"
+  },
+  "noumeaella-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "phidiana-salaamica": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "phyllodesmium-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "protaeolidia-juliae": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "bleu"
+    ],
+    "coloration": "camouflage"
+  },
+  "pteraeolidia-ianthina": {
+    "couleurs": [
+      "blanc",
+      "bleu",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "rose"
+    ],
+    "coloration": "vives"
+  },
+  "flabellina-exoptata": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "bleu",
+      "rose"
+    ],
+    "coloration": "vives"
+  },
+  "flabellina-rubrolineata": {
+    "couleurs": [
+      "rouge",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "flabellina-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "flabellina-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "violet"
+    ],
+    "coloration": "vives"
+  },
+  "flabellina-sp.4": {
+    "couleurs": [
+      "blanc",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "rose",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "flabellina-sp.-3": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "violet",
+      "rose"
+    ],
+    "coloration": "vives"
+  },
+  "gastropteron-minutum": {
+    "couleurs": [
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "sagaminopteron-cf-pohnpei": {
+    "couleurs": [
+      "orange",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "noir",
+      "jaune"
+    ],
+    "coloration": "vives"
+  },
+  "sagaminopteron-psychedelicum": {
+    "couleurs": [
+      "orange",
+      "jaune",
+      "vert",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "brun",
+      "gris"
+    ],
+    "coloration": "vives"
+  },
+  "siphopteron-brunneomarginatum": {
+    "couleurs": [
+      "noir",
+      "jaune",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert"
+    ],
+    "coloration": "vives"
+  },
+  "siphopteron-flavum": {
+    "couleurs": [
+      "jaune",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "vert"
+    ],
+    "coloration": "vives"
+  },
+  "siphopteron-nigromarginatum": {
+    "couleurs": [
+      "noir",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "violet",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "siphopteron-sp.1": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "violet",
+      "rose",
+      "gris"
+    ],
+    "coloration": "vives"
+  },
+  "glaucus-atlanticus": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "violet",
+      "gris"
+    ],
+    "coloration": "vives"
+  },
+  "goniodoridella-sp.3": {
+    "couleurs": [
+      "brun",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange"
+    ],
+    "coloration": "camouflage"
+  },
+  "goniodoridella-sp.4": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "violet"
+    ],
+    "coloration": "camouflage"
+  },
+  "goniodoridella-sp.5": {
+    "couleurs": [
+      "blanc",
+      "rouge"
+    ],
+    "couleurs_adj": [
+      "vert",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "goniodoridella-unidonta": {
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "gris"
+    ],
+    "coloration": "motifs"
+  },
+  "okenia-pellucida": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "okenia-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "okenia-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "okenia-sp.-3": {
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "okenia-sp.-4": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "trapania-cf-aurata": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "trapania-euryeia": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "trapania-sp.-3": {
+    "couleurs": [
+      "jaune",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "orange"
+    ],
+    "coloration": "camouflage"
+  },
+  "trapania-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "noir"
+    ],
+    "couleurs_adj": [
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "trapania-squama": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "orange",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "atys-kuhnsi": {
+    "couleurs": [
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "rose"
+    ],
+    "coloration": "vives"
+  },
+  "atys-multistriatus": {
+    "couleurs": [
+      "blanc",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "atys-semistriatus": {
+    "couleurs": [
+      "blanc",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "orange"
+    ],
+    "coloration": "camouflage"
+  },
+  "atys-sp.1": {
+    "couleurs": [
+      "blanc",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu",
+      "gris"
+    ],
+    "coloration": "motifs"
+  },
+  "diniatys-dentifer": {
+    "couleurs": [
+      "brun",
+      "gris"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "noir",
+      "rouge",
+      "orange"
+    ],
+    "coloration": "camouflage"
+  },
+  "diniatys-dubius": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "haloa-crocata": {
+    "couleurs": [
+      "noir",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "haloa-sp.-1": {
+    "couleurs": [
+      "orange",
+      "gris"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "haloa-wallisi": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "haminoea-cf-natalensis": {
+    "couleurs": [
+      "noir",
+      "brun",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "haminoea-cymbalum": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "rouge"
+    ],
+    "coloration": "motifs"
+  },
+  "haminoea-sp.-1": {
+    "couleurs": [
+      "orange",
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "haminoeid-sp.1-lt": {
+    "couleurs": [
+      "jaune",
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "haminoeid-sp.2": {
+    "couleurs": [
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune",
+      "vert",
+      "bleu",
+      "rose",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "haminoeid-sp.3": {
+    "couleurs": [
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert"
+    ],
+    "coloration": "camouflage"
+  },
+  "haminoeid-sp.4": {
+    "couleurs": [
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "lamprohaminoea-cf-ovalis": {
+    "couleurs": [
+      "noir",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune",
+      "vert"
+    ],
+    "coloration": "motifs"
+  },
+  "lamprohaminoea-ovalis": {
+    "couleurs": [
+      "orange",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "liloa-curta": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "liloa-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "liloa-sp.-2": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "liloa-sp.-3": {
+    "couleurs": [
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "vert",
+      "bleu",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "phanerophthalmus-albocollaris": {
+    "couleurs": [
+      "gris"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert"
+    ],
+    "coloration": "camouflage"
+  },
+  "phanerophthalmus-cylindricus": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "phanerophthalmus-sp.1": {
+    "couleurs": [
+      "brun"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "phanerophthalmus-sp.2": {
+    "couleurs": [
+      "blanc",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "violet",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "phanerophthalmus-sp.3": {
+    "couleurs": [
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "phanerophthalmus-sp.4": {
+    "couleurs": [
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "smaragdinella-calyculata": {
+    "couleurs": [
+      "vert"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "vellicolla-amphorella": {
+    "couleurs": [
+      "rose"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "vellicola-sp.1": {
+    "couleurs": [
+      "rouge",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune",
+      "rose",
+      "gris"
+    ],
+    "coloration": "motifs"
+  },
+  "hancockia-sp.1": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "jaune",
+      "rose"
+    ],
+    "coloration": "vives"
+  },
+  "hancockia-sp.2": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "bleu"
+    ],
+    "coloration": "camouflage"
+  },
+  "hancockia-sp.3": {
+    "couleurs": [
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "hermaea-sp.1": {
+    "couleurs": [
+      "blanc",
+      "rose",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "violet"
+    ],
+    "coloration": "camouflage"
+  },
+  "hexabranchus-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "rose",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "hexabranchus-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "rouge"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "janolus-mirabilis": {
+    "couleurs": [
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "berthelinia-cf-pseudochloris": {
+    "couleurs": [
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "julia-zebra": {
+    "couleurs": [
+      "vert",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "camouflage"
+  },
+  "julia-exquisita": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange"
+    ],
+    "coloration": "camouflage"
+  },
+  "julia-sp.1": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "julia-sp.2": {
+    "couleurs": [
+      "vert",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "noir",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "ercolania-anellyleorum": {
+    "couleurs": [
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "ercolania-sp.1": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "placida-kevinleei": {
+    "couleurs": [
+      "noir",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "placida-sp.1": {
+    "couleurs": [
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "placida-sp.2": {
+    "couleurs": [
+      "jaune",
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "stiliger-sp.-1": {
+    "couleurs": [
+      "brun",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "stiliger-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "violet",
+      "gris"
+    ],
+    "coloration": "vives"
+  },
+  "stiliger-sp.3": {
+    "couleurs": [
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "vert",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "madrella-ferruginosa": {
+    "couleurs": [
+      "rouge",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "lobiger-viridis": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "bleu"
+    ],
+    "coloration": "camouflage"
+  },
+  "oxynoe-cf-alicia": {
+    "couleurs": [
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "oxynoe-cf-viridis": {
+    "couleurs": [
+      "jaune",
+      "vert",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "oxynoe-jacksoni": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "vert"
+    ],
+    "coloration": "motifs"
+  },
+  "oxynoe-jordani": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "vert",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange"
+    ],
+    "coloration": "camouflage"
+  },
+  "oxynoe-kylei": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "vert",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "oxynoe-sp.-2": {
+    "couleurs": [
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "camouflage"
+  },
+  "oxynoe-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "oxynoe-sp.-3": {
+    "couleurs": [
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "philine-orca": {
+    "couleurs": [
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange"
+    ],
+    "coloration": "motifs"
+  },
+  "philine-rubrata": {
+    "couleurs": [
+      "orange",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "vert",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "philine-sp.1": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "philine-sp.2": {
+    "couleurs": [
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "roxaniella-pittmani": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "phyllidia-cf.-carlsonhoffi": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "rouge"
+    ],
+    "coloration": "motifs"
+  },
+  "phyllidia-cf.-ocellata": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert"
+    ],
+    "coloration": "motifs"
+  },
+  "phyllidia-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "violet"
+    ],
+    "coloration": "motifs"
+  },
+  "phyllidiella-cf.-annulata": {
+    "couleurs": [
+      "noir",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "violet"
+    ],
+    "coloration": "motifs"
+  },
+  "phyllidiella-pustulosa": {
+    "couleurs": [
+      "noir",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "violet",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "phyllidiella-rosans": {
+    "couleurs": [
+      "noir",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "violet",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "cephalopyge-trematoides": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "bleu",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "phylliroe-bucephalum": {
+    "couleurs": [
+      "rose",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "noir",
+      "bleu",
+      "violet"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-degeneri": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-marginata": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-nealae": {
+    "couleurs": [
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-nigropunctata": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-obtusa": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-pusilla": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-rufescens": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "jaune"
+    ],
+    "coloration": "motifs"
+  },
+  "elysia-sp.-1": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "gris",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-10": {
+    "couleurs": [
+      "jaune",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-11": {
+    "couleurs": [
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-12": {
+    "couleurs": [
+      "blanc"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-15": {
+    "couleurs": [
+      "blanc",
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-2": {
+    "couleurs": [
+      "vert",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-3": {
+    "couleurs": [
+      "vert",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-4": {
+    "couleurs": [
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-5": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-6": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-7": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "elysia-sp.-8": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-9": {
+    "couleurs": [
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-13": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-16": {
+    "couleurs": [
+      "rose",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "bleu",
+      "violet",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-17": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-18": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "elysia-sp.-19": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-20": {
+    "couleurs": [
+      "orange"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-21": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-22": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.-23": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.24": {
+    "couleurs": [
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-sp.25": {
+    "couleurs": [
+      "vert"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "elysia-tomentosa": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "plakobranchus-ocellatus": {
+    "couleurs": [
+      "vert"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "plakobranchus-sp.1": {
+    "couleurs": [
+      "blanc",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "thuridilla-carlsoni": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "thuridilla-cf-neona": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "rouge",
+      "orange",
+      "vert",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "violet",
+      "rose"
+    ],
+    "coloration": "vives"
+  },
+  "thuridilla-gracilis": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "rouge",
+      "vert",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "violet"
+    ],
+    "coloration": "vives"
+  },
+  "thuridilla-kathae": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "thuridilla-livida": {
+    "couleurs": [
+      "orange",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "jaune",
+      "violet",
+      "rose"
+    ],
+    "coloration": "motifs"
+  },
+  "thuridilla-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "violet",
+      "gris"
+    ],
+    "coloration": "motifs"
+  },
+  "thuridilla-vataae": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "rouge",
+      "jaune",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "rose"
+    ],
+    "coloration": "motifs"
+  },
+  "berthella-sp.-1": {
+    "couleurs": [
+      "rouge",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "berthella-sp.-2": {
+    "couleurs": [
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "orange",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "berthella-stellata": {
+    "couleurs": [
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "vert",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "berthellina-delicata": {
+    "couleurs": [
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "pleurobranchus-albiguttatus": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "pleurobranchus-grandis": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "rouge",
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "pleurobranchus-peroni": {
+    "couleurs": [
+      "rose"
+    ],
+    "couleurs_adj": [
+      "violet",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "gymnodoris-alba": {
+    "couleurs": [
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "gymnodoris-ceylonica": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "gymnodoris-cf-citrina": {
+    "couleurs": [
+      "orange",
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "vert"
+    ],
+    "coloration": "motifs"
+  },
+  "gymnodoris-inornata": {
+    "couleurs": [
+      "rouge",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "gymnodoris-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "gymnodoris-sp.-3": {
+    "couleurs": [
+      "rouge",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "gymnodoris-sp.-5": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "gymnodoris-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange"
+    ],
+    "coloration": "camouflage"
+  },
+  "gymnodoris-sp.-4": {
+    "couleurs": [
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "gymnodoris-sp.-6": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "gymnodoris-sp.-7": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "vert"
+    ],
+    "coloration": "motifs"
+  },
+  "gymnodoris-sp.-8": {
+    "couleurs": [
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "rose",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "gymnodoris-sp.-9": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "kaloplocamus-sp.-1": {
+    "couleurs": [
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "kaloplocamus-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "kaloplocamus-sp.-3": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "plocamopherus-ceylonicus": {
+    "couleurs": [
+      "rouge",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "plocamopherus-cf.-telesii": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange"
+    ],
+    "coloration": "motifs"
+  },
+  "polycera-japonica": {
+    "couleurs": [
+      "vert",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "polycera-sp.1": {
+    "couleurs": [
+      "blanc",
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "roboastra-gracilis": {
+    "couleurs": [
+      "noir",
+      "orange",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "violet",
+      "gris"
+    ],
+    "coloration": "vives"
+  },
+  "tambja-amakusana": {
+    "couleurs": [
+      "orange",
+      "jaune",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "rose",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "tambja-morosa": {
+    "couleurs": [
+      "noir",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "violet"
+    ],
+    "coloration": "vives"
+  },
+  "thecacera-pacifica": {
+    "couleurs": [
+      "noir",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "vert",
+      "violet",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "runcina-sp.-1": {
+    "couleurs": [
+      "brun"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "orange"
+    ],
+    "coloration": "camouflage"
+  },
+  "samla-bicolor": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "motifs"
+  },
+  "crosslandia-sp.1": {
+    "couleurs": [
+      "orange",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "vert"
+    ],
+    "coloration": "camouflage"
+  },
+  "crosslandia-sp.2": {
+    "couleurs": [
+      "jaune",
+      "translucide",
+      "irise"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "vert",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "scyllae-sp.-1": {
+    "couleurs": [
+      "vert",
+      "translucide",
+      "irise"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "melibe-engeli": {
+    "couleurs": [
+      "brun",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "tenellia-cf-pinnifera": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "tenellia-lugubris": {
+    "couleurs": [
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "tenellia-melanobranchia": {
+    "couleurs": [
+      "noir",
+      "orange",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "tenellia-minor": {
+    "couleurs": [
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "vert"
+    ],
+    "coloration": "camouflage"
+  },
+  "tenellia-poritophages": {
+    "couleurs": [
+      "brun",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "tenellia-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "violet",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "tenellia-sp.-3": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "tenellia-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "vert"
+    ],
+    "coloration": "vives"
+  },
+  "tenellia-sp.-10": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert"
+    ],
+    "coloration": "vives"
+  },
+  "tenellia-sp.-11": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "bleu",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert"
+    ],
+    "coloration": "vives"
+  },
+  "tenellia-sp.-13": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "tenellia-sp.-14": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "tenellia-sp.-15": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "tenellia-sp.-21": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "rouge",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "violet",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "tenellia-sp.-22": {
+    "couleurs": [
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "noir",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "tenellia-sp.-4": {
+    "couleurs": [
+      "rouge",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "rose"
+    ],
+    "coloration": "vives"
+  },
+  "tenellia-sp.-5": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "violet",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "tenellia-sp.-6": {
+    "couleurs": [
+      "orange",
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "vives"
+  },
+  "tenellia-sp.-7": {
+    "couleurs": [
+      "rouge",
+      "vert",
+      "violet",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune",
+      "bleu",
+      "rose"
+    ],
+    "coloration": "vives"
+  },
+  "tenellia-sp.-8": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune",
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "tenellia-sp.-9": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "vert"
+    ],
+    "coloration": "camouflage"
+  },
+  "tergiposacca-longicerata": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "rose",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "marianina-rosea": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "tylodina-sp.1": {
+    "couleurs": [
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert"
+    ],
+    "coloration": "vives"
+  },
+  "vayssierea-felis": {
+    "couleurs": [
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "brun",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "volvatella-sp.1": {
+    "couleurs": [
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "volvatella-vigourouxi": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "aeolid-non-identifié-sp.4": {
+    "couleurs": [
+      "blanc",
+      "brun",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "anaspidea-non-identifié-sp.1": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "cerberilla-albopuncata": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "bleu",
+      "brun",
+      "gris"
+    ],
+    "coloration": "vives"
+  },
+  "dorid-non-identifié-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "vert",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "dorid-non-identifié-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "bleu",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "jaune",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "hallaxa-paulinae": {
+    "couleurs": [
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "rose"
+    ],
+    "coloration": "camouflage"
+  },
+  "hallaxa-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "rose"
+    ],
+    "coloration": "camouflage"
+  },
+  "hallaxa-sp.-3": {
+    "couleurs": [
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "vert"
+    ],
+    "coloration": "camouflage"
+  },
+  "aegires-cf-incusus": {
+    "couleurs": [
+      "rose",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "vert",
+      "bleu",
+      "violet",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "aegires-pruvotfolae": {
+    "couleurs": [
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert"
+    ],
+    "coloration": "camouflage"
+  },
+  "aegires-exeches": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "vert",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "aegires-sp.1": {
+    "couleurs": [
+      "violet",
+      "gris"
+    ],
+    "couleurs_adj": [
+      "bleu",
+      "rose",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "niparaya-cf-regiscorona": {
+    "couleurs": [
+      "blanc",
+      "rose",
+      "brun",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "violet",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "anteaeolidiella-sp.1": {
+    "couleurs": [
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge",
+      "orange",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "baeolidia-scottjohnsoni": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "baeolidia-sp.1": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "bulbaeolidia-alba": {
+    "couleurs": [
+      "blanc"
+    ],
+    "couleurs_adj": [
+      "brun",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "cerberilla-annulata": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "violet",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "vives"
+  },
+  "cerberilla-sp.-1": {
+    "couleurs": [
+      "noir",
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "orange",
+      "vert",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "cerberilla-sp.-2": {
+    "couleurs": [
+      "blanc",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "violet",
+      "brun",
+      "gris",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "biuve-cf-fulvipunctata": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "violet"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "vives"
+  },
+  "biuve-sp.1": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "chelidonura-alisonae": {
+    "couleurs": [
+      "noir",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "violet",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "chelidonura-hirundinina": {
+    "couleurs": [
+      "noir",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "violet",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "chelidonura-sp.1": {
+    "couleurs": [
+      "noir"
+    ],
+    "couleurs_adj": [
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "mariaglaja-cf-sandrana": {
+    "couleurs": [
+      "noir",
+      "orange",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "motifs"
+  },
+  "philinopsis-speciosa": {
+    "couleurs": [
+      "noir",
+      "orange",
+      "vert"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu"
+    ],
+    "coloration": "camouflage"
+  },
+  "spinoaglaja-orientalis": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "tubulophilinopsis-pilsbryi": {
+    "couleurs": [
+      "noir",
+      "gris"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "translucide"
+    ],
+    "coloration": "motifs"
+  },
+  "aplustrum-amplustre": {
+    "couleurs": [
+      "blanc",
+      "brun",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "noir"
+    ],
+    "coloration": "motifs"
+  },
+  "bullina-nobilis": {
+    "couleurs": [
+      "rouge",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc"
+    ],
+    "coloration": "motifs"
+  },
+  "bullina-sp.-1": {
+    "couleurs": [
+      "rose",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "blanc",
+      "rouge"
+    ],
+    "coloration": "camouflage"
+  },
+  "hydatina-physis": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "rose",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "micromelo-scriptus": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "aplysia-argus": {
+    "couleurs": [
+      "noir",
+      "vert",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "rose",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "aplysia-cf-parvula": {
+    "couleurs": [
+      "blanc",
+      "rouge",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rose",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "aplysia-sp.1": {
+    "couleurs": [
+      "noir",
+      "jaune"
+    ],
+    "couleurs_adj": [
+      "orange"
+    ],
+    "coloration": "camouflage"
+  },
+  "dolabella-auricularia": {
+    "couleurs": [
+      "vert",
+      "rose",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "petalifera-sp.1": {
+    "couleurs": [
+      "vert"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "phycophila-euchlora": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "vert",
+      "bleu",
+      "rose"
+    ],
+    "coloration": "camouflage"
+  },
+  "phyllaplisia-lafonti": {
+    "couleurs": [
+      "jaune",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "vert",
+      "translucide"
+    ],
+    "coloration": "camouflage"
+  },
+  "stylocheilus-longicauda": {
+    "couleurs": [
+      "orange",
+      "jaune",
+      "bleu"
+    ],
+    "couleurs_adj": [
+      "vert",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "stylocheilus-striatus": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "vert"
+    ],
+    "coloration": "camouflage"
+  },
+  "dermatobranchus-cf.-albus": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "bleu",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "dermatobranchus-fortunatus": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "dermatobranchus-sp.-1": {
+    "couleurs": [
+      "blanc",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "babakina-indopacifica": {
+    "couleurs": [
+      "orange",
+      "vert",
+      "bleu",
+      "rose"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "violet"
+    ],
+    "coloration": "vives"
+  },
+  "bornella-pele": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "brun"
+    ],
+    "coloration": "motifs"
+  },
+  "bornella-stellifer": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "orange",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "bulla-orientalis": {
+    "couleurs": [
+      "blanc",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "bulla-vernicosa": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "cyerce-pavonina": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "jaune"
+    ],
+    "coloration": "camouflage"
+  },
+  "cyerce-bourbonica": {
+    "couleurs": [
+      "blanc",
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "jaune",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "cyerce-elegans": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "jaune",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange"
+    ],
+    "coloration": "motifs"
+  },
+  "cyerce-nigricans": {
+    "couleurs": [
+      "blanc",
+      "noir",
+      "orange"
+    ],
+    "couleurs_adj": [
+      "rouge",
+      "jaune",
+      "brun"
+    ],
+    "coloration": "vives"
+  },
+  "cyerce-sp.1": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "rose",
+      "brun"
+    ],
+    "couleurs_adj": [
+      "noir",
+      "orange",
+      "violet"
+    ],
+    "coloration": "camouflage"
+  },
+  "mourgona-sp.1": {
+    "couleurs": [
+      "blanc",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "vert",
+      "bleu",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  },
+  "mourgona-sp.2": {
+    "couleurs": [
+      "blanc",
+      "orange",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "jaune",
+      "brun"
+    ],
+    "coloration": "camouflage"
+  },
+  "polybranchia-orientalis": {
+    "couleurs": [
+      "blanc",
+      "jaune",
+      "vert",
+      "translucide"
+    ],
+    "couleurs_adj": [
+      "orange",
+      "bleu",
+      "brun",
+      "gris"
+    ],
+    "coloration": "camouflage"
+  }
+}
