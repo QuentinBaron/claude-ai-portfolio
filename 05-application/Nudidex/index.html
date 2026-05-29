@@ -326,6 +326,31 @@ td { padding: 9px 12px; vertical-align: middle; }
 /* ── OBS VIEW ── */
 .obs-view { display: none; }
 .obs-view.v-active { display: block; }
+/* ── Lexique bottom sheet ── */
+.lex-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1100; display: none; }
+.lex-overlay.lex-open { display: block; }
+.lex-drawer { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-radius: 16px 16px 0 0; z-index: 1101; max-height: 82vh; display: flex; flex-direction: column; transform: translateY(100%); transition: transform .28s cubic-bezier(.4,0,.2,1); }
+.lex-drawer.lex-open { transform: translateY(0); }
+.lex-handle { width: 36px; height: 4px; background: #cbd5e1; border-radius: 2px; margin: 10px auto 0; flex-shrink: 0; }
+.lex-head { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px 0; flex-shrink: 0; }
+.lex-head h3 { font-size: 14px; font-weight: 800; color: #0f172a; }
+.lex-close { background: none; border: 1px solid #e2e8f0; color: #64748b; width: 28px; height: 28px; border-radius: 50%; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.lex-tabs-bar { display: flex; gap: 0; padding: 10px 16px 0; border-bottom: 1px solid #e2e8f0; flex-shrink: 0; overflow-x: auto; }
+.lex-tab { padding: 6px 14px; font-size: 12px; font-weight: 700; color: #64748b; border: none; background: none; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; }
+.lex-tab.active { color: #0d9488; border-bottom-color: #0d9488; }
+.lex-body { overflow-y: auto; padding: 14px 16px 32px; flex: 1; }
+.lex-panel { display: none; }
+.lex-panel.active { display: block; }
+.lex-section { margin-bottom: 16px; }
+.lex-section-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: #0d9488; margin-bottom: 6px; }
+.lex-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.lex-item { font-size: 11.5px; padding: 5px 8px; background: #f8fafc; border-radius: 6px; border-left: 3px solid #e2e8f0; }
+.lex-item b { display: block; color: #0f172a; font-size: 11px; }
+.lex-item span { color: #64748b; font-size: 10.5px; }
+.lex-template { font-size: 11.5px; color: #334155; line-height: 1.7; }
+.lex-template .lex-field { display: flex; gap: 8px; padding: 5px 0; border-bottom: 1px solid #f1f5f9; align-items: flex-start; }
+.lex-template .lex-field-label { font-weight: 700; color: #0f172a; min-width: 110px; font-size: 11px; }
+.lex-template .lex-field-val { color: #64748b; font-size: 11px; font-style: italic; }
 .obs-header { background: #1e3a5f; color: #e2e8f0; padding: 12px 20px; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .obs-steps { display: flex; gap: 5px; }
 .obs-step-dot { width: 8px; height: 8px; border-radius: 50%; background: #334155; transition: background .2s; }
@@ -453,9 +478,184 @@ td { padding: 9px 12px; vertical-align: middle; }
   <div class="obs-header">
     <span id="obs-title">Observer</span>
     <div class="obs-steps" id="obs-steps"></div>
-    <button onclick="obsShowHistory()" style="margin-left:auto;padding:4px 10px;border-radius:6px;border:1px solid #334155;background:transparent;color:#93c5fd;font-size:11px;cursor:pointer;">Historique</button>
+    <button onclick="openLex()" style="padding:4px 10px;border-radius:6px;border:1px solid #334155;background:transparent;color:#93c5fd;font-size:11px;cursor:pointer;">📖 Lexique</button>
+    <button onclick="obsShowHistory()" style="padding:4px 10px;border-radius:6px;border:1px solid #334155;background:transparent;color:#93c5fd;font-size:11px;cursor:pointer;">Historique</button>
   </div>
   <div class="obs-body" id="obs-body"></div>
+</div>
+
+<!-- ── LEXIQUE BOTTOM SHEET ── -->
+<div class="lex-overlay" id="lex-overlay" onclick="closeLex()"></div>
+<div class="lex-drawer" id="lex-drawer">
+  <div class="lex-handle"></div>
+  <div class="lex-head">
+    <h3>📖 Lexique taxonomique</h3>
+    <button class="lex-close" onclick="closeLex()">&#x2715;</button>
+  </div>
+  <div class="lex-tabs-bar">
+    <button class="lex-tab active" onclick="lexTab('couleurs',this)">Couleurs</button>
+    <button class="lex-tab" onclick="lexTab('textures',this)">Textures</button>
+    <button class="lex-tab" onclick="lexTab('motifs',this)">Motifs</button>
+    <button class="lex-tab" onclick="lexTab('template',this)">Template</button>
+  </div>
+  <div class="lex-body">
+
+    <!-- COULEURS -->
+    <div class="lex-panel active" id="lex-couleurs">
+      <div class="lex-section">
+        <div class="lex-section-title">Modificateurs</div>
+        <div class="lex-grid">
+          <div class="lex-item"><b>-âtre / -ish</b><span>tirant vers (blanchâtre, rougeâtre)</span></div>
+          <div class="lex-item"><b>-acé / -aceous</b><span>de la couleur de (ochracé, rosacé)</span></div>
+          <div class="lex-item"><b>pâle / vif</b><span>intensité claire / saturée</span></div>
+          <div class="lex-item"><b>nacré / irisé</b><span>reflets nacrés / changeants</span></div>
+        </div>
+      </div>
+      <div class="lex-section">
+        <div class="lex-section-title">Blancs &amp; neutres</div>
+        <div class="lex-grid">
+          <div class="lex-item"><b>Blanc laiteux</b><span>opaque mat</span></div>
+          <div class="lex-item"><b>Blanc nacré</b><span>avec reflets</span></div>
+          <div class="lex-item"><b>Blanc crème</b><span>légèrement chaud</span></div>
+          <div class="lex-item"><b>Gris ardoise</b><span>gris bleuté foncé</span></div>
+        </div>
+      </div>
+      <div class="lex-section">
+        <div class="lex-section-title">Jaunes &amp; oranges</div>
+        <div class="lex-grid">
+          <div class="lex-item"><b>Jaune citron</b><span>vif, froid</span></div>
+          <div class="lex-item"><b>Jaune ochracé</b><span>jaune-brun, ocre</span></div>
+          <div class="lex-item"><b>Jaune soufre</b><span>intense, verdâtre</span></div>
+          <div class="lex-item"><b>Orange vermillon</b><span>orange-rouge</span></div>
+          <div class="lex-item"><b>Orange ochracé</b><span>orange terne</span></div>
+          <div class="lex-item"><b>Orange saumon</b><span>pâle, rosé</span></div>
+        </div>
+      </div>
+      <div class="lex-section">
+        <div class="lex-section-title">Rouges &amp; roses</div>
+        <div class="lex-grid">
+          <div class="lex-item"><b>Rouge carmin</b><span>saturé, froid</span></div>
+          <div class="lex-item"><b>Rouge vermillon</b><span>rouge-orange vif</span></div>
+          <div class="lex-item"><b>Rouge bordeaux</b><span>très sombre</span></div>
+          <div class="lex-item"><b>Rose magenta</b><span>rose saturé</span></div>
+        </div>
+      </div>
+      <div class="lex-section">
+        <div class="lex-section-title">Violets &amp; bleus</div>
+        <div class="lex-grid">
+          <div class="lex-item"><b>Pourpre</b><span>violet-rouge intense</span></div>
+          <div class="lex-item"><b>Lavande</b><span>violet pâle froid</span></div>
+          <div class="lex-item"><b>Bleu cobalt</b><span>intense, pur</span></div>
+          <div class="lex-item"><b>Bleu céruléen</b><span>bleu ciel moyen</span></div>
+        </div>
+      </div>
+      <div class="lex-section">
+        <div class="lex-section-title">Verts &amp; bruns</div>
+        <div class="lex-grid">
+          <div class="lex-item"><b>Vert émeraude</b><span>vif, saturé</span></div>
+          <div class="lex-item"><b>Vert olive</b><span>vert-brun terne</span></div>
+          <div class="lex-item"><b>Vert glauque</b><span>vert-bleu pâle</span></div>
+          <div class="lex-item"><b>Brun ochracé</b><span>brun chaud clair</span></div>
+          <div class="lex-item"><b>Brun chocolat</b><span>foncé, intense</span></div>
+          <div class="lex-item"><b>Brunâtre</b><span>tendance brune</span></div>
+        </div>
+      </div>
+      <div class="lex-section">
+        <div class="lex-section-title">Translucidité</div>
+        <div class="lex-grid">
+          <div class="lex-item"><b>Opaque</b><span>imperméable à la lumière</span></div>
+          <div class="lex-item"><b>Translucide</b><span>organes visibles en transparence</span></div>
+          <div class="lex-item"><b>Hyalin</b><span>transparent comme le verre</span></div>
+          <div class="lex-item"><b>Irisé</b><span>reflets changeants selon l'angle</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEXTURES -->
+    <div class="lex-panel" id="lex-textures">
+      <div class="lex-section">
+        <div class="lex-section-title">Surface du corps</div>
+        <div class="lex-grid">
+          <div class="lex-item"><b>Lisse</b><span>sans relief — référence zéro</span></div>
+          <div class="lex-item"><b>Granuleux</b><span>granules fins, denses, réguliers</span></div>
+          <div class="lex-item"><b>Papilleux</b><span>papilles molles, digitées (≠ tubercules)</span></div>
+          <div class="lex-item"><b>Tuberculé</b><span>tubercules fermes, individualisés (ex. Phyllidiidae)</span></div>
+          <div class="lex-item"><b>Rugueux</b><span>aspérités non individualisées</span></div>
+          <div class="lex-item"><b>Ridé</b><span>plis souples, irréguliers</span></div>
+          <div class="lex-item"><b>Velouté</b><span>aspect mat doux (optique)</span></div>
+          <div class="lex-item"><b>Spiculeux</b><span>spicules visibles en surface</span></div>
+          <div class="lex-item"><b>Membraneux</b><span>fin, flexible (voiles, parapodes)</span></div>
+          <div class="lex-item"><b>Coriace</b><span>épais et ferme</span></div>
+        </div>
+      </div>
+      <div class="lex-section">
+        <div class="lex-section-title">Appendices</div>
+        <div class="lex-grid">
+          <div class="lex-item"><b>Lamellé</b><span>lamelles empilées (rhinophores)</span></div>
+          <div class="lex-item"><b>Perfolié</b><span>lamelles entourant le rhinophore</span></div>
+          <div class="lex-item"><b>Claviforme</b><span>en forme de massue, élargi à l'apex</span></div>
+          <div class="lex-item"><b>Pinnulé</b><span>avec branches latérales (branchies)</span></div>
+          <div class="lex-item"><b>Bipennaté</b><span>pinnules portant elles-mêmes des pinnules</span></div>
+          <div class="lex-item"><b>Digitiforme</b><span>en forme de doigt</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOTIFS -->
+    <div class="lex-panel" id="lex-motifs">
+      <div class="lex-section">
+        <div class="lex-section-title">Types de motifs</div>
+        <div class="lex-grid">
+          <div class="lex-item"><b>Ponctué</b><span>points discrets fins</span></div>
+          <div class="lex-item"><b>Maculé</b><span>taches irrégulières (macules)</span></div>
+          <div class="lex-item"><b>Ocellé</b><span>taches en œil (anneau + centre)</span></div>
+          <div class="lex-item"><b>Réticulé</b><span>réseau de lignes (treillis)</span></div>
+          <div class="lex-item"><b>Vermiculé</b><span>lignes sinueuses irrégulières</span></div>
+          <div class="lex-item"><b>Strié</b><span>lignes fines parallèles</span></div>
+          <div class="lex-item"><b>Fascié</b><span>larges bandes (fascia)</span></div>
+          <div class="lex-item"><b>Rayé</b><span>lignes longitudinales continues</span></div>
+          <div class="lex-item"><b>Annelé</b><span>anneaux (cérates, rhinophores)</span></div>
+          <div class="lex-item"><b>Linéolé</b><span>fines lignes discontinues</span></div>
+        </div>
+      </div>
+      <div class="lex-section">
+        <div class="lex-section-title">Localisation</div>
+        <div class="lex-grid">
+          <div class="lex-item"><b>Médian</b><span>centre du notum</span></div>
+          <div class="lex-item"><b>Marginal</b><span>au bord du manteau</span></div>
+          <div class="lex-item"><b>Submarginale</b><span>juste en dedans du bord</span></div>
+          <div class="lex-item"><b>Basal</b><span>à la base d'un appendice</span></div>
+          <div class="lex-item"><b>Subapical</b><span>sous l'apex</span></div>
+          <div class="lex-item"><b>Distal / Proximal</b><span>éloigné / proche du corps</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMPLATE -->
+    <div class="lex-panel" id="lex-template">
+      <div class="lex-section">
+        <div class="lex-section-title">Ordre canonique (style Gosliner et al.)</div>
+        <div class="lex-template">
+          <div class="lex-field"><span class="lex-field-label">1. Dimensions</span><span class="lex-field-val">longueur vivant en mm</span></div>
+          <div class="lex-field"><span class="lex-field-label">2. Forme générale</span><span class="lex-field-val">ovale / allongé / comprimé / globuleux</span></div>
+          <div class="lex-field"><span class="lex-field-label">3. Notum — fond</span><span class="lex-field-val">couleur + translucidité + texture</span></div>
+          <div class="lex-field"><span class="lex-field-label">4. Marges du manteau</span><span class="lex-field-val">couleur, largeur, motif</span></div>
+          <div class="lex-field"><span class="lex-field-label">5. Rhinophores</span><span class="lex-field-val">couleur · forme · nb lamelles</span></div>
+          <div class="lex-field"><span class="lex-field-label">6. Branchies / Cérates</span><span class="lex-field-val">nb pinnules · couleur · cnidosacs ?</span></div>
+          <div class="lex-field"><span class="lex-field-label">7. Pied (si visible)</span><span class="lex-field-val">couleur + texture</span></div>
+          <div class="lex-field"><span class="lex-field-label">8. Tentacules oraux</span><span class="lex-field-val">présents / absents · couleur</span></div>
+          <div class="lex-field"><span class="lex-field-label">9. Variations</span><span class="lex-field-val">variations individuelles observées</span></div>
+        </div>
+      </div>
+      <div class="lex-section" style="margin-top:14px;">
+        <div class="lex-section-title">Exemple</div>
+        <div style="font-size:11px;color:#475569;line-height:1.7;background:#f8fafc;padding:10px;border-radius:8px;border-left:3px solid #0d9488;">
+          « Spécimen de 32 mm. Corps allongé. Notum <b>blanc laiteux opaque</b>, <b>granuleux</b>. Marge portant une ligne <b>submarginale orange vif</b> continue. Rhinophores <b>translucides, annelés</b> d'orange à la base, apex blanc, 18 lamelles <b>perfoliées</b>. Branchie : 6 pinnules <b>bipennées translucides</b>, axe blanc. Pied <b>blanc crème, lisse</b>. »
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <div class="page-footer">
@@ -463,7 +663,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.28-1654</span>
+  <span title="Version de déploiement">v2026.05.28-1713</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -1088,6 +1288,24 @@ function lbNavSp(dir) {
   if (lbList.length<=1) return;
   lbSpIdx=(lbSpIdx+dir+lbList.length)%lbList.length;
   openLb(lbList[lbSpIdx]);
+}
+
+// ── LEXIQUE BOTTOM SHEET ──
+function openLex() {
+  document.getElementById('lex-overlay').classList.add('lex-open');
+  document.getElementById('lex-drawer').classList.add('lex-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLex() {
+  document.getElementById('lex-overlay').classList.remove('lex-open');
+  document.getElementById('lex-drawer').classList.remove('lex-open');
+  document.body.style.overflow = '';
+}
+function lexTab(id, btn) {
+  document.querySelectorAll('.lex-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.lex-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.getElementById('lex-'+id).classList.add('active');
+  btn.classList.add('active');
 }
 
 function openLb(slug) {
