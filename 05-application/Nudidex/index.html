@@ -703,7 +703,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.29-1838</span>
+  <span title="Version de déploiement">v2026.05.29-2210</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -3809,8 +3809,12 @@ function expZoneAdd(key, defLabel) { expGetZones(key).push({zone_label:defLabel|
 function expZoneDel(key, idx) { expGetZones(key).splice(idx,1); renderExpStep(); }
 function expZoneSet(key, idx, field, val) {
   var z = expGetZones(key)[idx]; if(z) z[field]=val;
-  var el = document.getElementById('exp-sum-'+key);
-  if(el) el.textContent = expZoneSummary(expGetZones(key));
+  var sumEl = document.getElementById('exp-sum-'+key);
+  if(sumEl) sumEl.textContent = expZoneSummary(expGetZones(key));
+  if(field === 'couleur') {
+    var dot = document.getElementById('exp-cp-'+key+'-'+idx);
+    if(dot) dot.style.background = (val && LEX_COLOR_HEX[val]) ? LEX_COLOR_HEX[val] : '#e2e8f0';
+  }
 }
 function expZoneSummary(zones) {
   if(!zones.length) return '';
@@ -3826,16 +3830,19 @@ function expZoneBuilder(key, opts) {
   var zones = expGetZones(key);
   var h = '';
   zones.forEach(function(z,i){
+    var swHex = z.couleur ? (LEX_COLOR_HEX[z.couleur]||'#e2e8f0') : '#e2e8f0';
+    var swBorder = (swHex==='#ffffff'||swHex==='#fffbee'||swHex==='#f5f5ee'||swHex==='#ebebeb'||swHex==='#f0f0e8'||swHex==='#fef9c3') ? '#cbd5e1' : 'rgba(0,0,0,.12)';
     h += '<div class="exp-zone-row">'
       +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'zone_label\',this.value)">'
       +opts.map(function(o){ return '<option value="'+o+'"'+(o===z.zone_label?' selected':'')+'>'+o+'</option>'; }).join('')
       +'</select>'
-      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'couleur\',this.value)" style="flex:1;max-width:180px;">'
+      +'<div id="exp-cp-'+key+'-'+i+'" style="width:14px;height:14px;border-radius:50%;border:1px solid '+swBorder+';flex-shrink:0;background:'+swHex+';"></div>'
+      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'couleur\',this.value)" style="flex:1;max-width:175px;">'
       +'<option value="">— couleur —</option>'
       +LEX_COLOR_NAMES.map(function(c){ return '<option value="'+c+'"'+(c===z.couleur?' selected':'')+'>'+c+'</option>'; }).join('')
       +'</select>'
-      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'translucidite\',this.value)">'
-      +'<option value="">transl.</option>'
+      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'translucidite\',this.value)" title="Translucidité — opaque par défaut si non précisé">'
+      +'<option value="">— transl. —</option>'
       +EXP_TRANSLUCIDITE.map(function(t){ return '<option value="'+t+'"'+(t===z.translucidite?' selected':'')+'>'+t+'</option>'; }).join('')
       +'</select>'
       +'<button onclick="expZoneDel(\''+key+'\','+i+')" style="background:none;border:none;color:#ef4444;font-size:16px;cursor:pointer;padding:0 4px;" title="Supprimer">×</button>'
@@ -3932,21 +3939,21 @@ function renderExpStep1() { /* Dimensions + structure */
     +'<span style="color:#64748b;font-size:12px;">mm — Réf : pièce 2€ = 25 mm · phalange = ~30 mm</span></div></div>'
     +'<div class="obs-section"><div class="obs-label">Fourchette si incertaine</div><div class="obs-btn-grid">';
   ['< 10 mm','10–25 mm','25–50 mm','50–100 mm','> 100 mm'].forEach(function(v){ h+=expBtn(v,'taille_range',v); });
-  h += '</div></div>'
-    +'<div class="obs-section"><div class="obs-label">Structure dorsale <span class="obs-req">oriente les étapes suivantes</span></div><div class="obs-btn-grid">';
-  EXP_STRUCTURES.forEach(function(s){ h+=expBtn(s.l,'structure',s.k); });
   h += '</div></div>'+expNavHtml(true);
   document.getElementById('obs-body').innerHTML = h;
 }
 
-function renderExpStep2() { /* Forme générale */
+function renderExpStep2() { /* Forme générale + structure dorsale */
   var h = expRenderStepper()
     +'<div class="obs-section"><div class="obs-label">Forme générale du corps '+lexLink('template','Formes Gosliner')+'</div><div class="obs-btn-grid">';
   EXP_FORMES.forEach(function(v){ h+=expBtn(v,'forme',v); });
   h += '</div></div>'
     +'<div class="obs-section"><div class="obs-label">Manteau déborde largement sur le pied</div><div class="obs-btn-grid">'
     +expBtn('Oui','manteau_debord','oui')+expBtn('Non','manteau_debord','non')+expBtn('Non visible','manteau_debord','invisible')
-    +'</div></div>'+expNavHtml(true);
+    +'</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Structure dorsale <span class="obs-req">oriente les étapes Branchies / Cérates</span></div><div class="obs-btn-grid">';
+  EXP_STRUCTURES.forEach(function(s){ h+=expBtn(s.l,'structure',s.k); });
+  h += '</div></div>'+expNavHtml(true);
   document.getElementById('obs-body').innerHTML = h;
 }
 
