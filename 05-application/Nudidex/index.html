@@ -382,6 +382,22 @@ td { padding: 9px 12px; vertical-align: middle; }
 .obs-btn-sec:hover { background: #f8fafc; }
 .obs-btn-action { background: #0d9488; color: #fff; border-color: #0d9488; }
 .obs-btn-action:hover { background: #0f766e; }
+/* ── EXPERT MODE ── */
+.exp-stepper { display:flex; overflow-x:auto; gap:0; border-bottom:2px solid #e2e8f0; padding:0; background:#fff; -webkit-overflow-scrolling:touch; margin:-16px -16px 16px; }
+.exp-step { display:flex; flex-direction:column; align-items:center; padding:8px 10px; font-size:10px; font-weight:700; color:#94a3b8; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-2px; white-space:nowrap; transition:all .15s; flex-shrink:0; }
+.exp-step.active { color:#1e3a5f; border-bottom-color:#1e3a5f; }
+.exp-step.done { color:#0d9488; }
+.exp-step .exp-ico { font-size:13px; margin-bottom:2px; }
+.exp-zone-row { display:flex; flex-wrap:wrap; gap:5px; align-items:center; margin-bottom:6px; padding:8px; background:#f8fafc; border-radius:8px; border:1px solid #e2e8f0; }
+.exp-zone-sel { border:1px solid #cbd5e1; border-radius:6px; padding:4px 6px; font-size:11px; background:#fff; cursor:pointer; }
+.exp-zone-add { font-size:11px; padding:5px 12px; border:1.5px dashed #94a3b8; border-radius:6px; background:transparent; color:#64748b; cursor:pointer; margin-top:4px; display:inline-block; }
+.exp-zone-add:hover { border-color:#1e3a5f; color:#1e3a5f; }
+.exp-zone-summary { font-size:11px; color:#0d9488; font-style:italic; margin-top:6px; padding:5px 8px; background:#f0fdf4; border-radius:6px; }
+.exp-en-block { background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:14px; font-size:11.5px; line-height:1.9; font-family:monospace; white-space:pre-wrap; color:#1e293b; }
+.exp-mode-card { background:linear-gradient(135deg,#1e3a5f,#0d9488); color:#fff; border-radius:12px; padding:18px 20px; margin-bottom:12px; cursor:pointer; transition:transform .15s; }
+.exp-mode-card:hover { transform:translateY(-1px); }
+.exp-mode-card h3 { font-size:14px; font-weight:700; margin-bottom:6px; }
+.exp-mode-card p { font-size:11.5px; opacity:.85; line-height:1.5; }
 .obs-summary { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; font-size: 12px; line-height: 1.9; white-space: pre-wrap; color: #1e293b; font-family: monospace; }
 .obs-cond { padding: 12px 14px; background: #eff6ff; border-radius: 8px; border: 1px solid #bfdbfe; margin-bottom: 4px; }
 .obs-cond-title { font-size: 11px; font-weight: 700; color: #1e40af; margin-bottom: 8px; }
@@ -508,27 +524,35 @@ td { padding: 9px 12px; vertical-align: middle; }
           <div class="lex-item"><b>-âtre / -ish</b><span>tirant vers (blanchâtre, rougeâtre)</span></div>
           <div class="lex-item"><b>-acé / -aceous</b><span>de la couleur de (ochracé, rosacé)</span></div>
           <div class="lex-item"><b>pâle / vif</b><span>intensité claire / saturée</span></div>
-          <div class="lex-item"><b>nacré / irisé</b><span>reflets nacrés / changeants</span></div>
+          <div class="lex-item"><b>sombre / foncé</b><span>valeur basse</span></div>
+          <div class="lex-item"><b>nacré / irisé</b><span>reflets nacrés / changeants selon l'angle</span></div>
         </div>
       </div>
       <div class="lex-section">
         <div class="lex-section-title">Blancs &amp; neutres</div>
         <div class="lex-grid">
-          <div class="lex-item"><b>Blanc laiteux</b><span>opaque mat</span></div>
+          <div class="lex-item"><b>Blanc</b><span>blanc pur</span></div>
           <div class="lex-item"><b>Blanc nacré</b><span>avec reflets</span></div>
-          <div class="lex-item"><b>Blanc crème</b><span>légèrement chaud</span></div>
+          <div class="lex-item"><b>Blanc laiteux</b><span>opaque mat</span></div>
+          <div class="lex-item"><b>Blanc crème</b><span>chaud, légèrement jaune</span></div>
+          <div class="lex-item"><b>Blanchâtre</b><span>tendance blanche, sans être pur blanc</span></div>
+          <div class="lex-item"><b>Gris</b><span>neutre</span></div>
           <div class="lex-item"><b>Gris ardoise</b><span>gris bleuté foncé</span></div>
+          <div class="lex-item"><b>Gris perle</b><span>gris clair nacré</span></div>
         </div>
       </div>
       <div class="lex-section">
         <div class="lex-section-title">Jaunes &amp; oranges</div>
         <div class="lex-grid">
           <div class="lex-item"><b>Jaune citron</b><span>vif, froid</span></div>
-          <div class="lex-item"><b>Jaune ochracé</b><span>jaune-brun, ocre</span></div>
-          <div class="lex-item"><b>Jaune soufre</b><span>intense, verdâtre</span></div>
+          <div class="lex-item"><b>Jaune soufre</b><span>intense, légèrement verdâtre</span></div>
+          <div class="lex-item"><b>Jaune ochracé</b><span>jaune-brun, couleur ocre</span></div>
+          <div class="lex-item"><b>Jaune paille</b><span>très pâle, beige</span></div>
+          <div class="lex-item"><b>Jaune d'or</b><span>chaud, intense</span></div>
+          <div class="lex-item"><b>Orange vif</b><span>saturé</span></div>
           <div class="lex-item"><b>Orange vermillon</b><span>orange-rouge</span></div>
-          <div class="lex-item"><b>Orange ochracé</b><span>orange terne</span></div>
-          <div class="lex-item"><b>Orange saumon</b><span>pâle, rosé</span></div>
+          <div class="lex-item"><b>Orange ochracé</b><span>terne, brun</span></div>
+          <div class="lex-item"><b>Orange saumon</b><span>très pâle, rosé</span></div>
         </div>
       </div>
       <div class="lex-section">
@@ -537,16 +561,24 @@ td { padding: 9px 12px; vertical-align: middle; }
           <div class="lex-item"><b>Rouge carmin</b><span>saturé, froid</span></div>
           <div class="lex-item"><b>Rouge vermillon</b><span>rouge-orange vif</span></div>
           <div class="lex-item"><b>Rouge bordeaux</b><span>très sombre</span></div>
-          <div class="lex-item"><b>Rose magenta</b><span>rose saturé</span></div>
+          <div class="lex-item"><b>Rouge brique</b><span>rouge-brun terne</span></div>
+          <div class="lex-item"><b>Rouge sang</b><span>rouge foncé profond</span></div>
+          <div class="lex-item"><b>Rose</b><span>rose moyen</span></div>
+          <div class="lex-item"><b>Rose vif / magenta</b><span>rose saturé</span></div>
+          <div class="lex-item"><b>Rose saumon</b><span>rose chaud pâle</span></div>
         </div>
       </div>
       <div class="lex-section">
         <div class="lex-section-title">Violets &amp; bleus</div>
         <div class="lex-grid">
+          <div class="lex-item"><b>Violet</b><span>violet moyen</span></div>
           <div class="lex-item"><b>Pourpre</b><span>violet-rouge intense</span></div>
           <div class="lex-item"><b>Lavande</b><span>violet pâle froid</span></div>
+          <div class="lex-item"><b>Lilas</b><span>violet pâle rosé</span></div>
           <div class="lex-item"><b>Bleu cobalt</b><span>intense, pur</span></div>
           <div class="lex-item"><b>Bleu céruléen</b><span>bleu ciel moyen</span></div>
+          <div class="lex-item"><b>Bleu azur</b><span>bleu vif clair</span></div>
+          <div class="lex-item"><b>Bleu ardoise</b><span>bleu grisâtre</span></div>
         </div>
       </div>
       <div class="lex-section">
@@ -555,9 +587,14 @@ td { padding: 9px 12px; vertical-align: middle; }
           <div class="lex-item"><b>Vert émeraude</b><span>vif, saturé</span></div>
           <div class="lex-item"><b>Vert olive</b><span>vert-brun terne</span></div>
           <div class="lex-item"><b>Vert glauque</b><span>vert-bleu pâle</span></div>
-          <div class="lex-item"><b>Brun ochracé</b><span>brun chaud clair</span></div>
+          <div class="lex-item"><b>Vert jaunâtre</b><span>vert clair</span></div>
+          <div class="lex-item"><b>Brun</b><span>brun neutre</span></div>
+          <div class="lex-item"><b>Brun rougeâtre</b><span>brun chaud</span></div>
           <div class="lex-item"><b>Brun chocolat</b><span>foncé, intense</span></div>
+          <div class="lex-item"><b>Brun fauve</b><span>chaud, clair</span></div>
           <div class="lex-item"><b>Brunâtre</b><span>tendance brune</span></div>
+          <div class="lex-item"><b>Noir</b><span>noir pur</span></div>
+          <div class="lex-item"><b>Noirâtre</b><span>tendance noire</span></div>
         </div>
       </div>
       <div class="lex-section">
@@ -565,8 +602,11 @@ td { padding: 9px 12px; vertical-align: middle; }
         <div class="lex-grid">
           <div class="lex-item"><b>Opaque</b><span>imperméable à la lumière</span></div>
           <div class="lex-item"><b>Translucide</b><span>organes visibles en transparence</span></div>
-          <div class="lex-item"><b>Hyalin</b><span>transparent comme le verre</span></div>
+          <div class="lex-item"><b>Semi-transparent</b><span>intermédiaire</span></div>
+          <div class="lex-item"><b>Hyalin</b><span>transparent comme le verre, incolore</span></div>
+          <div class="lex-item"><b>Diaphane</b><span>très fin et transparent</span></div>
           <div class="lex-item"><b>Irisé</b><span>reflets changeants selon l'angle</span></div>
+          <div class="lex-item"><b>Nacré</b><span>reflets nacrés doux</span></div>
         </div>
       </div>
     </div>
@@ -663,7 +703,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.29-1543</span>
+  <span title="Version de déploiement">v2026.05.29-1834</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -2328,11 +2368,6 @@ var SWATCH_COLORS = [
   {val:'rose',       hex:'#db2777', stroke:'#be185d'},
   {val:'translucide',hex:'#bae6fd', stroke:'#7dd3fc'},
   {val:'irisé',      hex:'#c4b5fd', stroke:'#a78bfa'},
-  {val:'turquoise',  hex:'#0891b2', stroke:'#0e7490'},
-  {val:'corail',     hex:'#f43f5e', stroke:'#e11d48'},
-  {val:'abricot',    hex:'#fb923c', stroke:'#f97316'},
-  {val:'beige',      hex:'#d4b896', stroke:'#b8956a'},
-  {val:'chartreuse', hex:'#65a30d', stroke:'#4d7c0f'},
 ];
 
 /* ── Questions spéciales (follow-up) ── */
@@ -3041,9 +3076,13 @@ function renderObsWelcome() {
     + '<button class="obs-btn-nav obs-btn-sec" style="flex:1;min-width:180px;" onclick="obsDownloadForm()">📋 Formulaire vierge (impression)</button>'
     + '<button class="obs-btn-nav obs-btn-sec" style="flex:1;min-width:180px;" onclick="obsDownloadBriefing()">📖 Guide de l\'observateur</button>'
     + '</div>'
-    + '<div style="display:flex;flex-wrap:wrap;gap:10px;">'
-    + '<button class="obs-btn-nav obs-btn-primary" style="flex:2;min-width:200px;" onclick="obsStep=0;obsState=obsNewState();renderObsStep();">Commencer une observation →</button>'
+    + '<div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px;">'
+    + '<button class="obs-btn-nav obs-btn-primary" style="flex:2;min-width:200px;" onclick="obsStep=0;obsState=obsNewState();renderObsStep();">🐌 Observation (mode simple) →</button>'
     + (histCount ? '<button class="obs-btn-nav obs-btn-sec" style="flex:1;" onclick="obsShowHistory()">Historique (' + histCount + ')</button>' : '')
+    + '</div>'
+    + '<div class="exp-mode-card" onclick="initExpertMode()">'
+    + '<h3>🔬 Mode Expert — Description taxonomique</h3>'
+    + '<p>Formulaire structuré dans l\'ordre Gosliner. Descriptions par zones (base / apex / marge…), termes du lexique T5.1, export en anglais, envoi à un expert.</p>'
     + '</div>'
     + '</div>';
 }
@@ -3667,6 +3706,620 @@ function obsNext() {
 function obsBack() {
   obsStep = Math.max(obsStep - 1, 0);
   renderObsStep();
+}
+
+/* ═══════════════════════════════════════════════════════
+   MODE EXPERT — Observer taxonomique (style Gosliner)
+   ═══════════════════════════════════════════════════════ */
+
+var LEX_COLOR_NAMES = [
+  'Blanc','Blanc nacré','Blanc laiteux','Blanc crème','Blanchâtre','Gris','Gris ardoise','Gris perle',
+  'Jaune citron','Jaune soufre','Jaune ochracé','Jaune paille',"Jaune d'or",
+  'Orange vif','Orange vermillon','Orange ochracé','Orange saumon',
+  'Rouge carmin','Rouge vermillon','Rouge bordeaux','Rouge brique','Rouge sang',
+  'Rose','Rose vif / magenta','Rose saumon',
+  'Violet','Pourpre','Lavande','Lilas',
+  'Bleu cobalt','Bleu céruléen','Bleu azur','Bleu ardoise',
+  'Vert émeraude','Vert olive','Vert glauque','Vert jaunâtre',
+  'Brun','Brun rougeâtre','Brun chocolat','Brun fauve','Brunâtre','Noir','Noirâtre'
+];
+var LEX_COLOR_HEX = {
+  'Blanc':'#ffffff','Blanc nacré':'#f0f0e8','Blanc laiteux':'#f5f5ee','Blanc crème':'#fffbee','Blanchâtre':'#ebebeb',
+  'Gris':'#94a3b8','Gris ardoise':'#475569','Gris perle':'#cbd5e1',
+  'Jaune citron':'#fef08a','Jaune soufre':'#d9f99d','Jaune ochracé':'#ca8a04','Jaune paille':'#fef9c3',"Jaune d'or":'#eab308',
+  'Orange vif':'#ea580c','Orange vermillon':'#dc5132','Orange ochracé':'#b45309','Orange saumon':'#fca5a5',
+  'Rouge carmin':'#be123c','Rouge vermillon':'#dc2626','Rouge bordeaux':'#7f1d1d','Rouge brique':'#9a3412','Rouge sang':'#450a0a',
+  'Rose':'#f472b6','Rose vif / magenta':'#db2777','Rose saumon':'#fda4af',
+  'Violet':'#7c3aed','Pourpre':'#6d28d9','Lavande':'#ddd6fe','Lilas':'#ede9fe',
+  'Bleu cobalt':'#1d4ed8','Bleu céruléen':'#38bdf8','Bleu azur':'#0ea5e9','Bleu ardoise':'#64748b',
+  'Vert émeraude':'#059669','Vert olive':'#65a30d','Vert glauque':'#67e8f9','Vert jaunâtre':'#86efac',
+  'Brun':'#78350f','Brun rougeâtre':'#92400e','Brun chocolat':'#3b1d0e','Brun fauve':'#b45309',
+  'Brunâtre':'#a16207','Noir':'#1e293b','Noirâtre':'#334155'
+};
+var EXP_TRANSLUCIDITE = ['opaque','translucide','semi-transparent','hyalin','diaphane','irisé','nacré'];
+var EXP_ZONE_OPTIONS = {
+  notum:['Surface générale','Centre (médiane)','Marge','Submarginale','Tubercules / papilles','Face ventrale'],
+  marge:['Bord marginal','Ligne submarginale','Surface interne'],
+  rhino:['Global','Base','Tiers inférieur','Tiers supérieur','Apex','Gaine'],
+  branchie:['Global','Axe / rachis','Pinnules','Pointes'],
+  cerates:['Global','Corps du cérate','Extrémité / apex'],
+  tentacules:['Global','Base','Apex'],
+  pied:['Semelle (dessous)','Flancs']
+};
+var EXP_STEPS = [
+  {id:'contexte',   label:'Contexte',    ico:'📍'},
+  {id:'dimensions', label:'Dimensions',  ico:'📏'},
+  {id:'forme',      label:'Forme',       ico:'🔷'},
+  {id:'notum',      label:'Notum',       ico:'🐚'},
+  {id:'marges',     label:'Marges',      ico:'〰️'},
+  {id:'rhino',      label:'Rhinophores', ico:'🌿'},
+  {id:'branchies',  label:'Branchies',   ico:'🌊'},
+  {id:'tentacules', label:'Tentacules',  ico:'🦯'},
+  {id:'pied',       label:'Pied',        ico:'👣'},
+  {id:'variations', label:'Variations',  ico:'📝'},
+  {id:'recap',      label:'Récap',       ico:'✅'}
+];
+var EXP_FORMES = ['Ovale','Allongé','Aplati dorsoventralement','Comprimé latéralement','Globuleux','Fusiforme','Limaciforme','Réniforme'];
+var EXP_STRUCTURES = [
+  {k:'panache',   l:'Panache branchial dorsal'},
+  {k:'cerates',   l:'Cérates / filaments dorsaux'},
+  {k:'dos_lisse', l:'Dos lisse (rhinophores seuls)'},
+  {k:'dos_cretes',l:'Crêtes longitudinales dorsales'},
+  {k:'coquille',  l:'Coquille visible'}
+];
+var EXP_RHINO_FORMES = ['Lamellé perfolié','Lamellé annulé','Claviforme lisse','Conique','Ramifié / plumeux','Absent'];
+var EXP_MARGE_LARGEUR = ['Étroite (< 2 mm)','Modérée (2–5 mm)','Large (> 5 mm)','Non distincte'];
+var EXP_MARGE_BORD = ['Lisse','Ondulé / festonné','Tubercules périphériques','Dentelé'];
+var EXP_NOTUM_TEXTURES = ['Lisse','Granuleux','Papilleux','Tuberculé','Rugueux','Ridé','Velouté','Spiculeux','Membraneux','Coriace'];
+var EXP_NOTUM_MOTIFS = ['Uniforme / uni','Ponctué','Maculé','Ocellé','Réticulé','Vermiculé','Strié','Fascié','Rayé','Annelé','Linéolé'];
+var EXP_PANACHE_NB = ['3–4','5–8','9–12','> 12'];
+
+/* ── State ── */
+function obsExpertNewState() {
+  return {
+    date: new Date().toLocaleDateString('fr-FR')+' '+new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}),
+    site:'', depth:null, substrats:[], proie:'', eclairage:null,
+    taille_mm:'', taille_range:null,
+    forme:null, manteau_debord:null, structure:null,
+    notum:{ zones:[], texture:[], motif:[], translucidite:null },
+    marge:{ largeur:null, zones:[], bord:null },
+    rhino:{ forme:null, nb_lamelles:'', gaine:null, zones:[] },
+    branchie:{ nb_branches:null, zones:[], pointes:null, bipennatees:null },
+    cerates:{ dispo:null, forme:null, zones:[], cnidosacs:null },
+    dos:{ branchie_lat:null, couleur_dessous:'' },
+    tentacules:{ present:null, zones:[] },
+    pied:{ zones:[], texture:null },
+    variations:'', flags:[], photos:[]
+  };
+}
+var obsExpertState = obsExpertNewState();
+var obsExpertStep  = 0;
+var EXP_STORE = 'nudis_obs_expert_v1';
+function expGetHistory() { try { return JSON.parse(localStorage.getItem(EXP_STORE)||'[]'); } catch(e) { return []; } }
+function expSaveHistory(h) { try { localStorage.setItem(EXP_STORE, JSON.stringify(h)); } catch(e) {} }
+
+/* ── Zone builder ── */
+function expGetZones(key) {
+  var s = obsExpertState;
+  return {notum:s.notum.zones,marge:s.marge.zones,rhino:s.rhino.zones,
+          branchie:s.branchie.zones,cerates:s.cerates.zones,
+          tentacules:s.tentacules.zones,pied:s.pied.zones}[key] || [];
+}
+function expZoneAdd(key, defLabel) { expGetZones(key).push({zone_label:defLabel||'Global',couleur:'',translucidite:''}); renderExpStep(); }
+function expZoneDel(key, idx) { expGetZones(key).splice(idx,1); renderExpStep(); }
+function expZoneSet(key, idx, field, val) {
+  var z = expGetZones(key)[idx]; if(z) z[field]=val;
+  var el = document.getElementById('exp-sum-'+key);
+  if(el) el.textContent = expZoneSummary(expGetZones(key));
+}
+function expZoneSummary(zones) {
+  if(!zones.length) return '';
+  return zones.map(function(z){
+    var p=[];
+    if(z.zone_label && z.zone_label!=='Global') p.push(z.zone_label.toLowerCase());
+    if(z.couleur) p.push(z.couleur.toLowerCase());
+    if(z.translucidite) p.push(z.translucidite);
+    return p.join(' ');
+  }).filter(Boolean).join(' · ');
+}
+function expZoneBuilder(key, opts) {
+  var zones = expGetZones(key);
+  var h = '';
+  zones.forEach(function(z,i){
+    h += '<div class="exp-zone-row">'
+      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'zone_label\',this.value)">'
+      +opts.map(function(o){ return '<option value="'+o+'"'+(o===z.zone_label?' selected':'')+'>'+o+'</option>'; }).join('')
+      +'</select>'
+      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'couleur\',this.value)" style="flex:1;max-width:180px;">'
+      +'<option value="">— couleur —</option>'
+      +LEX_COLOR_NAMES.map(function(c){ return '<option value="'+c+'"'+(c===z.couleur?' selected':'')+'>'+c+'</option>'; }).join('')
+      +'</select>'
+      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'translucidite\',this.value)">'
+      +'<option value="">transl.</option>'
+      +EXP_TRANSLUCIDITE.map(function(t){ return '<option value="'+t+'"'+(t===z.translucidite?' selected':'')+'>'+t+'</option>'; }).join('')
+      +'</select>'
+      +'<button onclick="expZoneDel(\''+key+'\','+i+')" style="background:none;border:none;color:#ef4444;font-size:16px;cursor:pointer;padding:0 4px;" title="Supprimer">×</button>'
+      +'</div>';
+  });
+  h += '<button class="exp-zone-add" onclick="expZoneAdd(\''+key+'\',\''+opts[0]+'\')">+ Ajouter une zone</button>';
+  var sum = expZoneSummary(zones);
+  h += '<div class="exp-zone-summary" id="exp-sum-'+key+'">'+(sum ? esc(sum) : '')+'</div>';
+  return h;
+}
+
+/* ── Field helpers ── */
+var EXP_NESTED = {
+  notum_translucidite:['notum','translucidite'],rhino_forme:['rhino','forme'],
+  rhino_gaine:['rhino','gaine'],marge_largeur:['marge','largeur'],marge_bord:['marge','bord'],
+  branchie_nb_branches:['branchie','nb_branches'],branchie_pointes:['branchie','pointes'],
+  branchie_bipennatees:['branchie','bipennatees'],cerates_dispo:['cerates','dispo'],
+  cerates_forme:['cerates','forme'],cerates_cnidosacs:['cerates','cnidosacs'],
+  dos_branchie_lat:['dos','branchie_lat'],tentacules_present:['tentacules','present'],
+  pied_texture:['pied','texture']
+};
+function expGetField(key) {
+  var path = EXP_NESTED[key]; var s = obsExpertState;
+  return path ? s[path[0]][path[1]] : s[key];
+}
+function expSetField(key, val) {
+  var path = EXP_NESTED[key]; var s = obsExpertState;
+  if(path) { s[path[0]][path[1]] = s[path[0]][path[1]]===val ? null : val; }
+  else { s[key] = s[key]===val ? null : val; }
+  renderExpStep();
+}
+function expToggleMulti(key, val) {
+  var s = obsExpertState;
+  var arr = {substrats:s.substrats,flags:s.flags,notum_texture:s.notum.texture,notum_motif:s.notum.motif}[key];
+  if(!arr) return;
+  var i=arr.indexOf(val); if(i>=0) arr.splice(i,1); else arr.push(val);
+  renderExpStep();
+}
+function expBtn(label, key, val) {
+  var sel = expGetField(key)===val;
+  return '<button class="obs-btn'+(sel?' sel':'')+'" onclick="expSetField(\''+key+'\',\''+val.replace(/'/g,"\\'")+'\')">'+esc(label)+'</button>';
+}
+function expBtnM(label, key, val) {
+  var s = obsExpertState;
+  var arr = {substrats:s.substrats,flags:s.flags,notum_texture:s.notum.texture,notum_motif:s.notum.motif}[key]||[];
+  var sel = arr.indexOf(val)>=0;
+  return '<button class="obs-btn'+(sel?' sel-multi':'')+'" onclick="expToggleMulti(\''+key+'\',\''+val.replace(/'/g,"\\'")+'\')">'+esc(label)+'</button>';
+}
+
+/* ── Stepper ── */
+function expRenderStepper() {
+  var h = '<div class="exp-stepper">';
+  EXP_STEPS.forEach(function(st,i){
+    h += '<div class="exp-step'+(i===obsExpertStep?' active':'')+'" onclick="obsExpertStep='+i+';renderExpStep();">'
+      +'<span class="exp-ico">'+st.ico+'</span>'+st.label+'</div>';
+  });
+  return h + '</div>';
+}
+function expNavHtml(showBack, nextLabel) {
+  var back = showBack ? '<button class="obs-btn-nav obs-btn-sec" onclick="obsExpertStep--;renderExpStep();">← Retour</button>' : '';
+  var isLast = obsExpertStep >= EXP_STEPS.length-1;
+  var next = isLast ? '' : '<button class="obs-btn-nav obs-btn-primary" onclick="obsExpertStep++;renderExpStep();" style="margin-left:auto;">'+(nextLabel||'Suivant →')+'</button>';
+  return '<div class="obs-nav">'+back+next+'</div>';
+}
+
+/* ── Steps ── */
+function renderExpStep0() {
+  var h = expRenderStepper()
+    +'<div class="obs-section"><div class="obs-label">Date &amp; heure</div>'+obsDateSelects()+'</div>'
+    +'<div class="obs-section"><div class="obs-label">Site / localisation</div>'
+    +'<input class="obs-input" placeholder="Ex : Passe de Tiputa, tombant nord" value="'+esc(obsExpertState.site)+'" oninput="obsExpertState.site=this.value"></div>'
+    +'<div class="obs-section"><div class="obs-label">Profondeur</div><div class="obs-btn-grid">';
+  ['< 5 m','5–15 m','15–30 m','> 30 m'].forEach(function(v){ h+=expBtn(v,'depth',v); });
+  h += '</div></div><div class="obs-section"><div class="obs-label">Substrat <span class="obs-req">multi-sélection</span></div><div class="obs-btn-grid">';
+  OBS_SUBSTRATS.forEach(function(v){ h+=expBtnM(v,'substrats',v); });
+  h += '</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Hôte / proie <span class="obs-req">facultatif</span></div>'
+    +'<input class="obs-input" placeholder="Ex : éponge rose encroûtante, hydroïde blanc…" value="'+esc(obsExpertState.proie)+'" oninput="obsExpertState.proie=this.value"></div>'
+    +'<div class="obs-section"><div class="obs-label">Éclairage</div><div class="obs-btn-grid">'
+    +expBtn('Torche / lumière artificielle','eclairage','torche')
+    +expBtn('Lumière naturelle uniquement','eclairage','naturelle')
+    +'</div>'
+    +(obsExpertState.eclairage==='naturelle' ? '<p style="font-size:11px;color:#b45309;background:#fffbeb;border-radius:6px;padding:5px 10px;margin-top:4px;">⚠️ Sans torche, rouges et oranges disparaissent. Coloration potentiellement altérée.</p>' : '')
+    +'</div>'
+    +expNavHtml(false);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+function renderExpStep1() { /* Dimensions + structure */
+  var h = expRenderStepper()
+    +'<div class="obs-section"><div class="obs-label">Longueur estimée (in vivo)</div>'
+    +'<div style="display:flex;gap:8px;align-items:center;">'
+    +'<input class="obs-input" type="number" min="1" max="500" placeholder="mm" style="max-width:90px;" value="'+esc(obsExpertState.taille_mm)+'" oninput="obsExpertState.taille_mm=this.value">'
+    +'<span style="color:#64748b;font-size:12px;">mm — Réf : pièce 2€ = 25 mm · phalange = ~30 mm</span></div></div>'
+    +'<div class="obs-section"><div class="obs-label">Fourchette si incertaine</div><div class="obs-btn-grid">';
+  ['< 10 mm','10–25 mm','25–50 mm','50–100 mm','> 100 mm'].forEach(function(v){ h+=expBtn(v,'taille_range',v); });
+  h += '</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Structure dorsale <span class="obs-req">oriente les étapes suivantes</span></div><div class="obs-btn-grid">';
+  EXP_STRUCTURES.forEach(function(s){ h+=expBtn(s.l,'structure',s.k); });
+  h += '</div></div>'+expNavHtml(true);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+function renderExpStep2() { /* Forme générale */
+  var h = expRenderStepper()
+    +'<div class="obs-section"><div class="obs-label">Forme générale du corps '+lexLink('template','Formes Gosliner')+'</div><div class="obs-btn-grid">';
+  EXP_FORMES.forEach(function(v){ h+=expBtn(v,'forme',v); });
+  h += '</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Manteau déborde largement sur le pied</div><div class="obs-btn-grid">'
+    +expBtn('Oui','manteau_debord','oui')+expBtn('Non','manteau_debord','non')+expBtn('Non visible','manteau_debord','invisible')
+    +'</div></div>'+expNavHtml(true);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+function renderExpStep3() { /* Notum */
+  var h = expRenderStepper()
+    +'<div class="obs-section"><div class="obs-label">Coloration du notum — zones '+lexLink('couleurs','Nuancier Gosliner')+'</div>'
+    +'<p style="font-size:11px;color:#64748b;margin-bottom:8px;">Décrivez chaque zone distincte. Commencez par la couleur de fond principale.</p>'
+    +expZoneBuilder('notum',EXP_ZONE_OPTIONS.notum)+'</div>'
+    +'<div class="obs-section"><div class="obs-label">Translucidité globale</div><div class="obs-btn-grid">';
+  EXP_TRANSLUCIDITE.forEach(function(v){ h+=expBtn(v,'notum_translucidite',v); });
+  h += '</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Texture '+lexLink('textures','Terminologie texture')+'</div><div class="obs-btn-grid">';
+  EXP_NOTUM_TEXTURES.forEach(function(v){ h+=expBtnM(v,'notum_texture',v); });
+  h += '</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Motif(s) '+lexLink('motifs','Types de motifs')+'</div><div class="obs-btn-grid">';
+  EXP_NOTUM_MOTIFS.forEach(function(v){ h+=expBtnM(v,'notum_motif',v); });
+  h += '</div></div>'+expNavHtml(true);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+function renderExpStep4() { /* Marges */
+  var h = expRenderStepper()
+    +'<div class="obs-section"><div class="obs-label">Largeur des marges</div><div class="obs-btn-grid">';
+  EXP_MARGE_LARGEUR.forEach(function(v){ h+=expBtn(v,'marge_largeur',v); });
+  h += '</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Type de bord</div><div class="obs-btn-grid">';
+  EXP_MARGE_BORD.forEach(function(v){ h+=expBtn(v,'marge_bord',v); });
+  h += '</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Coloration des marges — zones '+lexLink('couleurs','Nuancier')+'</div>'
+    +expZoneBuilder('marge',EXP_ZONE_OPTIONS.marge)+'</div>'
+    +expNavHtml(true);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+function renderExpStep5() { /* Rhinophores */
+  var h = expRenderStepper()
+    +'<div class="obs-section"><div class="obs-label">Forme des rhinophores</div><div class="obs-btn-grid">';
+  EXP_RHINO_FORMES.forEach(function(v){ h+=expBtn(v,'rhino_forme',v); });
+  h += '</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Nombre de lamelles (si visible)</div>'
+    +'<input class="obs-input" type="number" min="0" max="80" placeholder="ex : 18" style="max-width:110px;" value="'+esc(obsExpertState.rhino.nb_lamelles)+'" oninput="obsExpertState.rhino.nb_lamelles=this.value"></div>'
+    +'<div class="obs-section"><div class="obs-label">Gaine visible</div><div class="obs-btn-grid">'
+    +expBtn('Oui','rhino_gaine','oui')+expBtn('Non','rhino_gaine','non')
+    +'</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Coloration — zones '+lexLink('couleurs','Nuancier')+'</div>'
+    +'<p style="font-size:11px;color:#64748b;margin-bottom:8px;">Ex : Base blanc laiteux opaque · Apex orange vif translucide</p>'
+    +expZoneBuilder('rhino',EXP_ZONE_OPTIONS.rhino)+'</div>'
+    +expNavHtml(true);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+function renderExpStep6() { /* Branchies / Cérates */
+  var s = obsExpertState; var st = s.structure;
+  var h = expRenderStepper();
+  if(st==='panache') {
+    h += '<div class="obs-section"><div class="obs-label">Nombre de branches</div><div class="obs-btn-grid">';
+    EXP_PANACHE_NB.forEach(function(v){ h+=expBtn(v,'branchie_nb_branches',v); });
+    h += '</div></div>'
+      +'<div class="obs-section"><div class="obs-label">Pinnules bipennées</div><div class="obs-btn-grid">'
+      +expBtn('Oui','branchie_bipennatees','oui')+expBtn('Non','branchie_bipennatees','non')
+      +'</div></div>'
+      +'<div class="obs-section"><div class="obs-label">Pointes des branches distinctement colorées</div><div class="obs-btn-grid">'
+      +expBtn('Oui','branchie_pointes','oui')+expBtn('Non','branchie_pointes','non')
+      +'</div></div>'
+      +'<div class="obs-section"><div class="obs-label">Coloration — zones '+lexLink('couleurs','Nuancier')+'</div>'
+      +expZoneBuilder('branchie',EXP_ZONE_OPTIONS.branchie)+'</div>';
+  } else if(st==='cerates') {
+    h += '<div class="obs-section"><div class="obs-label">Disposition des cérates</div><div class="obs-btn-grid">';
+    OBS_CERATES_DISPO.forEach(function(v){ h+=expBtn(v,'cerates_dispo',v); });
+    h += '</div></div>'
+      +'<div class="obs-section"><div class="obs-label">Forme</div><div class="obs-btn-grid">';
+    OBS_CERATES_FORMES.forEach(function(v){ h+=expBtn(v,'cerates_forme',v); });
+    h += '</div></div>'
+      +'<div class="obs-section"><div class="obs-label">Cnidosacs (apex coloré distinct)</div><div class="obs-btn-grid">'
+      +expBtn('Oui','cerates_cnidosacs','oui')+expBtn('Non','cerates_cnidosacs','non')
+      +'</div></div>'
+      +'<div class="obs-section"><div class="obs-label">Coloration — zones '+lexLink('couleurs','Nuancier')+'</div>'
+      +expZoneBuilder('cerates',EXP_ZONE_OPTIONS.cerates)+'</div>';
+  } else if(st==='dos_lisse'||st==='dos_cretes') {
+    h += '<div class="obs-section"><div class="obs-label">Branchie visible sur le flanc droit</div><div class="obs-btn-grid">'
+      +expBtn('Oui','dos_branchie_lat','oui')+expBtn('Non','dos_branchie_lat','non')
+      +'</div></div>'
+      +'<div class="obs-section"><div class="obs-label">Coloration du dessous (face ventrale)</div>'
+      +'<input class="obs-input" placeholder="Ex : blanc crème, légèrement translucide…" value="'+esc(s.dos.couleur_dessous)+'" oninput="obsExpertState.dos.couleur_dessous=this.value"></div>';
+  } else {
+    h += '<div style="padding:20px;text-align:center;color:#94a3b8;font-size:13px;">Définir la structure dorsale à l\'étape Dimensions.</div>';
+  }
+  h += expNavHtml(true);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+function renderExpStep7() { /* Tentacules oraux */
+  var s = obsExpertState;
+  var h = expRenderStepper()
+    +'<div class="obs-section"><div class="obs-label">Tentacules oraux présents (de chaque côté de la bouche)</div>'
+    +'<div class="obs-btn-grid">'
+    +expBtn('Oui','tentacules_present','oui')+expBtn('Non','tentacules_present','non')+expBtn('Incertain','tentacules_present','incertain')
+    +'</div>'
+    +(s.tentacules.present==='non' ? '<p style="font-size:11px;color:#0d9488;background:#f0fdf4;border-radius:6px;padding:5px 10px;margin-top:4px;">💡 Absence de tentacules oraux → indicateur Sacoglossa.</p>' : '')
+    +'</div>';
+  if(s.tentacules.present==='oui') {
+    h += '<div class="obs-section"><div class="obs-label">Coloration — zones '+lexLink('couleurs','Nuancier')+'</div>'
+      +expZoneBuilder('tentacules',EXP_ZONE_OPTIONS.tentacules)+'</div>';
+  }
+  h += expNavHtml(true);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+function renderExpStep8() { /* Pied */
+  var h = expRenderStepper()
+    +'<div class="obs-section"><div class="obs-label">Texture du pied '+lexLink('textures','Terminologie texture')+'</div><div class="obs-btn-grid">';
+  ['Lisse','Granuleux','Ridé','Rugueux'].forEach(function(v){ h+=expBtn(v,'pied_texture',v); });
+  h += '</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Coloration — zones '+lexLink('couleurs','Nuancier')+'</div>'
+    +expZoneBuilder('pied',EXP_ZONE_OPTIONS.pied)+'</div>'
+    +expNavHtml(true);
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+function renderExpStep9() { /* Variations */
+  var h = expRenderStepper()
+    +'<div class="obs-section"><div class="obs-label">Éléments distinctifs / variations individuelles</div>'
+    +'<textarea class="obs-textarea" placeholder="Ex : ligne dorso-médiane plus pâle, ponte rose spiralée à proximité, odeur vanillée, comportement défensif…" oninput="obsExpertState.variations=this.value" style="min-height:100px;">'+esc(obsExpertState.variations)+'</textarea></div>'
+    +'<div class="obs-section"><div class="obs-label">Caractères particuliers <span class="obs-req">multi-sélection</span></div><div class="obs-btn-grid">';
+  OBS_FLAGS.forEach(function(v){ h+=expBtnM(v,'flags',v); });
+  h += '</div></div>'+expNavHtml(true,'Récapitulatif →');
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+function renderExpStep10() { /* Récapitulatif */
+  var frTxt = expFormatFR();
+  var enTxt = expFormatEN();
+  var thumbs='';
+  obsExpertState.photos.forEach(function(p,i){ thumbs+='<div class="obs-photo-wrap"><img class="obs-photo-thumb" src="'+p+'"><button class="obs-photo-del" onclick="expDelPhoto('+i+')">×</button></div>'; });
+  var h = expRenderStepper()
+    +'<div class="obs-section"><div class="obs-label">Résumé (français)</div>'
+    +'<div class="obs-summary">'+esc(frTxt)+'</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Description taxonomique (anglais)</div>'
+    +'<div class="exp-en-block">'+esc(enTxt)+'</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Espèces candidates</div>'
+    +expCandidates()+'</div>'
+    +'<div class="obs-section"><div class="obs-label">Photos <span class="obs-req">max 5</span></div>'
+    +'<div class="obs-photo-row">'+thumbs+'</div>';
+  if(obsExpertState.photos.length<5) {
+    h += '<label style="display:inline-block;margin-top:8px;padding:7px 14px;background:#f8fafc;border:1.5px dashed #cbd5e1;border-radius:8px;cursor:pointer;font-size:12px;color:#64748b;">+ Photo<input type="file" accept="image/*" style="display:none;" onchange="expAddPhoto(event)"></label>';
+  }
+  h += '</div>'
+    +'<div class="obs-nav" style="flex-wrap:wrap;gap:8px;">'
+    +'<button class="obs-btn-nav obs-btn-sec" onclick="obsExpertStep--;renderExpStep();">← Modifier</button>'
+    +'<button class="obs-btn-nav obs-btn-sec" onclick="expCopyEN()">📋 Copier (EN)</button>'
+    +'<button class="obs-btn-nav obs-btn-action" onclick="expSave()">💾 Sauvegarder</button>'
+    +'<button class="obs-btn-nav obs-btn-primary" onclick="expSendEmail()">📧 Envoyer à l\'expert</button>'
+    +'</div>'
+    +'<div id="exp-saved-msg" style="display:none;text-align:center;margin-top:10px;color:#0d9488;font-size:12px;font-weight:700;">✓ Sauvegardé</div>';
+  document.getElementById('obs-body').innerHTML = h;
+}
+
+/* ── Species candidates ── */
+function expCandidates() {
+  var s = obsExpertState;
+  if(!s.structure) return '<p style="font-size:11px;color:#94a3b8;">Définir la structure dorsale pour voir les candidats.</p>';
+  var strucMap = {panache:['Chromodoridacea','Doridacea','Dendronotida','Arminida'],
+                  cerates:['Aeolidida','Dendronotida'],
+                  dos_lisse:['Pleurobranchomorpha','Sacoglossa'],
+                  dos_cretes:['Arminida'],
+                  coquille:['Cephalaspidea']};
+  var orders = strucMap[s.structure] || [];
+  var pool = SPECIES.filter(function(sp){ return sp.p && sp.o; });
+  if(orders.length) pool = pool.filter(function(sp){ return orders.some(function(o){ return (sp.o||'').indexOf(o)>=0; }); });
+  if(!pool.length) pool = SPECIES.filter(function(sp){ return sp.p; }).slice(0,20);
+  pool = pool.slice(0,40);
+  var h = '<p style="font-size:11px;color:#64748b;margin-bottom:8px;">'+pool.length+' espèces compatibles — clic pour ouvrir la fiche :</p>';
+  h += '<div style="display:flex;flex-wrap:wrap;gap:5px;">';
+  pool.forEach(function(sp){ h += '<button onclick="openLb(\''+sp.s+'\')" style="font-size:10px;font-style:italic;padding:3px 8px;border-radius:6px;border:1px solid #e2e8f0;background:#f8fafc;cursor:pointer;color:#1e293b;">'+esc(sp.n)+'</button>'; });
+  return h + '</div>';
+}
+
+/* ── Export FR ── */
+function expFormatFR() {
+  var s = obsExpertState; var l = [];
+  l.push('=== OBSERVATION EXPERT ===');
+  l.push('Date     : '+s.date);
+  if(s.site) l.push('Site     : '+s.site);
+  if(s.depth) l.push('Profond. : '+s.depth);
+  if(s.substrats.length) l.push('Substrat : '+s.substrats.join(', '));
+  if(s.proie) l.push('Hôte     : '+s.proie);
+  if(s.eclairage) l.push('Éclairage: '+s.eclairage);
+  l.push('');l.push('── Morphologie ──');
+  if(s.taille_mm) l.push('Longueur : '+s.taille_mm+' mm');
+  else if(s.taille_range) l.push('Longueur : '+s.taille_range);
+  if(s.forme) l.push('Forme    : '+s.forme);
+  if(s.manteau_debord) l.push('Manteau  : déborde sur le pied = '+s.manteau_debord);
+  if(s.structure) l.push('Structure: '+s.structure);
+  l.push('');l.push('── Notum ──');
+  var nS=expZoneSummary(s.notum.zones); if(nS) l.push('Couleurs : '+nS);
+  if(s.notum.translucidite) l.push('Transluc.: '+s.notum.translucidite);
+  if(s.notum.texture.length) l.push('Texture  : '+s.notum.texture.join(', '));
+  if(s.notum.motif.length) l.push('Motif    : '+s.notum.motif.join(', '));
+  var mS=expZoneSummary(s.marge.zones);
+  if(mS||s.marge.largeur||s.marge.bord) l.push('Marge    : '+[s.marge.largeur,s.marge.bord,mS].filter(Boolean).join(' · '));
+  l.push('');l.push('── Rhinophores ──');
+  if(s.rhino.forme) l.push('Forme    : '+s.rhino.forme);
+  if(s.rhino.nb_lamelles) l.push('Lamelles : ~'+s.rhino.nb_lamelles);
+  if(s.rhino.gaine) l.push('Gaine    : '+s.rhino.gaine);
+  var rS=expZoneSummary(s.rhino.zones); if(rS) l.push('Couleurs : '+rS);
+  l.push('');l.push('── Branchies / Cérates ──');
+  if(s.structure==='panache') {
+    if(s.branchie.nb_branches) l.push('Branches : '+s.branchie.nb_branches);
+    if(s.branchie.bipennatees) l.push('Bipennées: '+s.branchie.bipennatees);
+    var bS=expZoneSummary(s.branchie.zones); if(bS) l.push('Couleurs : '+bS);
+    if(s.branchie.pointes) l.push('Pointes  : '+s.branchie.pointes);
+  } else if(s.structure==='cerates') {
+    if(s.cerates.dispo) l.push('Disposit.: '+s.cerates.dispo);
+    if(s.cerates.forme) l.push('Forme    : '+s.cerates.forme);
+    var cS=expZoneSummary(s.cerates.zones); if(cS) l.push('Couleurs : '+cS);
+    if(s.cerates.cnidosacs) l.push('Cnidosacs: '+s.cerates.cnidosacs);
+  } else if(s.structure==='dos_lisse'||s.structure==='dos_cretes') {
+    if(s.dos.branchie_lat) l.push('Branch.lat: '+s.dos.branchie_lat);
+    if(s.dos.couleur_dessous) l.push('Dessous  : '+s.dos.couleur_dessous);
+  }
+  if(s.tentacules.present) {
+    var tS=expZoneSummary(s.tentacules.zones);
+    l.push('Tentacul.: '+s.tentacules.present+(tS?' · '+tS:''));
+  }
+  var pS=expZoneSummary(s.pied.zones);
+  if(pS||s.pied.texture) l.push('Pied     : '+[s.pied.texture,pS].filter(Boolean).join(', '));
+  if(s.variations||s.flags.length) {
+    l.push('');l.push('── Variations ──');
+    if(s.flags.length) l.push('Flags    : '+s.flags.join(', '));
+    if(s.variations) l.push(s.variations);
+  }
+  if(s.photos.length) l.push('\n['+s.photos.length+' photo(s)]');
+  return l.join('\n');
+}
+
+/* ── Export EN ── */
+var EXP_TR = {
+  'panache':'dorsal gill plume','cerates':'cerata','dos_lisse':'smooth dorsum','dos_cretes':'carinate dorsum','coquille':'shell visible',
+  'Ovale':'oval','Allongé':'elongate','Aplati dorsoventralement':'dorso-ventrally flattened','Comprimé latéralement':'laterally compressed',
+  'Globuleux':'globose','Fusiforme':'fusiform','Limaciforme':'limaciform','Réniforme':'reniform',
+  'Lisse':'smooth','Granuleux':'granulate','Papilleux':'papillose','Tuberculé':'tuberculate','Rugueux':'rugose',
+  'Ridé':'wrinkled','Velouté':'velvety','Spiculeux':'spiculate','Membraneux':'membranous','Coriace':'coriaceous',
+  'Lamellé perfolié':'perfoliate lamellate','Lamellé annulé':'annulate lamellate','Claviforme lisse':'clavate','Conique':'conical','Ramifié / plumeux':'ramified / plumose','Absent':'absent',
+  'opaque':'opaque','translucide':'translucent','semi-transparent':'semi-transparent','hyalin':'hyaline','diaphane':'diaphanous','irisé':'iridescent','nacré':'pearlescent',
+  'Blanc':'white','Blanc nacré':'pearly white','Blanc laiteux':'milky white','Blanc crème':'cream','Blanchâtre':'whitish',
+  'Gris':'grey','Gris ardoise':'slate grey','Gris perle':'pearl grey',
+  'Jaune citron':'lemon yellow','Jaune soufre':'sulphur yellow','Jaune ochracé':'ochraceous','Jaune paille':'straw yellow',"Jaune d'or":'golden yellow',
+  'Orange vif':'bright orange','Orange vermillon':'vermilion orange','Orange ochracé':'ochraceous orange','Orange saumon':'salmon',
+  'Rouge carmin':'carmine red','Rouge vermillon':'vermilion','Rouge bordeaux':'burgundy','Rouge brique':'brick red','Rouge sang':'blood red',
+  'Rose':'pink','Rose vif / magenta':'bright pink / magenta','Rose saumon':'salmon pink',
+  'Violet':'violet','Pourpre':'purple','Lavande':'lavender','Lilas':'lilac',
+  'Bleu cobalt':'cobalt blue','Bleu céruléen':'cerulean','Bleu azur':'azure','Bleu ardoise':'slate blue',
+  'Vert émeraude':'emerald green','Vert olive':'olive green','Vert glauque':'glaucous','Vert jaunâtre':'yellowish green',
+  'Brun':'brown','Brun rougeâtre':'reddish brown','Brun chocolat':'chocolate brown','Brun fauve':'tawny brown','Brunâtre':'brownish','Noir':'black','Noirâtre':'blackish',
+  'Surface générale':'dorsal surface','Centre (médiane)':'median area','Marge':'margin','Submarginale':'submarginal','Tubercules / papilles':'tubercles / papillae','Face ventrale':'ventral surface',
+  'Bord marginal':'marginal border','Ligne submarginale':'submarginal line','Surface interne':'inner surface',
+  'Global':'overall','Base':'base','Tiers inférieur':'lower third','Tiers supérieur':'upper third','Milieu':'mid-section','Apex':'apex','Gaine':'sheath',
+  'Axe / rachis':'rachis','Pinnules':'pinnules','Pointes':'tips','Corps du cérate':'cerate body','Extrémité / apex':'tip / apex',
+  'Semelle (dessous)':'sole','Flancs':'flanks',
+  'oui':'present','non':'absent','incertain':'uncertain',
+  'torche':'artificial light','naturelle':'natural light only',
+  'Étroite (< 2 mm)':'narrow (< 2 mm)','Modérée (2–5 mm)':'moderate (2–5 mm)','Large (> 5 mm)':'wide (> 5 mm)','Non distincte':'indistinct',
+  'Lisse':'smooth','Ondulé / festonné':'undulate / crenulate','Tubercules périphériques':'peripheral tubercles','Dentelé':'dentate'
+};
+function tr(v) { return EXP_TR[v] || v; }
+function expZoneSumEN(zones) {
+  return zones.map(function(z){
+    var p=[];
+    if(z.zone_label&&z.zone_label!=='Global') p.push(tr(z.zone_label).toLowerCase());
+    if(z.couleur) p.push(tr(z.couleur).toLowerCase());
+    if(z.translucidite) p.push(tr(z.translucidite));
+    return p.join(' ');
+  }).filter(Boolean).join(', ');
+}
+function expFormatEN() {
+  var s = obsExpertState; var parts = [];
+  var sz = s.taille_mm ? 'Specimen '+s.taille_mm+' mm (in vivo).' : s.taille_range ? 'Specimen approximately '+s.taille_range+'.' : '';
+  if(sz) parts.push(sz);
+  if(s.forme) parts.push('Body '+tr(s.forme).toLowerCase()+'.');
+  var nS=expZoneSumEN(s.notum.zones);
+  var notum='Notum'+(nS?' '+nS:'')+(s.notum.translucidite?', '+tr(s.notum.translucidite):'')
+    +(s.notum.texture.length?', '+s.notum.texture.map(tr).join(', '):'')
+    +(s.notum.motif.length?'; '+s.notum.motif.map(tr).join(', '):'');
+  if(notum!=='Notum') parts.push(notum+'.');
+  var mS=expZoneSumEN(s.marge.zones);
+  if(mS||s.marge.largeur) parts.push('Mantle margin '+(s.marge.largeur?tr(s.marge.largeur)+', ':'')+( mS?'bearing '+mS:'')+(s.marge.bord?', '+tr(s.marge.bord).toLowerCase():'')+'.');
+  var rS=expZoneSumEN(s.rhino.zones);
+  if(s.rhino.forme||rS) {
+    var r='Rhinophores'+(rS?' '+rS:'')+(s.rhino.forme?', '+tr(s.rhino.forme).toLowerCase():'')
+      +(s.rhino.nb_lamelles?', ~'+s.rhino.nb_lamelles+' lamellae':'')+(s.rhino.gaine?'; sheath '+tr(s.rhino.gaine):'');
+    parts.push(r+'.');
+  }
+  if(s.structure==='panache') {
+    var bS=expZoneSumEN(s.branchie.zones);
+    var b='Gill plume'+(s.branchie.nb_branches?' with '+s.branchie.nb_branches+' branches':'')
+      +(s.branchie.bipennatees==='oui'?', bipinnate':'')+(bS?', '+bS:'')
+      +(s.branchie.pointes==='oui?'; tips distinctly coloured':'');
+    parts.push(b+'.');
+  } else if(s.structure==='cerates') {
+    var cS=expZoneSumEN(s.cerates.zones);
+    var c='Cerata'+(s.cerates.dispo?' '+tr(s.cerates.dispo).toLowerCase():'')
+      +(s.cerates.forme?', '+tr(s.cerates.forme).toLowerCase():'')+(cS?', '+cS:'')
+      +(s.cerates.cnidosacs==='oui'?'; cnidosacs present':'');
+    parts.push(c+'.');
+  } else if(s.structure==='dos_lisse'||s.structure==='dos_cretes') {
+    var ds='Dorsum '+(s.structure==='dos_lisse'?'smooth':'carinate')+(s.dos.branchie_lat==='oui'?'; lateral gill present':'');
+    parts.push(ds+'.');
+    if(s.dos.couleur_dessous) parts.push('Ventral surface: '+s.dos.couleur_dessous+'.');
+  }
+  if(s.tentacules.present) {
+    var tS=expZoneSumEN(s.tentacules.zones);
+    parts.push('Oral tentacles '+tr(s.tentacules.present)+(tS?', '+tS:'')+'.');
+  }
+  var pS=expZoneSumEN(s.pied.zones);
+  if(pS||s.pied.texture) parts.push('Foot'+(s.pied.texture?' '+tr(s.pied.texture).toLowerCase():'')+(pS?', '+pS:'')+'.');
+  var ctx=[];
+  if(s.site) ctx.push('Locality: '+s.site);
+  if(s.depth) ctx.push('depth '+s.depth);
+  if(s.substrats.length) ctx.push('substrate: '+s.substrats.join(', '));
+  if(s.proie) ctx.push('found on: '+s.proie);
+  if(ctx.length) parts.push(ctx.join('; ')+'.');
+  if(s.variations) parts.push('Remarks: '+s.variations);
+  return parts.length ? parts.join(' ') : '(Remplir les étapes pour générer la description anglaise.)';
+}
+
+/* ── Photo / save / email ── */
+function expAddPhoto(evt) {
+  var file=evt.target.files[0]; if(!file) return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var img=new Image();
+    img.onload=function(){
+      var canvas=document.createElement('canvas');
+      var scale=Math.min(1,800/img.width);
+      canvas.width=Math.round(img.width*scale); canvas.height=Math.round(img.height*scale);
+      canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);
+      obsExpertState.photos.push(canvas.toDataURL('image/jpeg',0.75));
+      renderExpStep();
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function expDelPhoto(i) { obsExpertState.photos.splice(i,1); renderExpStep(); }
+function expSave() {
+  var h=expGetHistory();
+  h.unshift({ts:Date.now(),data:JSON.parse(JSON.stringify(obsExpertState))});
+  expSaveHistory(h.slice(0,30));
+  var el=document.getElementById('exp-saved-msg');
+  if(el){ el.style.display='block'; setTimeout(function(){ el.style.display='none'; },2500); }
+}
+function expCopyEN() {
+  var txt=expFormatEN();
+  if(navigator.clipboard){ navigator.clipboard.writeText(txt).then(function(){ alert('Copié (EN)'); }); }
+  else { var ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); alert('Copié'); }
+}
+function expSendEmail() {
+  var subj=encodeURIComponent('Observation nudibranche — '+(obsExpertState.site||obsExpertState.date||'Nudidex'));
+  var body=encodeURIComponent('[English]\n'+expFormatEN()+'\n\n---\n\n[Français]\n'+expFormatFR());
+  window.open('mailto:baroncube@gmail.com?subject='+subj+'&body='+body);
+}
+
+/* ── Navigator ── */
+function renderExpStep() {
+  document.getElementById('obs-title').textContent = 'Observer — Mode Expert';
+  var fns=[renderExpStep0,renderExpStep1,renderExpStep2,renderExpStep3,renderExpStep4,
+           renderExpStep5,renderExpStep6,renderExpStep7,renderExpStep8,renderExpStep9,renderExpStep10];
+  if(fns[obsExpertStep]) fns[obsExpertStep]();
+}
+function initExpertMode() {
+  obsExpertState = obsExpertNewState();
+  obsExpertStep = 0;
+  renderExpStep();
 }
 
 /* ── Service Worker ── */
