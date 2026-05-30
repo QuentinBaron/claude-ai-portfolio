@@ -394,6 +394,17 @@ td { padding: 9px 12px; vertical-align: middle; }
 .exp-zone-add:hover { border-color:#1e3a5f; color:#1e3a5f; }
 .exp-zone-summary { font-size:11px; color:#0d9488; font-style:italic; margin-top:6px; padding:5px 8px; background:#f0fdf4; border-radius:6px; }
 .exp-en-block { background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:14px; font-size:11.5px; line-height:1.9; font-family:monospace; white-space:pre-wrap; color:#1e293b; }
+.exp-col-picker { position:relative; flex:1; min-width:0; }
+.exp-col-trigger { display:flex; align-items:center; gap:5px; padding:4px 8px; border:1px solid #cbd5e1; border-radius:6px; background:#fff; cursor:pointer; font-size:11px; min-height:28px; user-select:none; }
+.exp-col-trigger:hover { border-color:#93c5fd; }
+.exp-col-trigger span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:#1e293b; }
+.exp-col-trigger span.ph { color:#94a3b8; }
+.exp-col-list { position:absolute; top:calc(100% + 3px); left:0; width:220px; max-height:210px; overflow-y:auto; background:#fff; border:1px solid #e2e8f0; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,.12); z-index:600; display:none; }
+.exp-col-list.open { display:block; }
+.exp-col-opt { display:flex; align-items:center; gap:7px; padding:5px 9px; cursor:pointer; font-size:11px; color:#1e293b; }
+.exp-col-opt:hover { background:#f1f5f9; }
+.exp-col-dot { width:13px; height:13px; border-radius:50%; flex-shrink:0; border:1px solid rgba(0,0,0,.12); }
+.exp-zone-row .exp-col-picker { max-width:none; flex:1; }
 .exp-mode-card { background:linear-gradient(135deg,#1e3a5f,#0d9488); color:#fff; border-radius:12px; padding:18px 20px; margin-bottom:12px; cursor:pointer; transition:transform .15s; }
 .exp-mode-card:hover { transform:translateY(-1px); }
 .exp-mode-card h3 { font-size:14px; font-weight:700; margin-bottom:6px; }
@@ -703,7 +714,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.29-2210</span>
+  <span title="Version de déploiement">v2026.05.30-0810</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -3724,17 +3735,17 @@ var LEX_COLOR_NAMES = [
   'Brun','Brun rougeâtre','Brun chocolat','Brun fauve','Brunâtre','Noir','Noirâtre'
 ];
 var LEX_COLOR_HEX = {
-  'Blanc':'#ffffff','Blanc nacré':'#f0f0e8','Blanc laiteux':'#f5f5ee','Blanc crème':'#fffbee','Blanchâtre':'#ebebeb',
-  'Gris':'#94a3b8','Gris ardoise':'#475569','Gris perle':'#cbd5e1',
-  'Jaune citron':'#fef08a','Jaune soufre':'#d9f99d','Jaune ochracé':'#ca8a04','Jaune paille':'#fef9c3',"Jaune d'or":'#eab308',
-  'Orange vif':'#ea580c','Orange vermillon':'#dc5132','Orange ochracé':'#b45309','Orange saumon':'#fca5a5',
-  'Rouge carmin':'#be123c','Rouge vermillon':'#dc2626','Rouge bordeaux':'#7f1d1d','Rouge brique':'#9a3412','Rouge sang':'#450a0a',
-  'Rose':'#f472b6','Rose vif / magenta':'#db2777','Rose saumon':'#fda4af',
-  'Violet':'#7c3aed','Pourpre':'#6d28d9','Lavande':'#ddd6fe','Lilas':'#ede9fe',
-  'Bleu cobalt':'#1d4ed8','Bleu céruléen':'#38bdf8','Bleu azur':'#0ea5e9','Bleu ardoise':'#64748b',
-  'Vert émeraude':'#059669','Vert olive':'#65a30d','Vert glauque':'#67e8f9','Vert jaunâtre':'#86efac',
-  'Brun':'#78350f','Brun rougeâtre':'#92400e','Brun chocolat':'#3b1d0e','Brun fauve':'#b45309',
-  'Brunâtre':'#a16207','Noir':'#1e293b','Noirâtre':'#334155'
+  'Blanc':'#ffffff','Blanc nacré':'#f0f0e8','Blanc laiteux':'#f5f5ee','Blanc crème':'#fffbee','Blanchâtre':'#e8e8e8',
+  'Gris':'#94a3b8','Gris ardoise':'#546373','Gris perle':'#d0d8e0',
+  'Jaune citron':'#f9f03a','Jaune soufre':'#d4d41e','Jaune ochracé':'#c8910a','Jaune paille':'#f5f0c0',"Jaune d'or":'#f0bb00',
+  'Orange vif':'#f47320','Orange vermillon':'#e84b1a','Orange ochracé':'#c07010','Orange saumon':'#f4a06a',
+  'Rouge carmin':'#c01040','Rouge vermillon':'#e02020','Rouge bordeaux':'#7a1520','Rouge brique':'#a03020','Rouge sang':'#8b0000',
+  'Rose':'#f06ab0','Rose vif / magenta':'#d82070','Rose saumon':'#f4a0b0',
+  'Violet':'#7030b0','Pourpre':'#8b0080','Lavande':'#ccc0f0','Lilas':'#c8a8e0',
+  'Bleu cobalt':'#1848c8','Bleu céruléen':'#38aadf','Bleu azur':'#10a0e0','Bleu ardoise':'#5878a0',
+  'Vert émeraude':'#009060','Vert olive':'#6a8c10','Vert glauque':'#7ab5b5','Vert jaunâtre':'#98c840',
+  'Brun':'#7a3810','Brun rougeâtre':'#8c3010','Brun chocolat':'#4a1a0a','Brun fauve':'#b87030',
+  'Brunâtre':'#9a6820','Noir':'#111111','Noirâtre':'#2a2a2a'
 };
 var EXP_TRANSLUCIDITE = ['opaque','translucide','semi-transparent','hyalin','diaphane','irisé','nacré'];
 var EXP_ZONE_OPTIONS = {
@@ -3811,10 +3822,6 @@ function expZoneSet(key, idx, field, val) {
   var z = expGetZones(key)[idx]; if(z) z[field]=val;
   var sumEl = document.getElementById('exp-sum-'+key);
   if(sumEl) sumEl.textContent = expZoneSummary(expGetZones(key));
-  if(field === 'couleur') {
-    var dot = document.getElementById('exp-cp-'+key+'-'+idx);
-    if(dot) dot.style.background = (val && LEX_COLOR_HEX[val]) ? LEX_COLOR_HEX[val] : '#e2e8f0';
-  }
 }
 function expZoneSummary(zones) {
   if(!zones.length) return '';
@@ -3830,22 +3837,16 @@ function expZoneBuilder(key, opts) {
   var zones = expGetZones(key);
   var h = '';
   zones.forEach(function(z,i){
-    var swHex = z.couleur ? (LEX_COLOR_HEX[z.couleur]||'#e2e8f0') : '#e2e8f0';
-    var swBorder = (swHex==='#ffffff'||swHex==='#fffbee'||swHex==='#f5f5ee'||swHex==='#ebebeb'||swHex==='#f0f0e8'||swHex==='#fef9c3') ? '#cbd5e1' : 'rgba(0,0,0,.12)';
     h += '<div class="exp-zone-row">'
-      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'zone_label\',this.value)">'
+      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'zone_label\',this.value)" style="flex-shrink:0;">'
       +opts.map(function(o){ return '<option value="'+o+'"'+(o===z.zone_label?' selected':'')+'>'+o+'</option>'; }).join('')
       +'</select>'
-      +'<div id="exp-cp-'+key+'-'+i+'" style="width:14px;height:14px;border-radius:50%;border:1px solid '+swBorder+';flex-shrink:0;background:'+swHex+';"></div>'
-      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'couleur\',this.value)" style="flex:1;max-width:175px;">'
-      +'<option value="">— couleur —</option>'
-      +LEX_COLOR_NAMES.map(function(c){ return '<option value="'+c+'"'+(c===z.couleur?' selected':'')+'>'+c+'</option>'; }).join('')
-      +'</select>'
-      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'translucidite\',this.value)" title="Translucidité — opaque par défaut si non précisé">'
+      + expColPickerHtml(key, i, z.couleur)
+      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'translucidite\',this.value)" title="Translucidité — opaque par défaut si non précisé" style="flex-shrink:0;">'
       +'<option value="">— transl. —</option>'
       +EXP_TRANSLUCIDITE.map(function(t){ return '<option value="'+t+'"'+(t===z.translucidite?' selected':'')+'>'+t+'</option>'; }).join('')
       +'</select>'
-      +'<button onclick="expZoneDel(\''+key+'\','+i+')" style="background:none;border:none;color:#ef4444;font-size:16px;cursor:pointer;padding:0 4px;" title="Supprimer">×</button>'
+      +'<button onclick="expZoneDel(\''+key+'\','+i+')" style="background:none;border:none;color:#ef4444;font-size:16px;cursor:pointer;padding:0 4px;flex-shrink:0;" title="Supprimer">×</button>'
       +'</div>';
   });
   h += '<button class="exp-zone-add" onclick="expZoneAdd(\''+key+'\',\''+opts[0]+'\')">+ Ajouter une zone</button>';
@@ -3853,6 +3854,54 @@ function expZoneBuilder(key, opts) {
   h += '<div class="exp-zone-summary" id="exp-sum-'+key+'">'+(sum ? esc(sum) : '')+'</div>';
   return h;
 }
+
+/* ── Color picker ── */
+function expColPickerHtml(key, idx, currentColor) {
+  var hex = currentColor ? (LEX_COLOR_HEX[currentColor]||'#e2e8f0') : '';
+  var triggerInner = currentColor
+    ? '<div class="exp-col-dot" style="background:'+hex+';'+(hex==='#ffffff'||hex==='#f5f5ee'||hex==='#fffbee'||hex==='#f0f0e8'?'border-color:#cbd5e1;':'')+'">'+'</div><span>'+esc(currentColor)+'</span>'
+    : '<span class="ph">— couleur —</span>';
+  var clearOpt = '<div class="exp-col-opt" onclick="expPickColor(\''+key+'\','+idx+',\'\')">'
+    +'<div class="exp-col-dot" style="background:#f1f5f9;border-style:dashed;"></div>'
+    +'<span style="color:#94a3b8;font-style:italic;">effacer</span></div>';
+  var opts = clearOpt + LEX_COLOR_NAMES.map(function(c){
+    var h2 = LEX_COLOR_HEX[c]||'#ccc';
+    var bd = (h2==='#ffffff'||h2==='#f5f5ee'||h2==='#fffbee'||h2==='#f0f0e8'||h2==='#f9f03a'||h2==='#d4d41e'||h2==='#f5f0c0')?'border-color:#cbd5e1;':'';
+    return '<div class="exp-col-opt" onclick="expPickColor(\''+key+'\','+idx+',\''+c.replace(/'/g,"\\'")+'\')">'+
+      '<div class="exp-col-dot" style="background:'+h2+';'+bd+'"></div>'+esc(c)+'</div>';
+  }).join('');
+  return '<div class="exp-col-picker" id="ecp-'+key+'-'+idx+'">'
+    +'<div class="exp-col-trigger" id="ect-'+key+'-'+idx+'" onclick="expTogglePicker(\''+key+'\','+idx+')">'+triggerInner+'</div>'
+    +'<div class="exp-col-list" id="ecl-'+key+'-'+idx+'">'+opts+'</div>'
+    +'</div>';
+}
+function expPickColor(key, idx, colorName) {
+  expZoneSet(key, idx, 'couleur', colorName);
+  var trigger = document.getElementById('ect-'+key+'-'+idx);
+  if(trigger) {
+    if(colorName) {
+      var hex = LEX_COLOR_HEX[colorName]||'#e2e8f0';
+      var bd = (hex==='#ffffff'||hex==='#f5f5ee'||hex==='#fffbee'||hex==='#f0f0e8')?'border-color:#cbd5e1;':'';
+      trigger.innerHTML = '<div class="exp-col-dot" style="background:'+hex+';'+bd+'"></div><span>'+esc(colorName)+'</span>';
+    } else {
+      trigger.innerHTML = '<span class="ph">— couleur —</span>';
+    }
+  }
+  var list = document.getElementById('ecl-'+key+'-'+idx);
+  if(list) list.classList.remove('open');
+}
+function expTogglePicker(key, idx) {
+  document.querySelectorAll('.exp-col-list.open').forEach(function(el){
+    if(el.id !== 'ecl-'+key+'-'+idx) el.classList.remove('open');
+  });
+  var list = document.getElementById('ecl-'+key+'-'+idx);
+  if(list) list.classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  if(!e.target.closest || !e.target.closest('.exp-col-picker')) {
+    document.querySelectorAll('.exp-col-list.open').forEach(function(el){ el.classList.remove('open'); });
+  }
+});
 
 /* ── Field helpers ── */
 var EXP_NESTED = {
