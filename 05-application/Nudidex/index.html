@@ -714,7 +714,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.30-0810</span>
+  <span title="Version de déploiement">v2026.05.30-0837</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -3816,7 +3816,7 @@ function expGetZones(key) {
           branchie:s.branchie.zones,cerates:s.cerates.zones,
           tentacules:s.tentacules.zones,pied:s.pied.zones}[key] || [];
 }
-function expZoneAdd(key, defLabel) { expGetZones(key).push({zone_label:defLabel||'Global',couleur:'',translucidite:''}); renderExpStep(); }
+function expZoneAdd(key, defLabel) { expGetZones(key).push({zone_label:defLabel||'Global',couleur:'',translucidite:'',motif:''}); renderExpStep(); }
 function expZoneDel(key, idx) { expGetZones(key).splice(idx,1); renderExpStep(); }
 function expZoneSet(key, idx, field, val) {
   var z = expGetZones(key)[idx]; if(z) z[field]=val;
@@ -3830,6 +3830,7 @@ function expZoneSummary(zones) {
     if(z.zone_label && z.zone_label!=='Global') p.push(z.zone_label.toLowerCase());
     if(z.couleur) p.push(z.couleur.toLowerCase());
     if(z.translucidite) p.push(z.translucidite);
+    if(z.motif && z.motif!=='Uniforme / uni') p.push(z.motif.toLowerCase());
     return p.join(' ');
   }).filter(Boolean).join(' · ');
 }
@@ -3842,9 +3843,13 @@ function expZoneBuilder(key, opts) {
       +opts.map(function(o){ return '<option value="'+o+'"'+(o===z.zone_label?' selected':'')+'>'+o+'</option>'; }).join('')
       +'</select>'
       + expColPickerHtml(key, i, z.couleur)
-      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'translucidite\',this.value)" title="Translucidité — opaque par défaut si non précisé" style="flex-shrink:0;">'
-      +'<option value="">— transl. —</option>'
+      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'translucidite\',this.value)" title="Opaque par défaut si non sélectionné" style="flex-shrink:0;">'
+      +'<option value="">translucidité</option>'
       +EXP_TRANSLUCIDITE.map(function(t){ return '<option value="'+t+'"'+(t===z.translucidite?' selected':'')+'>'+t+'</option>'; }).join('')
+      +'</select>'
+      +'<select class="exp-zone-sel" onchange="expZoneSet(\''+key+'\','+i+',\'motif\',this.value)" style="flex-shrink:0;">'
+      +'<option value="">motif</option>'
+      +EXP_NOTUM_MOTIFS.map(function(m){ return '<option value="'+m+'"'+((z.motif||'')===m?' selected':'')+'>'+m+'</option>'; }).join('')
       +'</select>'
       +'<button onclick="expZoneDel(\''+key+'\','+i+')" style="background:none;border:none;color:#ef4444;font-size:16px;cursor:pointer;padding:0 4px;flex-shrink:0;" title="Supprimer">×</button>'
       +'</div>';
@@ -3910,7 +3915,9 @@ var EXP_NESTED = {
   branchie_nb_branches:['branchie','nb_branches'],branchie_pointes:['branchie','pointes'],
   branchie_bipennatees:['branchie','bipennatees'],cerates_dispo:['cerates','dispo'],
   cerates_forme:['cerates','forme'],cerates_cnidosacs:['cerates','cnidosacs'],
-  dos_branchie_lat:['dos','branchie_lat'],tentacules_present:['tentacules','present'],
+  dos_branchie_lat:['dos','branchie_lat'],dos_cretes_type:['dos','cretes_type'],dos_papilles_inter:['dos','papilles_inter'],
+  coquille_pos:['dos','coquille_pos'],coquille_transp:['dos','coquille_transp'],coquille_taille:['dos','coquille_taille'],
+  tentacules_present:['tentacules','present'],
   pied_texture:['pied','texture']
 };
 function expGetField(key) {
@@ -4008,17 +4015,14 @@ function renderExpStep2() { /* Forme générale + structure dorsale */
 
 function renderExpStep3() { /* Notum */
   var h = expRenderStepper()
-    +'<div class="obs-section"><div class="obs-label">Coloration du notum — zones '+lexLink('couleurs','Nuancier Gosliner')+'</div>'
-    +'<p style="font-size:11px;color:#64748b;margin-bottom:8px;">Décrivez chaque zone distincte. Commencez par la couleur de fond principale.</p>'
+    +'<div class="obs-section"><div class="obs-label">Coloration du notum et motifs '+lexLink('couleurs','Nuancier Gosliner')+lexLink('motifs','Types de motifs')+'</div>'
+    +'<p style="font-size:11px;color:#64748b;margin-bottom:8px;">Décrivez chaque zone distincte. Couleur + translucidité + motif (ex : marge orange vif linéolée · fond blanc laiteux opaque).</p>'
     +expZoneBuilder('notum',EXP_ZONE_OPTIONS.notum)+'</div>'
-    +'<div class="obs-section"><div class="obs-label">Translucidité globale</div><div class="obs-btn-grid">';
+    +'<div class="obs-section"><div class="obs-label">Translucidité globale du notum</div><div class="obs-btn-grid">';
   EXP_TRANSLUCIDITE.forEach(function(v){ h+=expBtn(v,'notum_translucidite',v); });
   h += '</div></div>'
-    +'<div class="obs-section"><div class="obs-label">Texture '+lexLink('textures','Terminologie texture')+'</div><div class="obs-btn-grid">';
+    +'<div class="obs-section"><div class="obs-label">Texture du notum '+lexLink('textures','Terminologie texture')+'</div><div class="obs-btn-grid">';
   EXP_NOTUM_TEXTURES.forEach(function(v){ h+=expBtnM(v,'notum_texture',v); });
-  h += '</div></div>'
-    +'<div class="obs-section"><div class="obs-label">Motif(s) '+lexLink('motifs','Types de motifs')+'</div><div class="obs-btn-grid">';
-  EXP_NOTUM_MOTIFS.forEach(function(v){ h+=expBtnM(v,'notum_motif',v); });
   h += '</div></div>'+expNavHtml(true);
   document.getElementById('obs-body').innerHTML = h;
 }
@@ -4081,14 +4085,47 @@ function renderExpStep6() { /* Branchies / Cérates */
       +'</div></div>'
       +'<div class="obs-section"><div class="obs-label">Coloration — zones '+lexLink('couleurs','Nuancier')+'</div>'
       +expZoneBuilder('cerates',EXP_ZONE_OPTIONS.cerates)+'</div>';
-  } else if(st==='dos_lisse'||st==='dos_cretes') {
-    h += '<div class="obs-section"><div class="obs-label">Branchie visible sur le flanc droit</div><div class="obs-btn-grid">'
+  } else if(st==='dos_lisse') {
+    h += '<p style="font-size:11px;color:#64748b;background:#f8fafc;border-radius:6px;padding:6px 10px;margin-bottom:12px;">Dos lisse sans appendices dorsaux — oriente vers Pleurobranchomorpha (branchie latérale), Cephalaspidea, ou certains Sacoglossa.</p>'
+      +'<div class="obs-section"><div class="obs-label">Branchie bipennée visible sur le flanc droit (Pleurobranchidae)</div><div class="obs-btn-grid">'
       +expBtn('Oui','dos_branchie_lat','oui')+expBtn('Non','dos_branchie_lat','non')
       +'</div></div>'
       +'<div class="obs-section"><div class="obs-label">Coloration du dessous (face ventrale)</div>'
       +'<input class="obs-input" placeholder="Ex : blanc crème, légèrement translucide…" value="'+esc(s.dos.couleur_dessous)+'" oninput="obsExpertState.dos.couleur_dessous=this.value"></div>';
+  } else if(st==='dos_cretes') {
+    h += '<p style="font-size:11px;color:#64748b;background:#f8fafc;border-radius:6px;padding:6px 10px;margin-bottom:12px;">Crêtes / carènes longitudinales dorsales — oriente vers Arminida (Armina, Dermatobranchus) ou parapodes rabattus (Elysia, Sacoglossa). Pas de branchie latérale dans ces groupes.</p>'
+      +'<div class="obs-section"><div class="obs-label">Type de crêtes</div><div class="obs-btn-grid">'
+      +expBtn('Continues (toute la longueur)','dos_cretes_type','continues')
+      +expBtn('Discontinues / interrompues','dos_cretes_type','discontinues')
+      +expBtn('Parapodes (lobes repliables)','dos_cretes_type','parapodes')
+      +'</div></div>'
+      +'<div class="obs-section"><div class="obs-label">Papilles ou tubercules entre les crêtes</div><div class="obs-btn-grid">'
+      +expBtn('Oui','dos_papilles_inter','oui')+expBtn('Non','dos_papilles_inter','non')
+      +'</div></div>'
+      +'<div class="obs-section"><div class="obs-label">Coloration du dessous (face ventrale)</div>'
+      +'<input class="obs-input" placeholder="Ex : blanc crème, légèrement translucide…" value="'+esc(s.dos.couleur_dessous)+'" oninput="obsExpertState.dos.couleur_dessous=this.value"></div>';
+  } else if(st==='coquille') {
+    h += '<p style="font-size:11px;color:#64748b;background:#f8fafc;border-radius:6px;padding:6px 10px;margin-bottom:12px;">Coquille visible — Cephalaspidea (Haminoea, Bulla…), Tylodinidae, Volvatellidae, ou coquille interne visible par transparence.</p>'
+      +'<div class="obs-section"><div class="obs-label">Position de la coquille</div><div class="obs-btn-grid">'
+      +expBtn('Externe (toujours visible)','coquille_pos','externe')
+      +expBtn('Semi-externe (couverte partiellement)','coquille_pos','semi_externe')
+      +expBtn('Interne (visible par transparence)','coquille_pos','interne')
+      +expBtn('Pseudo-limpet (aplatie sur le dos)','coquille_pos','limpet')
+      +'</div></div>'
+      +'<div class="obs-section"><div class="obs-label">Coquille transparente / translucide</div><div class="obs-btn-grid">'
+      +expBtn('Oui — transparente','coquille_transp','oui')
+      +expBtn('Non — opaque','coquille_transp','non')
+      +expBtn('Semi-transparente','coquille_transp','semi')
+      +'</div></div>'
+      +'<div class="obs-section"><div class="obs-label">Taille relative coquille / corps</div><div class="obs-btn-grid">'
+      +expBtn('Plus grande que le corps','coquille_taille','plus_grande')
+      +expBtn('Égale au corps','coquille_taille','egale')
+      +expBtn('Plus petite (corps déborde)','coquille_taille','plus_petite')
+      +'</div></div>'
+      +'<div class="obs-section"><div class="obs-label">Notes sur la coquille</div>'
+      +'<input class="obs-input" placeholder="Ex : stries longitudinales, motifs marbrés brun-crème, ouverture denticulée…" value="'+esc(s.dos.couleur_dessous)+'" oninput="obsExpertState.dos.couleur_dessous=this.value"></div>';
   } else {
-    h += '<div style="padding:20px;text-align:center;color:#94a3b8;font-size:13px;">Définir la structure dorsale à l\'étape Dimensions.</div>';
+    h += '<div style="padding:20px;text-align:center;color:#94a3b8;font-size:13px;">Définir la structure dorsale à l\'étape Forme.</div>';
   }
   h += expNavHtml(true);
   document.getElementById('obs-body').innerHTML = h;
@@ -4122,13 +4159,29 @@ function renderExpStep8() { /* Pied */
   document.getElementById('obs-body').innerHTML = h;
 }
 
+var EXP_COMPORTEMENTS = [
+  'Statique / au repos',
+  'En déplacement actif',
+  'Alimentation (sur l\'hôte observé)',
+  'Ponte visible à proximité',
+  'Accouplement / copulation',
+  'Nage en pleine eau',
+  'Comportement cryptique (immobile, mimétisme)',
+  'Réaction défensive (enroulement, sécrétion)',
+  'Plusieurs individus groupés',
+  'Juvénile (< 5 mm)',
+  'Comportement fouisseur (dans le sédiment)'
+];
+
 function renderExpStep9() { /* Variations */
   var h = expRenderStepper()
-    +'<div class="obs-section"><div class="obs-label">Éléments distinctifs / variations individuelles</div>'
-    +'<textarea class="obs-textarea" placeholder="Ex : ligne dorso-médiane plus pâle, ponte rose spiralée à proximité, odeur vanillée, comportement défensif…" oninput="obsExpertState.variations=this.value" style="min-height:100px;">'+esc(obsExpertState.variations)+'</textarea></div>'
-    +'<div class="obs-section"><div class="obs-label">Caractères particuliers <span class="obs-req">multi-sélection</span></div><div class="obs-btn-grid">';
-  OBS_FLAGS.forEach(function(v){ h+=expBtnM(v,'flags',v); });
-  h += '</div></div>'+expNavHtml(true,'Récapitulatif →');
+    +'<div class="obs-section"><div class="obs-label">Comportements observés in vivo <span class="obs-req">multi-sélection</span></div>'
+    +'<div class="obs-btn-grid">';
+  EXP_COMPORTEMENTS.forEach(function(v){ h+=expBtnM(v,'flags',v); });
+  h += '</div></div>'
+    +'<div class="obs-section"><div class="obs-label">Variations individuelles et éléments distinctifs</div>'
+    +'<textarea class="obs-textarea" placeholder="Ex : ligne dorso-médiane plus pâle, odeur de vanille, légère contraction, ponte rose spiralée à 5 cm…" oninput="obsExpertState.variations=this.value" style="min-height:90px;">'+esc(obsExpertState.variations)+'</textarea></div>'
+    +expNavHtml(true,'Récapitulatif →');
   document.getElementById('obs-body').innerHTML = h;
 }
 
@@ -4262,6 +4315,9 @@ var EXP_TR = {
   'Global':'overall','Base':'base','Tiers inférieur':'lower third','Tiers supérieur':'upper third','Milieu':'mid-section','Apex':'apex','Gaine':'sheath',
   'Axe / rachis':'rachis','Pinnules':'pinnules','Pointes':'tips','Corps du cérate':'cerate body','Extrémité / apex':'tip / apex',
   'Semelle (dessous)':'sole','Flancs':'flanks',
+  'Uniforme / uni':'uniform','Ponctué':'punctate','Maculé':'maculate','Ocellé':'ocellate',
+  'Réticulé':'reticulate','Vermiculé':'vermiculate','Strié':'striate','Fascié':'fasciate',
+  'Rayé':'striped','Annelé':'annulate','Linéolé':'lineolate',
   'oui':'present','non':'absent','incertain':'uncertain',
   'torche':'artificial light','naturelle':'natural light only',
   'Étroite (< 2 mm)':'narrow (< 2 mm)','Modérée (2–5 mm)':'moderate (2–5 mm)','Large (> 5 mm)':'wide (> 5 mm)','Non distincte':'indistinct',
@@ -4274,6 +4330,7 @@ function expZoneSumEN(zones) {
     if(z.zone_label&&z.zone_label!=='Global') p.push(tr(z.zone_label).toLowerCase());
     if(z.couleur) p.push(tr(z.couleur).toLowerCase());
     if(z.translucidite) p.push(tr(z.translucidite));
+    if(z.motif&&z.motif!=='Uniforme / uni') p.push(tr(z.motif).toLowerCase());
     return p.join(' ');
   }).filter(Boolean).join(', ');
 }
