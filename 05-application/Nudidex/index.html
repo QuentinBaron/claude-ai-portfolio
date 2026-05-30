@@ -663,7 +663,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.05.28-1713</span>
+  <span title="Version de déploiement">v2026.05.29-1543</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -1291,10 +1291,18 @@ function lbNavSp(dir) {
 }
 
 // ── LEXIQUE BOTTOM SHEET ──
-function openLex() {
+function openLex(tabId) {
   document.getElementById('lex-overlay').classList.add('lex-open');
   document.getElementById('lex-drawer').classList.add('lex-open');
   document.body.style.overflow = 'hidden';
+  if (tabId) {
+    document.querySelectorAll('.lex-tab').forEach(function(btn){
+      if ((btn.getAttribute('onclick')||'').indexOf("'"+tabId+"'") >= 0) lexTab(tabId, btn);
+    });
+  }
+}
+function lexLink(tabId, title) {
+  return '<button onclick="openLex(\''+tabId+'\')" title="'+(title||'Ouvrir le lexique')+'" style="font-size:10px;padding:1px 6px;border-radius:4px;border:1px solid #cbd5e1;background:transparent;color:#64748b;cursor:pointer;vertical-align:middle;margin-left:6px;">📖</button>';
 }
 function closeLex() {
   document.getElementById('lex-overlay').classList.remove('lex-open');
@@ -2320,6 +2328,11 @@ var SWATCH_COLORS = [
   {val:'rose',       hex:'#db2777', stroke:'#be185d'},
   {val:'translucide',hex:'#bae6fd', stroke:'#7dd3fc'},
   {val:'irisé',      hex:'#c4b5fd', stroke:'#a78bfa'},
+  {val:'turquoise',  hex:'#0891b2', stroke:'#0e7490'},
+  {val:'corail',     hex:'#f43f5e', stroke:'#e11d48'},
+  {val:'abricot',    hex:'#fb923c', stroke:'#f97316'},
+  {val:'beige',      hex:'#d4b896', stroke:'#b8956a'},
+  {val:'chartreuse', hex:'#65a30d', stroke:'#4d7c0f'},
 ];
 
 /* ── Questions spéciales (follow-up) ── */
@@ -2984,6 +2997,7 @@ function obsNewState() {
     panache_branches: null, panache_couleur: null, panache_pointes: null, panache_pointes_couleur: null,
     cerates_dispo: null, cerates_forme: null, cerates_ext: null,
     dos_branchie_lat: null, couleur_dessous: null,
+    tentacules: null,
     flags: [], notes: '', photos: [], ponte_forme: null, ponte_couleur: null
   };
 }
@@ -3202,11 +3216,44 @@ function obsNavHtml(showBack, nextLabel) {
   return '<div class="obs-nav">' + back + '<button class="obs-btn-nav obs-btn-primary" onclick="obsNext()" style="margin-left:auto">' + (nextLabel||'Suivant →') + '</button></div>';
 }
 
+/* ── Date/heure helpers ── */
+function obsDateSelects() {
+  var parts = (obsState.date||'').match(/(\d{1,2})\/(\d{1,2})\/(\d{4})\s+(\d{2}):(\d{2})/);
+  var now = new Date();
+  var d  = parts ? +parts[1] : now.getDate();
+  var m  = parts ? +parts[2] : now.getMonth()+1;
+  var y  = parts ? +parts[3] : now.getFullYear();
+  var hh = parts ? +parts[4] : now.getHours();
+  var mi = parts ? +parts[5] : now.getMinutes();
+  var ss = 'border:1px solid #cbd5e1;border-radius:6px;padding:5px 6px;font-size:12px;background:#fff;cursor:pointer;';
+  var dayOpts=''; for(var i=1;i<=31;i++) dayOpts+='<option value="'+i+'"'+(i===d?' selected':'')+'>'+String(i).padStart(2,'0')+'</option>';
+  var months=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  var monOpts=''; months.forEach(function(mn,idx){ var n=idx+1; monOpts+='<option value="'+n+'"'+(n===m?' selected':'')+'>'+(n<10?'0'+n:n)+' – '+mn+'</option>'; });
+  var curY=now.getFullYear(); var yOpts=''; for(var yr=curY;yr>=curY-4;yr--) yOpts+='<option value="'+yr+'"'+(yr===y?' selected':'')+'>'+yr+'</option>';
+  var hOpts=''; for(var h2=0;h2<24;h2++) hOpts+='<option value="'+h2+'"'+(h2===hh?' selected':'')+'>'+String(h2).padStart(2,'0')+'h</option>';
+  var mOpts=''; for(var m2=0;m2<60;m2+=5) mOpts+='<option value="'+m2+'"'+(m2===Math.round(mi/5)*5?' selected':'')+'>'+String(m2).padStart(2,'0')+'</option>';
+  return '<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">'
+    +'<select id="obs-day" style="'+ss+'" onchange="obsUpdateDate()">'+dayOpts+'</select>'
+    +'<select id="obs-mon" style="'+ss+'" onchange="obsUpdateDate()">'+monOpts+'</select>'
+    +'<select id="obs-year" style="'+ss+'" onchange="obsUpdateDate()">'+yOpts+'</select>'
+    +'<span style="color:#94a3b8;padding:0 4px;">à</span>'
+    +'<select id="obs-hour" style="'+ss+'" onchange="obsUpdateDate()">'+hOpts+'</select>'
+    +'<select id="obs-min" style="'+ss+'" onchange="obsUpdateDate()">'+mOpts+'</select>'
+    +'</div>';
+}
+function obsUpdateDate() {
+  var d=document.getElementById('obs-day'), m=document.getElementById('obs-mon'),
+      y=document.getElementById('obs-year'), h=document.getElementById('obs-hour'),
+      mi=document.getElementById('obs-min');
+  if(!d||!m||!y||!h||!mi) return;
+  obsState.date = String(d.value).padStart(2,'0')+'/'+String(m.value).padStart(2,'0')+'/'+y.value+' '+String(h.value).padStart(2,'0')+':'+String(mi.value).padStart(2,'0');
+}
+
 /* ── STEP 0 : Contexte ── */
 function renderObsStep0() {
   var h = '<div class="obs-section">'
     + '<div class="obs-label">Date & heure</div>'
-    + '<input class="obs-input" value="' + esc(obsState.date) + '" oninput="obsState.date=this.value" style="max-width:220px;">'
+    + obsDateSelects()
     + '</div>'
     + '<div class="obs-section">'
     + '<div class="obs-label">Site / localisation <span class="obs-req">facultatif</span></div>'
@@ -3242,7 +3289,7 @@ function renderObsStep1() {
   OBS_TAILLES.forEach(function(v){ h += obsBtn(v,'taille',v,false); });
   h += '</div></div>'
     + '<div class="obs-section">'
-    + '<div class="obs-label">Forme générale <span class="obs-req">vue de dessus</span></div>'
+    + '<div class="obs-label">Forme générale <span class="obs-req">vue de dessus</span>' + lexLink('template','Formes dans le lexique Gosliner') + '</div>'
     + '<div class="obs-btn-grid">';
   OBS_FORMES.forEach(function(v){ h += obsBtn(v,'forme',v,false); });
   h += '</div></div>'
@@ -3253,11 +3300,22 @@ function renderObsStep1() {
   h += '</div></div>'
     + (obsState.structure !== 'cerates' ?
         '<div class="obs-section">'
-        + '<div class="obs-label">Texture du dos</div>'
+        + '<div class="obs-label">Texture du dos' + lexLink('textures','Terminologie de texture') + '</div>'
         + '<div class="obs-btn-grid">'
         + OBS_TEXTURES.map(function(v){ return obsBtn(v,'texture',v,false); }).join('')
         + '</div></div>'
-      : '') + obsNavHtml(true);
+      : '')
+    + '<div class="obs-section">'
+    + '<div class="obs-label">Tentacules oraux visibles <span class="obs-req">appendices de chaque côté de la bouche</span></div>'
+    + '<div class="obs-btn-grid">'
+    + obsBtn('Oui','tentacules','oui',false)
+    + obsBtn('Non','tentacules','non',false)
+    + obsBtn('Incertain','tentacules','incertain',false)
+    + '</div>'
+    + (obsState.tentacules === 'non' ? '<p style="font-size:11px;color:#0d9488;background:#f0fdf4;border-radius:6px;padding:5px 10px;margin-top:4px;">💡 Absence de tentacules oraux — caractéristique des Sacoglossa.</p>' : '')
+    + (obsState.tentacules === 'oui' ? '<p style="font-size:11px;color:#475569;background:#f8fafc;border-radius:6px;padding:5px 10px;margin-top:4px;">Tentacules oraux présents — communs chez les Aeolidida, Doridacea, Dendronotida.</p>' : '')
+    + '</div>'
+    + obsNavHtml(true);
   document.getElementById('obs-body').innerHTML = h;
 }
 
@@ -3274,7 +3332,7 @@ function renderObsStep2() {
   }
   h += '</div>'
     + '<div class="obs-section">'
-    + '<div class="obs-label">Couleurs observées <span class="obs-req">multi-sélection</span></div>'
+    + '<div class="obs-label">Couleurs observées <span class="obs-req">multi-sélection</span>' + lexLink('couleurs','Nuancier taxonomique') + '</div>'
     + '<div class="obs-swatches">';
   SWATCH_COLORS.forEach(function(sw){ h += obsSwatchMultiBtn(sw); });
   h += '</div>';
@@ -3290,7 +3348,7 @@ function renderObsStep2() {
   OBS_ASPECTS.forEach(function(a){ h += obsBtn(a.l,'aspect',a.k,false); });
   h += '</div></div>'
     + '<div class="obs-section">'
-    + '<div class="obs-label">Motifs <span class="obs-req">multi-sélection</span></div>'
+    + '<div class="obs-label">Motifs <span class="obs-req">multi-sélection</span>' + lexLink('motifs','Types de motifs') + '</div>'
     + '<div class="obs-btn-grid">';
   OBS_MOTIFS.forEach(function(v){ h += obsBtn(v,'motifs',v,true); });
   h += '</div></div>'
@@ -3463,7 +3521,8 @@ function obsFormatSummary() {
   if (s.taille)    lines.push('Taille   : ' + s.taille);
   if (s.forme)     lines.push('Forme    : ' + s.forme);
   if (s.structure) lines.push('Structure: ' + s.structure);
-  if (s.texture)   lines.push('Texture  : ' + s.texture);
+  if (s.texture)    lines.push('Texture  : ' + s.texture);
+  if (s.tentacules) lines.push('Tentacul.: ' + s.tentacules);
   lines.push('');
   lines.push('── Coloration ──');
   if (s.eclairage) lines.push('Éclairage: ' + s.eclairage);
