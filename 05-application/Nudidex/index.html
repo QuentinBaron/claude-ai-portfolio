@@ -714,7 +714,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.06.01-1034</span>
+  <span title="Version de déploiement">v2026.06.01-1048</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -4248,26 +4248,44 @@ function renderExpStep10() { /* Récapitulatif */
   document.getElementById('obs-body').innerHTML = h;
 }
 
-/* ── Species candidates (scoring par traits) ── */
+/* ── Species candidates (scoring tri-state v2) ── */
 function traitScore(sp, obs) {
   var t = TRAITS[sp.f||''];
   if (!t) return 0;
   var score = 0;
-  if (t.excl && obs.structure && t.excl.indexOf(obs.structure) >= 0) return -999;
   if (t.pelagique === true && !obs.nage) return -999;
-  if (t.structure && obs.structure) {
-    if (t.structure === obs.structure) score += 40;
-    else if (t.structure !== null) score -= 20;
+  /* Structure : objet {val: 0|1|2} ou ancienne string */
+  if (obs.structure) {
+    if (t.structure && typeof t.structure === 'object') {
+      var sv = t.structure[obs.structure];
+      if (sv === 1) score += 40;
+      else if (sv === 2) return -999;
+    } else if (t.excl && t.excl.indexOf(obs.structure) >= 0) return -999;
   }
+  /* Tentacules */
   if (t.tentacules && obs.tentacules && obs.tentacules !== 'incertain') {
-    if (t.tentacules === obs.tentacules) score += 30;
-    else if (t.tentacules !== 'variable') score -= 30;
+    if (typeof t.tentacules === 'object') {
+      var tv = t.tentacules[obs.tentacules];
+      if (tv === 1) score += 30; else if (tv === 2) return -999;
+    } else {
+      if (t.tentacules === obs.tentacules) score += 30;
+      else if (t.tentacules !== 'variable') score -= 30;
+    }
   }
-  if (t.rhinophore && t.rhinophore.length && obs.rhinophore) {
-    if (t.rhinophore.indexOf(obs.rhinophore) >= 0) score += 15;
+  /* Rhinophore */
+  if (obs.rhinophore && t.rhinophore) {
+    if (typeof t.rhinophore === 'object' && !Array.isArray(t.rhinophore)) {
+      var rv = t.rhinophore[obs.rhinophore];
+      if (rv === 1) score += 15; else if (rv === 2) score -= 15;
+    } else if (Array.isArray(t.rhinophore) && t.rhinophore.indexOf(obs.rhinophore) >= 0) score += 15;
   }
-  if (t.texture && t.texture.length && obs.texture && obs.texture.length) {
-    if (obs.texture.some(function(tx){ return t.texture.indexOf(tx)>=0; })) score += 10;
+  /* Texture */
+  if (obs.texture && obs.texture.length && t.texture) {
+    if (typeof t.texture === 'object' && !Array.isArray(t.texture)) {
+      obs.texture.forEach(function(tx){ var xv=t.texture[tx]; if(xv===1) score+=10; else if(xv===2) score-=10; });
+    } else if (Array.isArray(t.texture)) {
+      if (obs.texture.some(function(tx){ return t.texture.indexOf(tx)>=0; })) score += 10;
+    }
   }
   return score;
 }
