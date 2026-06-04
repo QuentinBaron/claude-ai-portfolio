@@ -1,0 +1,3319 @@
+{
+  "_version": "2.0",
+  "_generated": "2026-06-04",
+  "families": {
+    "Aeolidiidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 1,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 1,
+        "rangees": 0,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "digitiforme": 1,
+        "claviforme": 0,
+        "pyriforme": 0,
+        "globuleux": 2,
+        "aplatis": 2,
+        "arborescents": 0
+      },
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Tapis dense de cérates couvrant tout le dos. Cnidosacs souvent distincts.",
+      "_modified": true,
+      "_validated": true,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Aeolida",
+      "_n": 7
+    },
+    "Babakinidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 1,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 1,
+        "rangees": 0,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "digitiforme": 0,
+        "claviforme": 0,
+        "pyriforme": 1,
+        "globuleux": 2,
+        "aplatis": 2,
+        "arborescents": 2
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Proche des Facelinidae. Rare.",
+      "_modified": true,
+      "_validated": true,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Aeolida",
+      "_n": 1
+    },
+    "Embletoniidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 1,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 2,
+        "rangees": 1,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "digitiforme": 2,
+        "claviforme": 2,
+        "pyriforme": 0,
+        "globuleux": 1,
+        "aplatis": 2,
+        "arborescents": 0
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Très petite taille, rare.",
+      "_modified": true,
+      "_validated": true,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Aeolida",
+      "_n": 1
+    },
+    "Eubranchidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 1,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 1,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 1,
+        "rangees": 1,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "digitiforme": 0,
+        "claviforme": 0,
+        "pyriforme": 0,
+        "globuleux": 2,
+        "aplatis": 2,
+        "arborescents": 1
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Cérates en rangées latérales. Cnidosacs visibles à l'apex.",
+      "_modified": true,
+      "_validated": true,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Aeolida",
+      "_n": 12
+    },
+    "Facelinidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 1,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 1,
+        "rangees": 1,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "digitiforme": 1,
+        "claviforme": 0,
+        "pyriforme": 0,
+        "globuleux": 2,
+        "aplatis": 2,
+        "arborescents": 0
+      },
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Corps allongé. Rangées latérales de cérates laissant le dos visible. Tentacules oraux longs.",
+      "_modified": true,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_validated": true,
+      "_order": "Aeolida",
+      "_n": 30
+    },
+    "Flabellinidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 1,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 1,
+        "rangees": 1,
+        "arborescents": 0,
+        "arcs": 1
+      },
+      "cerates_forme": {
+        "digitiforme": 1,
+        "claviforme": 0,
+        "pyriforme": 0,
+        "globuleux": 2,
+        "aplatis": 2,
+        "arborescents": 2
+      },
+      "branchie_lat": false,
+      "taille": "petit-moyen",
+      "notes": "Cérates souvent violacés. Corps allongé.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2,
+        "parapodes_lat": 2
+      },
+      "_modified": true,
+      "_validated": true,
+      "_order": "Aeolida",
+      "_n": 6
+    },
+    "Glaucidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 1,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 1
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": true,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 1,
+        "Ramifié / plumeux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 0,
+        "rangees": 1,
+        "arborescents": 0,
+        "cotes": 1
+      },
+      "cerates_forme": {
+        "cylindriques": 0,
+        "aplatis": 1,
+        "gonflés": 0,
+        "arborescents": 0
+      },
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Pélagique. Flotte à la surface. Cérates aplatis en groupes latéraux. Glaucus atlanticus.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 0,
+        "parapodes_dos": 2,
+        "voiles_nat": 0
+      },
+      "_modified": true,
+      "_validated": true,
+      "_order": "Aeolida",
+      "_n": 1
+    },
+    "Madrellidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 1,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 1,
+        "rangees": 1,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "cylindriques": 1,
+        "aplatis": 0,
+        "gonflés": 0,
+        "arborescents": 0
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Madrella ferruginosa, teinte rouille.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true,
+      "_order": "Aeolida",
+      "_n": 1
+    },
+    "Samlidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 2
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 1,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 0,
+        "rangees": 1,
+        "arborescents": 0,
+        "arcs": 1
+      },
+      "cerates_forme": {
+        "cylindriques": 1,
+        "aplatis": 0,
+        "gonflés": 0,
+        "arborescents": 0
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Samla bicolor. Ex-Trinchesiidae. Cérates bicolores caractéristiques.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true,
+      "_order": "Aeolida",
+      "_n": 1
+    },
+    "Trinchesiidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 1,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 1,
+        "Ramifié / plumeux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 0,
+        "rangees": 1,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "cylindriques": 1,
+        "aplatis": 0,
+        "gonflés": 0,
+        "arborescents": 0
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Ex-Cuthonidae. Petites espèces. Cnidosacs à l'apex des cérates.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_validated": true,
+      "_modified": true,
+      "_order": "Aeolida",
+      "_n": 22
+    },
+    "Aplysiidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 1,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 1,
+        "Involute / fendu": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 1,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Corps grand charnu. Parapodes repliables. Herbivore. Parfois nageur. Pas de branchies visibles du dessus.",
+      "extensions": {
+        "aucune": 2,
+        "manteau_large": 0,
+        "parapodes_lat": 1,
+        "parapodes_dos": 0,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true,
+      "_order": "Aplysiida",
+      "_n": 9
+    },
+    "Dolabriferidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 1,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 1,
+        "Involute / fendu": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen-grand",
+      "notes": "Parapodes réduits, corps compact.",
+      "extensions": {
+        "aucune": 2,
+        "manteau_large": 1,
+        "parapodes_lat": 1,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true,
+      "_order": "Aplysiida",
+      "_n": 1
+    },
+    "Arminidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 1,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 1,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Auriculiforme": 2,
+        "Involute / fendu": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Crêtes longitudinales dorsales. Armina, Dermatobranchus. Pas de branchie latérale.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Arminida",
+      "_n": 3,
+      "_modified": true,
+      "_validated": true
+    },
+    "Aglajidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 1,
+        "dos_cretes": 2,
+        "coquille": 0,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 1
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 2,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Auriculiforme": 2,
+        "Involute / fendu": 2,
+        "Absent": 1
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Coquille interne. Chelidonura : queue bifide. Corps lisse brillant.",
+      "_order": "Cephalaspidea",
+      "_n": 9,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 0,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Aplustridae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 1
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Coquille externe colorée (souvent rayée). Hydatina.",
+      "_order": "Cephalaspidea",
+      "_n": 5,
+      "extensions": {
+        "aucune": 2,
+        "manteau_large": 2,
+        "parapodes_lat": 0,
+        "parapodes_dos": 1,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Bullidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 1
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Coquille ovoïde globuleuse, corps déborde. Bulla.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 0,
+        "voiles_nat": 2
+      },
+      "_order": "Cephalaspidea",
+      "_n": 2,
+      "_modified": true,
+      "_validated": true
+    },
+    "Colpodaspididae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 1
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 2,
+        "Papilleux": 1,
+        "Tuberculé": 0,
+        "Rugueux": 2,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Très petit, coquille interne.",
+      "_order": "Cephalaspidea",
+      "_n": 1,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Gastropteridae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 1,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 1
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Rugueux": 2,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit-moyen",
+      "notes": "Coquille interne. Larges parapodes natatoires. Sagaminopteron très coloré.",
+      "_order": "Cephalaspidea",
+      "_n": 7,
+      "extensions": {
+        "aucune": 2,
+        "manteau_large": 2,
+        "parapodes_lat": 0,
+        "parapodes_dos": 1,
+        "voiles_nat": 0
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Haminoeidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 1
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 2,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Rugueux": 2,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit-moyen",
+      "notes": "Coquille fragile externe souvent transparente. Animal plus grand que la coquille. Haminoea.",
+      "_order": "Cephalaspidea",
+      "_n": 31,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 0,
+        "parapodes_dos": 0,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Philinidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 2,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 1
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit-moyen",
+      "notes": "Coquille interne aplatie. Corps entièrement blanc mou. Fouisseur.",
+      "_order": "Cephalaspidea",
+      "_n": 5,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 0,
+        "parapodes_dos": 0,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Bornellidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 1,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Rugueux": 0,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {
+        "tapis": 0,
+        "rangees": 1,
+        "arborescents": 0,
+        "arcs": 1,
+        "cotes": 1
+      },
+      "cerates_forme": {
+        "digitiforme": 0,
+        "claviforme": 0,
+        "pyriforme": 0,
+        "globuleux": 0,
+        "aplatis": 0,
+        "arborescents": 1
+      },
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Tentacules latéraux ramifiés portant les branchies. Bornella. Gaines rhinophorales développées.",
+      "_order": "Dendronotida",
+      "_n": 2,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Dotidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 1,
+        "Ramifié / plumeux": 2,
+        "Auriculiforme": 2,
+        "Involute / fendu": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 0,
+        "rangees": 1,
+        "arborescents": 0,
+        "cotes": 1
+      },
+      "cerates_forme": {
+        "digitiforme": 2,
+        "claviforme": 0,
+        "pyriforme": 2,
+        "globuleux": 1,
+        "aplatis": 2,
+        "arborescents": 0
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Cérates gonflés/bulbeux. Doto. Corps allongé.",
+      "_order": "Dendronotida",
+      "_n": 1,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Hancockiidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 1,
+        "Auriculiforme": 2,
+        "Involute / fendu": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 0,
+        "rangees": 1,
+        "arborescents": 0,
+        "cotes": 1
+      },
+      "cerates_forme": {
+        "digitiforme": 1,
+        "claviforme": 2,
+        "pyriforme": 2,
+        "globuleux": 0,
+        "aplatis": 2,
+        "arborescents": 1
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Corps très allongé. Rare.",
+      "_order": "Dendronotida",
+      "_n": 3,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Phylliroidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 1
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": true,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 1,
+        "Ramifié / plumeux": 2,
+        "Auriculiforme": 2,
+        "Involute / fendu": 2,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 2,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Rugueux": 2,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Corps comprimé latéralement. Pélagique exclusif. AUCUN cérate. Phylliroe, Cephalopyge.",
+      "_order": "Dendronotida",
+      "_n": 2,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 0,
+        "parapodes_dos": 2,
+        "voiles_nat": 0
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Scyllaeidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 0,
+        "dos_lisse": 1,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 2
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Auriculiforme": 0,
+        "Involute / fendu": 1,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 0,
+        "rangees": 1,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "digitiforme": 0,
+        "claviforme": 0,
+        "pyriforme": 0,
+        "globuleux": 0,
+        "aplatis": 1,
+        "arborescents": 0
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Vit sur sargasses. Cérates aplatis foliacés.",
+      "_order": "Dendronotida",
+      "_n": 1,
+      "extensions": {
+        "aucune": 2,
+        "manteau_large": 2,
+        "parapodes_lat": 0,
+        "parapodes_dos": 1,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Tethydidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 2,
+        "Involute / fendu": 2,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 0,
+        "rangees": 1,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "digitiforme": 2,
+        "claviforme": 0,
+        "pyriforme": 2,
+        "globuleux": 2,
+        "aplatis": 0,
+        "arborescents": 1
+      },
+      "branchie_lat": false,
+      "taille": "grand",
+      "notes": "Grand voile oral caractéristique. Tethys. Prédateur actif.",
+      "_order": "Dendronotida",
+      "_n": 1,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Tritoniidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 1,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 0,
+        "rangees": 1,
+        "arborescents": 0,
+        "cotes": 1
+      },
+      "cerates_forme": {
+        "digitiforme": 2,
+        "claviforme": 2,
+        "pyriforme": 2,
+        "globuleux": 0,
+        "aplatis": 2,
+        "arborescents": 1
+      },
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Branchies latérales foliées ramifiées. Tritonia. Gaines rhinophorales.",
+      "_order": "Dendronotida",
+      "_n": 1,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Actinocyclidae": {
+      "structure": {
+        "panache": 1,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 0,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 1,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 2,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 2,
+        "Involute / fendu": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 1,
+        "Papilleux": 0,
+        "Tuberculé": 2,
+        "Rugueux": 0,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit-moyen",
+      "notes": "Doridacé à manteau lisse ou légèrement granuleux.",
+      "extensions": {
+        "aucune": 0,
+        "manteau_large": 1,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Doridida",
+      "_n": 6,
+      "_modified": true,
+      "_validated": true
+    },
+    "Aegiridae": {
+      "structure": {
+        "panache": 0,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 0,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 1,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 1,
+        "Tuberculé": 1,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 1,
+        "arcs": 0
+      },
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Corps ovale, notum ridé ou rugueux. Aegires. Rhinophores fusionnés à la base.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Doridida",
+      "_n": 5,
+      "_modified": true,
+      "_validated": true
+    },
+    "Chromodorididae": {
+      "structure": {
+        "panache": 1,
+        "cerates": 2,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 1,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 2,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Auriculiforme": 2,
+        "Involute / fendu": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 2,
+        "Rugueux": 0,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit-moyen",
+      "notes": "Notum lisse. Coloration vive (bleu, violet, jaune, orange fréquents). Chromodoris, Hypselodoris, Glossodoris.",
+      "_modified": true,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Doridida",
+      "_n": 46,
+      "_validated": true
+    },
+    "Dendrodorididae": {
+      "structure": {
+        "panache": 1,
+        "cerates": 2,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 1,
+        "Tuberculé": 1,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "IMPORTANT : pas de tentacules oraux. Bouche en trompe suceur. Dendrodoris.",
+      "extensions": {
+        "aucune": 0,
+        "manteau_large": 1,
+        "parapodes_lat": 0,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Doridida",
+      "_n": 5,
+      "_modified": true,
+      "_validated": true
+    },
+    "Diaphorodorididae": {
+      "structure": {
+        "panache": 1,
+        "cerates": 2,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 1,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 2,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Auriculiforme": 2,
+        "Involute / fendu": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 1,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Très petit doridacé. Rare.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 0,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Doridida",
+      "_n": 1,
+      "_modified": true,
+      "_validated": true
+    },
+    "Discodorididae": {
+      "structure": {
+        "panache": 1,
+        "cerates": 2,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 1,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Auriculiforme": 0,
+        "Involute / fendu": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 1,
+        "Papilleux": 1,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen-grand",
+      "notes": "Corps très aplati, large. Notum granuleux ou papilleux. Discodoris, Platydoris. Manteau déborde largement.",
+      "extensions": {
+        "aucune": 2,
+        "manteau_large": 1,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Doridida",
+      "_n": 41,
+      "_validated": true,
+      "_modified": true
+    },
+    "Dorididae": {
+      "structure": {
+        "panache": 1,
+        "cerates": 2,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 1,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Enrollé / fendu": 0,
+        "Plissé / papilleux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 1,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Doridacé typique. Doris, Peltodoris.",
+      "extensions": {
+        "aucune": 0,
+        "manteau_large": 0,
+        "parapodes_lat": 0,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Doridida",
+      "_n": 6,
+      "_modified": true,
+      "_validated": true
+    },
+    "Goniodorididae": {
+      "structure": {
+        "panache": 1,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 0,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 1,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 1,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Enrollé / fendu": 0,
+        "Plissé / papilleux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 2,
+        "Papilleux": 1,
+        "Tuberculé": 1,
+        "Rugueux": 0,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Appendices frontaux ou latéraux caractéristiques. Goniodoris, Okenia, Trapania. Corps allongé.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Doridida",
+      "_n": 14,
+      "_modified": true,
+      "_validated": true
+    },
+    "Hexabranchidae": {
+      "structure": {
+        "panache": 1,
+        "cerates": 2,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 1,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Enrollé / fendu": 0,
+        "Plissé / papilleux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Rugueux": 0,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "grand",
+      "notes": "Très grand. Manteau très étendu avec bandes colorées. 6 branchies bipennées. Hexabranchus sanguineus.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 1
+      },
+      "_order": "Doridida",
+      "_n": 2,
+      "_modified": true,
+      "_validated": true
+    },
+    "Phyllidiidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 1,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 2,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Enrollé / fendu": 2,
+        "Plissé / papilleux": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 2,
+        "Granuleux": 2,
+        "Papilleux": 0,
+        "Tuberculé": 1,
+        "Rugueux": 2,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "IMPORTANT : pas de tentacules oraux. Tubercules bicolores fermes. Notum rigide. Branchies sous le manteau. Phyllidia, Phyllidiella.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Doridida",
+      "_n": 6,
+      "_modified": true,
+      "_validated": true
+    },
+    "Polyceridae": {
+      "structure": {
+        "panache": 1,
+        "cerates": 2,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 1,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Enrollé / fendu": 2,
+        "Plissé / papilleux": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit-moyen",
+      "notes": "Appendices frontaux présents chez les Thecacera. Polycera, Nembrotha, Roboastra, Thecacera.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Doridida",
+      "_n": 24,
+      "_modified": true,
+      "_validated": true
+    },
+    "Vayssiereidae": {
+      "structure": {
+        "panache": 0,
+        "cerates": 2,
+        "dos_lisse": 1,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 1,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Enrollé / fendu": 0,
+        "Plissé / papilleux": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Très petit. Rare.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Doridida",
+      "_n": 1,
+      "_modified": true,
+      "_validated": true
+    },
+    "Janolidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 1,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Enrollé / fendu": 0,
+        "Plissé / papilleux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 0,
+        "rangees": 1,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "digitiforme": 0,
+        "claviforme": 0,
+        "pyriforme": 0,
+        "globuleux": 0,
+        "aplatis": 1,
+        "arborescents": 0
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Cérates aplatis en rangées. Janolus. Rhinophores perfoliés distinctifs.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Janolina",
+      "_n": 1,
+      "_validated": true,
+      "_modified": true
+    },
+    "Pleurobranchidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 1,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 1,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Enrollé / fendu": 1,
+        "Plissé / papilleux": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 1,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": true,
+      "taille": "petit",
+      "notes": "IMPORTANT : branchie bipennée sur le flanc DROIT. Corps charnu. Pas de panache dorsal. Pleurobranchus, Berthella.",
+      "_order": "Pleurobranchida",
+      "_n": 7,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Runcinidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 2,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Enrollé / fendu": 2,
+        "Plissé / papilleux": 2,
+        "Absent": 1
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Rugueux": 0,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "tres-petit",
+      "notes": "Minuscule. Coquille interne. Interstitiel.",
+      "_order": "Runcinida",
+      "_n": 1,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true
+    },
+    "Caliphyllidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 0,
+        "variable": 1
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Enrollé / fendu": 1,
+        "Plissé / papilleux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 1
+      },
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Parapodes ou ailes latérales. Cyerce, Mourgona. Sacoglossa. Pas de tentacules oraux.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 0,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true,
+      "_order": "Sacoglossa",
+      "_n": 8
+    },
+    "Costasiellidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 2
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 1,
+        "Ramifié / plumeux": 2,
+        "Enrollé / fendu": 0,
+        "Plissé / papilleux": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 1,
+        "rangees": 0,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "digitiforme": 2,
+        "claviforme": 0,
+        "pyriforme": 1,
+        "globuleux": 0,
+        "aplatis": 2,
+        "arborescents": 2
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Sacoglossa à cérates. IMPORTANT : pas de tentacules oraux. Costasiella. Vit sur algues vertes. Cérates avec cnidosacs.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_order": "Sacoglossa",
+      "_n": 6,
+      "_validated": true
+    },
+    "Cylindrobullidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 0,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 2,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Enrollé / fendu": 2,
+        "Plissé / papilleux": 2,
+        "Absent": 1
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "tres-petit",
+      "notes": "Coquille cylindrique externe. Vit sur algues.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 0,
+        "parapodes_dos": 0,
+        "voiles_nat": 2
+      },
+      "_order": "Sacoglossa",
+      "_n": 3,
+      "_modified": true,
+      "_validated": true
+    },
+    "Hermaeidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 1,
+        "Ramifié / plumeux": 2,
+        "Enrollé / fendu": 0,
+        "Plissé / papilleux": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 1,
+        "rangees": 1,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "digitiforme": 2,
+        "claviforme": 0,
+        "pyriforme": 2,
+        "globuleux": 2,
+        "aplatis": 1,
+        "arborescents": 0
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Sacoglossa à cérates aplatis/foliacés. Hermaea. Pas de tentacules oraux.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Sacoglossa",
+      "_n": 1,
+      "_modified": true,
+      "_validated": true
+    },
+    "Juliidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 2,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 2
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 1,
+        "Ramifié / plumeux": 0,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Coquille bivalve unique (seul bivalve sacoglosse). Julia. Très rare.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true,
+      "_order": "Sacoglossa",
+      "_n": 5
+    },
+    "Limapontiidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 0,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 1,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 1
+      },
+      "cerates_forme": {
+        "cylindriques": 1
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Sacoglossa à ressemblant à des aeolidiens. Très petits. Pas de tentacules oraux. Vit sur algues.",
+      "_modified": true,
+      "_validated": true,
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Sacoglossa",
+      "_n": 8
+    },
+    "Oxynoidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 1,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 1,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Coquille externe. Corps peut s'étaler. Oxynoe. Vit sur Caulerpa.",
+      "extensions": {
+        "aucune": 2,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 1,
+        "voiles_nat": 2
+      },
+      "_modified": true,
+      "_validated": true,
+      "_order": "Sacoglossa",
+      "_n": 9
+    },
+    "Plakobranchidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 1,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 2,
+        "Ramifié / plumeux": 2,
+        "Enrollé / fendu": 1,
+        "Plissé / papilleux": 2,
+        "Absent": 2
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 1,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Rugueux": 2,
+        "Ridé": 0,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Parapodes foliacés repliables. Elysia, Plakobranchus. Pas de tentacules oraux. Kleptoplastes.",
+      "extensions": {
+        "aucune": 2,
+        "manteau_large": 2,
+        "parapodes_lat": 0,
+        "parapodes_dos": 1,
+        "voiles_nat": 2
+      },
+      "_order": "Sacoglossa",
+      "_n": 41,
+      "_modified": true,
+      "_validated": true
+    },
+    "Volvatellidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 2,
+        "non": 1,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 2,
+        "Lamellé annulé": 2,
+        "Claviforme lisse": 2,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 2,
+        "Enrollé / fendu": 0,
+        "Plissé / papilleux": 2,
+        "Absent": 1
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "tres-petit",
+      "notes": "Coquille externe spiralée. Corps rosé ou rouge. Volvatella. Vit sur Halimeda.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Sacoglossa",
+      "_n": 2,
+      "_modified": true,
+      "_validated": true
+    },
+    "Tylodinidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 2,
+        "dos_lisse": 0,
+        "dos_cretes": 2,
+        "coquille": 1,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 0,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 1,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 1,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {},
+      "cerates_forme": {},
+      "branchie_lat": false,
+      "taille": "moyen",
+      "notes": "Coquille pseudo-limpet aplatie sur le dos. Corps jaune vif identique à la coquille. Tylodina.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_validated": true,
+      "_modified": true,
+      "_order": "Umbraculida",
+      "_n": 1
+    }
+  },
+  "_genera": {
+    "Atagema": {
+      "_family": "Discodorididae",
+      "taille": "petit",
+      "extensions": {
+        "manteau_large": 1
+      },
+      "texture": {
+        "Tuberculé": 1,
+        "Lisse": 2,
+        "Rugueux": 2,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2,
+        "Granuleux": 1
+      },
+      "motif": {
+        "Uniforme / uni": 1,
+        "Lignes longitudinales": 2,
+        "Lignes transversales": 2,
+        "Ocelles": 2,
+        "Réticulé / vermiculé": 2,
+        "Bandes colorées": 2
+      }
+    },
+    "Avaldesia": {
+      "_family": "Discodorididae",
+      "extensions": {
+        "manteau_large": 1
+      },
+      "taille": "moyen",
+      "motif": {
+        "Points / taches": 1,
+        "Lignes longitudinales": 2,
+        "Lignes transversales": 2,
+        "Ocelles": 2,
+        "Réticulé / vermiculé": 2,
+        "Bandes colorées": 2
+      },
+      "texture": {
+        "Granuleux": 1,
+        "Lisse": 2,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      }
+    },
+    "Carminodoris": {
+      "_family": "Discodorididae",
+      "extensions": {
+        "manteau_large": 1
+      },
+      "taille": "petit",
+      "texture": {
+        "Granuleux": 1,
+        "Spiculeux": 2,
+        "Rugueux": 0,
+        "Tuberculé": 2,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Papilleux": 2,
+        "Lisse": 2
+      },
+      "motif": {
+        "Points / taches": 1,
+        "Lignes longitudinales": 2,
+        "Lignes transversales": 2,
+        "Ocelles": 2,
+        "Réticulé / vermiculé": 2,
+        "Bandes colorées": 2
+      }
+    },
+    "Discodorid": {
+      "_family": "Discodorididae",
+      "extensions": {
+        "manteau_large": 1
+      },
+      "taille": "moyen",
+      "texture": {
+        "Granuleux": 1,
+        "Tuberculé": 2,
+        "Rugueux": 0,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2,
+        "Lisse": 2
+      },
+      "motif": {
+        "Uniforme / uni": 1,
+        "Points / taches": 1
+      }
+    },
+    "Doriopsis": {
+      "_family": "Dorididae",
+      "extensions": {
+        "manteau_large": 1,
+        "aucune": 2
+      },
+      "motif": {
+        "Uniforme / uni": 1
+      }
+    },
+    "Doris": {
+      "_family": "Dorididae",
+      "extensions": {
+        "parapodes_dos": 2,
+        "voiles_nat": 2,
+        "aucune": 1,
+        "parapodes_lat": 2
+      },
+      "motif": {
+        "Uniforme / uni": 1
+      }
+    },
+    "Rostanga": {
+      "_family": "Dorididae",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "voiles_nat": 2,
+        "parapodes_dos": 2,
+        "parapodes_lat": 2
+      },
+      "motif": {
+        "Uniforme / uni": 1
+      }
+    },
+    "Halgerda": {
+      "_family": "Discodorididae",
+      "texture": {
+        "Papilleux": 1,
+        "Spiculeux": 1
+      },
+      "taille": "moyen"
+    },
+    "Hiatodoris": {
+      "_family": "Discodorididae",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "motif": {
+        "Uniforme / uni": 1
+      },
+      "texture": {
+        "Velouté": 1,
+        "Granuleux": 2,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Rugueux": 2,
+        "Ridé": 2,
+        "Spiculeux": 2
+      },
+      "taille": "petit"
+    },
+    "Jorunna": {
+      "_family": "Discodorididae",
+      "texture": {
+        "Velouté": 1,
+        "Lisse": 0,
+        "Granuleux": 2,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Rugueux": 2,
+        "Ridé": 2,
+        "Spiculeux": 2
+      },
+      "motif": {
+        "Points / taches": 1,
+        "Ocelles": 1,
+        "Bandes colorées": 2,
+        "Réticulé / vermiculé": 2,
+        "Lignes longitudinales": 2,
+        "Lignes transversales": 2
+      },
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "taille": "petit"
+    },
+    "Paradoris": {
+      "_family": "Discodorididae",
+      "extensions": {
+        "voiles_nat": 2,
+        "parapodes_dos": 2,
+        "parapodes_lat": 2
+      },
+      "texture": {
+        "Granuleux": 1,
+        "Lisse": 1,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Rugueux": 0,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      },
+      "taille": "petit"
+    },
+    "Platydoris": {
+      "_family": "Discodorididae",
+      "extensions": {
+        "manteau_large": 1,
+        "aucune": 1,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "taille": "moyen"
+    },
+    "Sclerodoris": {
+      "_family": "Discodorididae",
+      "texture": {
+        "Granuleux": 1
+      },
+      "motif": {
+        "Uniforme / uni": 1,
+        "Bandes colorées": 2,
+        "Réticulé / vermiculé": 2,
+        "Ocelles": 2,
+        "Points / taches": 0,
+        "Lignes transversales": 2,
+        "Lignes longitudinales": 2
+      },
+      "extensions": {
+        "manteau_large": 1
+      },
+      "taille": "moyen"
+    },
+    "Tayuva": {
+      "_family": "Discodorididae",
+      "extensions": {
+        "manteau_large": 1
+      },
+      "texture": {
+        "Granuleux": 1,
+        "Spiculeux": 2,
+        "Velouté": 0,
+        "Ridé": 2,
+        "Rugueux": 2,
+        "Tuberculé": 2,
+        "Papilleux": 2,
+        "Lisse": 2
+      },
+      "taille": "petit-moyen"
+    },
+    "Thordisa": {
+      "_family": "Discodorididae",
+      "texture": {
+        "Granuleux": 1,
+        "Velouté": 2,
+        "Spiculeux": 2,
+        "Tuberculé": 2,
+        "Papilleux": 2,
+        "Lisse": 2
+      },
+      "motif": {
+        "Uniforme / uni": 1,
+        "Lignes longitudinales": 2,
+        "Lignes transversales": 2,
+        "Réticulé / vermiculé": 0,
+        "Bandes colorées": 2,
+        "Ocelles": 2
+      },
+      "taille": "moyen"
+    },
+    "Hexabranchus": {
+      "_family": "Hexabranchidae",
+      "motif": {
+        "Points / taches": 1,
+        "Uniforme / uni": 1,
+        "Lignes longitudinales": 2,
+        "Lignes transversales": 2,
+        "Bandes colorées": 2,
+        "Réticulé / vermiculé": 2
+      }
+    },
+    "Gymnodoris": {
+      "_family": "Polyceridae",
+      "motif": {
+        "Uniforme / uni": 1,
+        "Points / taches": 1,
+        "Bandes colorées": 2,
+        "Réticulé / vermiculé": 2,
+        "Lignes transversales": 2,
+        "Lignes longitudinales": 2
+      },
+      "texture": {
+        "Lisse": 1
+      },
+      "cerates_forme": {
+        "digitiforme": 0
+      },
+      "taille": "petit"
+    },
+    "Kaloplocamus": {
+      "_family": "Polyceridae",
+      "structure": {
+        "cerates": 1,
+        "panache": 1
+      },
+      "cerates_forme": {
+        "arborescents": 1
+      },
+      "cerates_dispo": {
+        "cotes": 1
+      },
+      "taille": "moyen"
+    },
+    "Plocamopherus": {
+      "_family": "Polyceridae",
+      "motif": {
+        "Points / taches": 1,
+        "Bandes colorées": 2,
+        "Réticulé / vermiculé": 2,
+        "Lignes transversales": 2,
+        "Lignes longitudinales": 2
+      },
+      "texture": {
+        "Lisse": 1
+      },
+      "taille": "moyen"
+    },
+    "Polycera": {
+      "_family": "Polyceridae",
+      "taille": "tres-petit",
+      "structure": {
+        "panache": 1
+      },
+      "motif": {
+        "Bandes colorées": 2,
+        "Lignes transversales": 2,
+        "Lignes longitudinales": 2
+      },
+      "texture": {
+        "Granuleux": 1,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2,
+        "Lisse": 2,
+        "Tuberculé": 2
+      }
+    },
+    "Roboastra": {
+      "_family": "Polyceridae",
+      "motif": {
+        "Lignes longitudinales": 1,
+        "Réticulé / vermiculé": 0
+      },
+      "texture": {
+        "Lisse": 1
+      },
+      "taille": "petit",
+      "structure": {
+        "panache": 0
+      }
+    },
+    "Tambja": {
+      "_family": "Polyceridae",
+      "taille": "moyen"
+    },
+    "Thecacera": {
+      "_family": "Polyceridae",
+      "taille": "petit",
+      "motif": {
+        "Points / taches": 1,
+        "Bandes colorées": 2,
+        "Ocelles": 2,
+        "Réticulé / vermiculé": 2,
+        "Lignes transversales": 2
+      },
+      "texture": {
+        "Tuberculé": 1,
+        "Papilleux": 1,
+        "Lisse": 0,
+        "Granuleux": 2,
+        "Rugueux": 2,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      }
+    },
+    "Vayssierea": {
+      "_family": "Vayssiereidae",
+      "motif": {
+        "Uniforme / uni": 1,
+        "Bandes colorées": 2,
+        "Réticulé / vermiculé": 2,
+        "Ocelles": 2,
+        "Points / taches": 2,
+        "Lignes transversales": 2,
+        "Lignes longitudinales": 2
+      },
+      "texture": {
+        "Lisse": 1,
+        "Papilleux": 2,
+        "Tuberculé": 2,
+        "Rugueux": 2,
+        "Ridé": 2,
+        "Velouté": 2,
+        "Spiculeux": 2
+      }
+    }
+  }
+}

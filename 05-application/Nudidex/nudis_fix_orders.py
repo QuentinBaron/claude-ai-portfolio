@@ -23,7 +23,6 @@ FIXES = {
     "marianina-rosea":        "Dendronotida",
     "scyllae-sp.-1":          "Dendronotida",
     "vayssierea-felis":       "Doridida",
-    "janolus-mirabilis":      "Janolina",
     "mourgona-sp.1":          "Sacoglossa",
     "mourgona-sp.2":          "Sacoglossa",
     "madrella-ferruginosa":      "Aeolida",

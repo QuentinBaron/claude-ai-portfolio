@@ -4257,8 +4257,10 @@ function renderExpStep10() { /* Récapitulatif */
 }
 
 /* ── Species candidates (scoring tri-state v2) ── */
+var TRAIT_FAM = null;
+function getTraitFamilies(){ if(!TRAIT_FAM) TRAIT_FAM=TRAITS.families||TRAITS; return TRAIT_FAM; }
 function traitScore(sp, obs) {
-  var t = TRAITS[sp.f||''];
+  var t = getTraitFamilies()[sp.f||''];
   if (!t) return 0;
   /* Merge genus override si disponible */
   var genus = sp.n ? sp.n.split(' ')[0] : null;
@@ -4330,7 +4332,7 @@ function expCandidates() {
   });
   scored.sort(function(a,b){ return b.score-a.score; });
 
-  var hasTraits = Object.keys(TRAITS).length > 0;
+  var hasTraits = Object.keys(getTraitFamilies()).filter(function(k){return k[0]!=='_';}).length > 0;
   var best = hasTraits
     ? scored.filter(function(x){ return x.score >= 0; }).slice(0,25)
     : [];
