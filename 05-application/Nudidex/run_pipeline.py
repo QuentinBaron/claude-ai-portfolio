@@ -16,13 +16,15 @@ from pathlib import Path
 HERE     = Path(__file__).parent   # = 05-application/Nudidex/
 OUT_HTML = HERE / "index.html"
 
-CSV_PATH  = HERE / "nudis_taxonomy.csv"
-TMPL_PATH = HERE / "nudis_template_v2.html"
-ENRICHED  = HERE / "nudis_enriched.json"
+CSV_PATH    = HERE / "nudis_taxonomy.csv"
+TMPL_PATH   = HERE / "nudis_template_v2.html"
+ENRICHED    = HERE / "nudis_enriched.json"
+EDITOR_PATH = HERE / "nudis_traits_editor.html"
 
-FULL_JSON = HERE / "nudis_scraped_full.json"
-BASE_JSON = HERE / "nudis_scraped.json"
-JSON_PATH = FULL_JSON if FULL_JSON.exists() else BASE_JSON
+FULL_JSON   = HERE / "nudis_scraped_full.json"
+BASE_JSON   = HERE / "nudis_scraped.json"
+JSON_PATH   = FULL_JSON if FULL_JSON.exists() else BASE_JSON
+TRAITS_PATH = HERE / "nudis_traits.json"
 
 # ════════════════════════════════════════
 # ÉTAPE 1 — Merge CSV + JSON
@@ -129,13 +131,65 @@ with open(TMPL_PATH, encoding="utf-8") as f:
     template = f.read()
 
 build_str = "v" + datetime.now().strftime("%Y.%m.%d-%H%M")
-html = template.replace('__SPECIES__', data_json).replace('__BUILD__', build_str)
+
+# Traits morphologiques (optionnel — si nudis_traits.json existe)
+traits_json = '{}'
+if TRAITS_PATH.exists():
+    with open(TRAITS_PATH, encoding="utf-8") as f:
+        traits_data = json.load(f)
+    traits_json = json.dumps(traits_data.get("families", traits_data), ensure_ascii=False, separators=(',', ':'))
+    print(f"  Traits     : {len(json.loads(traits_json))} familles chargées")
+else:
+    print(f"  Traits     : nudis_traits.json absent — filtre basique")
+
+html = (template
+    .replace('__SPECIES__', data_json)
+    .replace('__TRAITS__', traits_json)
+    .replace('__BUILD__', build_str))
 
 with open(OUT_HTML, "w", encoding="utf-8") as f:
     f.write(html)
 
 size_kb = OUT_HTML.stat().st_size // 1024
 print(f"  → index.html généré ({size_kb} KB, {len(species)} espèces)")
+
+# ════════════════════════════════════════
+# ÉTAPE 3 — Injecter photos dans l'éditeur
+# ════════════════════════════════════════
+if EDITOR_PATH.exists():
+    print(f"\nÉTAPE 3 — Injection photos dans l'éditeur")
+
+    # Construire photos_db : {famille: [{u:url, n:nom, f:1(premiere)/0}]}
+    from collections import defaultdict
+    photos_db = defaultdict(list)
+    for sp in species:
+        fam = sp.get("f", "")
+        if not fam:
+            continue
+        name = sp.get("n", sp.get("s", ""))
+        raw_p = sp.get("p", [])
+        if isinstance(raw_p, str):
+            raw_p = [raw_p] if raw_p else []
+        for idx, url in enumerate(raw_p):
+            if url:
+                photos_db[fam].append({"u": url, "n": name, "f": 1 if idx == 0 else 0})
+
+    photos_json = json.dumps(dict(photos_db), ensure_ascii=False, separators=(',', ':'))
+    total_photos = sum(len(v) for v in photos_db.values())
+    print(f"  Photos     : {total_photos} URLs · {len(photos_db)} familles")
+
+    with open(EDITOR_PATH, encoding="utf-8") as f:
+        editor_src = f.read()
+
+    if '__EDITOR_PHOTOS__' in editor_src:
+        editor_updated = editor_src.replace('__EDITOR_PHOTOS__', photos_json)
+        with open(EDITOR_PATH, "w", encoding="utf-8") as f:
+            f.write(editor_updated)
+        print(f"  → {EDITOR_PATH.name} mis à jour")
+    else:
+        print(f"  ⚠ Placeholder __EDITOR_PHOTOS__ absent — éditeur non mis à jour")
+else:
+    print(f"\nÉTAPE 3 — {EDITOR_PATH.name} absent, ignoré")
 
 print(f"\n{'='*50}")
 print(f"✅ Nudidex prêt !")

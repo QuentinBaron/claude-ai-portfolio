@@ -1,0 +1,6 @@
+Nudidex
+
+Plein d'idées en vrac. A noter et garder de côté.
+
+- localisation : coordonnées GPS ou sélection d'un point maps
+- Substrat : aide au choix (compliqué pour un non expert) → sur photos ?

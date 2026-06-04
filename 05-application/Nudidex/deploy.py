@@ -72,7 +72,7 @@ if count_post != count:
     print(f"  Merge a ecrase index.html ({count_post} especes) -- relance pipeline...")
     run("python run_pipeline.py")
 
-run("git add 05-application/Nudidex/index.html 05-application/Nudidex/nudis_colors.json", cwd=REPO_DIR)
+run("git add 05-application/Nudidex/index.html 05-application/Nudidex/nudis_colors.json 05-application/Nudidex/nudis_taxonomy.csv", cwd=REPO_DIR)
 
 status = run("git status --porcelain", cwd=REPO_DIR, check=False)
 if not status.stdout.strip():

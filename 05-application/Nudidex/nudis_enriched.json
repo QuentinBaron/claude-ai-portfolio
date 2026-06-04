@@ -3004,7 +3004,7 @@
     "worms_aphia_id": "138019"
   },
   {
-    "n": "Sea slugs of Tahiti and French Polynesia",
+    "n": "Flabellina sp.3",
     "s": "flabellina-sp.-3",
     "p": "https://image.jimcdn.com/app/cms/image/transf/none/path/seaf7fb0608921499/image/i618e82bd8a9c28c1/version/1378863786/flabellina-sp-3.jpg",
     "ps": [
@@ -4263,7 +4263,7 @@
     "pr": "1m",
     "l": "Raiatea Isl 📌: 16°46'50.5891\" S 151°24'20.8035\" W",
     "d": "",
-    "o": "Janolina",
+    "o": "Dendronotida",
     "f": "Janolidae",
     "nc": "",
     "worms_aphia_id": ""
@@ -4798,7 +4798,7 @@
     "l": "Raiatea Isl / Raroia Tuamotu 📌 : 16°46'42.642\" S 151°24'42.5198\" W",
     "d": "",
     "o": "Doridida",
-    "f": "Discodorididae",
+    "f": "Goniodorididae",
     "nc": "",
     "worms_aphia_id": ""
   },
@@ -5109,7 +5109,7 @@
     "worms_aphia_id": "137899"
   },
   {
-    "n": "Peltodoris fellowsi",
+    "n": "Hiatodoris fellowsi",
     "s": "peltodoris-fellowsi",
     "p": "https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/icfe6130ba437f77c/version/1728717180/peltodoris-fellowsi-anc-hiatodoris-fellowsi.jpg",
     "ps": [
@@ -5704,8 +5704,8 @@
     "pr": "2m",
     "l": "Raroia Tuamotu 📌: 15°59'52.3018\" S 142°26'4.2932\" W",
     "d": "",
-    "o": "Doridida",
-    "f": "Discodorididae",
+    "o": "Pleurobranchida",
+    "f": "Pleurobranchidae",
     "nc": "",
     "worms_aphia_id": ""
   },

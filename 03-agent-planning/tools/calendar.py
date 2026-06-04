@@ -2,57 +2,53 @@
 Google Calendar tool — Agent Planning Matinal.
 
 Lit les événements du jour depuis tous les agendas pertinents.
-Applique la logique de comportement définie dans les specs :
-  - Pro & autres (primary)  → impératif
-  - Voyages & Sport         → impératif
-  - Perso                   → important
-  - Mathilde                → indirect (pharmacie → opportunité Deep Work)
-  - Optionnel               → ignoré
+Utilise httpx pour les appels API (évite les problèmes httplib2 sur Windows).
 
 Auth : OAuth 2.0 Desktop via InstalledAppFlow.
-  1ère exécution : ouvre le navigateur pour consentement → enregistre google_token.json
+  1ère exécution : ouvre le navigateur → enregistre google_token.json
   Exécutions suivantes : recharge le token automatiquement.
 
-Variables d'environnement requises :
-  GOOGLE_CREDENTIALS_FILE  — chemin vers le fichier credentials OAuth téléchargé depuis GCP
-  GOOGLE_TOKEN_FILE        — (optionnel) chemin pour stocker le token, défaut : google_token.json
+Variables d'environnement :
+  GOOGLE_CREDENTIALS_FILE  — chemin vers le fichier OAuth JSON (depuis GCP)
+  GOOGLE_TOKEN_FILE        — (optionnel) chemin pour le token, défaut : même dossier
 """
 
 import os
 from datetime import datetime, timezone
 from typing import Any
+from urllib.parse import quote
+
+import httpx
 
 # ---------------------------------------------------------------------------
 # Mapping agendas → comportement
-# IDs récupérés via list_calendars (connecteur Cowork, 22/05/2026)
 # ---------------------------------------------------------------------------
 
 CALENDAR_CONFIG: list[dict[str, str]] = [
     {
         "id": "qb.baron@gmail.com",
         "name": "Pro & autres",
-        "behavior": "mandatory",       # impératif — bloquer les créneaux
+        "behavior": "mandatory",
     },
     {
         "id": "m8iem642uehslto4b4vusq8a40@group.calendar.google.com",
         "name": "Voyages & Sport",
-        "behavior": "mandatory",       # impératif
+        "behavior": "mandatory",
     },
     {
         "id": "b762r2e9otckhpujriotu7o4kg@group.calendar.google.com",
         "name": "Perso",
-        "behavior": "important",       # important / souvent impératif
+        "behavior": "important",
     },
     {
         "id": "dl9ohu6rmet7b416lv9e90m5bk@group.calendar.google.com",
         "name": "Mathilde",
-        "behavior": "indirect",        # si pharmacie → suggérer Deep Work
+        "behavior": "indirect",
     },
-    # Optionnel (271m8e73oprfak85mtbfifl610) → non inclus (ignoré)
-    # Pompiers / Optimhome → non inclus (hors specs)
 ]
 
 SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
+CALENDAR_API_BASE = "https://www.googleapis.com/calendar/v3/calendars"
 
 # ---------------------------------------------------------------------------
 # Définition de l'outil Anthropic
@@ -62,8 +58,8 @@ TOOL_DEFINITION: dict[str, Any] = {
     "name": "get_calendar_events",
     "description": (
         "Récupère les événements Google Calendar du jour pour tous les agendas pertinents. "
-        "Retourne pour chaque événement : titre, heure de début/fin, agenda d'origine, "
-        "comportement (mandatory/important/indirect) et si c'est une opportunité Deep Work "
+        "Retourne pour chaque événement : titre, heure de début/fin, agenda, "
+        "comportement (mandatory/important/indirect) et opportunité Deep Work "
         "(quand Mathilde est à la pharmacie)."
     ),
     "input_schema": {
@@ -85,8 +81,7 @@ TOOL_DEFINITION: dict[str, Any] = {
 def _get_credentials():
     """
     Charge ou crée les credentials OAuth.
-    - Si google_token.json existe et est valide → le recharge.
-    - Sinon → ouvre le navigateur pour le consentement (1ère fois uniquement).
+    Ouvre le navigateur uniquement à la 1ère exécution.
     """
     try:
         from google.oauth2.credentials import Credentials
@@ -94,15 +89,14 @@ def _get_credentials():
         from google_auth_oauthlib.flow import InstalledAppFlow
     except ImportError as exc:
         raise ImportError(
-            "Installe les dépendances Google : "
-            "pip install google-auth google-auth-oauthlib google-api-python-client"
+            "pip install google-auth google-auth-oauthlib"
         ) from exc
 
     credentials_file = os.environ.get("GOOGLE_CREDENTIALS_FILE")
     if not credentials_file or not os.path.exists(credentials_file):
         raise FileNotFoundError(
             f"Fichier credentials introuvable : {credentials_file}\n"
-            "Configure GOOGLE_CREDENTIALS_FILE avec le chemin vers ton fichier OAuth JSON."
+            "Configure GOOGLE_CREDENTIALS_FILE."
         )
 
     token_file = os.environ.get(
@@ -111,37 +105,42 @@ def _get_credentials():
     )
 
     creds = None
-
-    # Recharger le token existant
     if os.path.exists(token_file):
         creds = Credentials.from_authorized_user_file(token_file, SCOPES)
 
-    # Rafraîchir si expiré, ou lancer le flow si absent
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(credentials_file, SCOPES)
             creds = flow.run_local_server(port=0)
-        # Sauvegarder pour les prochaines exécutions
         with open(token_file, "w") as f:
             f.write(creds.to_json())
 
     return creds
 
 
-def _build_service():
-    from googleapiclient.discovery import build
+def _get_token() -> str:
+    """Retourne un access token valide."""
+    from google.auth.transport.requests import Request
     creds = _get_credentials()
-    return build("calendar", "v3", credentials=creds, cache_discovery=False)
+    if creds.expired and creds.refresh_token:
+        creds.refresh(Request())
+        credentials_file = os.environ.get("GOOGLE_CREDENTIALS_FILE", "")
+        token_file = os.environ.get(
+            "GOOGLE_TOKEN_FILE",
+            os.path.join(os.path.dirname(credentials_file), "google_token.json"),
+        )
+        with open(token_file, "w") as f:
+            f.write(creds.to_json())
+    return creds.token
 
 
 # ---------------------------------------------------------------------------
-# Lecture des événements
+# Lecture des événements via httpx
 # ---------------------------------------------------------------------------
 
 def _is_pharmacie(event: dict) -> bool:
-    """Détecte si un événement Mathilde est un créneau pharmacie."""
     keywords = ["pharmacie", "pharma", "pharmacy"]
     text = (
         (event.get("summary") or "") + " " + (event.get("description") or "")
@@ -150,7 +149,6 @@ def _is_pharmacie(event: dict) -> bool:
 
 
 def _format_event(event: dict, calendar_config: dict, include_all_day: bool) -> dict | None:
-    """Simplifie un événement brut en dict utilisable par Claude."""
     start_raw = event["start"].get("dateTime") or event["start"].get("date")
     end_raw = event["end"].get("dateTime") or event["end"].get("date")
 
@@ -169,7 +167,6 @@ def _format_event(event: dict, calendar_config: dict, include_all_day: bool) -> 
         "meet_link": event.get("hangoutLink"),
     }
 
-    # Logique spéciale Mathilde : pharmacie → opportunité Deep Work
     if calendar_config["behavior"] == "indirect":
         result["deep_work_opportunity"] = _is_pharmacie(event)
 
@@ -177,43 +174,41 @@ def _format_event(event: dict, calendar_config: dict, include_all_day: bool) -> 
 
 
 def get_calendar_events(include_all_day: bool = True) -> dict[str, Any]:
-    """
-    Récupère les événements du jour depuis tous les agendas configurés.
-    """
     try:
-        service = _build_service()
+        token = _get_token()
     except Exception as exc:
-        return {"events": [], "error": str(exc)}
+        return {"events": [], "error": f"Auth error: {exc}"}
+
+    headers = {"Authorization": f"Bearer {token}"}
 
     now = datetime.now(timezone.utc)
     start_of_day = now.replace(hour=0, minute=0, second=0, microsecond=0)
     end_of_day = now.replace(hour=23, minute=59, second=59, microsecond=0)
 
+    params = {
+        "timeMin": start_of_day.isoformat(),
+        "timeMax": end_of_day.isoformat(),
+        "singleEvents": "true",
+        "orderBy": "startTime",
+    }
+
     events: list[dict] = []
     errors: list[str] = []
 
-    for cal in CALENDAR_CONFIG:
-        try:
-            result = (
-                service.events()
-                .list(
-                    calendarId=cal["id"],
-                    timeMin=start_of_day.isoformat(),
-                    timeMax=end_of_day.isoformat(),
-                    singleEvents=True,
-                    orderBy="startTime",
-                )
-                .execute()
-            )
-            for item in result.get("items", []):
-                formatted = _format_event(item, cal, include_all_day)
-                if formatted:
-                    events.append(formatted)
+    with httpx.Client(timeout=30) as client:
+        for cal in CALENDAR_CONFIG:
+            try:
+                cal_id_encoded = quote(cal["id"], safe="")
+                url = f"{CALENDAR_API_BASE}/{cal_id_encoded}/events"
+                resp = client.get(url, headers=headers, params=params)
+                resp.raise_for_status()
+                for item in resp.json().get("items", []):
+                    formatted = _format_event(item, cal, include_all_day)
+                    if formatted:
+                        events.append(formatted)
+            except Exception as exc:  # noqa: BLE001
+                errors.append(f"{cal['name']}: {exc}")
 
-        except Exception as exc:  # noqa: BLE001
-            errors.append(f"{cal['name']}: {str(exc)}")
-
-    # Trier par heure de début
     events.sort(key=lambda e: e["start"] or "")
 
     return {
@@ -223,7 +218,7 @@ def get_calendar_events(include_all_day: bool = True) -> dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
-# Dispatcher appelé par main.py
+# Dispatcher
 # ---------------------------------------------------------------------------
 
 def run(tool_input: dict[str, Any]) -> dict[str, Any]:

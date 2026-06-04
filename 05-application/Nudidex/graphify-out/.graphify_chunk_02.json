@@ -1,0 +1,834 @@
+{
+  "nodes": [
+    {
+      "id": "nudis_species_overrides_colorOverrideData",
+      "label": "Species Color Override Data",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/nudis_species_overrides.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nudis_test_sp_urlVariantTester",
+      "label": "URL Variant Tester for sp.X Species",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/nudis_test_sp.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nudis_test_spinoaglaja_singleSpeciesScraper",
+      "label": "Single Species Scraper (Spinoaglaja orientalis)",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/nudis_test_spinoaglaja.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nudis_test_url_urlDiagnosticTool",
+      "label": "URL Diagnostic Tool",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/nudis_test_url.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nudis_verify_worms_taxonomyVerifier",
+      "label": "WoRMS Taxonomy Verifier",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/nudis_verify_worms.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nudis_worms_errors_taxonomyErrors",
+      "label": "WoRMS Taxonomy Errors Report",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/nudis_worms_errors.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "run_pipeline_pipelineOrchestrator",
+      "label": "Pipeline Orchestrator (run_pipeline.py)",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/run_pipeline.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "sw_serviceWorker",
+      "label": "Service Worker (PWA offline caching)",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/sw.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_projectDoc",
+      "label": "Nudidex Project README",
+      "file_type": "document",
+      "source_file": "05-application/Nudidex/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Quentin Baron",
+      "contributor": null
+    },
+    {
+      "id": "readme_nudidex_projectDoc",
+      "label": "Nudidex README (duplicate/alternate)",
+      "file_type": "document",
+      "source_file": "05-application/Nudidex/README_nudidex.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Quentin Baron",
+      "contributor": null
+    },
+    {
+      "id": "index_html_pwaApp",
+      "label": "Nudidex PWA Single-file App (index.html)",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nudis_editor_colorEditor",
+      "label": "Species Color Override Editor (nudis_editor.html)",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/nudis_editor.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nudis_template_v2_htmlTemplate",
+      "label": "Nudidex HTML Template v2",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/nudis_template_v2.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nudis_traits_editor_traitsEditor",
+      "label": "Morphological Traits Editor (nudis_traits_editor.html)",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/nudis_traits_editor.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "portfolio_nudidex_draft_caseStudy",
+      "label": "Nudidex Portfolio Case Study Draft",
+      "file_type": "document",
+      "source_file": "05-application/Nudidex/portfolio_nudidex_draft.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Quentin Baron",
+      "contributor": null
+    },
+    {
+      "id": "spa_debug_home_sourcePageCapture",
+      "label": "Scraped Source Site Home Page",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/spa_debug_home.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "spa_debug_species_404Capture",
+      "label": "Scraped Source Site Species 404 Page",
+      "file_type": "code",
+      "source_file": "05-application/Nudidex/spa_debug_species.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nudi_ico_costasiella_mascotIcon",
+      "label": "Costasiella Mascot Icon (cute green animal, transparent background)",
+      "file_type": "image",
+      "source_file": "05-application/Nudidex/Nudi_ico_costasiella.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_192_pwaIcon192",
+      "label": "PWA App Icon 192px (Costasiella mascot on dark navy background)",
+      "file_type": "image",
+      "source_file": "05-application/Nudidex/icon-192.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_512_pwaIcon512",
+      "label": "PWA App Icon 512px (Costasiella mascot on dark navy background, high-res rounded square)",
+      "file_type": "image",
+      "source_file": "05-application/Nudidex/icon-512.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nudibranch_genericIllustration",
+      "label": "Nudibranch Generic Illustration (purple vector-style with cerata)",
+      "file_type": "image",
+      "source_file": "05-application/Nudidex/nudibranch.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_wormsApi",
+      "label": "WoRMS API (marinespecies.org external authority)",
+      "file_type": "rationale",
+      "source_file": "05-application/Nudidex/nudis_verify_worms.py",
+      "source_location": null,
+      "source_url": "https://www.marinespecies.org/rest/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_tahitiNudiSource",
+      "label": "Tahiti Nudi Source Site (tahitinudi.jimdoweb.com)",
+      "file_type": "rationale",
+      "source_file": "05-application/Nudidex/README.md",
+      "source_location": null,
+      "source_url": "https://tahitinudi.jimdoweb.com/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_nudisScrapedFullJson",
+      "label": "nudis_scraped_full.json (423 species raw data)",
+      "file_type": "rationale",
+      "source_file": "05-application/Nudidex/run_pipeline.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_nudisTaxonomyCsv",
+      "label": "nudis_taxonomy.csv (taxonomic classifications)",
+      "file_type": "rationale",
+      "source_file": "05-application/Nudidex/run_pipeline.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_nudisEnrichedJson",
+      "label": "nudis_enriched.json (pipeline output, merged data)",
+      "file_type": "rationale",
+      "source_file": "05-application/Nudidex/run_pipeline.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_nudisTraitsJson",
+      "label": "nudis_traits.json (morphological traits by family)",
+      "file_type": "rationale",
+      "source_file": "05-application/Nudidex/run_pipeline.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_pwaOfflineFirst",
+      "label": "PWA Offline-First Architecture",
+      "file_type": "rationale",
+      "source_file": "05-application/Nudidex/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_colorationSchema",
+      "label": "Species Coloration Classification Schema (camouflage/motifs/vives)",
+      "file_type": "rationale",
+      "source_file": "05-application/Nudidex/nudis_species_overrides.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_taxonomicOrderErrors",
+      "label": "Taxonomic Order Mismatches (CSV vs WoRMS, 15 species)",
+      "file_type": "rationale",
+      "source_file": "05-application/Nudidex/nudis_worms_errors.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_cladeHints",
+      "label": "CLADE_HINTS Dictionary (~340 morphological descriptions)",
+      "file_type": "rationale",
+      "source_file": "05-application/Nudidex/portfolio_nudidex_draft.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "run_pipeline_pipelineOrchestrator",
+      "target": "concept_nudisScrapedFullJson",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/run_pipeline.py",
+      "source_location": "line 23-25",
+      "weight": 1.0
+    },
+    {
+      "source": "run_pipeline_pipelineOrchestrator",
+      "target": "concept_nudisTaxonomyCsv",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/run_pipeline.py",
+      "source_location": "line 19",
+      "weight": 1.0
+    },
+    {
+      "source": "run_pipeline_pipelineOrchestrator",
+      "target": "concept_nudisEnrichedJson",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/run_pipeline.py",
+      "source_location": "line 21",
+      "weight": 1.0
+    },
+    {
+      "source": "run_pipeline_pipelineOrchestrator",
+      "target": "nudis_template_v2_htmlTemplate",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/run_pipeline.py",
+      "source_location": "line 20",
+      "weight": 1.0
+    },
+    {
+      "source": "run_pipeline_pipelineOrchestrator",
+      "target": "concept_nudisTraitsJson",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/run_pipeline.py",
+      "source_location": "line 27",
+      "weight": 1.0
+    },
+    {
+      "source": "run_pipeline_pipelineOrchestrator",
+      "target": "index_html_pwaApp",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/run_pipeline.py",
+      "source_location": "line 18",
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_template_v2_htmlTemplate",
+      "target": "index_html_pwaApp",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/run_pipeline.py",
+      "source_location": "line 144-148",
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_verify_worms_taxonomyVerifier",
+      "target": "concept_wormsApi",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/nudis_verify_worms.py",
+      "source_location": "line 19-21",
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_verify_worms_taxonomyVerifier",
+      "target": "concept_nudisTaxonomyCsv",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/nudis_verify_worms.py",
+      "source_location": "line 12",
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_verify_worms_taxonomyVerifier",
+      "target": "nudis_worms_errors_taxonomyErrors",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/nudis_verify_worms.py",
+      "source_location": "line 13",
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_worms_errors_taxonomyErrors",
+      "target": "concept_taxonomicOrderErrors",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/nudis_worms_errors.json",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_test_spinoaglaja_singleSpeciesScraper",
+      "target": "concept_nudisScrapedFullJson",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/nudis_test_spinoaglaja.py",
+      "source_location": "line 8",
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_test_spinoaglaja_singleSpeciesScraper",
+      "target": "concept_tahitiNudiSource",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/nudis_test_spinoaglaja.py",
+      "source_location": "line 6",
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_test_sp_urlVariantTester",
+      "target": "concept_tahitiNudiSource",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/nudis_test_sp.py",
+      "source_location": "line 5",
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_test_url_urlDiagnosticTool",
+      "target": "concept_tahitiNudiSource",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/nudis_test_url.py",
+      "source_location": "line 15-18",
+      "weight": 1.0
+    },
+    {
+      "source": "sw_serviceWorker",
+      "target": "index_html_pwaApp",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/sw.js",
+      "source_location": "line 2",
+      "weight": 1.0
+    },
+    {
+      "source": "sw_serviceWorker",
+      "target": "concept_pwaOfflineFirst",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/sw.js",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "sw_serviceWorker",
+      "target": "icon_192_pwaIcon192",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/sw.js",
+      "source_location": "line 2",
+      "weight": 1.0
+    },
+    {
+      "source": "sw_serviceWorker",
+      "target": "icon_512_pwaIcon512",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/sw.js",
+      "source_location": "line 2",
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_editor_colorEditor",
+      "target": "nudis_species_overrides_colorOverrideData",
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/nudis_editor.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_editor_colorEditor",
+      "target": "concept_colorationSchema",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "05-application/Nudidex/nudis_editor.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_species_overrides_colorOverrideData",
+      "target": "concept_colorationSchema",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/nudis_species_overrides.json",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_traits_editor_traitsEditor",
+      "target": "concept_nudisTraitsJson",
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/nudis_traits_editor.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_projectDoc",
+      "target": "concept_tahitiNudiSource",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/README.md",
+      "source_location": "line 32",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_projectDoc",
+      "target": "concept_pwaOfflineFirst",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/README.md",
+      "source_location": "line 59",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_projectDoc",
+      "target": "index_html_pwaApp",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/README.md",
+      "source_location": "line 104",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_nudidex_projectDoc",
+      "target": "readme_projectDoc",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/README_nudidex.md",
+      "source_location": null,
+      "weight": 0.8
+    },
+    {
+      "source": "portfolio_nudidex_draft_caseStudy",
+      "target": "concept_cladeHints",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/portfolio_nudidex_draft.md",
+      "source_location": "line 60",
+      "weight": 1.0
+    },
+    {
+      "source": "portfolio_nudidex_draft_caseStudy",
+      "target": "concept_wormsApi",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/portfolio_nudidex_draft.md",
+      "source_location": "line 6",
+      "weight": 1.0
+    },
+    {
+      "source": "portfolio_nudidex_draft_caseStudy",
+      "target": "concept_tahitiNudiSource",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/portfolio_nudidex_draft.md",
+      "source_location": "line 12",
+      "weight": 1.0
+    },
+    {
+      "source": "portfolio_nudidex_draft_caseStudy",
+      "target": "index_html_pwaApp",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/portfolio_nudidex_draft.md",
+      "source_location": "line 5",
+      "weight": 1.0
+    },
+    {
+      "source": "portfolio_nudidex_draft_caseStudy",
+      "target": "concept_taxonomicOrderErrors",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "05-application/Nudidex/portfolio_nudidex_draft.md",
+      "source_location": "line 68-71",
+      "weight": 1.0
+    },
+    {
+      "source": "spa_debug_home_sourcePageCapture",
+      "target": "concept_tahitiNudiSource",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/spa_debug_home.html",
+      "source_location": "line 17",
+      "weight": 1.0
+    },
+    {
+      "source": "spa_debug_species_404Capture",
+      "target": "concept_tahitiNudiSource",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/spa_debug_species.html",
+      "source_location": "line 17",
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_test_url_urlDiagnosticTool",
+      "target": "spa_debug_home_sourcePageCapture",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "05-application/Nudidex/nudis_test_url.py",
+      "source_location": null,
+      "weight": 0.7
+    },
+    {
+      "source": "nudis_test_sp_urlVariantTester",
+      "target": "spa_debug_species_404Capture",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "05-application/Nudidex/nudis_test_sp.py",
+      "source_location": null,
+      "weight": 0.7
+    },
+    {
+      "source": "nudi_ico_costasiella_mascotIcon",
+      "target": "icon_192_pwaIcon192",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/Nudi_ico_costasiella.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nudi_ico_costasiella_mascotIcon",
+      "target": "icon_512_pwaIcon512",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/Nudi_ico_costasiella.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_html_pwaApp",
+      "target": "concept_pwaOfflineFirst",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/index.html",
+      "source_location": "line 8",
+      "weight": 1.0
+    },
+    {
+      "source": "index_html_pwaApp",
+      "target": "concept_cladeHints",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "05-application/Nudidex/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nudis_verify_worms_taxonomyVerifier",
+      "target": "concept_taxonomicOrderErrors",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/nudis_verify_worms.py",
+      "source_location": "line 99-105",
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "data_pipeline_flow",
+      "label": "Nudidex Data Pipeline (scrape to merge to build to deploy)",
+      "nodes": [
+        "concept_nudisScrapedFullJson",
+        "concept_nudisTaxonomyCsv",
+        "run_pipeline_pipelineOrchestrator",
+        "concept_nudisEnrichedJson",
+        "nudis_template_v2_htmlTemplate",
+        "index_html_pwaApp"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/README.md"
+    },
+    {
+      "id": "taxonomy_verification_cluster",
+      "label": "Taxonomy Verification Workflow (WoRMS cross-check)",
+      "nodes": [
+        "nudis_verify_worms_taxonomyVerifier",
+        "concept_wormsApi",
+        "concept_nudisTaxonomyCsv",
+        "nudis_worms_errors_taxonomyErrors",
+        "concept_taxonomicOrderErrors"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/nudis_verify_worms.py"
+    },
+    {
+      "id": "scraping_debug_cluster",
+      "label": "Scraping Debug Tools (URL testing and species scraping)",
+      "nodes": [
+        "nudis_test_sp_urlVariantTester",
+        "nudis_test_spinoaglaja_singleSpeciesScraper",
+        "nudis_test_url_urlDiagnosticTool",
+        "spa_debug_home_sourcePageCapture",
+        "spa_debug_species_404Capture",
+        "concept_tahitiNudiSource"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "05-application/Nudidex/nudis_test_url.py"
+    },
+    {
+      "id": "pwa_asset_cluster",
+      "label": "PWA App Icons and Mascot Assets",
+      "nodes": [
+        "nudi_ico_costasiella_mascotIcon",
+        "icon_192_pwaIcon192",
+        "icon_512_pwaIcon512"
+      ],
+      "relation": "implement",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "05-application/Nudidex/sw.js"
+    },
+    {
+      "id": "color_override_editing_cluster",
+      "label": "Color Override Authoring System",
+      "nodes": [
+        "nudis_editor_colorEditor",
+        "nudis_species_overrides_colorOverrideData",
+        "concept_colorationSchema"
+      ],
+      "relation": "implement",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "05-application/Nudidex/nudis_editor.html"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

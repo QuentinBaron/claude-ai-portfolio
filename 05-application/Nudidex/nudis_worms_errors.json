@@ -1,0 +1,107 @@
+[
+  {
+    "slug": "babakina-indopacifica",
+    "aphia_id": "457532",
+    "csv_order": "Aeolida",
+    "worms_order": "Aeolidina",
+    "famille": "Babakinidae"
+  },
+  {
+    "slug": "bornella-stellifer",
+    "aphia_id": "404964",
+    "csv_order": "Dendronotida",
+    "worms_order": "Dendronotina",
+    "famille": "Bornellidae"
+  },
+  {
+    "slug": "bulbaeolidia-alba",
+    "aphia_id": "730446",
+    "csv_order": "Aeolida",
+    "worms_order": "Aeolidina",
+    "famille": "Aeolidiidae"
+  },
+  {
+    "slug": "caloria-indica",
+    "aphia_id": "181240",
+    "csv_order": "Aeolida",
+    "worms_order": "Aeolidina",
+    "famille": "Facelinidae"
+  },
+  {
+    "slug": "cephalopyge-trematoides",
+    "aphia_id": "140776",
+    "csv_order": "Nudibranchia",
+    "worms_order": "Dendronotina",
+    "famille": "Phylliroidae"
+  },
+  {
+    "slug": "cerberilla-annulata",
+    "aphia_id": "599580",
+    "csv_order": "Aeolida",
+    "worms_order": "Aeolidina",
+    "famille": "Aeolidiidae"
+  },
+  {
+    "slug": "dermatobranchus-fortunatus",
+    "aphia_id": "558942",
+    "csv_order": "Nudibranchia",
+    "worms_order": "Arminina",
+    "famille": "Arminidae"
+  },
+  {
+    "slug": "elysia-nealae",
+    "aphia_id": "763801",
+    "csv_order": "Sacoglossa",
+    "worms_order": "Vacatina",
+    "famille": "Plakobranchidae"
+  },
+  {
+    "slug": "embletonia-gracilis",
+    "aphia_id": "141581",
+    "csv_order": "Pteropoda",
+    "worms_order": "Cardiida",
+    "famille": "Embletoniidae"
+  },
+  {
+    "slug": "favorinus-japonicus",
+    "aphia_id": "599288",
+    "csv_order": "Aeolida",
+    "worms_order": "Aeolidina",
+    "famille": "Facelinidae"
+  },
+  {
+    "slug": "flabellina-exoptata",
+    "aphia_id": "1047492",
+    "csv_order": "Aeolida",
+    "worms_order": "Aeolidina",
+    "famille": "Flabellinidae"
+  },
+  {
+    "slug": "flabellina-rubrolineata",
+    "aphia_id": "139995",
+    "csv_order": "Aeolida",
+    "worms_order": "Aeolidina",
+    "famille": "Flabellinidae"
+  },
+  {
+    "slug": "glaucus-atlanticus",
+    "aphia_id": "140022",
+    "csv_order": "Aeolida",
+    "worms_order": "Aeolidina",
+    "famille": "Glaucidae"
+  },
+  {
+    "slug": "julia-exquisita",
+    "aphia_id": "494639",
+    "csv_order": "Sacoglossa",
+    "worms_order": "Nematocera",
+    "famille": "Juliidae"
+  },
+  {
+    "slug": "julia-zebra",
+    "aphia_id": "494640",
+    "csv_order": "Sacoglossa",
+    "worms_order": "Nematocera",
+    "famille": "Juliidae"
+  }
+]

@@ -146,6 +146,46 @@ def _get_token() -> str:
     return creds.token
 
 # ---------------------------------------------------------------------------
+# Filtrage des emails système (alertes de connexion, notifications auto)
+# ---------------------------------------------------------------------------
+
+_NOISE_SENDERS = {
+    "no-reply@accounts.google.com",
+    "noreply@accounts.google.com",
+    "noreply@github.com",
+    "no-reply@github.com",
+    "do-not-reply@trello.com",
+    "noreply@trello.com",
+}
+
+_NOISE_SUBJECT_KEYWORDS = [
+    "alerte de sécurité",
+    "security alert",
+    "verify your device",
+    "please verify",
+    "sign-in attempt",
+    "sign in attempt",
+    "nouvelle connexion",
+    "new sign",
+    "suspicious sign",
+    "nouvelle application autorisée",
+    "account alert",
+]
+
+
+def _is_noise(thread_detail: dict) -> bool:
+    """Retourne True si le thread est une alerte système à ignorer."""
+    sender = thread_detail.get("from", "").lower()
+    subject = thread_detail.get("subject", "").lower()
+
+    if any(ns in sender for ns in _NOISE_SENDERS):
+        return True
+    if any(kw in subject for kw in _NOISE_SUBJECT_KEYWORDS):
+        return True
+    return False
+
+
+# ---------------------------------------------------------------------------
 # Lecture des threads
 # ---------------------------------------------------------------------------
 
@@ -188,8 +228,8 @@ def _get_thread_detail(client: httpx.Client, headers: dict, thread_id: str) -> d
 
 def get_gmail_threads(
     days_back: int = 2,
-    max_results: int = 15,
-    unread_only: bool = False,
+    max_results: int = 8,
+    unread_only: bool = True,
 ) -> dict[str, Any]:
     try:
         token = _get_token()
@@ -225,7 +265,7 @@ def get_gmail_threads(
             for t in thread_list:
                 try:
                     detail = _get_thread_detail(client, headers, t["id"])
-                    if detail:
+                    if detail and not _is_noise(detail):
                         threads.append(detail)
                 except Exception as exc:
                     errors.append(f"Thread {t['id']}: {exc}")

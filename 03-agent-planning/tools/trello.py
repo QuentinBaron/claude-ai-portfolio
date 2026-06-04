@@ -128,10 +128,10 @@ def _find_current_sprint(lists: list[dict]) -> dict | None:
 # ---------------------------------------------------------------------------
 
 META_RE = re.compile(
-    r"\[P:(?P<priority>P\d)"
-    r"\s*\|\s*T:(?P<type>[^|]+?)"
-    r"\s*\|\s*CL:(?P<cl>[^|]+?)"
-    r"\s*\|\s*S:(?P<size>[^\]]+?)\]",
+    r"\[(?P<priority>P\d)"
+    r"\s*\|\s*(?P<type>[^|]+?)"
+    r"\s*\|\s*(?P<cl>[^|]+?)"
+    r"\s*\|\s*(?P<size>[^\]]+?)\]",
     re.IGNORECASE,
 )
 
@@ -156,13 +156,17 @@ def _parse_metadata(description: str | None) -> dict[str, str] | None:
 def _fetch_cards(client: httpx.Client, list_id: str) -> list[dict]:
     resp = client.get(
         f"{TRELLO_BASE}/lists/{list_id}/cards",
-        params={**_auth(), "fields": "id,name,desc,labels,url,due,idList"},
+        params={**_auth(), "fields": "id,name,desc,labels,url,due,idList,dueComplete"},
     )
     resp.raise_for_status()
     return resp.json()
 
 
-def _simplify_card(card: dict, list_name: str) -> dict:
+def _simplify_card(card: dict, list_name: str) -> dict | None:
+    # Ignorer les cartes marquées comme achevées (coche verte sur Trello)
+    if card.get("dueComplete", False):
+        return None
+
     label_names = [lbl.get("name") or lbl.get("color", "") for lbl in card.get("labels", [])]
     has_today = any(lbl.get("id") == TODAY_LABEL_ID for lbl in card.get("labels", []))
     metadata = _parse_metadata(card.get("desc"))
@@ -178,10 +182,26 @@ def _simplify_card(card: dict, list_name: str) -> dict:
     if metadata:
         result["meta"] = metadata
     else:
-        result["meta"] = None  # Claude devra inférer depuis le titre/description
+        result["meta"] = None
         result["desc_excerpt"] = (card.get("desc") or "")[:200]
 
     return result
+
+
+def _find_past_sprints(lists: list[dict], current_sprint_id: str, max_sprints: int = 2) -> list[dict]:
+    """Retourne les N sprints précédents ayant des dates parsées."""
+    today = date.today()
+    past = []
+    for lst in lists:
+        if lst["id"] == current_sprint_id:
+            continue
+        if not lst["name"].upper().startswith("SPRINT"):
+            continue
+        parsed = _parse_sprint_dates(lst["name"])
+        if parsed and parsed[1] < today:  # sprint terminé
+            past.append((parsed[1], lst))
+    past.sort(key=lambda x: x[0], reverse=True)
+    return [lst for _, lst in past[:max_sprints]]
 
 
 def get_trello_tasks(include_backlog: bool = True) -> dict[str, Any]:
@@ -214,17 +234,31 @@ def get_trello_tasks(include_backlog: bool = True) -> dict[str, Any]:
                 None,
             )
 
-            # Lire les cartes du sprint
             cards = []
+
+            # Cartes des anciens sprints non achevées (reporte automatique)
+            past_sprints = _find_past_sprints(all_lists, sprint_list["id"], max_sprints=2)
+            for past in past_sprints:
+                past_cards = _fetch_cards(client, past["id"])
+                for card in past_cards:
+                    simplified = _simplify_card(card, f"⚠️ Reporté ({past['name']})")
+                    if simplified:
+                        cards.append(simplified)
+
+            # Cartes du sprint courant
             sprint_cards = _fetch_cards(client, sprint_list["id"])
             for card in sprint_cards:
-                cards.append(_simplify_card(card, sprint_list["name"]))
+                simplified = _simplify_card(card, sprint_list["name"])
+                if simplified:
+                    cards.append(simplified)
 
-            # Lire le backlog si demandé
+            # Backlog TASKS
             if include_backlog and tasks_list:
                 backlog_cards = _fetch_cards(client, tasks_list["id"])
                 for card in backlog_cards:
-                    cards.append(_simplify_card(card, tasks_list["name"]))
+                    simplified = _simplify_card(card, tasks_list["name"])
+                    if simplified:
+                        cards.append(simplified)
 
             return {
                 "sprint": sprint_list["name"],

@@ -2,6 +2,8 @@
 
 > Un agent IA autonome qui lit mes outils du matin (Trello, Google Calendar, Gmail) et produit un plan de journée horodaté, priorisé et directement actionnable — sans que j'aie à réfléchir à la priorisation.
 
+![Demo](assets/demo.gif)
+
 ---
 
 ## Problème
