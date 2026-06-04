@@ -6172,7 +6172,7 @@
   "murphydoris-puncticulata": {
     "nom": "Murphydoris puncticulata",
     "ordre": "Doridida",
-    "famille": "Discodorididae",
+    "famille": "Goniodorididae",
     "genre": "Murphydoris",
     "morpho": "panache_branchial",
     "taille": null,
@@ -7297,10 +7297,10 @@
   },
   "pleurehdera-haraldi": {
     "nom": "Pleurehdera haraldi",
-    "ordre": "Doridida",
-    "famille": "Discodorididae",
+    "ordre": "Pleurobranchida",
+    "famille": "Pleurobranchidae",
     "genre": "Pleurehdera",
-    "morpho": "panache_branchial",
+    "morpho": "dos_lisse",
     "taille": null,
     "couleurs": [
       "rouge"
