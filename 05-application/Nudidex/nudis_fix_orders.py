@@ -20,16 +20,17 @@ FIXES = {
     "bullina-nobilis":        "Cephalaspidea",
     "bullina-sp.-1":          "Cephalaspidea",
     "cerberilla-albopuncata": "Aeolida",
-    "crosslandia-sp.1":       "Sacoglossa",
-    "crosslandia-sp.2":       "Sacoglossa",
     "marianina-rosea":        "Dendronotida",
     "scyllae-sp.-1":          "Dendronotida",
     "vayssierea-felis":       "Doridida",
     "janolus-mirabilis":      "Janolina",
     "mourgona-sp.1":          "Sacoglossa",
     "mourgona-sp.2":          "Sacoglossa",
-    "madrella-ferruginosa":   "Aeolida",
-    "phycophila-euchlora":    "Aplysiida",
+    "madrella-ferruginosa":      "Aeolida",
+    "pleurehdera-haraldi":       "Pleurobranchida",
+    "phycophila-euchlora":       "Aplysiida",
+    "cephalopyge-trematoides":   "Dendronotida",   # P4: depuis nudis_restore_csv.py
+    "dermatobranchus-fortunatus": "Arminida",       # P4: depuis nudis_restore_csv.py
 }
 
 # Corrections slug -> nom scientifique
@@ -44,6 +45,8 @@ NAME_FIXES = {
     "doris-granulosa":          "Doriopsis granulosa",
     "thordisa-albomacula":      "Avaldesia albomacula",
     "thordisa-tahala":          "Avaldesia tahala",
+    "flabellina-sp.-3":         "Flabellina sp.3",
+    "peltodoris-fellowsi":      "Hiatodoris fellowsi",
 }
 
 # Corrections slug -> famille
@@ -53,11 +56,18 @@ FAMILY_FIXES = {
     "halgerda-sp.2":       "Discodorididae",
     "mourgona-sp.1":       "Caliphyllidae",
     "mourgona-sp.2":       "Caliphyllidae",
+    "murphydoris-puncticulata": "Goniodorididae",
+    "pleurehdera-haraldi":      "Pleurobranchidae",
 }
 
 # Renames globaux d'ordre (toutes especes avec l'ancienne valeur)
+# P3: fusionné depuis nudis_normalize_orders.py
 ORDER_RENAMES = {
-    "Anaspidea": "Aplysiida",
+    "Anaspidea":    "Aplysiida",
+    "Aeolidina":    "Aeolida",
+    "Dendronotina": "Dendronotida",
+    "Arminina":     "Arminida",
+    "Janolina":     "Dendronotida",
 }
 
 # Renames globaux de famille (toutes especes avec l'ancienne valeur)

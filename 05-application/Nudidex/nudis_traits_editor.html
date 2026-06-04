@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nudidex — Éditeur traits morphologiques</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:system-ui,sans-serif;font-size:12px;background:#f1f5f9;color:#1e293b;display:flex;flex-direction:column;height:100vh;overflow:hidden;}
+/* ── HEADER ── */
+.hdr{background:#0f172a;color:#e2e8f0;padding:9px 14px;display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.hdr-title{display:flex;flex-direction:column;}
+.hdr-title h1{font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#475569;}
+.hdr-title h2{font-size:14px;font-weight:700;color:#f1f5f9;}
+.hdr-actions{margin-left:auto;display:flex;gap:6px;align-items:center;}
+.btn{padding:6px 12px;border-radius:6px;border:none;font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;}
+.btn-primary{background:#0d9488;color:#fff;} .btn-primary:hover{background:#0f766e;}
+.btn-sec{background:#1e293b;color:#94a3b8;border:1px solid #334155;} .btn-sec:hover{background:#334155;}
+.save-ok{font-size:10px;color:#0d9488;display:none;}
+/* ── STATS ── */
+.stats{background:#1e293b;padding:5px 14px;display:flex;gap:20px;font-size:10px;color:#64748b;flex-shrink:0;}
+.stats strong{color:#0d9488;}
+/* ── LAYOUT ── */
+.layout{display:flex;flex:1;overflow:hidden;}
+/* ── SIDEBAR ── */
+.sidebar{width:210px;background:#fff;border-right:1px solid #e2e8f0;overflow-y:auto;flex-shrink:0;}
+.order-hdr{background:#1e293b;color:#64748b;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;padding:5px 10px;cursor:pointer;display:flex;align-items:center;gap:5px;position:sticky;top:0;z-index:2;user-select:none;}
+.order-hdr:hover{background:#334155;color:#94a3b8;}
+.fam-item{padding:6px 10px 6px 12px;cursor:pointer;display:flex;align-items:center;gap:5px;border-bottom:1px solid #f8fafc;transition:background .1s;}
+.fam-item:hover{background:#f1f5f9;}
+.fam-item.active{background:#eff6ff;border-left:3px solid #1d4ed8;}
+.fam-item.multi-sel{background:#fef3c7;border-left:3px solid #f59e0b;}
+.fam-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.dot-v{background:#0d9488;} .dot-m{background:#f59e0b;} .dot-e{background:#cbd5e1;}
+.fam-name{font-size:11px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.fam-count{font-size:9px;color:#94a3b8;}
+/* ── MAIN ── */
+.main{flex:1;overflow-y:auto;padding:14px;min-width:0;}
+/* Bulk bar */
+.bulk-bar{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.bulk-bar strong{font-size:12px;color:#b45309;}
+.bulk-bar .btn{font-size:10px;padding:4px 10px;}
+/* Cards */
+.card{background:#fff;border-radius:9px;border:1px solid #e2e8f0;padding:14px 16px;margin-bottom:12px;}
+.card-title{font-size:13px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.badge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px;text-transform:uppercase;letter-spacing:.04em;}
+.badge-v{background:#f0fdf4;color:#059669;} .badge-m{background:#fffbeb;color:#b45309;} .badge-e{background:#f8fafc;color:#94a3b8;}
+.field-row{display:flex;gap:8px;margin-bottom:10px;align-items:flex-start;}
+.field-label{font-size:10px;font-weight:700;color:#475569;min-width:150px;padding-top:5px;line-height:1.4;flex-shrink:0;}
+.field-label small{display:block;font-weight:400;color:#94a3b8;font-size:9px;}
+.field-wrap{flex:1;}
+/* ── TRI-STATE BUTTONS ── */
+.tri-opts{display:flex;flex-wrap:wrap;gap:4px;}
+.topt{padding:4px 10px;border-radius:5px;border:1.5px solid;font-size:10px;font-weight:700;cursor:pointer;transition:all .12s;user-select:none;}
+.topt-neu{background:#f8fafc;color:#94a3b8;border-color:#e2e8f0;}
+.topt-inc{background:#0d9488;color:#fff;border-color:#0d9488;}
+.topt-exc{background:#ef4444;color:#fff;border-color:#ef4444;}
+.topt-neu:hover{border-color:#cbd5e1;color:#475569;}
+.legend{display:flex;gap:10px;font-size:9px;color:#94a3b8;margin-bottom:8px;}
+.legend span{display:flex;align-items:center;gap:3px;}
+.leg-inc{color:#0d9488;font-weight:700;} .leg-exc{color:#ef4444;font-weight:700;} .leg-neu{color:#94a3b8;}
+/* Textarea */
+.trait-notes{width:100%;border:1.5px solid #e2e8f0;border-radius:6px;padding:6px 9px;font-size:11px;color:#1e293b;min-height:50px;resize:vertical;}
+.trait-notes:focus{outline:none;border-color:#60a5fa;}
+/* Validated */
+.val-bar{display:flex;align-items:center;gap:10px;padding:10px 0 0;border-top:1px solid #f1f5f9;margin-top:4px;}
+.val-bar label{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;cursor:pointer;}
+.val-bar input{width:14px;height:14px;accent-color:#0d9488;}
+.sep{height:1px;background:#f1f5f9;margin:10px 0;}
+/* Empty */
+.empty{text-align:center;padding:60px 20px;color:#94a3b8;}
+.empty h3{font-size:14px;color:#475569;margin-bottom:6px;}
+/* ── PHOTOS PANEL ── */
+.photos-panel{width:520px;background:#fff;border-left:1px solid #e2e8f0;overflow-y:auto;flex-shrink:0;display:flex;flex-direction:column;}
+.photos-hdr{background:#1e293b;color:#94a3b8;font-size:10px;font-weight:700;padding:8px 12px;text-transform:uppercase;letter-spacing:.06em;flex-shrink:0;display:flex;align-items:center;gap:8px;}
+.photos-hdr .sp-count{color:#0d9488;font-size:9px;margin-left:auto;}
+.photos-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px;}
+.sp-thumb{cursor:pointer;border-radius:6px;overflow:hidden;border:1px solid #e2e8f0;transition:all .12s;}
+.sp-thumb:hover{border-color:#0d9488;box-shadow:0 2px 8px rgba(0,0,0,.1);}
+.sp-thumb img{width:100%;height:160px;object-fit:cover;display:block;}
+.sp-thumb .sp-name{font-size:9px;font-style:italic;color:#475569;padding:3px 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.load-sp-btn{margin:20px auto;display:block;padding:8px 16px;border-radius:7px;border:1.5px dashed #cbd5e1;background:transparent;color:#64748b;font-size:11px;cursor:pointer;text-align:center;}
+.load-sp-btn:hover{border-color:#0d9488;color:#0d9488;}
+.no-photo{font-size:10px;color:#94a3b8;text-align:center;padding:20px;}
+/* ── GENERA ── */
+.genus-item{padding:4px 10px 4px 26px;cursor:pointer;display:flex;align-items:center;gap:5px;border-bottom:1px solid #f8fafc;background:#f8fafc;transition:background .1s;}
+.genus-item:hover{background:#eff6ff;}
+.genus-item.gactive{background:#eff6ff;border-left:3px solid #6366f1;}
+.genus-dot{width:6px;height:6px;border-radius:50%;background:#cbd5e1;flex-shrink:0;}
+.genus-dot.gdot-ov{background:#f59e0b;}
+.genus-name{font-size:10px;font-style:italic;flex:1;color:#475569;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.expand-btn{font-size:10px;color:#94a3b8;background:none;border:none;cursor:pointer;padding:1px 5px;border-radius:3px;flex-shrink:0;line-height:1;}
+.expand-btn:hover{background:#e2e8f0;color:#475569;}
+.fam-genera-badge{display:inline-block;width:6px;height:6px;border-radius:50%;background:#f59e0b;margin-left:3px;flex-shrink:0;}
+.genus-ctx{font-size:10px;color:#94a3b8;background:#f8fafc;border-radius:6px;padding:7px 10px;margin-bottom:10px;line-height:1.6;}
+.genus-ctx b{color:#64748b;}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-title">
+    <h1>NUDIDEX</h1>
+    <h2>Éditeur de traits morphologiques</h2>
+  </div>
+  <div class="hdr-actions">
+    <span class="save-ok" id="save-ok">✓ Sauvegardé</span>
+    <button class="btn btn-sec" style="font-size:10px;padding:5px 10px;" onclick="resetFamily()">↺ Réinitialiser</button>
+    <button class="btn btn-sec" style="font-size:10px;padding:5px 10px;" onclick="importJSON()">📂 Importer</button>
+    <button class="btn btn-primary" onclick="exportJSON()">📄 Exporter nudis_traits.json</button>
+  </div>
+</div>
+
+<div class="stats" id="stats-bar">
+  <span>Total : <strong id="st-t">52</strong></span>
+  <span>Validées : <strong id="st-v">0</strong></span>
+  <span>Modifiées : <strong id="st-m">0</strong></span>
+  <span>Non traitées : <strong id="st-e">52</strong></span>
+  <span id="st-sel-info" style="margin-left:auto;color:#f59e0b;display:none;"></span>
+</div>
+
+<div class="layout">
+  <div class="sidebar" id="sidebar"></div>
+  <div class="main" id="main">
+    <div class="empty"><h3>Sélectionner une famille</h3><p>Cliquez sur une famille dans le panneau gauche.<br>Cliquez sur un en-tête d'ordre pour sélectionner toutes ses familles.</p></div>
+  </div>
+  <div class="photos-panel">
+    <div class="photos-hdr">Photos espèces <span class="sp-count" id="sp-count"></span></div>
+    <div id="photos-grid-wrap">
+      <button class="load-sp-btn" onclick="loadSpecies()">📁 Charger nudis_enriched.json<br><small style="color:#94a3b8;font-size:9px;">pour afficher les photos</small></button>
+    </div>
+  </div>
+</div>
+
+<input type="file" id="import-input" accept=".json" style="display:none;" onchange="handleImport(event)">
+<input type="file" id="species-input" accept=".json" style="display:none;" onchange="handleSpecies(event)">
+
+<script>
+/* ════════════════════════════════════
+   CONSTANTES
+   ════════════════════════════════════ */
+var FAMILY_DATA=[
+  {order:'Aeolida',family:'Aeolidiidae',n:7},{order:'Aeolida',family:'Babakinidae',n:1},
+  {order:'Aeolida',family:'Embletoniidae',n:1},{order:'Aeolida',family:'Eubranchidae',n:12},
+  {order:'Aeolida',family:'Facelinidae',n:30},{order:'Aeolida',family:'Flabellinidae',n:6},
+  {order:'Aeolida',family:'Glaucidae',n:1},{order:'Aeolida',family:'Madrellidae',n:1},
+  {order:'Aeolida',family:'Samlidae',n:1},{order:'Aeolida',family:'Trinchesiidae',n:22},
+  {order:'Aplysiida',family:'Aplysiidae',n:9},{order:'Aplysiida',family:'Dolabriferidae',n:1},
+  {order:'Arminida',family:'Arminidae',n:3},
+  {order:'Cephalaspidea',family:'Aglajidae',n:9},{order:'Cephalaspidea',family:'Aplustridae',n:5},
+  {order:'Cephalaspidea',family:'Bullidae',n:2},{order:'Cephalaspidea',family:'Colpodaspididae',n:1},
+  {order:'Cephalaspidea',family:'Gastropteridae',n:7},{order:'Cephalaspidea',family:'Haminoeidae',n:31},
+  {order:'Cephalaspidea',family:'Philinidae',n:5},
+  {order:'Dendronotida',family:'Bornellidae',n:2},{order:'Dendronotida',family:'Dotidae',n:1},
+  {order:'Dendronotida',family:'Hancockiidae',n:3},{order:'Dendronotida',family:'Phylliroidae',n:2},
+  {order:'Dendronotida',family:'Scyllaeidae',n:3},{order:'Dendronotida',family:'Tethydidae',n:1},
+  {order:'Dendronotida',family:'Tritoniidae',n:1},
+  {order:'Doridida',family:'Actinocyclidae',n:6},{order:'Doridida',family:'Aegiridae',n:5},
+  {order:'Doridida',family:'Chromodorididae',n:46},{order:'Doridida',family:'Dendrodorididae',n:5},
+  {order:'Doridida',family:'Diaphorodorididae',n:1},{order:'Doridida',family:'Discodorididae',n:41},
+  {order:'Doridida',family:'Dorididae',n:6},{order:'Doridida',family:'Goniodorididae',n:14},
+  {order:'Doridida',family:'Hexabranchidae',n:2},{order:'Doridida',family:'Phyllidiidae',n:6},
+  {order:'Doridida',family:'Polyceridae',n:24},{order:'Doridida',family:'Vayssiereidae',n:1},
+  {order:'Janolina',family:'Janolidae',n:1},
+  {order:'Pleurobranchida',family:'Pleurobranchidae',n:7},
+  {order:'Runcinida',family:'Runcinidae',n:1},
+  {order:'Sacoglossa',family:'Caliphyllidae',n:8},{order:'Sacoglossa',family:'Costasiellidae',n:6},
+  {order:'Sacoglossa',family:'Cylindrobullidae',n:3},{order:'Sacoglossa',family:'Hermaeidae',n:1},
+  {order:'Sacoglossa',family:'Juliidae',n:5},{order:'Sacoglossa',family:'Limapontiidae',n:8},
+  {order:'Sacoglossa',family:'Oxynoidae',n:9},{order:'Sacoglossa',family:'Plakobranchidae',n:41},
+  {order:'Sacoglossa',family:'Volvatellidae',n:2},
+  {order:'Umbraculida',family:'Tylodinidae',n:1}
+];
+
+var STRUCT_OPTS=[
+  {val:'panache',lbl:'Panache branchial'},{val:'cerates',lbl:'Cérates / filaments'},
+  {val:'dos_lisse',lbl:'Dos lisse'},{val:'dos_cretes',lbl:'Crêtes dorsales'},
+  {val:'coquille',lbl:'Coquille visible'},{val:'aucune',lbl:'Aucune (pélagique)'}
+];
+var TENT_OPTS=[{val:'oui',lbl:'Oui'},{val:'non',lbl:'Non'},{val:'variable',lbl:'Variable'}];
+var RHINO_OPTS=['Lamellé perfolié','Lamellé annulé','Claviforme lisse','Lisse / conique','Ramifié / plumeux','Enrollé / fendu','Plissé / papilleux','Absent'];
+var TEX_OPTS=['Lisse','Granuleux','Papilleux','Tuberculé','Rugueux','Ridé','Velouté','Spiculeux'];
+var CDISPO_OPTS=[{val:'tapis',lbl:'Tapis dense'},{val:'arcs',lbl:'En arcs / rangées'},{val:'cotes',lbl:'Sur les côtés / latéral'}];
+var CFORME_OPTS=[
+  {val:'digitiforme', lbl:'Digitiforme (tube)'},
+  {val:'claviforme',  lbl:'Claviforme (massue)'},
+  {val:'pyriforme',   lbl:'Pyriforme (goutte)'},
+  {val:'globuleux',   lbl:'Globuleux (type Doto)'},
+  {val:'aplatis',     lbl:'Aplatis / foliacés'},
+  {val:'arborescents',lbl:'Arborescents'}
+];
+var MOTIF_OPTS=['Uniforme / uni','Lignes longitudinales','Lignes transversales','Points / taches','Ocelles','Réticulé / vermiculé','Bandes colorées'];
+var EXTENSIONS_OPTS=[
+  {val:'aucune',       lbl:'Aucune extension',        dsc:'Corps compact, bords nets'},
+  {val:'manteau_large',lbl:'Manteau très débordant',  dsc:'Notum forme une large jupe dépassant le pied (Discodorididae)'},
+  {val:'parapodes_lat',lbl:'Parapodes latéraux',      dsc:'Expansions charnues du pied visibles de chaque côté'},
+  {val:'parapodes_dos',lbl:'Parapodes repliables',    dsc:'Larges voiles se referment sur la coquille ou le corps'},
+  {val:'voiles_nat',   lbl:'Voiles natatoires',       dsc:'Très larges, permettent la nage active (Gastropteridae)'}
+];
+var TAILLE_OPTS=[{val:'tres-petit',lbl:'Très petit < 10mm'},{val:'petit',lbl:'Petit 10–30mm'},{val:'moyen',lbl:'Moyen 25–100mm'},{val:'grand',lbl:'Grand > 100mm'}];
+
+/* ════════════════════════════════════
+   DONNÉES PRÉ-REMPLIES (Gosliner / WoRMS)
+   format: structure / tentacules / rhinophore / texture → {val: 0|1|2}
+   0=neutre 1=inclure 2=exclure
+   ════════════════════════════════════ */
+function mkStr(inc, exc){ var o={}; STRUCT_OPTS.forEach(function(s){ o[s.val]= inc.indexOf(s.val)>=0?1:exc.indexOf(s.val)>=0?2:0; }); return o; }
+function mkTent(v){ return {oui:v==='oui'?1:v==='non'?2:0, non:v==='non'?1:v==='oui'?2:0, variable:v==='variable'?1:0}; }
+function mkRh(inc){ var o={}; RHINO_OPTS.forEach(function(r){ o[r]=inc.indexOf(r)>=0?1:0; }); return o; }
+function mkTex(inc){ var o={}; TEX_OPTS.forEach(function(t){ o[t]=inc.indexOf(t)>=0?1:0; }); return o; }
+function mkCd(v){ var o={}; CDISPO_OPTS.forEach(function(c){ o[c.val]=c.val===v?1:0; }); return o; }
+function mkCf(v){ var o={}; CFORME_OPTS.forEach(function(c){ o[c.val]=c.val===v?1:0; }); return o; }
+function mkExt(v){ var o={}; EXTENSIONS_OPTS.forEach(function(e){ o[e.val]=e.val===v?1:2; }); return o; }
+
+var KNOWN={
+'Aeolidiidae':    {structure:mkStr(['cerates'],['panache','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé annulé']),texture:mkTex([]),cerates_dispo:mkCd('tapis'),cerates_forme:mkCf('digitiforme'),branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Tapis dense de cérates couvrant tout le dos. Cnidosacs souvent distincts.'},
+'Babakinidae':    {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé annulé']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('digitiforme'),branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Proche des Facelinidae. Rare.'},
+'Embletoniidae':  {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lisse / conique']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('digitiforme'),branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Très petite taille, rare.'},
+'Eubranchidae':   {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé annulé','Lisse / conique']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('digitiforme'),branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Cérates en rangées latérales. Cnidosacs visibles à l\'apex.'},
+'Facelinidae':    {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé annulé']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('digitiforme'),branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Corps allongé. Rangées latérales de cérates laissant le dos visible. Tentacules oraux longs.'},
+'Flabellinidae':  {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé annulé']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('digitiforme'),branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Cérates souvent violacés. Corps allongé.'},
+'Glaucidae':      {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:true,rhinophore:mkRh(['Lisse / conique']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('aplatis'),branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Pélagique. Flotte à la surface. Cérates aplatis en groupes latéraux. Glaucus atlanticus.'},
+'Madrellidae':    {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé annulé']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('digitiforme'),branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Madrella ferruginosa, teinte rouille.'},
+'Samlidae':       {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé annulé']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('digitiforme'),branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Samla bicolor. Ex-Trinchesiidae. Cérates bicolores caractéristiques.'},
+'Trinchesiidae':  {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lisse / conique','Lamellé annulé']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('claviforme'),branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Ex-Cuthonidae. Petites espèces. Cnidosacs à l\'apex des cérates.'},
+'Aplysiidae':     {structure:mkStr(['dos_lisse'],['panache','cerates','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Enrollé / fendu']),texture:mkTex(['Lisse','Ridé']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('parapodes_lat'),taille:'grand',notes:'Corps grand charnu. Parapodes repliables. Herbivore. Parfois nageur. Pas de branchies visibles du dessus.'},
+'Dolabriferidae': {structure:mkStr(['dos_lisse'],['panache','cerates','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Enrollé / fendu']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('parapodes_lat'),taille:'moyen',notes:'Parapodes réduits, corps compact.'},
+'Arminidae':      {structure:mkStr(['dos_cretes'],['panache','cerates','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Plissé / papilleux']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Crêtes longitudinales dorsales. Armina, Dermatobranchus. Pas de branchie latérale.'},
+'Aglajidae':      {structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('variable'),pelagique:false,rhinophore:mkRh(['Absent']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Coquille interne. Chelidonura : queue bifide. Corps lisse brillant.'},
+'Aplustridae':    {structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Absent']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Coquille externe colorée (souvent rayée). Hydatina.'},
+'Bullidae':       {structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Absent']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Coquille ovoïde globuleuse, corps déborde. Bulla.'},
+'Colpodaspididae':{structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Absent']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Très petit, coquille interne, corps rosé.'},
+'Gastropteridae': {structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Absent']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('voiles_nat'),taille:'tres-petit',notes:'Coquille interne. Larges parapodes natatoires. Sagaminopteron très coloré.'},
+'Haminoeidae':    {structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Absent']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Coquille fragile externe souvent transparente. Animal plus grand que la coquille. Haminoea.'},
+'Philinidae':     {structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Absent']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Coquille interne aplatie. Corps entièrement blanc mou. Fouisseur.'},
+'Bornellidae':    {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Ramifié / plumeux']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('arborescents'),branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Tentacules latéraux ramifiés portant les branchies. Bornella. Gaines rhinophorales développées.'},
+'Dotidae':        {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Claviforme lisse']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('globuleux'),branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Cérates gonflés/bulbeux. Doto. Corps allongé.'},
+'Hancockiidae':   {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Claviforme lisse']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('digitiforme'),branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Corps très allongé. Rare.'},
+'Phylliroidae':   {structure:mkStr(['aucune'],['panache','cerates','dos_cretes','coquille']),tentacules:mkTent('oui'),pelagique:true,rhinophore:mkRh(['Claviforme lisse']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Corps comprimé latéralement. Pélagique exclusif. AUCUN cérate. Phylliroe, Cephalopyge.'},
+'Scyllaeidae':    {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Claviforme lisse']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('aplatis'),branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Scyllaea : cérates aplatis foliacés, vit sur sargasses. Crosslandia : cérates aplatis, morphologie proche.'},
+'Tethydidae':     {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Claviforme lisse']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('digitiforme'),branchie_lat:false,extensions:mkExt('aucune'),taille:'grand',notes:'Grand voile oral caractéristique. Tethys. Prédateur actif.'},
+'Tritoniidae':    {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Ramifié / plumeux']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('arborescents'),branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Branchies latérales foliées ramifiées. Tritonia. Gaines rhinophorales.'},
+'Actinocyclidae': {structure:mkStr(['panache'],['cerates','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé perfolié']),texture:mkTex(['Lisse','Granuleux']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Doridacé à manteau lisse ou légèrement granuleux.'},
+'Aegiridae':      {structure:mkStr(['panache'],['cerates','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé perfolié']),texture:mkTex(['Lisse','Rugueux']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Corps ovale, notum ridé ou rugueux. Aegires. Rhinophores fusionnés à la base.'},
+'Chromodorididae':{structure:mkStr(['panache'],['cerates','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé perfolié']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Notum lisse. Coloration vive (bleu, violet, jaune, orange fréquents). Chromodoris, Hypselodoris, Glossodoris.'},
+'Dendrodorididae':{structure:mkStr(['panache'],['cerates','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Lamellé perfolié']),texture:mkTex(['Lisse','Papilleux']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'IMPORTANT : pas de tentacules oraux. Bouche en trompe suceur. Dendrodoris.'},
+'Diaphorodorididae':{structure:mkStr(['panache'],['cerates','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé perfolié']),texture:mkTex(['Granuleux']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Très petit doridacé. Rare.'},
+'Discodorididae': {structure:mkStr(['panache'],['cerates','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé perfolié']),texture:mkTex(['Granuleux','Papilleux']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('manteau_large'),taille:'moyen',notes:'Corps très aplati, large. Notum granuleux ou papilleux. Discodoris, Platydoris. Manteau déborde largement.'},
+'Dorididae':      {structure:mkStr(['panache'],['cerates','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé perfolié']),texture:mkTex(['Granuleux','Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Doridacé typique. Doris, Peltodoris.'},
+'Goniodorididae': {structure:mkStr(['panache'],['cerates','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé perfolié','Claviforme lisse']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Appendices frontaux ou latéraux caractéristiques. Goniodoris, Okenia, Trapania. Corps allongé.'},
+'Hexabranchidae': {structure:mkStr(['panache'],['cerates','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé perfolié']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'grand',notes:'Très grand. Manteau très étendu avec bandes colorées. 6 branchies bipennées. Hexabranchus sanguineus.'},
+'Phyllidiidae':   {structure:mkStr(['panache'],['cerates','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Lamellé perfolié']),texture:mkTex(['Tuberculé']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'IMPORTANT : pas de tentacules oraux. Tubercules bicolores fermes. Notum rigide. Branchies sous le manteau. Phyllidia, Phyllidiella.'},
+'Polyceridae':    {structure:mkStr(['panache'],['cerates','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Claviforme lisse','Lamellé perfolié']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Appendices frontaux souvent présents. Polycera, Nembrotha, Roboastra, Thecacera.'},
+'Vayssiereidae':  {structure:mkStr(['panache'],['cerates','dos_lisse','dos_cretes','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Claviforme lisse']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Très petit. Rare.'},
+'Janolidae':      {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Lamellé perfolié']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('aplatis'),branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Cérates aplatis en rangées. Janolus. Rhinophores perfoliés distinctifs.'},
+'Pleurobranchidae':{structure:mkStr(['dos_lisse'],['panache','cerates','coquille']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Claviforme lisse']),texture:mkTex(['Lisse','Granuleux']),cerates_dispo:{},cerates_forme:{},branchie_lat:true,extensions:mkExt('aucune'),taille:'moyen',notes:'IMPORTANT : branchie bipennée sur le flanc DROIT. Corps charnu. Pas de panache dorsal. Pleurobranchus, Berthella.'},
+'Runcinidae':     {structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Absent']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Minuscule. Coquille interne. Interstitiel.'},
+'Caliphyllidae':  {structure:mkStr(['dos_cretes'],['panache','cerates','coquille']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Enrollé / fendu']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('parapodes_lat'),taille:'tres-petit',notes:'Parapodes ou ailes latérales. Cyerce, Mourgona. Sacoglossa. Pas de tentacules oraux.'},
+'Costasiellidae': {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Enrollé / fendu']),texture:mkTex([]),cerates_dispo:mkCd('tapis'),cerates_forme:mkCf('claviforme'),branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Sacoglossa à cérates. IMPORTANT : pas de tentacules oraux. Costasiella. Vit sur algues vertes. Cérates avec cnidosacs.'},
+'Cylindrobullidae':{structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Absent']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Coquille cylindrique externe. Vit sur algues.'},
+'Hermaeidae':     {structure:mkStr(['cerates'],['panache','dos_lisse','coquille']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Enrollé / fendu']),texture:mkTex([]),cerates_dispo:mkCd('arcs'),cerates_forme:mkCf('aplatis'),branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Sacoglossa à cérates aplatis/foliacés. Hermaea. Pas de tentacules oraux.'},
+'Juliidae':       {structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Absent']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Coquille bivalve unique (seul bivalve sacoglosse). Julia. Très rare.'},
+'Limapontiidae':  {structure:mkStr(['dos_lisse'],['panache','cerates','coquille']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Enrollé / fendu']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Sacoglossa à dos lisse. Très petits. Pas de tentacules oraux. Vit sur algues.'},
+'Oxynoidae':      {structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Enrollé / fendu']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('parapodes_dos'),taille:'tres-petit',notes:'Coquille externe. Corps peut s\'étaler. Oxynoe. Vit sur Caulerpa.'},
+'Plakobranchidae':{structure:mkStr(['dos_cretes'],['panache','cerates','coquille']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Enrollé / fendu']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('parapodes_dos'),taille:'moyen',notes:'Parapodes foliacés repliables. Elysia, Plakobranchus. Pas de tentacules oraux. Kleptoplastes.'},
+'Volvatellidae':  {structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('non'),pelagique:false,rhinophore:mkRh(['Absent']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'tres-petit',notes:'Coquille externe spiralée. Corps rosé ou rouge. Volvatella. Vit sur Halimeda.'},
+'Tylodinidae':    {structure:mkStr(['coquille'],['panache','cerates','dos_cretes']),tentacules:mkTent('oui'),pelagique:false,rhinophore:mkRh(['Claviforme lisse']),texture:mkTex(['Lisse']),cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:mkExt('aucune'),taille:'moyen',notes:'Coquille pseudo-limpet aplatie sur le dos. Corps jaune vif identique à la coquille. Tylodina.'}
+};
+
+/* ════════════════════════════════════
+   STATE
+   ════════════════════════════════════ */
+/* Données photos injectées par run_pipeline.py — format {famille:[{u:url,n:nom},...]} */
+var PHOTOS_DB = {"Facelinidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ie9fd4fc605c7d55e/version/1737448553/abronica-cf-payaso-anc-tenellia-sp-20.jpg","n":"Abronica cf payaso","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i51f18770edd24002/version/1332653720/caloria-indica.jpg","n":"Caloria indica","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=590x10000:format=jpg/path/seaf7fb0608921499/image/i4d455b936ab58d95/version/1358638258/caloria-sp-1.jpg","n":"Caloria sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=482x10000:format=jpg/path/seaf7fb0608921499/image/i070655b7e9ecef4c/version/1728460569/cratena-affinis.jpg","n":"Cratena affinis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=300x10000:format=jpg/path/seaf7fb0608921499/image/ie9579bca3ec56534/version/1333333853/cratena-sp.jpg","n":"Cratena sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i47341f921dba4246/version/1728184584/cratena-sp-2.jpg","n":"Cratena sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=541x10000:format=jpg/path/seaf7fb0608921499/image/i8f23a6ee4d5e03fb/version/1728543513/image.jpg","n":"Facelinid non identifié sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=330x10000:format=jpg/path/seaf7fb0608921499/image/i0c7e8d1ba8e823d4/version/1728543215/facelinid-non-identifi%C3%A9-sp1.jpg","n":"Facelinid non identifié sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i72bb56bc51f425c0/version/1728544854/facelinid-non-identifi%C3%A9-sp-4.jpg","n":"Facelinid non identifié sp.4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/if88a8d11977e253c/version/1728545420/facelinid-non-identifi%C3%A9-sp-5.jpg","n":"Facelinid non identifié sp.5","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/id0d5ca7d8d002844/version/1728534686/image.jpg","n":"Facellina sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/icde13957a5cc78c9/version/1324882204/favorinus-japonicus.jpg","n":"Favorinus japonicus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i52e908bcbff3742c/version/1715415825/favorinus-sp-1.jpg","n":"Favorinus sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2776d9dc4d7e5cea/version/1728546702/favorinus-sp-2.jpg","n":"Favorinus sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i7b36c7b99fc3a631/version/1728546830/favorinus-sp-3.jpg","n":"Favorinus sp. 3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ide41518fa3442b12/version/1728546953/favorinus-sp-4.jpg","n":"Favorinus sp.4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i1f0d226bef342d01/version/1728691183/herviella-albida.jpg","n":"Herviella albida","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i69e2010e582ea3f9/version/1728691657/herviella-mietta.jpg","n":"Herviella mietta","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ie74f8be69d7fa32e/version/1728716725/herviella-sp-1.jpg","n":"Herviella sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/id225801c7646d213/version/1728715334/herviella-yatsui.jpg","n":"Herviella yatsui","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ic3174855c83a205a/version/1728794759/limenandra-confusa-anc-baeolidia-nodosa.jpg","n":"Limenandra confusa","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=580x10000:format=jpg/path/seaf7fb0608921499/image/ie299bcab017f27d4/version/1358637850/baeolidia-fusiformis.jpg","n":"Baeolidia fusiformis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=530x10000:format=jpg/path/seaf7fb0608921499/image/i2e228d7221a49ca8/version/1715110967/limenandra-rosanae-anciennt-baeolidia-sp-1.jpg","n":"Limenandra rosanae","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i02dbc6e34de52894/version/1728835034/moridilla-sp-1.jpg","n":"Moridilla sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i0694fa1dc7bfbeb7/version/1333336003/noumeaella-rehderi.jpg","n":"Noumeaella rehderi","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=590x10000:format=jpg/path/seaf7fb0608921499/image/ib210dc7f32e9065a/version/1386024179/noumeaella-sp-1.jpg","n":"Noumeaella sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=360x10000:format=jpg/path/seaf7fb0608921499/image/i805b6c958b03f8cb/version/1330653787/phidiana-salaamica.jpg","n":"Phidiana salaamica","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=360x10000:format=jpg/path/seaf7fb0608921499/image/i2b6bf4ad5036a386/version/1331765798/phyllodesmium-sp-1.jpg","n":"Phyllodesmium sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ie3ac340c15fcd6e9/version/1517995202/protaeolidia-juliae.jpg","n":"Protaeolidia juliae","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/none/path/seaf7fb0608921499/image/iaf3c53618fed4f02/version/1396507681/pteraeolidia-ianthina.jpg","n":"Pteraeolidia ianthina","f":1}],"Actinocyclidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i949251f6b58583a3/version/1735935886/actinocyclus-verrucosus.jpg","n":"Actinocyclus verrucosus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i4a3c9bc98fa55b7b/version/1728677897/hallaxa-cryptica.jpg","n":"Hallaxa cryptica","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2e2a3cba46f4096c/version/1746604552/hallaxa-iju.jpg","n":"Hallaxa iju","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i9bb68c6b15e2e4dd/version/1728678428/hallaxa-paulinae.jpg","n":"Hallaxa paulinae","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i96d445d3b66da5dc/version/1728678828/hallaxa-sp-2.jpg","n":"Hallaxa sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i0f57c9a014c05977/version/1728679417/hallaxa-sp-3.jpg","n":"Hallaxa sp.3","f":1}],"Aegiridae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i7457b812ebf13760/version/1735978571/aegires-cf-incusus.jpg","n":"Aegires cf. incusus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2efddc4123833a10/version/1728458961/image.jpg","n":"Aegires exeches","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/iafb4c09b19689e3e/version/1735978441/aegires-pruvotfolae.jpg","n":"Aegires citrinus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ifdbc4a79ca644b68/version/1728434916/aegires-sp-1.jpg","n":"Aegires sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=614x10000:format=jpg/path/seaf7fb0608921499/image/i1eef5caf838f59ac/version/1728838921/niparaya-cf-regiscorona-anc-aglaja-cf-regiscorona.jpg","n":"Niparaya cf regiscorona","f":1}],"Aeolidiidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i3de647857c8d3292/version/1728861288/anteaeolidiella-sp-1.jpg","n":"Anteaeolidiella sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i49fee76174306c77/version/1715115627/baeolidia-scottjohnsoni-anc-berghia-japonica.jpg","n":"Baeolidia scottjohnsoni","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/iee5a835ae77a785b/version/1728459567/baeolidia-sp-1.jpg","n":"Baeolidia sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ie2069cd8e4f6ea5c/version/1727721314/bulbaeolidia-alba-anc-aeolidiella-alba.jpg","n":"Bulbaeolidia alba","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=510x10000:format=jpg/path/seaf7fb0608921499/image/ie0aef91648ba1f8e/version/1324866272/cerberilla-annulata.jpg","n":"Cerberilla annulata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i953469b2e443fd6c/version/1332653908/cerberilla-sp-1.jpg","n":"Cerberilla sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i07675c8bb12d448d/version/1332653988/cerberilla-sp-2.jpg","n":"Cerberilla sp. 2","f":1}],"Aplustridae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i6e456406797b5b7d/version/1728155327/aplustrum-amplustre-anc-hydatina-amplustre.jpg","n":"Aplustrum amplustre","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i84df34f0874e32b5/version/1727507877/image.jpg","n":"Bullina lineata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=390x10000:format=jpg/path/seaf7fb0608921499/image/icd425772d8f614ae/version/1728173760/bullina-sp-1.jpg","n":"Bullina sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i981a67e6e657584a/version/1333335448/hydatina-physis.jpg","n":"Hydatina physis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=420x10000:format=jpg/path/seaf7fb0608921499/image/i85293fdf050ebab7/version/1728832610/micromelo-scriptus-anc-micromelo-undatum.jpg","n":"Micromelo scriptus","f":1}],"Aplysiidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i4f4a6b507b131262/version/1715932671/aplysia-argus-autrefois-aplysia-dactylomela.jpg","n":"Aplysia argus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=510x10000:format=jpg/path/seaf7fb0608921499/image/if57c946bc0233814/version/1349679061/aplysia-cf-parvula.jpg","n":"Aplysia cf parvula","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i0da717996ef4c49c/version/1728715416/aplysia-sp-1.jpg","n":"Aplysia sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=590x10000:format=jpg/path/seaf7fb0608921499/image/i31c4f7a43943f4a9/version/1378844249/dolabella-auricularia-wedge-sea-hare-35cm-rurutu-15m.jpg","n":"Dolabella auricularia","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ib3541992514811d9/version/1728971571/petalifera-sp-1.jpg","n":"Petalifera sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i16e65694c393e3b9/version/1728974880/phycophila-euchlora-anc-stylocheilus-sp-1.jpg","n":"Phycophila euchlora","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i29a2642442bdff03/version/1728596561/phyllaplisia-lafonti.jpg","n":"Phyllaplisia lafonti","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i467eccec2c4f652a/version/1334112426/image.jpg","n":"Stylocheilus longicauda","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i35ee2aea29a9d819/version/1333412651/stylocheilus-striatus.jpg","n":"Stylocheilus striatus","f":1}],"Chromodorididae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ie14a266399a8edfe/version/1727718039/ardeodoris-angustolutea-anc-noumea-angustolutea.jpg","n":"Ardeadoris angustolutea","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=659x10000:format=jpg/path/seaf7fb0608921499/image/if44ceeb42a34de43/version/1727483413/image.jpg","n":"Ardeodoris sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i4580e80f3922fbd6/version/1729736714/ardeodoris-sp-2.jpg","n":"Ardeodoris sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i4f46c023d50ae6b2/version/1326692854/ceratosoma-miamirana.jpg","n":"Ceratosoma miamirana (Miamira miamirana)","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i6c3f0e138a0c265a/version/1331629298/chromodoris-aspersa.jpg","n":"Chromodoris aspersa","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i4a0e7cc022e7a217/version/1324880303/chromodoris-lochi.jpg","n":"Chromodoris lochi","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ibaef535ac7f8d76f/version/1728179395/chromodoris-sp-1.jpg","n":"Chromodoris sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=582x10000:format=jpg/path/seaf7fb0608921499/image/i3630bf355ae4e4c5/version/1728262324/chromodoris-sp-4.jpg","n":"Chromodoris sp. 4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=300x10000:format=jpg/path/seaf7fb0608921499/image/i173c42a037cd45bd/version/1716192125/chromodoris-sp-7.jpg","n":"Chromodoris sp. 7","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=590x10000:format=jpg/path/seaf7fb0608921499/image/ie876e27e6cddc171/version/1358638138/chromodoris-willani.jpg","n":"Chromodoris willani","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ib5c53b1e52ced4c3/version/1727718527/diversidoris-flava-anc-noumea-flava.jpg","n":"Diversidoris flava","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=628x10000:format=jpg/path/seaf7fb0608921499/image/ic96a09fc7ee0cce5/version/1716277283/doriprismatica-sibogae-autrefois-glossodoris-sibogae.jpg","n":"Doriprismatica sibogae","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i3c87d002e568f331/version/1322372098/image.jpg","n":"Glossodoris cincta","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i5312709b8e456df8/version/1333334994/glossodoris-hikuerensis.jpg","n":"Glossodoris hikuerensis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i68fd446e377019d5/version/1324880850/glossodoris-rufomarginata.jpg","n":"Glossodoris rufomarginata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i29a9ab562e01e69e/version/1728260302/goniobranchus-albonares-anc-chromodoris-albonares.jpg","n":"Goniobranchus albonares","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=561x10000:format=jpg/path/seaf7fb0608921499/image/i2ed3c1fd8906e86d/version/1368925792/goniobranchus-albopunctatus.jpg","n":"Goniobranchus albopunctatus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=556x10000:format=jpg/path/seaf7fb0608921499/image/iad54d00b2a166a5c/version/1728260722/goniobranchus-cf-geometricus-anc-chromodoris-cf-geometrica.jpg","n":"Chromodoris cf geometrica","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=486x10000:format=jpg/path/seaf7fb0608921499/image/icb0289c9f895cb5a/version/1728261733/goniobranchus-cf-reticulatus-anc-chromodoris-cf-reticulatus-raivavae-lagoon-12m-3-cm.jpg","n":"Goniobranchus cf. reticulatus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i599e587ff5472c90/version/1728064759/goniobranchus-decorus-anc-chromodoris-decora.jpg","n":"Goniobranchus decorus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ic52fb15c1c50cd92/version/1727509406/image.jpg","n":"Goniobranchus kuniei","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=590x10000:format=jpg/path/seaf7fb0608921499/image/id98b43386117d486/version/1728179613/goniobranchus-sp-1-anc-chromodoris-sp-1.jpg","n":"Goniobranchus sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=489x10000:format=jpg/path/seaf7fb0608921499/image/i7c4b9c59b12f4ea4/version/1728179502/goniobranchus-sp-2-anc-chromodoris-sp-2.jpg","n":"Goniobranchus sp. 2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i4b97fed050f397d0/version/1728262683/goniobranchus-sp-3-anc-chromodoris-sp-5.jpg","n":"Goniobranchus sp.3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=530x10000:format=jpg/path/seaf7fb0608921499/image/id9a7f77bcac8ec7b/version/1728279267/goniobranchus-sp-4-anc-chromodoris-sp-6.jpg","n":"Goniobranchus sp.4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=573x10000:format=jpg/path/seaf7fb0608921499/image/i90ef41bd41a10e25/version/1728261070/goniobranchus-verrieri-anc-chromodoris-verrieri.jpg","n":"Goniobranchus verrieri","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ibf9acf400d66a5a6/version/1728717564/hypselodoris-bertschi.jpg","n":"Hypselodoris bertschi","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/if909ea83a85f0090/version/1728719132/hypselodoris-imperialis-anc-risbecia-imperialis.jpg","n":"Hypselodoris imperialis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=360x10000:format=jpg/path/seaf7fb0608921499/image/i70d31f4e20f4881e/version/1336358123/hypselodoris-maculosa.jpg","n":"Hypselodoris maculosa","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ic38d100c23e4f65a/version/1728718566/hypselodoris-sp-1.jpg","n":"Hypselodoris sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=330x10000:format=jpg/path/seaf7fb0608921499/image/i19953809e7ce2fb4/version/1728719565/hypselodoris-tryoni-anc-risbecia-tryoni.jpg","n":"Hypselodoris tryoni","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i95358a076905d291/version/1333335598/hypselodoris-whitei.jpg","n":"Hypselodoris whitei","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=590x10000:format=jpg/path/seaf7fb0608921499/image/ibf0b2e4fbd43796d/version/1373694475/hypselodoris-zephyra.jpg","n":"Hypselodoris zephyra","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=530x10000:format=jpg/path/seaf7fb0608921499/image/i951f4cf547ee2444/version/1728071244/mexichromis-lemniscata-anc-durvilledoris-lemniscata.jpg","n":"Mexichromis lemniscata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i02d93b2cb67399a6/version/1728829844/mexichromis-pusilla.jpg","n":"Mexichromis pusilla","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=599x10000:format=jpg/path/seaf7fb0608921499/image/ic29bf7df1c7d5a65/version/1716196296/thorunna-cf-halourga.jpg","n":"Thorunna cf halourga","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i77c8742f86dd134b/version/1322643598/thorunna-daniellae.jpg","n":"Thorunna daniellae","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i7d1f8cf7b5913e2e/version/1333413334/thorunna-florens.jpg","n":"Thorunna florens","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=330x10000:format=jpg/path/seaf7fb0608921499/image/ib2d97c872d9356b4/version/1324191400/thorunna-purpuropedis-raiatea-8mm-20-m-observation-de-jour.jpg","n":"Thorunna purpuropedis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i090ed05a6352c24e/version/1330654471/thorunna-sp.jpg","n":"Thorunna sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=530x10000:format=jpg/path/seaf7fb0608921499/image/i31e1d169ccef5896/version/1335921577/image.jpg","n":"Thorunna sp. 2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i5d6180a5501d89f8/version/1729716693/thorunna-sp-3.jpg","n":"Thorunna sp.3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/id4df92b0e67b066c/version/1729585299/thorunna-sp-4.jpg","n":"Thorunna sp.4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i22dd0afe6b652ff3/version/1728879468/verconia-simplex-anc-noumea-simplex.jpg","n":"Verconia simplex","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i1e68e83dc1fe1e03/version/1728878832/verconia-sp-2-anc-noumea-cf-norba.jpg","n":"Verconia sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=563x10000:format=jpg/path/seaf7fb0608921499/image/ia08e0d3d14c3d33f/version/1728879841/verconia-varians.jpg","n":"Verconia varians","f":1}],"Discodorididae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ida789580ef60c600/version/1728459303/atagema-cf-osseosa.jpg","n":"Atagema cf osseosa","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=590x10000:format=jpg/path/seaf7fb0608921499/image/i3399ed187d9de20a/version/1340213256/atagema-sp-3.jpg","n":"Atagema sp. 3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i229483cfe42f3865/version/1728459332/atagema-sp-4.jpg","n":"Atagema sp. 4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=510x10000:format=jpg/path/seaf7fb0608921499/image/i32a2546ba770d6c4/version/1324866041/carminodoris-flammea.jpg","n":"Carminodoris flammea","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=300x10000:format=jpg/path/seaf7fb0608921499/image/ia20e689fb2dd6a6e/version/1333413678/discodorid-1-non-identifi%C3%A9.jpg","n":"Discodorid 1 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i4d3af55a01b6680d/version/1729235464/image.jpg","n":"Discodorid sp.10 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2bfa33f449d3271b/version/1729236076/discodorid-sp-11-non-identifi%C3%A9.jpg","n":"Discodorid sp.11 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ic2323c2316b011a9/version/1729236228/discodorid-sp-12-non-identifi%C3%A9.jpg","n":"Discodorid sp.12 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i73e470516505c4a8/version/1729904262/discodorid-sp-13-non-identifi%C3%A9.jpg","n":"Discodorid sp.13 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i09f1a82141910dff/version/1341443547/discodorid-2-non-identifi%C3%A9.jpg","n":"Discodorid 2 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ia6e67a7a1bcdad1b/version/1330386517/discodorid-3-non-identifi%C3%A9.jpg","n":"Discodorid 3 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/if80d9d74be9ad378/version/1331766517/discodorid-4-non-identifi%C3%A9.jpg","n":"Discodorid 4 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ifb8c4642f79c3327/version/1729231984/discodorid-sp-5-non-identifi%C3%A9.jpg","n":"Discodorid sp.5 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ifd61da206d9b0636/version/1729232723/discodorid-sp-6-non-identifi%C3%A9.jpg","n":"Discodorid sp.6 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i66567703b028c39f/version/1729233388/discodorid-sp-7-non-identifi%C3%A9.jpg","n":"Discodorid sp.7 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i81da6ed852824013/version/1729236328/discodorid-sp-8-non-identifi%C3%A9.jpg","n":"Discodorid sp.8 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ie0bf5c2ee2f75126/version/1729234838/image.jpg","n":"Discodorid sp.9 non identifié","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=330x10000:format=jpg/path/seaf7fb0608921499/image/i044625219b6eb22a/version/1518160150/halgerda-brunneomaculata.jpg","n":"Halgerda brunneomaculata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i861d2ac5bd0fe449/version/1746604015/halgerda-sp-1.jpg","n":"Halgerda sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ie8fe025772d6854b/version/1746603800/halgerda-sp-2-tahiti-15m-5cm.jpg","n":"Halgerda berberiani","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i21030b135cfc4ca6/version/1324880915/halgerda-willeyi.jpg","n":"Halgerda willeyi","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/if277c76ee41c873e/version/1735936618/jorunna-funebris.jpg","n":"Jorunna funebris","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ia9684b714ef3f9db/version/1728720419/jorunna-parva.jpg","n":"Jorunna parva","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i974dd5b95707af72/version/1332467687/jorunna-sp-1.jpg","n":"Jorunna sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i4457a72fba36347a/version/1728971140/paradoris-sp-1.jpg","n":"Paradoris sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i31ef4c27cbb60e16/version/1728970880/paradoris-sp-2.jpg","n":"Paradoris sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/icfe6130ba437f77c/version/1728717180/peltodoris-fellowsi-anc-hiatodoris-fellowsi.jpg","n":"Hiatodoris fellowsi","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i1dffd060988acf2c/version/1728978466/platydoris-cruenta.jpg","n":"Platydoris cruenta","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i0b0b948b3a8e988a/version/1728978909/platydoris-scabra.jpg","n":"Platydoris scabra","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ia1c2ff4a2cd2cc86/version/1729056079/platydoris-sp-1.jpg","n":"Platydoris sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i3c7445d6e465c816/version/1336515497/platydoris-sp-2.jpg","n":"Platydoris sp. 2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ib24b0018084132b9/version/1729057378/platydoris-sp-3.jpg","n":"Platydoris sp.3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=300x10000:format=jpg/path/seaf7fb0608921499/image/ie635ad72ab969350/version/1333412372/sclerodoris-tuberculata.jpg","n":"Sclerodoris tuberculata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i605ef4e371db433b/version/1333413009/tayuva-lilacina-identification-non-certaine.jpg","n":"Tayuva lilacina","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=gif/path/seaf7fb0608921499/image/i9d7a461310559b49/version/1328141264/thordisa-albomacula.gif","n":"Avaldesia albomacula","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i73854cc7a61a55c3/version/1333413211/thordisa-cf-tahala.jpg","n":"Thordisa cf tahala","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i95d9a9c3c38db88a/version/1333413132/thordisa-luteola.jpg","n":"Thordisa luteola","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/if373aa9a61bb746f/version/1729583312/thordisa-sp-1.jpg","n":"Thordisa sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ic8e4e97a84eada7c/version/1729583603/thordisa-sp-2.jpg","n":"Thordisa sp.2","f":1}],"Haminoeidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ib387a47132fb842d/version/1334209256/atys-kuhnsi.jpg","n":"Atys kuhnsi","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/iab2d7bdc8f537419/version/1332653099/atys-multistriatus.jpg","n":"Atys multistriatus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=529x10000:format=jpg/path/seaf7fb0608921499/image/i8e1b9d7c17a842e3/version/1728062709/atys-semistriatus.jpg","n":"Atys semistriatus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i3a12ddd734b7e234/version/1728527245/atys-sp-1.jpg","n":"Atys sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i1f3cb5d344b39568/version/1333334156/diniatys-dentifer.jpg","n":"Diniatys dentifer","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ibe88a48097700d49/version/1715932284/diniatys-dubius-autrefois-diniatys-dubia.jpg","n":"Diniatys dubius","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i001103ad6a02c4e5/version/1728680037/image.jpg","n":"Haloa Crocata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i3464386f671d447b/version/1728680299/haloa-sp-1.jpg","n":"Haloa sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ie9ac78ecfba68c7f/version/1735940871/haloa-wallisi.jpg","n":"Haloa wallisii","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i430a277bb2dc1363/version/1728682161/haminoea-cf-natalensis.jpg","n":"Haminoea cf natalensis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i70fc819f2eff92bf/version/1333335349/haminoea-cymbalum.jpg","n":"Haminoea cymbalum","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2005bd2e6b887295/version/1728680582/image.jpg","n":"Haminoea sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/id55fac52979d28cf/version/1728686006/haminoeid-sp-1.jpg","n":"Haminoeid sp.1 Lt","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i4a020bf9c0f3fc12/version/1728689191/haminoeid-sp-2.jpg","n":"Haminoeid sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2bd130402df51fa2/version/1728689074/haminoeid-sp-3.jpg","n":"Haminoeid sp.3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i3fdbb12a8a2e4a01/version/1735981563/haminoeid-sp-4.jpg","n":"Haminoeid sp.4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/if2c9583301fde87c/version/1728689634/lamprohaminoea-cf-ovalis-anc-haminoea-cf-ovalis.jpg","n":"Lamprohaminoea cf ovalis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/id2faf72d81cadc97/version/1728689547/lamprohaminoea-ovalis.jpg","n":"Lamprohaminoea ovalis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i7ff972908796b21a/version/1330571974/liloa-curta.jpg","n":"Liloa curta","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ibfc4c00ed86f02b0/version/1728793701/liloa-sp-1.jpg","n":"Liloa sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i1de56b16fe2d4901/version/1728793861/liloa-sp-2.jpg","n":"Liloa sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i11c5e952fd347c8c/version/1736468289/liloa-sp-3.jpg","n":"Liloa sp.3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/idbc9b06880a2a289/version/1728971856/phanerophthalmus-cf-albocollaris.jpg","n":"Phanerophthalmus cf albocollaris","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=411x10000:format=jpg/path/seaf7fb0608921499/image/i6cba27d63383f69b/version/1331631477/phanerophthalmus-cylindricus.jpg","n":"Phanerophthalmus cylindricus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i48642a01be9695e4/version/1728972659/phanerophthalmus-sp-1.jpg","n":"Phanerophthalmus sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i7852a76753a113f8/version/1728972998/image.jpg","n":"Phanerophthalmus sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ib737b3ed8553c9de/version/1728973242/phaneropthalmus-sp-3.jpg","n":"Phanerophthalmus sp.3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i4f4a1c54c521f9d2/version/1728973351/phanerophthalmus-sp-4.jpg","n":"Phanerophthalmus sp.4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i5631170c45c5b357/version/1729354981/smaragdinella-calyculata.jpg","n":"Smaragdinella calyculata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i648633cd8a2ebd26/version/1729734112/vellicolla-sp-1.jpg","n":"Vellicolla sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ife283ce95edac735/version/1729733955/vellicolla-amphorella.jpg","n":"Vellicolla amphorella","f":1}],"Babakinidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/if125c5b15c63d9aa/version/1728459469/babakina-indopacifica.jpg","n":"Babakina indopacifica","f":1}],"Juliidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ibdef9e75f86d6831/version/1736468755/berthelinia-cf-pseudochloris.jpg","n":"Berthelinia cf pseudochloris","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i96b7e4b89bb9c4d0/version/1728720596/julia-exquisita.jpg","n":"Julia exquisita","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i4abcb7d0b1e89dda/version/1728792457/julia-sp-1.jpg","n":"Julia sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i6ac760c6223e50cc/version/1746605169/julia-sp-2.jpg","n":"Julia sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/if024ca8799b128c0/version/1728793147/image.jpg","n":"Julia Zebra","f":1}],"Pleurobranchidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i09985f43d06d7876/version/1332653303/berthella-sp-1.jpg","n":"Berthella sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i3948b900ac982c88/version/1728459597/berthella-sp-2.jpg","n":"Berthella sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/if9dea3895c3c62f1/version/1728163260/berthella-stellata.jpg","n":"Berthella stellata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i29bff06e121f9ce9/version/1324865733/berthellina-delicata.jpg","n":"Berthellina delicata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/id37ecfea3f9a922f/version/1728979312/pleurehdera-haraldi.jpg","n":"Pleurehdera haraldi","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/id76e899ac175fe66/version/1322643162/pleurobranchus-albiguttatus.jpg","n":"Pleurobranchus albiguttatus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/if88a6fc3c5b296e2/version/1331015392/image.jpg","n":"Pleurobranchus grandis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ib065c5f41fddd443/version/1728979677/pleurobranchus-peroni.jpg","n":"Pleurobranchus peroni","f":1}],"Aglajidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=376x10000:format=jpg/path/seaf7fb0608921499/image/i11b90d9d95a21a26/version/1715123551/image.jpg","n":"Biuve cf fulvipunctata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i477b975e0307cbf0/version/1728459802/image.jpg","n":"Biuve sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ib0cd01aface46a8a/version/1332654147/chelidonura-alisonae.jpg","n":"Chelidonura alisonae","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i25f44c03ec25a9c9/version/1728460344/image.jpg","n":"Chelidonura hirundinina","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i4ed3bd43c46dd00a/version/1728460358/image.jpg","n":"Chelidonura sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=364x10000:format=jpg/path/seaf7fb0608921499/image/i1a53a40d478ca765/version/1715118003/image.jpg","n":"Mariaglaja cf sandrana","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i54d0f930c030a295/version/1326603147/philinopsis-speciosa-tahiti-3m.jpg","n":"Philinopsis speciosa","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i97f74c0b9d32cd14/version/1729456186/spinoaglaja-orientalis.jpg","n":"Spinoaglaja orientalis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=540x10000:format=jpg/path/seaf7fb0608921499/image/i65d6e2fe6e94b471/version/1739218081/philinopsis-pilsbryi.jpg","n":"Tubulophilinopsis pilsbryi","f":1}],"Bornellidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=300x10000:format=jpg/path/seaf7fb0608921499/image/i9f5de485ac9fa1e3/version/1332660029/bornella-pele.jpg","n":"Bornella pele","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=560x10000:format=jpg/path/seaf7fb0608921499/image/i83a6e3927070e798/version/1335932647/bornella-stellifer.jpg","n":"Bornella stellifer","f":1}],"Bullidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=360x10000:format=jpg/path/seaf7fb0608921499/image/iba4355e37f25c02f/version/1330623842/bulla-orientalis.jpg","n":"Bulla orientalis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i81c9293d68af65da/version/1728459836/bulla-vernicosa.jpg","n":"Bulla vernicosa","f":1}],"Phylliroidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=590x10000:format=jpg/path/seaf7fb0608921499/image/if2767015900824bd/version/1373268603/cephalopyge-trematoides.jpg","n":"Cephalopyge trematoides","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=560x10000:format=jpg/path/seaf7fb0608921499/image/ia2cc491962300ce2/version/1448185048/phylliroe-bucephalum.jpg","n":"Phylliroe bucephalum","f":1}],"Colpodaspididae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ida3b4fd2ad75259e/version/1728460401/colpodaspis-thompsoni.jpg","n":"Colpodaspis thompsoni","f":1}],"Costasiellidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=360x10000:format=jpg/path/seaf7fb0608921499/image/i8a0d6c8697ade894/version/1728180435/costasiella-kuroshimae.jpg","n":"Costasiella kuroshimae","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ic9bc462fc686674c/version/1322642034/costasiella-sp-1.jpg","n":"Costasiella sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=510x10000:format=jpg/path/seaf7fb0608921499/image/if3b7a1a84cf74380/version/1335846244/costasiella-sp-2.jpg","n":"Costasiella sp. 2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=420x10000:format=jpg/path/seaf7fb0608921499/image/iea42c941c2f84000/version/1335846200/costasiella-sp-3.jpg","n":"Costasiella sp. 3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/idca54bc716b5033d/version/1728460470/costasiella-sp-4.jpg","n":"Costasiella sp. 4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/none/path/seaf7fb0608921499/image/if99077f92079af66/version/1358638523/costasiella-sp-5.jpg","n":"Costasiella sp. 5","f":1}],"Scyllaeidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=415x10000:format=jpg/path/seaf7fb0608921499/image/i618732f5427230a3/version/1728460740/crosslandia-sp-1.jpg","n":"Crosslandia sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=455x10000:format=jpg/path/seaf7fb0608921499/image/ia614e97c9e34802e/version/1728528646/crosslandia-sp-2.jpg","n":"Crosslandia sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i28d8b2b371609218/version/1729055937/scyllae-sp-1.jpg","n":"Scyllae sp.1","f":1}],"Caliphyllidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=510x10000:format=jpg/path/seaf7fb0608921499/image/i4c7a48c5382860c3/version/1728460771/cyerce-bourbonica.jpg","n":"Cyerce bourbonica","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ic0ec7fd2b0b426e0/version/1719461850/cyerce-elegans.jpg","n":"Cyerce elegans","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=476x10000:format=jpg/path/seaf7fb0608921499/image/i230a10968dc06740/version/1728068422/cyerce-nigricans-2cm-tahiti-lafayette-s-bay-3m.jpg","n":"Cyerce nigricans","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=376x10000:format=jpg/path/seaf7fb0608921499/image/ie097b8c6123da48a/version/1728461103/image.jpg","n":"Cyerce Pavonina","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/iaf124fdf6ffebbfb/version/1728461153/cyerce-sp-1.jpg","n":"Cyerce sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i3401b4a892fc2c15/version/1728835318/image.jpg","n":"Mourgona sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i62fda01e0ff96c45/version/1728836698/mourgona-sp-2.jpg","n":"Mourgona sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ie60ae497f5c86822/version/1729058355/polybranchia-orientalis-juv%C3%A9nile.jpg","n":"Polybranchia orientalis","f":1}],"Cylindrobullidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/id5bea8b04252e34c/version/1728623095/cylindrobulla-sp-1.jpg","n":"Cylindrobulla sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ieb45d10bc60339ef/version/1728461285/cylindrobulla-sp-2.jpg","n":"Cylindrobulla sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i86dbfb7fc1af18bc/version/1728461301/image.jpg","n":"Cylindrobulla sp.3","f":1}],"Dendrodorididae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=330x10000:format=jpg/path/seaf7fb0608921499/image/i46af8f5370134b5a/version/1331629641/dendrodoris-carbunculosa.jpg","n":"Dendrodoris carbunculosa","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i8d821107833c1f17/version/1728461403/image.jpg","n":"Dendrodoris coronata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ia2287240367bef62/version/1332728521/dendrodoris-elongata.jpg","n":"Dendrodoris elongata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i7987af4cea7d6a7d/version/1333334118/dendrodoris-nigra.jpg","n":"Dendrodoris nigra","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=530x10000:format=jpg/path/seaf7fb0608921499/image/i43b0d348c91e3d61/version/1335933379/dendrodoris-tuberculosa.jpg","n":"Dendrodoris tuberculosa","f":1}],"Arminidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i1adc56633f043d31/version/1728623203/dermatobranchus-cf-albus.jpg","n":"Dermatobranchus cf. albus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/id530596711e8074d/version/1728461715/dermatobranchus-fortunatus.jpg","n":"Dermatobranchus fortunatus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=300x10000:format=jpg/path/seaf7fb0608921499/image/i37cbd162e040cbdb/version/1728070346/dermatobranchus-sp-1.jpg","n":"Dermatobranchus sp. 1","f":1}],"Diaphorodorididae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i0dfe18d819977d59/version/1728606898/diaphorodoris-sp-1.jpg","n":"Diaphorodoris sp.1","f":1}],"Dolabriferidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=590x10000:format=jpg/path/seaf7fb0608921499/image/i7840964d4186c341/version/1728070472/dolabrifera-cf-dolabrifera.jpg","n":"Dolabrifera cf dolabrifera","f":1}],"Dorididae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2ef1590e3a898085/version/1728462049/doris-granulosa.jpg","n":"Doriopsis granulosa","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=560x10000:format=jpg/path/seaf7fb0608921499/image/ifbfdff0ff9f718cd/version/1335938554/doris-pecten.jpg","n":"Doris pecten","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ifa348b9239b1439a/version/1728518537/doris-sp-1.jpg","n":"Doris sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i766ab35756585b9c/version/1736466876/doris-viridis.jpg","n":"Doris viridis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i6d6e6a1f946ba095/version/1729059905/rostanga-sp-1.jpg","n":"Rostanga sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2c8d31e102763058/version/1729059602/rostanga-sp-2.jpg","n":"Rostanga sp.2","f":1}],"Dotidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i1015e2d5cef29ac5/version/1728961618/doto-sp-1.jpg","n":"Doto sp.1","f":1}],"Plakobranchidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i9f0cd8a1e0a1c326/version/1728518631/elysia-degeneri.jpg","n":"Elysia degeneri","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/id116b2f860c6ba19/version/1715932911/elysia-marginata-autrefois-elysia-ornata.jpg","n":"Elysia marginata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ib1a0be37c51f85d4/version/1728518695/elysia-nealae.jpg","n":"Elysia nealae","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i2c36307f27ca1e86/version/1327470993/elysia-nigropunctata.jpg","n":"Elysia nigropunctata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=438x10000:format=jpg/path/seaf7fb0608921499/image/i30762d73c87bc155/version/1728519010/elysia-obtusa.jpg","n":"Elysia obtusa","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ic251ad096cabea75/version/1333334373/elysia-pusilla.jpg","n":"Elysia pusilla","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=576x10000:format=jpg/path/seaf7fb0608921499/image/i994c5670238543d6/version/1716192482/elysia-rufescens.jpg","n":"Elysia rufescens","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=300x10000:format=jpg/path/seaf7fb0608921499/image/ia1363759e703fb4e/version/1322642404/elysia-sp-1.jpg","n":"Elysia sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=560x10000:format=jpg/path/seaf7fb0608921499/image/i360ec4e4db506f37/version/1335938330/elysia-sp-10.jpg","n":"Elysia sp. 10","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=530x10000:format=jpg/path/seaf7fb0608921499/image/i7a9665ea428661a7/version/1336514564/elysia-sp-11.jpg","n":"Elysia sp. 11","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i1f131d79bb575e4b/version/1728531522/elysia-sp-12.jpg","n":"Elysia sp. 12","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i0fb128e8c3b8051f/version/1728522378/elysia-sp-13.jpg","n":"Elysia sp.13","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/icae10ebc482d9447/version/1728521558/elysia-sp-15.jpg","n":"Elysia sp. 15","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/id46518bd2408e312/version/1729737584/elysia-sp-16.jpg","n":"Elysia sp.16","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ic87952ba0619bfe2/version/1728519707/image.jpg","n":"Elysia sp.17","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ib312b60c267af723/version/1728525654/elysia-sp-18.jpg","n":"Elysia sp.18","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i06ee13bf4c04f3ff/version/1728520867/elysia-sp-19.jpg","n":"Elysia sp.19","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=723x10000:format=jpg/path/seaf7fb0608921499/image/i427225e431410b9f/version/1728524453/elysia-sp-2.jpg","n":"Elysia sp. 2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i8f2e42f91298f495/version/1728520927/elysia-sp-20.jpg","n":"Elysia sp.20","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i4c888c17cf50ce53/version/1728520975/elysia-sp-21.jpg","n":"Elysia sp.21","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/if4c56818e0749fef/version/1729714833/elysia-sp-22.jpg","n":"Elysia sp.22","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i1939b9f44a4e47f3/version/1731446782/elysia-sp-23.jpg","n":"Elysia sp.23","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/iaab558f458a905d8/version/1333334468/elysia-sp-3.jpg","n":"Elysia sp. 3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i9f3784394816d2af/version/1333334508/elysia-sp-4.jpg","n":"Elysia sp. 4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i8e09c1513d4f1a92/version/1333334546/elysia-sp-5.jpg","n":"Elysia sp. 5","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i2f517d400ea15049/version/1333334589/elysia-sp-6.jpg","n":"Elysia sp. 6","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=300x10000:format=jpg/path/seaf7fb0608921499/image/i2f1a02de125ae49e/version/1333334663/elysia-sp-7.jpg","n":"Elysia sp. 7","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/iced0b5dea2a3b3d3/version/1333334716/elysia-sp-8.jpg","n":"Elysia sp. 8","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i64863b92c8b7ced4/version/1331630302/elysia-sp-9.jpg","n":"Elysia sp. 9","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i4a6b8aec1ac5fa66/version/1736063487/elysia-sp-24.jpg","n":"Elysia sp.24","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ic764c4bb5aadf26d/version/1735979577/elysia-sp-25.jpg","n":"Elysia sp.25","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i1f3f5efdd72728aa/version/1736057225/elysia-tomentosa.jpg","n":"Elysia tomentosa","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ib8fbd6b1143c77c0/version/1322643125/plakobranchus-ocellatus.jpg","n":"Plakobranchus ocellatus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/if0486b2f535518fa/version/1736568004/plakobranchus-sp-1.jpg","n":"Plakobranchus sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=360x10000:format=jpg/path/seaf7fb0608921499/image/i08f37aef41bec280/version/1729718202/thuridilia-carlsoni.jpg","n":"Thuridilla carlsoni","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i7673aa17b7abfa1d/version/1729720248/thuridilla-cf-neona.jpg","n":"Thuridilla cf. neona","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ib93d452bf413b4ef/version/1729719290/thuridilla-gracilis.jpg","n":"Thuridilla gracilis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ib3f03db81082af01/version/1729719703/image.jpg","n":"Thuridilla kathae","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i7966383072489c78/version/1729719983/thuridilla-livida.jpg","n":"Thuridilla livida","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ib43755d783005ca4/version/1729720451/thuridilla-sp-1.jpg","n":"Thuridilla sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=360x10000:format=jpg/path/seaf7fb0608921499/image/id28ef1b8f9f6f70d/version/1719209986/thuridilla-vatae.jpg","n":"Thuridilla vataae","f":1}],"Embletoniidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ic3363705174b50f2/version/1728526415/image.jpg","n":"Embletonia gracilis","f":1}],"Limapontiidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ie06e2c6048a4ca0b/version/1728624236/ercolania-anellyleorum.jpg","n":"Ercolania anellyleorum","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=418x10000:format=jpg/path/seaf7fb0608921499/image/i1c7b6ef73e8f74c3/version/1728526779/ercolania-sp-1.jpg","n":"Ercolania sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i7d0ceb59a1fe885b/version/1728975227/placida-kevinleei.jpg","n":"Placida kevinleei","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ib9313224be0813f8/version/1728975357/placida-sp-1.jpg","n":"Placida sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i87e47d88ea3f42db/version/1728603175/placida-sp-2.jpg","n":"Placida sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i41a018eaca3eb707/version/1328945174/stiliger-sp.jpg","n":"Stiliger sp.","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/none/path/seaf7fb0608921499/image/ia5a6002c6bd8d565/version/1727323056/stiliger-sp-2.jpg","n":"Stiliger sp. 2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ifdab64796949604b/version/1729459279/stiliger-sp-3.jpg","n":"Stiliger sp.3","f":1}],"Eubranchidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ifb4449eed9874850/version/1728532955/image.jpg","n":"Eubranchus sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i8517ea16bb36c518/version/1728533024/image.jpg","n":"Eubranchus sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/idaadda117a896d30/version/1728871810/eubranchus-sp-3.jpg","n":"Eubranchus sp.3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i70b33f41586d03b4/version/1728871903/eubranchus-sp-4.jpg","n":"Eubranchus sp.4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i6d85c1457e044f27/version/1728871947/eubranchus-sp-5.jpg","n":"Eubranchus sp.5","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=433x10000:format=jpg/path/seaf7fb0608921499/image/iffdeb81b80fef3c6/version/1728871993/eubranchus-sp-6.jpg","n":"Eubranchus sp.6","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=422x10000:format=jpg/path/seaf7fb0608921499/image/i8b076c22fffd94d5/version/1728872038/eubranchus-sp-7.jpg","n":"Eubranchus sp.7","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ief0aaee172987201/version/1728872066/eubranchus-sp-8.jpg","n":"Eubranchus sp.8","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=469x10000:format=jpg/path/seaf7fb0608921499/image/i13372427cf422c2e/version/1728872111/eubranchus-sp-9.jpg","n":"Eubranchus sp.9","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i9336730f8ea1f82f/version/1735980061/eubranchus-sp-10.jpg","n":"Eubranchus sp.10","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/if95f5fd90a5b4d70/version/1735980533/eubranchus-sp-11.jpg","n":"Eubranchus sp.11","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i43214fbb48f59164/version/1766473504/eubranchus-sp-12.jpg","n":"Eubranchus sp.12","f":1}],"Flabellinidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=432x10000:format=jpg/path/seaf7fb0608921499/image/iefbed3665e777de1/version/1728088445/flabbellina-exopata.jpg","n":"Flabellina exopata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=440x10000:format=jpg/path/seaf7fb0608921499/image/ifa39c82e1edbc9ad/version/1341442778/flabellina-rubrolineata.jpg","n":"Flabellina rubrolineata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i6ea0d4ff596f49f1/version/1331764729/flabellina-sp-1.jpg","n":"Flabellina sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i98189a067fde705a/version/1331764839/flabellina-sp-2.jpg","n":"Flabellina sp. 2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/none/path/seaf7fb0608921499/image/i618e82bd8a9c28c1/version/1378863786/flabellina-sp-3.jpg","n":"Flabellina sp.3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i860c8921b7ef2631/version/1746602956/flabellina-sp-4.jpg","n":"Flabellina sp.4","f":1}],"Gastropteridae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i4d8f5f6c42189e65/version/1731454276/gastropteron-minutum.jpg","n":"Gastropteron minutum","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i9066af4e4fcba425/version/1731445810/sagaminopteron-cf-pohnpei.jpg","n":"Sagaminopteron cf pohnpei","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i74b7835e1796e8f7/version/1334207661/sagaminopteron-psychedelicum.jpg","n":"Sagaminopteron psychedelicum","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i545c7a5834031a42/version/1729241612/siphopteron-brunneomarginatum.jpg","n":"Siphopteron brunneomarginatum","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i90cef19e23feaca6/version/1729241478/image.jpg","n":"Siphopteron flavum","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ide88b2b5e4511559/version/1729241876/siphopteron-nigromarginatum.jpg","n":"Siphopteron nigromarginatum","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i54152e94d55410d4/version/1728601813/siphopteron-sp-1.jpg","n":"Siphopteron sp.1","f":1}],"Glaucidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i6ad2625c6d4780c2/version/1728548114/image.jpg","n":"Glaucus atlanticus","f":1}],"Goniodorididae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2c846146e53a9451/version/1728625593/goniodoridella-sp-3.jpg","n":"Goniodoridella sp. 3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/id4b2e2352aa31d87/version/1728625180/goniodoridella-sp-4.jpg","n":"Goniodoridella sp.4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i47bac6b5cba2bc41/version/1728625788/goniodoridella-sp-5.jpg","n":"Goniodoridella sp.5","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=758x1024:format=jpg/path/seaf7fb0608921499/image/icee1e4071172dbe0/version/1728624724/goniodoridella-unidonta.jpg","n":"Goniodoridella unidonta","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i83a272c2ff2c033e/version/1728610644/murphidoris-puncticulata.jpg","n":"Murphydoris puncticulata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/id61865a0960cff7b/version/1322642891/okenia-pellucida.jpg","n":"Okenia pellucida","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ibb389a950806011e/version/1333336052/okenia-sp.jpg","n":"Okenia sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/id40e531eae1760f1/version/1728880519/okenia-sp-2.jpg","n":"Okenia sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/icb7979d4c0eab2bf/version/1728880870/okenia-sp-3.jpg","n":"Okenia sp.3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i1ba60b75521c5ffe/version/1728885938/image.jpg","n":"Okenia sp.4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/id21807e691197492/version/1333413430/trapania-cf-aurata.jpg","n":"Trapania cf aurata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i0b14704d565c5648/version/1729731014/trapania-euryeia.jpg","n":"Trapania euryeia","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i530db0e1d5ed70d1/version/1729731329/trapania-sp-2.jpg","n":"Trapania sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=590x10000:format=jpg/path/seaf7fb0608921499/image/i3ad084d2187c105f/version/1358110718/trapania-sp-3.jpg","n":"Trapania sp. 3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i871b8b29bcf9228d/version/1746603583/trapania-squama-anc-trapania-sp-1.jpg","n":"Trapania squama","f":1}],"Polyceridae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ifa6901ac17fe90fe/version/1332142893/gymnodoris-alba.jpg","n":"Gymnodoris alba","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=300x10000:format=jpg/path/seaf7fb0608921499/image/ib24974b3e2906d16/version/1324881541/gymnodoris-ceylonica.jpg","n":"Gymnodoris ceylonica","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i8a78ae1b11815144/version/1728626501/gymnodoris-cf-citrina.jpg","n":"Gymnodoris cf citrina","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ic31656ec5a6d9691/version/1333335212/gymnodoris-inornata.jpg","n":"Gymnodoris inornata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=300x10000:format=jpg/path/seaf7fb0608921499/image/i77bf49921548cfd0/version/1333335163/gymnodoris-sp-1.jpg","n":"Gymnodoris sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ie84969881980874f/version/1728627362/gymnodoris-sp-2.jpg","n":"Gymnodoris sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i4255024fb53a0990/version/1333335260/gymnodoris-sp-3.jpg","n":"Gymnodoris sp. 3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/if16b993786fd2ba0/version/1728627556/image.jpg","n":"Gymnodoris sp.4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=560x10000:format=jpg/path/seaf7fb0608921499/image/i56cf4dc7f665ec7f/version/1336514226/gymnodoris-sp-5.jpg","n":"Gymnodoris sp. 5","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i32f093f3ef816423/version/1728627944/gymnodoris-sp-6.jpg","n":"Gymnodoris sp.6","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i87cb3119c620d932/version/1728628284/gymnodoris-sp-7.jpg","n":"Gymnodoris sp.7","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i89cb76ac4f664bdd/version/1728628422/gymnodoris-sp-8.jpg","n":"Gymnodoris sp.8","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i7b8963769cef0fbc/version/1729902377/gymnodoris-sp-9.jpg","n":"Gymnodoris sp.9","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=450x10000:format=jpg/path/seaf7fb0608921499/image/if68a77af631e52fa/version/1331631169/kaloplocamus-sp.jpg","n":"Kaloplocamus sp.","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i697a7d5fa96b4017/version/1333508596/kaloplocamus-sp-2.jpg","n":"Kaloplocamus sp. 2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/id6ee226417584603/version/1378858645/kaloplocamus-sp-3.jpg","n":"Kaloplocamus sp. 3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i9cf374d7568c3625/version/1728980272/plocamopherus-ceylonicus.jpg","n":"Plocamopherus ceylonicus","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ic7e24ccdb43a8952/version/1331765869/plocamopherus-cf-telesii.jpg","n":"Plocamopherus cf. telesii","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/iaf121365666956de/version/1333412092/polycera-japonica.jpg","n":"Polycera japonica","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i3a9949840ee99ce0/version/1729058870/polycera-sp-1.jpg","n":"Polycera sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=360x10000:format=jpg/path/seaf7fb0608921499/image/i987735a89c072027/version/1327656099/roboastra-gracilis.jpg","n":"Roboastra gracilis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i5897d09e12bdb71d/version/1333412806/tambja-amakusana.jpg","n":"Tambja amakusana","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i42ebf9b86f11c156/version/1324943989/tombja-morosa.jpg","n":"Tambja morosa","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ib816a09d0049546b/version/1322449185/thecacera-pacifica-moorea-4m.jpg","n":"Thecacera pacifica","f":1}],"Hancockiidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2f995d16f49f0ff7/version/1728690017/hancockia-sp-1.jpg","n":"Hancockia sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i594d30d5dd5c022e/version/1728690177/hancockia-sp-2.jpg","n":"Hancockia sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i0ad697b6d8cceba6/version/1766473468/hancockia-sp-3.jpg","n":"Hancockia sp.3","f":1}],"Hermaeidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/id49974b95d6a27b2/version/1728690290/hermaea-sp-1.jpg","n":"Hermaea sp.1","f":1}],"Hexabranchidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ic346207ee0ce22cf/version/1331764993/hexabranchus-sp-1.jpg","n":"Hexabranchus sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i09c51ee59833c022/version/1331765046/hexabranchus-sp-2.jpg","n":"Hexabranchus sp. 2","f":1}],"Janolidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ib11c7410fd2c475f/version/1728719501/janolus-mirabilis.jpg","n":"Janolus mirabilis","f":1}],"Oxynoidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=530x10000:format=jpg/path/seaf7fb0608921499/image/ibc282ba9b2bc8182/version/1728795139/lobiger-viridis-anc-lobiger-sp-1.jpg","n":"Lobiger viridis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i3957f5c227d994b5/version/1728886469/oxynoe-cf-alicia.jpg","n":"Oxynoe cf alicia","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=300x10000:format=jpg/path/seaf7fb0608921499/image/i5c3b276d4d123879/version/1333336089/oxynoe-cf-viridis.jpg","n":"Oxynoe cf viridis","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=541x10000:format=jpg/path/seaf7fb0608921499/image/i7948b34613b718a5/version/1728890876/oxynoe-jacksoni.jpg","n":"Oxynoe jacksoni","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ic6ad46970c341d49/version/1728890575/oxynoe-jordani.jpg","n":"Oxynoe jordani","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=678x10000:format=jpg/path/seaf7fb0608921499/image/i34802e2283de990a/version/1727732693/oxynoe-kylei.jpg","n":"Oxynoe kylei","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ie2b2c5f0658e1b30/version/1728888849/image.jpg","n":"Oxynoe sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i8a532c0ab8d32a64/version/1728889752/oxynoe-sp-2.jpg","n":"Oxynoe sp. 2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/idc9a982360144a3c/version/1746604977/oxynoe-sp-3.jpg","n":"Oxynoe sp.3","f":1}],"Madrellidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ica37c01de262567e/version/1728795906/madrella-ferruginosa.jpg","n":"Madrella ferruginosa","f":1}],"Tritoniidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2968321d615b693c/version/1728796243/marianina-rosea.jpg","n":"Marianina rosea","f":1}],"Tethydidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=590x10000:format=jpg/path/seaf7fb0608921499/image/ie0cc2fe482b298aa/version/1358641553/melibe-engeli.jpg","n":"Melibe engeli","f":1}],"Philinidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2bced8b3e150d246/version/1728973736/philine-orca.jpg","n":"Philine Orca","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i098aa83ec451afcd/version/1728974100/image.jpg","n":"Philine rubrata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/idc33b1ae18ffc025/version/1731446559/philine-sp-1.jpg","n":"Philine sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i23330e33260c8a70/version/1731447076/philine-sp-2.jpg","n":"Philine sp.2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ia960848719cddf75/version/1729060257/roxaniella-pittmani.jpg","n":"Roxaniella pittmani","f":1}],"Phyllidiidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i531b67ea06f24ced/version/1388452604/phyllidia-cf-carlsonhoffi.jpg","n":"Phyllidia cf. carlsonhoffi","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=530x10000:format=jpg/path/seaf7fb0608921499/image/i5ceb37ab639c8f99/version/1335933898/phyllidia-cf-ocellata.jpg","n":"Phyllidia cf. ocellata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ia2dca62d388ba1f0/version/1331765406/phyllidia-sp-1.jpg","n":"Phyllidia sp. 1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ia6d7518d4366bb17/version/1323585197/phyllidiella-cf-annulata-fakarava-20m.jpg","n":"Phyllidiella cf. annulata","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/iaa3f9f0c2c012441/version/1333411949/phyllidiella-pustulosa.jpg","n":"Phyllidiella pustulosa","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i28cfbb773136dd0f/version/1333411558/phyllidiella-rosans.jpg","n":"Phyllidiella rosans","f":1}],"Runcinidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i7fdff4c48415d2cb/version/1729060467/runcina-sp-1.jpg","n":"Runcina sp. 1","f":1}],"Samlidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=590x10000:format=jpg/path/seaf7fb0608921499/image/i9ca40ada940f7227/version/1720767004/samla-bicolor-anc-flabellina-bicolor.jpg","n":"Samla bicolor","f":1}],"Trinchesiidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=360x10000:format=jpg/path/seaf7fb0608921499/image/i15fcc3bddc1c7581/version/1715756678/tenellia-cf-pinnifera-anc-cuthona-pinnifera.jpg","n":"Tenellia cf pinnifera","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/i92730fbedcf9e1e1/version/1715756079/tenellia-lugubris-anc-phestilla-lugubris.jpg","n":"Tenellia lugubris","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=530x10000:format=jpg/path/seaf7fb0608921499/image/ib469b87c98b747c0/version/1715755846/tenellia-melanobranchia-anc-phestilla-melanobranchia.jpg","n":"Tenellia melanobranchia","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i99c5fcd2a2222607/version/1729755995/tenellia-minor-anc-phestilla-minor.jpg","n":"Tenellia minor","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i3ca9502ecd1a4ba3/version/1729756844/tenellia-poritophages-anc-cuthona-poritophages.jpg","n":"Tenellia poritophages","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i6373c13d5c31519d/version/1729553056/tenellia-sp-1-anc-cuthona-sp-1.jpg","n":"Tenellia sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i5b6e508e0f45e853/version/1729559090/tenellia-sp-10-autrefois-cuthona-sp-7.jpg","n":"Tenellia sp.10","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i1cd732e6edc34102/version/1729560068/tenellia-sp-11-autrefois-cuthona-sp-10.jpg","n":"Tenellia sp.11","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/iaa3fdca7fc6b9f02/version/1729566128/tenellia-sp-13-autrefois-cuthona-sp-13.jpg","n":"Tenellia sp.13","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i409181e82276d743/version/1729796525/tenellia-sp-14-autrefois-cuthona-sp-14.jpg","n":"Tenellia sp.14","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i7e5693d1b4feae2e/version/1729567047/tenellia-sp-15.jpg","n":"Tenellia sp.15","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ib25e251698f79b06/version/1729554095/tenellia-sp-2-anc-cuthona-sp-2.jpg","n":"Tenellia sp. 2","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ib4978968b82999e4/version/1715929735/tenellia-sp-21-autrefois-catriona-sp.jpg","n":"Tenellia sp.21","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ic8346756064fc073/version/1729567777/tenellia-sp-22.jpg","n":"Tenellia sp.22","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=gif/path/seaf7fb0608921499/image/i152430191acf1883/version/1718608123/cuthona-sp-3.gif","n":"Tenellia sp. 3","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i9450226aa3f6e8ad/version/1729556592/tenellia-sp-4-anc-cuthona-sp-4.jpg","n":"Tenellia sp.4","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i9640c41780411dc5/version/1729557292/tenellia-sp-5-anc-cuthona-sp-5.jpg","n":"Tenellia sp.5","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ibde1f54c835684f1/version/1729557816/tenellia-sp-6-autrefois-cuthona-sp-6.jpg","n":"Tenellia sp.6","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i1130ffdb7ae3e931/version/1729558380/tenellia-sp-7-autrefois-cuthona-sp-11.jpg","n":"Tenellia sp.7","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/iccc4a62d90b62388/version/1729558693/tenellia-sp-8-autrefois-cuthona-sp-8.jpg","n":"Tenellia sp.8","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i2576fd9978abecf8/version/1729559646/tenellia-sp-9-autrefois-cuthona-sp-9.jpg","n":"Tenellia sp.9","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/ib2694791ded23e50/version/1729582756/image.jpg","n":"Tergiposacca longicerata","f":1}],"Tylodinidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i4b16ded93362dc0b/version/1729732361/tylodina-sp-1.jpg","n":"Tylodina sp.1","f":1}],"Vayssiereidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i6167ee3882c817f5/version/1729731986/vayssierea-felis.jpg","n":"Vayssierea felis","f":1}],"Volvatellidae":[{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=778x10000:format=jpg/path/seaf7fb0608921499/image/i46bad79b440e5f42/version/1729736487/volvatella-sp-1.jpg","n":"Volvatella sp.1","f":1},{"u":"https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/seaf7fb0608921499/image/ib60013460294e138/version/1385591859/volvatella-vigourouxi.jpg","n":"Volvatella vigourouxi","f":1}]};
+var state={}, selected=null, multiSel=new Set(), speciesDB=null;
+var expandedFamilies=new Set(), selectedGenus=null, selectedGenusFam=null;
+
+function getState(f){
+  if(!state[f]){ state[f]=KNOWN[f] ? JSON.parse(JSON.stringify(KNOWN[f])) : {_validated:false,notes:'',structure:{},tentacules:{},pelagique:false,rhinophore:{},texture:{},cerates_dispo:{},cerates_forme:{},branchie_lat:false,extensions:{},taille:null}; if(!state[f]._validated) state[f]._validated=false; }
+  /* Migration : injecter les champs KNOWN manquants dans les states anciens (localStorage) */
+  if(KNOWN[f]){
+    var s=state[f], k=KNOWN[f];
+    if(!s.extensions||!Object.keys(s.extensions).length) s.extensions=JSON.parse(JSON.stringify(k.extensions||{}));
+    if(!s.cerates_forme||Object.keys(s.cerates_forme).length<6) s.cerates_forme=JSON.parse(JSON.stringify(k.cerates_forme||{}));
+    if(!s.rhinophore||Object.keys(s.rhinophore).length<8) s.rhinophore=JSON.parse(JSON.stringify(k.rhinophore||{}));
+  }
+  return state[f];
+}
+function saveStorage(){try{localStorage.setItem('ndx_traits3',JSON.stringify(state));}catch(e){} var el=document.getElementById('save-ok'); el.style.display='inline'; setTimeout(function(){el.style.display='none';},1400);}
+function loadStorage(){try{var s=localStorage.getItem('ndx_traits3'); if(s) state=JSON.parse(s);}catch(e){}}
+
+/* ════════════════════════════════════
+   GENERA — OVERRIDES
+   ════════════════════════════════════ */
+function getGenera(fam){
+  var names={};
+  var src=(PHOTOS_DB&&PHOTOS_DB[fam])||[];
+  if(src.length) src.forEach(function(x){ var g=(x.n||'').split(' ')[0]; if(g) names[g]=true; });
+  else if(speciesDB) speciesDB.filter(function(sp){return sp.f===fam&&sp.n;}).forEach(function(sp){ var g=sp.n.split(' ')[0]; if(g) names[g]=true; });
+  return Object.keys(names).sort();
+}
+function hasGenusOverrides(fam){
+  if(!state._genera) return false;
+  return getGenera(fam).some(function(g){ return state._genera[g]; });
+}
+function getGenusState(genus){ if(!state._genera) state._genera={}; return state._genera[genus]||null; }
+function setGenusField(genus,fam,field,val){
+  if(!state._genera) state._genera={};
+  if(!state._genera[genus]) state._genera[genus]={_family:fam};
+  state._genera[genus][field]=val;
+  saveStorage(); renderSidebar(); renderEditor();
+}
+function cycleGenusObj(genus,fam,field,key){
+  if(!state._genera) state._genera={};
+  if(!state._genera[genus]) state._genera[genus]={_family:fam};
+  var obj=state._genera[genus][field]||{};
+  obj[key]=((obj[key]||0)+1)%3;
+  state._genera[genus][field]=obj;
+  saveStorage(); renderSidebar(); renderEditor();
+}
+function deleteGenus(genus){
+  if(!state._genera) return;
+  delete state._genera[genus];
+  selectedGenus=null; selectedGenusFam=null;
+  saveStorage(); renderSidebar(); renderEditor();
+}
+function selectGenus(genus,fam,evt){
+  if(evt) evt.stopPropagation();
+  selectedGenus=genus; selectedGenusFam=fam;
+  selected=fam; multiSel.clear();
+  renderSidebar(); renderEditor(); renderPhotos();
+}
+function toggleExpand(fam,evt){
+  if(evt) evt.stopPropagation();
+  if(expandedFamilies.has(fam)) expandedFamilies.delete(fam);
+  else expandedFamilies.add(fam);
+  renderSidebar();
+}
+
+function renderGenusEditor(){
+  var genus=selectedGenus, fam=selectedGenusFam;
+  var ov=state._genera&&state._genera[genus]||{};
+  var fs=getState(fam);
+  var main=document.getElementById('main');
+  var h='<div class="card">';
+  h+='<div class="card-title"><em>'+esc(genus)+'</em>'
+    +'<span class="badge" style="background:#ede9fe;color:#7c3aed;margin-left:4px;">Genre</span>'
+    +'<span style="font-size:10px;color:#94a3b8;margin-left:6px;">← '+esc(fam)+'</span>'
+    +'<button class="btn btn-sec" style="margin-left:auto;font-size:10px;padding:3px 9px;color:#ef4444;" onclick="deleteGenus(\''+esc(genus)+'\')">🗑 Supprimer</button>'
+    +'</div>';
+  h+='<div class="genus-ctx">Les champs non renseignés héritent de la famille. Seuls les overrides sont enregistrés.</div>';
+
+  /* Taille */
+  var famTaille=fs.taille||'—';
+  h+='<div class="field-row"><div class="field-label">Taille<small>Famille : '+esc(famTaille)+'</small></div><div class="field-wrap"><div class="tri-opts">';
+  TAILLE_OPTS.forEach(function(o){
+    var sel=ov.taille===o.val;
+    h+='<button class="topt'+(sel?' topt-inc':' topt-neu')+'" onclick="setGenusField(\''+esc(genus)+'\',\''+esc(fam)+'\',\'taille\',\''+(sel?'null':o.val)+'\')">'+esc(o.lbl)+'</button>';
+  });
+  h+='</div></div></div>';
+
+  /* Extensions */
+  h+='<div class="sep"></div>';
+  h+='<div class="field-row"><div class="field-label">Extensions<small>Override famille</small></div><div class="field-wrap"><div class="tri-opts">';
+  EXTENSIONS_OPTS.forEach(function(o){
+    var v=(ov.extensions&&ov.extensions[o.val])||0;
+    var cls=v===1?'topt-inc':v===2?'topt-exc':'topt-neu';
+    var ico=v===1?'✓ ':v===2?'✗ ':'';
+    h+='<button class="topt '+cls+'" onclick="cycleGenusObj(\''+esc(genus)+'\',\''+esc(fam)+'\',\'extensions\',\''+o.val+'\')" title="neutre → inclure → exclure">'+ico+esc(o.lbl)+'</button>';
+  });
+  h+='</div></div></div>';
+
+  /* Structure */
+  h+='<div class="field-row"><div class="field-label">Structure<small>Override famille</small></div><div class="field-wrap"><div class="tri-opts">';
+  STRUCT_OPTS.forEach(function(o){
+    var v=(ov.structure&&ov.structure[o.val])||0;
+    var cls=v===1?'topt-inc':v===2?'topt-exc':'topt-neu';
+    var ico=v===1?'✓ ':v===2?'✗ ':'';
+    h+='<button class="topt '+cls+'" onclick="cycleGenusObj(\''+esc(genus)+'\',\''+esc(fam)+'\',\'structure\',\''+o.val+'\')" title="neutre → inclure → exclure">'+ico+esc(o.lbl)+'</button>';
+  });
+  h+='</div></div></div>';
+
+  /* Tentacules */
+  h+='<div class="field-row"><div class="field-label">Tentacules<small>Override famille</small></div><div class="field-wrap"><div class="tri-opts">';
+  TENT_OPTS.forEach(function(o){
+    var v=(ov.tentacules&&ov.tentacules[o.val])||0;
+    var cls=v===1?'topt-inc':v===2?'topt-exc':'topt-neu';
+    var ico=v===1?'✓ ':v===2?'✗ ':'';
+    h+='<button class="topt '+cls+'" onclick="cycleGenusObj(\''+esc(genus)+'\',\''+esc(fam)+'\',\'tentacules\',\''+o.val+'\')" title="neutre → inclure → exclure">'+ico+esc(o.lbl)+'</button>';
+  });
+  h+='</div></div></div>';
+
+  /* Disposition cérates */
+  h+='<div class="field-row"><div class="field-label">Disposition cérates<small>Override famille</small></div><div class="field-wrap"><div class="tri-opts">';
+  CDISPO_OPTS.forEach(function(o){
+    var v=(ov.cerates_dispo&&ov.cerates_dispo[o.val])||0;
+    var cls=v===1?'topt-inc':v===2?'topt-exc':'topt-neu';
+    var ico=v===1?'✓ ':v===2?'✗ ':'';
+    h+='<button class="topt '+cls+'" onclick="cycleGenusObj(\''+esc(genus)+'\',\''+esc(fam)+'\',\'cerates_dispo\',\''+o.val+'\')" title="neutre → inclure → exclure">'+ico+esc(o.lbl)+'</button>';
+  });
+  h+='</div></div></div>';
+
+  /* Forme cérates */
+  h+='<div class="field-row"><div class="field-label">Forme cérates<small>Override famille</small></div><div class="field-wrap"><div class="tri-opts">';
+  CFORME_OPTS.forEach(function(o){
+    var v=(ov.cerates_forme&&ov.cerates_forme[o.val])||0;
+    var cls=v===1?'topt-inc':v===2?'topt-exc':'topt-neu';
+    var ico=v===1?'✓ ':v===2?'✗ ':'';
+    h+='<button class="topt '+cls+'" onclick="cycleGenusObj(\''+esc(genus)+'\',\''+esc(fam)+'\',\'cerates_forme\',\''+o.val+'\')" title="neutre → inclure → exclure">'+ico+esc(o.lbl)+'</button>';
+  });
+  h+='</div></div></div>';
+
+  /* Texture notum */
+  h+='<div class="sep"></div>';
+  h+='<div class="field-row"><div class="field-label">Texture notum<small>Override famille</small></div><div class="field-wrap"><div class="tri-opts">';
+  TEX_OPTS.forEach(function(o){
+    var v=(ov.texture&&ov.texture[o])||0;
+    var cls=v===1?'topt-inc':v===2?'topt-exc':'topt-neu';
+    var ico=v===1?'✓ ':v===2?'✗ ':'';
+    h+='<button class="topt '+cls+'" onclick="cycleGenusObj(\''+esc(genus)+'\',\''+esc(fam)+'\',\'texture\',\''+esc(o)+'\')" title="neutre → inclure → exclure">'+ico+esc(o)+'</button>';
+  });
+  h+='</div></div></div>';
+
+  /* Motif dominant */
+  h+='<div class="field-row"><div class="field-label">Motif dominant<small>Override famille</small></div><div class="field-wrap"><div class="tri-opts">';
+  MOTIF_OPTS.forEach(function(o){
+    var v=(ov.motif&&ov.motif[o])||0;
+    var cls=v===1?'topt-inc':v===2?'topt-exc':'topt-neu';
+    var ico=v===1?'✓ ':v===2?'✗ ':'';
+    h+='<button class="topt '+cls+'" onclick="cycleGenusObj(\''+esc(genus)+'\',\''+esc(fam)+'\',\'motif\',\''+esc(o)+'\')" title="neutre → inclure → exclure">'+ico+esc(o)+'</button>';
+  });
+  h+='</div></div></div>';
+
+  /* Pélagique */
+  h+='<div class="field-row"><div class="field-label">Pélagique<small>Override famille</small></div><div class="field-wrap"><div class="tri-opts">';
+  ['oui','non','—'].forEach(function(v){
+    var cur=ov.pelagique===true?'oui':ov.pelagique===false?'non':'—';
+    var sel=cur===v;
+    h+='<button class="topt'+(sel?' topt-inc':' topt-neu')+'" onclick="setGenusField(\''+esc(genus)+'\',\''+esc(fam)+'\',\'pelagique\','+(v==='oui'?'true':v==='non'?'false':'null')+')">'+v+'</button>';
+  });
+  h+='</div></div></div>';
+
+  h+='</div>';
+  main.innerHTML=h;
+}
+
+/* ════════════════════════════════════
+   SIDEBAR
+   ════════════════════════════════════ */
+function renderSidebar(){
+  var orders={};
+  FAMILY_DATA.forEach(function(d){ if(!orders[d.order]) orders[d.order]=[]; orders[d.order].push(d); });
+  var h='';
+  Object.keys(orders).sort().forEach(function(o){
+    h+='<div class="order-hdr" onclick="selectOrder(\''+o+'\')" title="Cliquer pour sélectionner toutes les familles de cet ordre"><span>'+o+'</span></div>';
+    orders[o].forEach(function(d){
+      var s=state[d.family]; var dotCls='dot-e';
+      if(s&&s._validated) dotCls='dot-v'; else if(s&&s._modified) dotCls='dot-m';
+      var isActive=selected===d.family&&!selectedGenus;
+      var isMulti=multiSel.has(d.family)&&!isActive;
+      var cls=(isActive?' active':isMulti?' multi-sel':'');
+      var expanded=expandedFamilies.has(d.family);
+      var hasOv=hasGenusOverrides(d.family);
+      h+='<div class="fam-item'+cls+'" onclick="selectFam(\''+d.family+'\',event)">'
+        +'<div class="fam-dot '+dotCls+'"></div>'
+        +'<div class="fam-name" title="'+d.family+'">'+d.family+'</div>'
+        +(hasOv?'<div class="fam-genera-badge" title="Overrides genre actifs"></div>':'')
+        +'<div class="fam-count">'+d.n+'</div>'
+        +'<button class="expand-btn" onclick="toggleExpand(\''+d.family+'\',event)" title="Genres">'+(expanded?'▴':'⊕')+'</button>'
+        +'</div>';
+      if(expanded){
+        var genera=getGenera(d.family);
+        if(genera.length){
+          genera.forEach(function(g){
+            var gOv=state._genera&&state._genera[g];
+            var gActive=selectedGenus===g;
+            h+='<div class="genus-item'+(gActive?' gactive':'')+'" onclick="selectGenus(\''+esc(g)+'\',\''+esc(d.family)+'\',event)">'
+              +'<div class="genus-dot'+(gOv?' gdot-ov':'')+'" title="'+(gOv?'Override actif':'Hérité famille')+'"></div>'
+              +'<div class="genus-name">'+esc(g)+'</div>'
+              +(gOv?'<span style="font-size:9px;color:#f59e0b;font-weight:700;">⚡</span>':'')
+              +'</div>';
+          });
+        } else {
+          h+='<div style="padding:4px 10px 4px 26px;font-size:9px;color:#94a3b8;">Charger PHOTOS_DB pour voir les genres</div>';
+        }
+      }
+    });
+  });
+  document.getElementById('sidebar').innerHTML=h;
+  updateStats();
+}
+function updateStats(){
+  var v=0,m=0;
+  FAMILY_DATA.forEach(function(d){var s=state[d.family]; if(s&&s._validated)v++;else if(s&&s._modified)m++;});
+  document.getElementById('st-t').textContent=FAMILY_DATA.length;
+  document.getElementById('st-v').textContent=v;
+  document.getElementById('st-m').textContent=m;
+  document.getElementById('st-e').textContent=FAMILY_DATA.length-v-m;
+  var selInfo=document.getElementById('st-sel-info');
+  if(multiSel.size>1){selInfo.style.display='inline';selInfo.textContent=multiSel.size+' familles sélectionnées';}
+  else selInfo.style.display='none';
+}
+function selectFam(fam,evt){
+  if(evt&&(evt.ctrlKey||evt.metaKey||evt.shiftKey)){
+    if(multiSel.has(fam)) multiSel.delete(fam); else multiSel.add(fam);
+    if(!multiSel.size) selected=fam;
+  } else { selected=fam; multiSel.clear(); multiSel.add(fam); }
+  selectedGenus=null; selectedGenusFam=null;
+  getState(fam);
+  renderSidebar(); renderEditor(); renderPhotos();
+}
+function selectOrder(o){
+  multiSel.clear();
+  FAMILY_DATA.filter(function(d){return d.order===o;}).forEach(function(d){ multiSel.add(d.family); getState(d.family); });
+  selected=null;
+  renderSidebar(); renderEditor(); renderPhotos();
+}
+
+/* ════════════════════════════════════
+   TRI-STATE BUTTON
+   ════════════════════════════════════ */
+function triBtn(label,stateVal,onclick){
+  var cls=stateVal===1?'topt-inc':stateVal===2?'topt-exc':'topt-neu';
+  var ico=stateVal===1?'✓ ':stateVal===2?'✗ ':'';
+  return '<button class="topt '+cls+'" onclick="'+onclick+'" title="Clic : neutre → inclure → exclure">'+ico+esc(label)+'</button>';
+}
+function cycleObjField(stateKey,fieldObj,key){
+  var s=getState(selected||Array.from(multiSel)[0]);
+  var targets=multiSel.size>1?Array.from(multiSel):[selected];
+  targets.forEach(function(f){
+    var fs=getState(f); if(!fs[stateKey]) fs[stateKey]={};
+    fs[stateKey][key]=((fs[stateKey][key]||0)+1)%3;
+    fs._modified=true;
+  });
+  saveStorage(); renderSidebar(); renderEditor();
+}
+function setSimple(field,val){
+  var targets=multiSel.size>1?Array.from(multiSel):[selected];
+  targets.forEach(function(f){
+    var fs=getState(f); fs[field]=(fs[field]===val)?null:val; fs._modified=true;
+  });
+  saveStorage(); renderSidebar(); renderEditor();
+}
+function setBool(field,val){
+  var targets=multiSel.size>1?Array.from(multiSel):[selected];
+  targets.forEach(function(f){
+    var fs=getState(f); fs[field]=val; fs._modified=true;
+  });
+  saveStorage(); renderSidebar(); renderEditor();
+}
+function setNotes(v){ if(!selected) return; var s=getState(selected); s.notes=v; s._modified=true; saveStorage(); }
+function setValidated(v){
+  var targets=multiSel.size>1?Array.from(multiSel):[selected];
+  targets.forEach(function(f){ var fs=getState(f); fs._validated=v; fs._modified=true; });
+  saveStorage(); renderSidebar(); renderEditor();
+}
+
+/* ════════════════════════════════════
+   EDITOR RENDER
+   ════════════════════════════════════ */
+function renderEditor(){
+  var main=document.getElementById('main');
+  if(selectedGenus){ renderGenusEditor(); return; }
+  if(!selected&&multiSel.size===0){main.innerHTML='<div class="empty"><h3>Sélectionner une famille</h3><p>Cliquez sur une famille ou un en-tête d\'ordre.</p></div>';return;}
+
+  var isMulti=multiSel.size>1;
+  var targetFam=selected||(Array.from(multiSel)[0]);
+  var s=getState(targetFam);
+  var fd=FAMILY_DATA.find(function(d){return d.family===targetFam;})||{order:'?',n:'?'};
+
+  var html='';
+
+  /* Bulk bar */
+  if(isMulti){
+    html+='<div class="bulk-bar"><strong>'+multiSel.size+' familles sélectionnées</strong>'
+      +' — Les modifications s\'appliquent à toutes simultanément.'
+      +'<button class="btn btn-sec" onclick="multiSel.clear();selected=null;renderSidebar();renderEditor();" style="font-size:10px;padding:4px 8px;">✕ Désélectionner</button>'
+      +'<button class="btn btn-primary" onclick="setValidated(true);" style="font-size:10px;padding:4px 8px;">✓ Valider toutes</button>'
+      +'</div>';
+  }
+
+  var badgeCls=s._validated?'badge badge-v':s._modified?'badge badge-m':'badge badge-e';
+  var badgeTxt=s._validated?'✓ Validée':s._modified?'Modifiée':'Non traitée';
+
+  html+='<div class="card"><div class="card-title">'
+    +(isMulti?'<em>Édition groupée</em>':targetFam)
+    +' <span class="'+badgeCls+'">'+badgeTxt+'</span>'
+    +(isMulti?'':' <span style="font-size:10px;color:#94a3b8;font-weight:400;">'+fd.order+' · '+fd.n+' sp.</span>')
+    +'</div>';
+
+  html+='<div class="legend"><span>Clic sur les boutons pour changer d\'état :</span>'
+    +'<span><b class="leg-inc">✓ Inclure</b></span>'
+    +'<span><b class="leg-neu">— Neutre</b></span>'
+    +'<span><b class="leg-exc">✗ Exclure</b></span></div>';
+
+  /* Structure */
+  html+='<div class="field-row"><div class="field-label">Structure dorsale<small>Critère principal — poids fort</small></div><div class="field-wrap"><div class="tri-opts">';
+  STRUCT_OPTS.forEach(function(o){
+    var v=(s.structure&&s.structure[o.val])||0;
+    html+=triBtn(o.lbl,v,'cycleObjField(\'structure\',null,\''+o.val+'\')');
+  });
+  html+='</div></div></div>';
+
+  /* Tentacules */
+  html+='<div class="field-row"><div class="field-label">Tentacules oraux<small>Fort discriminant</small></div><div class="field-wrap"><div class="tri-opts">';
+  TENT_OPTS.forEach(function(o){
+    var v=(s.tentacules&&s.tentacules[o.val])||0;
+    html+=triBtn(o.lbl,v,'cycleObjField(\'tentacules\',null,\''+o.val+'\')');
+  });
+  html+='</div></div></div>';
+
+  /* Pélagique */
+  html+='<div class="field-row"><div class="field-label">Pélagique<small>Exclure si nage non sélectionnée</small></div><div class="field-wrap"><div class="tri-opts">';
+  html+='<button class="topt'+(s.pelagique?' topt-inc':' topt-neu')+'" onclick="setBool(\'pelagique\','+(s.pelagique?'false':'true')+')">Pélagique</button>';
+  html+='</div></div></div>';
+
+  /* Rhinophores */
+  html+='<div class="field-row"><div class="field-label">Rhinophores<small>Clic × 3 états</small></div><div class="field-wrap"><div class="tri-opts">';
+  RHINO_OPTS.forEach(function(o){
+    var v=(s.rhinophore&&s.rhinophore[o])||0;
+    html+=triBtn(o,v,'cycleObjField(\'rhinophore\',null,\''+o.replace(/'/g,"\\'")+'\')');
+  });
+  html+='</div></div></div>';
+
+  /* Texture */
+  html+='<div class="field-row"><div class="field-label">Texture notum<small>Clic × 3 états</small></div><div class="field-wrap"><div class="tri-opts">';
+  TEX_OPTS.forEach(function(o){
+    var v=(s.texture&&s.texture[o])||0;
+    html+=triBtn(o,v,'cycleObjField(\'texture\',null,\''+o+'\')');
+  });
+  html+='</div></div></div>';
+
+  /* Cérates (conditionnel) */
+  if(s.structure&&(s.structure['cerates']===1)){
+    html+='<div class="sep"></div>';
+    html+='<div class="field-row"><div class="field-label">Disposition cérates</div><div class="field-wrap"><div class="tri-opts">';
+    CDISPO_OPTS.forEach(function(o){
+      var v=(s.cerates_dispo&&s.cerates_dispo[o.val])||0;
+      html+=triBtn(o.lbl,v,'cycleObjField(\'cerates_dispo\',null,\''+o.val+'\')');
+    });
+    html+='</div></div></div>';
+    html+='<div class="field-row"><div class="field-label">Forme cérates</div><div class="field-wrap"><div class="tri-opts">';
+    CFORME_OPTS.forEach(function(o){
+      var v=(s.cerates_forme&&s.cerates_forme[o.val])||0;
+      html+=triBtn(o.lbl,v,'cycleObjField(\'cerates_forme\',null,\''+o.val+'\')');
+    });
+    html+='</div></div></div>';
+  }
+
+  /* Extensions / parapodes */
+  html+='<div class="sep"></div>';
+  html+='<div class="field-row"><div class="field-label">Extensions corporelles<small>Critère absolu — mutuellement exclusifs</small></div><div class="field-wrap"><div class="tri-opts">';
+  EXTENSIONS_OPTS.forEach(function(o){
+    var v=(s.extensions&&s.extensions[o.val])||0;
+    var cls=v===1?'topt-inc':v===2?'topt-exc':'topt-neu';
+    var ico=v===1?'✓ ':v===2?'✗ ':'';
+    html+='<button class="topt '+cls+'" onclick="cycleObjField(\'extensions\',null,\''+o.val+'\')" title="Clic : neutre → inclure → exclure">'+ico+esc(o.lbl)+' <span style="font-weight:400;font-size:9px;color:inherit;opacity:.7;">'+esc(o.dsc)+'</span></button>';
+  });
+  html+='</div></div></div>';
+
+  /* Branchie latérale (conditionnel dos_lisse) */
+  if(s.structure&&(s.structure['dos_lisse']===1)){
+    html+='<div class="field-row"><div class="field-label">Branchie lat. droite<small>Pleurobranchidae</small></div><div class="field-wrap"><div class="tri-opts">';
+    html+='<button class="topt'+(s.branchie_lat?' topt-inc':' topt-neu')+'" onclick="setBool(\'branchie_lat\','+(s.branchie_lat?'false':'true')+')">Branchie visible sur flanc droit</button>';
+    html+='</div></div></div>';
+  }
+
+  /* Taille */
+  html+='<div class="sep"></div>';
+  html+='<div class="field-row"><div class="field-label">Taille typique</div><div class="field-wrap"><div class="tri-opts">';
+  TAILLE_OPTS.forEach(function(o){
+    html+='<button class="topt'+(s.taille===o.val?' topt-inc':' topt-neu')+'" onclick="setSimple(\'taille\',\''+o.val+'\')">'+o.lbl+'</button>';
+  });
+  html+='</div></div></div>';
+
+  /* Notes (mono-sélection seulement) */
+  if(!isMulti){
+    html+='<div class="field-row"><div class="field-label">Notes</div><div class="field-wrap">'
+      +'<textarea class="trait-notes" oninput="setNotes(this.value)">'+esc(s.notes||'')+'</textarea>'
+      +'</div></div>';
+  }
+
+  /* Validation */
+  html+='<div class="val-bar"><label><input type="checkbox"'+(s._validated?' checked':'')+' onchange="setValidated(this.checked)"> Marquer comme validé</label>'
+    +(s._validated?'<span style="color:#0d9488;font-size:11px;">✓ Validée</span>':'')
+    +'</div>';
+
+  html+='</div>';
+  main.innerHTML=html;
+}
+
+/* ════════════════════════════════════
+   PHOTOS PANEL
+   ════════════════════════════════════ */
+function loadSpecies(){ document.getElementById('species-input').click(); }
+function handleSpecies(evt){
+  var file=evt.target.files[0]; if(!file) return;
+  var reader=new FileReader();
+  reader.onload=function(e){ try{ speciesDB=JSON.parse(e.target.result); renderPhotos(); }catch(ex){alert('Erreur JSON : '+ex.message);} };
+  reader.readAsText(file);
+  evt.target.value='';
+}
+function shuffle(arr){
+  for(var i=arr.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=arr[i]; arr[i]=arr[j]; arr[j]=t; }
+  return arr;
+}
+function renderPhotos(){
+  var wrap=document.getElementById('photos-grid-wrap');
+  var cnt=document.getElementById('sp-count');
+  var fam=selected||(Array.from(multiSel)[0]);
+
+  /* Source : PHOTOS_DB injecté par pipeline (prioritaire) ou speciesDB chargé manuellement */
+  var items=[];
+  var spCount=0;
+  if(PHOTOS_DB && typeof PHOTOS_DB === 'object' && !Array.isArray(PHOTOS_DB) && Object.keys(PHOTOS_DB).length>0) {
+    if(!fam){ wrap.innerHTML='<div class="no-photo">Sélectionner une famille</div>'; cnt.textContent=''; return; }
+    var famData=PHOTOS_DB[fam]||[];
+    spCount=famData.length>0 ? new Set(famData.map(function(x){return x.n;})).size : 0;
+    items=famData.map(function(x){ return {url:x.u,name:x.n,isFirst:x.f===1}; });
+  } else if(speciesDB) {
+    if(!fam){ wrap.innerHTML='<div class="no-photo">Sélectionner une famille</div>'; cnt.textContent=''; return; }
+    speciesDB.filter(function(sp){ return sp.f===fam&&sp.p; }).forEach(function(sp){
+      spCount++;
+      var photos=Array.isArray(sp.p)?sp.p:[sp.p];
+      photos.forEach(function(url,idx){ if(url) items.push({url:url,name:sp.n||sp.s||'',isFirst:idx===0}); });
+    });
+  } else {
+    wrap.innerHTML='<button class="load-sp-btn" onclick="loadSpecies()">📁 Charger nudis_enriched.json<br>'
+      +'<small style="color:#94a3b8;font-size:9px;">ou relancer python deploy.py pour injection auto</small></button>';
+    cnt.textContent=''; return;
+  }
+
+  cnt.textContent=spCount+' sp.';
+  if(!items.length){ wrap.innerHTML='<div class="no-photo">Aucune photo pour cette famille</div>'; return; }
+  var pool=shuffle(items.slice()).slice(0,18);
+  var h='<div class="photos-grid">';
+  pool.forEach(function(item){
+    h+='<div class="sp-thumb" title="'+esc(item.name)+'" onclick="window.open(\''+item.url+'\',\'_blank\')">'
+      +'<img src="'+item.url+'" alt="'+esc(item.name)+'" loading="lazy" onerror="this.parentElement.style.display=\'none\'">'
+      +'<div class="sp-name">'+(item.isFirst?'<b>':'<em>')+esc(item.name)+(item.isFirst?'</b>':'</em>')+'</div>'
+      +'</div>';
+  });
+  h+='</div>'
+    +'<div style="text-align:center;padding:4px 0 10px;">'
+    +'<button style="font-size:9px;color:#94a3b8;background:none;border:none;cursor:pointer;" onclick="renderPhotos()">↺ Nouvelles photos aléatoires</button>'
+    +'</div>';
+  wrap.innerHTML=h;
+}
+
+/* ════════════════════════════════════
+   EXPORT / IMPORT / RESET
+   ════════════════════════════════════ */
+function exportJSON(){
+  var out={_version:'2.0',_generated:new Date().toISOString().slice(0,10),families:{}};
+  FAMILY_DATA.forEach(function(d){
+    var s=state[d.family]||KNOWN[d.family]||{};
+    out.families[d.family]=Object.assign({},JSON.parse(JSON.stringify(s)),{_order:d.order,_n:d.n});
+  });
+  if(state._genera&&Object.keys(state._genera).length) out._genera=JSON.parse(JSON.stringify(state._genera));
+  var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a'); a.href=url; a.download='nudis_traits.json'; a.click();
+  setTimeout(function(){URL.revokeObjectURL(url);},1000);
+}
+function importJSON(){ document.getElementById('import-input').click(); }
+function handleImport(evt){
+  var file=evt.target.files[0]; if(!file) return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      var data=JSON.parse(e.target.result);
+      var fams=data.families||data;
+      Object.keys(fams).forEach(function(k){ state[k]=fams[k]; });
+      saveStorage(); renderSidebar();
+      if(selected) renderEditor();
+      alert('Import OK : '+Object.keys(fams).length+' familles.');
+    }catch(ex){alert('Erreur JSON : '+ex.message);}
+  };
+  reader.readAsText(file); evt.target.value='';
+}
+function resetFamily(){
+  var targets=multiSel.size>1?Array.from(multiSel):[selected];
+  if(!targets[0]) return;
+  if(!confirm('Réinitialiser '+targets.length+' famille(s) aux valeurs Gosliner ?')) return;
+  targets.forEach(function(f){ delete state[f]; getState(f); });
+  saveStorage(); renderSidebar(); renderEditor();
+}
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+/* ════════════════════════════════════
+   INIT
+   ════════════════════════════════════ */
+loadStorage();
+FAMILY_DATA.forEach(function(d){ if(!state[d.family]&&KNOWN[d.family]) state[d.family]=JSON.parse(JSON.stringify(KNOWN[d.family])); });
+renderSidebar();
+renderPhotos(); /* utilise PHOTOS_DB injecté si disponible */
+</script>
+</body>
+</html>
