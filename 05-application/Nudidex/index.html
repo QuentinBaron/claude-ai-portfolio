@@ -714,7 +714,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.06.04-1256</span>
+  <span title="Version de déploiement">v2026.06.04-1323</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -4257,8 +4257,10 @@ function renderExpStep10() { /* Récapitulatif */
 }
 
 /* ── Species candidates (scoring tri-state v2) ── */
+var TRAIT_FAM = null;
+function getTraitFamilies(){ if(!TRAIT_FAM) TRAIT_FAM=TRAITS.families||TRAITS; return TRAIT_FAM; }
 function traitScore(sp, obs) {
-  var t = TRAITS[sp.f||''];
+  var t = getTraitFamilies()[sp.f||''];
   if (!t) return 0;
   /* Merge genus override si disponible */
   var genus = sp.n ? sp.n.split(' ')[0] : null;
@@ -4330,7 +4332,7 @@ function expCandidates() {
   });
   scored.sort(function(a,b){ return b.score-a.score; });
 
-  var hasTraits = Object.keys(TRAITS).length > 0;
+  var hasTraits = Object.keys(getTraitFamilies()).filter(function(k){return k[0]!=='_';}).length > 0;
   var best = hasTraits
     ? scored.filter(function(x){ return x.score >= 0; }).slice(0,25)
     : [];
