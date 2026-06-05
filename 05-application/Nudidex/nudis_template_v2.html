@@ -4262,10 +4262,19 @@ function getTraitFamilies(){ if(!TRAIT_FAM) TRAIT_FAM=TRAITS.families||TRAITS; r
 function traitScore(sp, obs) {
   var t = getTraitFamilies()[sp.f||''];
   if (!t) return 0;
-  /* Merge genus override si disponible */
+  /* Merge genus override si disponible — deep merge pour les champs objets */
   var genus = sp.n ? sp.n.split(' ')[0] : null;
   if (genus && TRAITS._genera && TRAITS._genera[genus]) {
-    t = Object.assign({}, t, TRAITS._genera[genus]);
+    var ov = TRAITS._genera[genus];
+    t = JSON.parse(JSON.stringify(t));
+    Object.keys(ov).forEach(function(k) {
+      if (k.charAt(0) === '_') return;
+      if (ov[k] && typeof ov[k] === 'object' && !Array.isArray(ov[k]) && t[k] && typeof t[k] === 'object') {
+        Object.keys(ov[k]).forEach(function(sk){ t[k][sk] = ov[k][sk]; });
+      } else {
+        t[k] = ov[k];
+      }
+    });
   }
   var score = 0;
   if (t.pelagique === true && !obs.nage) return -999;

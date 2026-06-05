@@ -282,8 +282,8 @@ function getState(f){
   if(KNOWN[f]){
     var s=state[f], k=KNOWN[f];
     if(!s.extensions||!Object.keys(s.extensions).length) s.extensions=JSON.parse(JSON.stringify(k.extensions||{}));
-    if(!s.cerates_forme||Object.keys(s.cerates_forme).length<6) s.cerates_forme=JSON.parse(JSON.stringify(k.cerates_forme||{}));
-    if(!s.rhinophore||Object.keys(s.rhinophore).length<8) s.rhinophore=JSON.parse(JSON.stringify(k.rhinophore||{}));
+    if(k.cerates_forme&&Object.keys(k.cerates_forme).length===6&&(!s.cerates_forme||Object.keys(s.cerates_forme).length<6)) s.cerates_forme=JSON.parse(JSON.stringify(k.cerates_forme));
+    if(k.rhinophore&&Object.keys(k.rhinophore).length===8&&(!s.rhinophore||Object.keys(s.rhinophore).length<8)) s.rhinophore=JSON.parse(JSON.stringify(k.rhinophore));
   }
   return state[f];
 }

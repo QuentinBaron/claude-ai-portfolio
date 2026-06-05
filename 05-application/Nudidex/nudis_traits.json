@@ -1,6 +1,6 @@
 {
   "_version": "2.0",
-  "_generated": "2026-06-04",
+  "_generated": "2026-06-05",
   "families": {
     "Aeolidiidae": {
       "structure": {
@@ -1378,6 +1378,69 @@
       "_modified": true,
       "_validated": true
     },
+    "Janolidae": {
+      "structure": {
+        "panache": 2,
+        "cerates": 1,
+        "dos_lisse": 2,
+        "dos_cretes": 0,
+        "coquille": 2,
+        "aucune": 0
+      },
+      "tentacules": {
+        "oui": 1,
+        "non": 2,
+        "variable": 0
+      },
+      "pelagique": false,
+      "rhinophore": {
+        "Lamellé perfolié": 1,
+        "Lamellé annulé": 0,
+        "Claviforme lisse": 0,
+        "Lisse / conique": 0,
+        "Ramifié / plumeux": 0,
+        "Enrollé / fendu": 0,
+        "Plissé / papilleux": 0,
+        "Absent": 0
+      },
+      "texture": {
+        "Lisse": 0,
+        "Granuleux": 0,
+        "Papilleux": 0,
+        "Tuberculé": 0,
+        "Rugueux": 0,
+        "Ridé": 0,
+        "Velouté": 0,
+        "Spiculeux": 0
+      },
+      "cerates_dispo": {
+        "tapis": 0,
+        "rangees": 1,
+        "arborescents": 0
+      },
+      "cerates_forme": {
+        "digitiforme": 0,
+        "claviforme": 0,
+        "pyriforme": 0,
+        "globuleux": 0,
+        "aplatis": 1,
+        "arborescents": 0
+      },
+      "branchie_lat": false,
+      "taille": "petit",
+      "notes": "Cérates aplatis en rangées. Janolus. Rhinophores perfoliés distinctifs.",
+      "extensions": {
+        "aucune": 1,
+        "manteau_large": 2,
+        "parapodes_lat": 2,
+        "parapodes_dos": 2,
+        "voiles_nat": 2
+      },
+      "_order": "Janolina",
+      "_n": 1,
+      "_validated": true,
+      "_modified": true
+    },
     "Scyllaeidae": {
       "structure": {
         "panache": 2,
@@ -1430,7 +1493,7 @@
       "taille": "petit",
       "notes": "Vit sur sargasses. Cérates aplatis foliacés.",
       "_order": "Dendronotida",
-      "_n": 1,
+      "_n": 3,
       "extensions": {
         "aucune": 2,
         "manteau_large": 2,
@@ -1659,7 +1722,13 @@
         "tapis": 1,
         "arcs": 0
       },
-      "cerates_forme": {},
+      "cerates_forme": {
+        "digitiforme": 2,
+        "claviforme": 1,
+        "pyriforme": 2,
+        "aplatis": 2,
+        "globuleux": 2
+      },
       "branchie_lat": false,
       "taille": "moyen",
       "notes": "Corps ovale, notum ridé ou rugueux. Aegires. Rhinophores fusionnés à la base.",
@@ -2194,69 +2263,6 @@
       "_n": 1,
       "_modified": true,
       "_validated": true
-    },
-    "Janolidae": {
-      "structure": {
-        "panache": 2,
-        "cerates": 1,
-        "dos_lisse": 2,
-        "dos_cretes": 0,
-        "coquille": 2,
-        "aucune": 0
-      },
-      "tentacules": {
-        "oui": 1,
-        "non": 2,
-        "variable": 0
-      },
-      "pelagique": false,
-      "rhinophore": {
-        "Lamellé perfolié": 1,
-        "Lamellé annulé": 0,
-        "Claviforme lisse": 0,
-        "Lisse / conique": 0,
-        "Ramifié / plumeux": 0,
-        "Enrollé / fendu": 0,
-        "Plissé / papilleux": 0,
-        "Absent": 0
-      },
-      "texture": {
-        "Lisse": 0,
-        "Granuleux": 0,
-        "Papilleux": 0,
-        "Tuberculé": 0,
-        "Rugueux": 0,
-        "Ridé": 0,
-        "Velouté": 0,
-        "Spiculeux": 0
-      },
-      "cerates_dispo": {
-        "tapis": 0,
-        "rangees": 1,
-        "arborescents": 0
-      },
-      "cerates_forme": {
-        "digitiforme": 0,
-        "claviforme": 0,
-        "pyriforme": 0,
-        "globuleux": 0,
-        "aplatis": 1,
-        "arborescents": 0
-      },
-      "branchie_lat": false,
-      "taille": "petit",
-      "notes": "Cérates aplatis en rangées. Janolus. Rhinophores perfoliés distinctifs.",
-      "extensions": {
-        "aucune": 1,
-        "manteau_large": 2,
-        "parapodes_lat": 2,
-        "parapodes_dos": 2,
-        "voiles_nat": 2
-      },
-      "_order": "Janolina",
-      "_n": 1,
-      "_validated": true,
-      "_modified": true
     },
     "Pleurobranchidae": {
       "structure": {
