@@ -751,7 +751,7 @@ td { padding: 9px 12px; vertical-align: middle; }
   © Quentin Baron ·
   Source : <a href="https://tahitinudi.jimdoweb.com" target="_blank">tahitinudi.jimdoweb.com</a> ·
   <a href="https://www.inaturalist.org/observations?place_id=196024&amp;taxon_id=47113&amp;view=species" target="_blank">iNaturalist PF</a> ·
-  <span title="Version de déploiement">v2026.06.04-1449</span>
+  <span title="Version de déploiement">v2026.06.06-0828</span>
 </div>
 
 <!-- ── LIGHTBOX ── -->
@@ -3680,6 +3680,7 @@ function obsFormatSummary() {
 
 function renderObsStep6() {
   var summary = obsFormatSummary();
+  var hasCandidates = obsState.structure || obsState.couleurs.length;
   var h = '<div class="obs-section">'
     + '<div class="obs-label">Résumé de l\'observation</div>'
     + '<div class="obs-summary">' + esc(summary) + '</div>'
@@ -3691,11 +3692,19 @@ function renderObsStep6() {
     h += '</div></div>';
   }
 
+  if (hasCandidates) {
+    var colorNote = obsState.couleurs.length ? ' <span style="color:#2563eb;font-size:10px;">+ ' + obsState.couleurs.length + ' couleur(s)</span>' : '';
+    h += '<div class="obs-section">'
+      + '<div class="obs-label">Espèces candidates' + colorNote + '</div>'
+      + '<div id="obs-simple-candidates"><span style="font-size:11px;color:#94a3b8;">Chargement…</span></div>'
+      + '</div>';
+  }
+
   h += '<div class="obs-nav" style="flex-wrap:wrap;gap:8px;">'
     + '<button class="obs-btn-nav obs-btn-sec" onclick="obsBack()">← Modifier</button>'
     + '<button class="obs-btn-nav obs-btn-sec" onclick="obsCopyText()">📋 Copier</button>'
     + '<button class="obs-btn-nav obs-btn-action" onclick="obsSave()">💾 Sauvegarder</button>'
-    + '<button class="obs-btn-nav obs-btn-primary" onclick="obsLaunchIdentifier()">🔍 Identifier</button>'
+    + '<button class="obs-btn-nav obs-btn-primary" onclick="obsLaunchIdentifier()">🔍 Identifier (résultats complets)</button>'
     + '</div>'
     + '<div id="obs-saved-msg" style="display:none;text-align:center;margin-top:10px;color:#0d9488;font-size:12px;font-weight:700;">✓ Observation sauvegardée</div>'
     + '<div style="margin-top:16px;text-align:center;">'
@@ -3704,6 +3713,36 @@ function renderObsStep6() {
     + '</div>';
 
   document.getElementById('obs-body').innerHTML = h;
+
+  /* Afficher les candidats avec couleurs de façon asynchrone */
+  if (hasCandidates) {
+    loadColorsData(function() {
+      var el = document.getElementById('obs-simple-candidates');
+      if (!el) return;
+      var strucMap = { panache:'panache_branchial', cerates:'filaments', dos_lisse:'dos_lisse', dos_cretes:'dos_lisse', coquille:'coquille_visible' };
+      /* Sauvegarde et patch temporaire de idState pour réutiliser safeScore() */
+      var saved = JSON.parse(JSON.stringify(idState));
+      idState.dos       = obsState.structure ? strucMap[obsState.structure] || null : null;
+      idState.couleurs  = obsState.couleurs.slice();
+      idState.coloration= obsState.aspect || null;
+      idState.cerates_forme = null; idState.cerates_dispo = null;
+      idState.notum = null; idState.coquille_type = null;
+      idState.forme = null; idState.parapodes = null;
+      idState.followup = {}; idState.relaxed = false;
+      var pool = safeScore();
+      idState = saved;
+      if (!pool.length) { el.innerHTML = '<span style="font-size:11px;color:#94a3b8;">Aucun candidat trouvé.</span>'; return; }
+      var spMap = getSpBySlug();
+      var ch = '<div style="display:flex;flex-wrap:wrap;gap:5px;">';
+      pool.slice(0, 12).forEach(function(slug) {
+        var sp = spMap[slug];
+        if (!sp) return;
+        ch += '<button onclick="openLb(\''+slug+'\')" style="font-size:10px;font-style:italic;padding:3px 8px;border-radius:6px;border:1px solid #e2e8f0;background:#f8fafc;cursor:pointer;color:#1e293b;">'+esc(sp.n)+'</button>';
+      });
+      ch += '</div><p style="font-size:10px;color:#94a3b8;margin-top:5px;">Top '+Math.min(pool.length,12)+' / '+pool.length+' — clic pour fiche</p>';
+      el.innerHTML = ch;
+    });
+  }
 }
 
 function obsCopyText() {
@@ -4296,6 +4335,50 @@ function renderExpStep10() { /* Récapitulatif */
 /* ── Species candidates (scoring tri-state v2) ── */
 var TRAIT_FAM = null;
 function getTraitFamilies(){ if(!TRAIT_FAM) TRAIT_FAM=TRAITS.families||TRAITS; return TRAIT_FAM; }
+
+/* Ordre des catégories de taille (pour scoring de proximité) */
+var TAILLE_ORDER = ['tres-petit','petit','moyen','grand'];
+/* Mapping valeurs affichées expert → clés TAILLE_ORDER */
+var EXP_TAILLE_MAP = {'< 10 mm':'tres-petit','10–30 mm':'petit','25–100 mm':'moyen','> 100 mm':'grand'};
+
+/* Mapping Gosliner → couleur basique (pour le scoring expert) */
+var GOSLINER_COLOR_MAP = {
+  'rouge':'rouge','rouge carmin':'rouge','rouge sang':'rouge','rouge écarlate':'rouge',
+  'rouge orangé':'rouge','rouge brique':'rouge','rouge bordeaux':'rouge','rouge vif':'rouge',
+  'orange':'orange','orange vif':'orange','orange pâle':'orange','ocre':'orange',
+  'ambre':'orange','rouille':'orange','terre cuite':'orange','ochre':'orange',
+  'jaune':'jaune','jaune citron':'jaune','jaune pâle':'jaune','jaune vif':'jaune','jaune orangé':'orange',
+  'jaune verdâtre':'vert','jaune-vert':'vert',
+  'blanc':'blanc','blanc crème':'blanc','blanc laiteux':'blanc','crème':'blanc',
+  'ivoire':'blanc','blanc nacré':'blanc','blanc cassé':'blanc','beige clair':'blanc',
+  'translucide':'translucide','blanc translucide':'translucide','semi-translucide':'translucide','transparent':'translucide',
+  'brun':'brun','brun-rouge':'brun','brun foncé':'brun','brun clair':'brun',
+  'marron':'brun','ocre brun':'brun','brun orangé':'brun','kaki':'brun','beige':'brun',
+  'noir':'noir','noir brillant':'noir',
+  'gris':'gris','gris pâle':'gris','gris clair':'gris','gris argenté':'gris','gris anthracite':'noir',
+  'rose':'rose','rose pâle':'rose','rose vif':'rose','rose saumon':'rose','rose lilas':'rose','rose violacé':'rose',
+  'violet':'violet','violet pâle':'violet','mauve':'violet','lilas':'violet','pourpre':'violet','lavande':'violet',
+  'vert':'vert','vert pâle':'vert','vert vif':'vert','vert émeraude':'vert','vert olive':'vert',
+  'vert bouteille':'vert','vert clair':'vert','vert-bleu':'vert',
+  'bleu':'bleu','bleu pâle':'bleu','bleu vif':'bleu','bleu ciel':'bleu','bleu cobalt':'bleu',
+  'bleu nuit':'bleu','bleu-violet':'bleu','bleu-vert':'bleu',
+  'irisé':'irisé','nacré':'irisé',
+};
+function gosToBasic(str) {
+  if (!str) return null;
+  var s = str.toLowerCase().trim();
+  if (GOSLINER_COLOR_MAP[s]) return GOSLINER_COLOR_MAP[s];
+  /* Correspondance partielle : préfère la clé la plus longue trouvée */
+  var bestKey = null, bestLen = 0;
+  Object.keys(GOSLINER_COLOR_MAP).forEach(function(k) {
+    if (s.indexOf(k) >= 0 && k.length > bestLen) { bestKey = k; bestLen = k.length; }
+  });
+  if (bestKey) return GOSLINER_COLOR_MAP[bestKey];
+  /* Fallback direct sur noms basiques */
+  var basics = ['rouge','orange','jaune','vert','bleu','violet','rose','blanc','gris','noir','brun','translucide','irisé'];
+  for (var j = 0; j < basics.length; j++) { if (s.indexOf(basics[j]) >= 0) return basics[j]; }
+  return null;
+}
 function traitScore(sp, obs) {
   var t = getTraitFamilies()[sp.f||''];
   if (!t) return 0;
@@ -4358,6 +4441,18 @@ function traitScore(sp, obs) {
     var ev = t.extensions[obs.extensions];
     if (ev === 1) score += 30; else if (ev === 2) return -999;
   }
+  /* Taille — soft : match exact +10, catégorie adjacente 0, écart ≥2 → -10 */
+  if (obs.taille && t.taille) {
+    var obsT = TAILLE_ORDER.indexOf(obs.taille);
+    if (obsT >= 0) {
+      var tParts = t.taille.split('-');
+      var bestDiff = Infinity;
+      tParts.forEach(function(p) { var i=TAILLE_ORDER.indexOf(p); if(i>=0){var d=Math.abs(obsT-i); if(d<bestDiff) bestDiff=d;} });
+      if (bestDiff === 0) score += 10;
+      else if (bestDiff >= 2) score -= 10;
+      /* bestDiff === 1 → 0 (neutre) */
+    }
+  }
   return score;
 }
 
@@ -4369,12 +4464,39 @@ function expCandidates() {
   var tentObs = s.tentacules.present;
   var rhinoObs= s.rhino ? s.rhino.forme : null;
   var texObs  = (s.notum && s.notum.texture) ? s.notum.texture : [];
-  var obsSnap = { structure:s.structure, tentacules:tentObs, nage:nage, rhinophore:rhinoObs, texture:texObs, extensions:s.extensions };
+  var obsSnap = {
+    structure:s.structure, tentacules:tentObs, nage:nage,
+    rhinophore:rhinoObs, texture:texObs, extensions:s.extensions,
+    taille: EXP_TAILLE_MAP[s.taille_range] || null
+  };
+
+  /* Extraire les couleurs des zones de description (Gosliner → basique) */
+  var expColors = [];
+  function addZoneColors(zones) {
+    if (!zones) return;
+    zones.forEach(function(z) { var c=gosToBasic(z.couleur); if(c && expColors.indexOf(c)<0) expColors.push(c); });
+  }
+  addZoneColors(s.notum.zones); addZoneColors(s.marge.zones); addZoneColors(s.rhino.zones);
+  addZoneColors(s.branchie.zones); addZoneColors(s.cerates.zones);
+  addZoneColors(s.tentacules.zones); addZoneColors(s.pied.zones);
 
   var scored = [];
   SPECIES.filter(function(sp){ return sp.p; }).forEach(function(sp){
     var sc = traitScore(sp, obsSnap);
-    if (sc > -999) scored.push({sp:sp, score:sc});
+    if (sc <= -999) return;
+    /* Bonus couleurs via nudis_colors.json */
+    if (expColors.length > 0 && COLORS_DATA) {
+      var cd = COLORS_DATA[sp.s];
+      var spC    = (cd && cd.couleurs)     ? cd.couleurs     : [];
+      var spCAdj = (cd && cd.couleurs_adj) ? cd.couleurs_adj : [];
+      var hasCD  = spC.length > 0 || spCAdj.length > 0;
+      expColors.forEach(function(c) {
+        if (spC.indexOf(c) >= 0)      sc += 12;
+        else if (spCAdj.indexOf(c) >= 0) sc += 6;
+        else if (hasCD)                  sc -= 8;
+      });
+    }
+    scored.push({sp:sp, score:sc});
   });
   scored.sort(function(a,b){ return b.score-a.score; });
 
@@ -4396,12 +4518,22 @@ function expCandidates() {
 
   if (!best.length) return '<p style="font-size:11px;color:#94a3b8;">Aucun candidat compatible.</p>';
 
+  var colorNote = expColors.length ? ' + <span style="color:#2563eb;">'+expColors.length+' couleur(s)</span>' : '';
   var h = '<p style="font-size:11px;color:#64748b;margin-bottom:8px;">'
     +best.length+' espèces compatibles'
-    +(hasTraits?' <span style="color:#0d9488;font-size:10px;">(triées par score morphologique)</span>':'')
+    +(hasTraits?' <span style="color:#0d9488;font-size:10px;">(score morpho'+colorNote+')</span>':'')
     +' — clic pour fiche :</p><div style="display:flex;flex-wrap:wrap;gap:5px;">';
   best.forEach(function(x){
-    h += '<button onclick="openLb(\''+x.sp.s+'\')" title="score: '+x.score+'" style="font-size:10px;font-style:italic;padding:3px 8px;border-radius:6px;border:1px solid #e2e8f0;background:#f8fafc;cursor:pointer;color:#1e293b;">'+esc(x.sp.n)+'</button>';
+    /* Badge couleur selon score : vert fort / jaune moyen / gris faible */
+    var sc = x.score;
+    var dotCol   = sc >= 50 ? '#16a34a' : sc >= 15 ? '#d97706' : '#94a3b8';
+    var btnBg    = sc >= 50 ? '#f0fdf4' : sc >= 15 ? '#fffbeb' : '#f8fafc';
+    var btnBdr   = sc >= 50 ? '#bbf7d0' : sc >= 15 ? '#fde68a' : '#e2e8f0';
+    h += '<button onclick="openLb(\''+x.sp.s+'\')" style="font-size:10px;font-style:italic;padding:3px 8px 3px 6px;border-radius:6px;border:1px solid '+btnBdr+';background:'+btnBg+';cursor:pointer;color:#1e293b;display:inline-flex;align-items:center;gap:4px;">'
+       + '<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:'+dotCol+';flex-shrink:0;"></span>'
+       + esc(x.sp.n)
+       + '<span style="font-size:9px;color:'+dotCol+';font-style:normal;font-weight:700;margin-left:2px;">'+sc+'</span>'
+       + '</button>';
   });
   return h+'</div>';
 }
@@ -4663,6 +4795,7 @@ function renderExpStep() {
 function initExpertMode() {
   obsExpertState = obsExpertNewState();
   obsExpertStep = 0;
+  loadColorsData(function(){}); /* précharge les données couleurs pour le scoring candidats */
   renderExpStep();
 }
 
